@@ -1,0 +1,21 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "app/assets/fonts/ArgentumSans-Bold.ttf",
+      "sha1": "fd9bbda2795ebdcb306e1c08c94e6ce24e861b6e"
+    },
+    {
+      "path": "app/assets/fonts/ArgentumSans-Light.ttf",
+      "sha1": "4f4f4e3982683bd49c421fa49d1f35e3baa99381"
+    },
+    {
+      "path": "app/assets/fonts/ArgentumSans-Medium.ttf",
+      "sha1": "e623c4855ad192bfc1317c87770628ac764bc8f2"
+    },
+    {
+      "path": "app/assets/fonts/ArgentumSans-Regular.ttf",
+      "sha1": "b5a551c597f33efcc296336bf7ef01e4def16079"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+export default {
+  transparent: 'rgba(0,0,0,0)',
+  white: '#ffffff',
+  black: '#000000',
+  text: '#212529',
+  primary: '#073D7D',
+  secondary: '#F7AE05',
+  activeBorderColor: '#FF7139',
+  success: '#28a745',
+  error: '#dc3545',
+  background: '#ffffff',
+  shadowColor: '#000',
+  btnTextColor: 'white',
+  inputBorderColor: '#EDF1F7',
+  activeTabColor: '#073D7D',
+  inActiveTabColor: '#D3DAE7',
+  bottomTabBackgroundColor: 'white',
+};

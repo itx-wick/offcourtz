@@ -1,0 +1,59 @@
+{
+  "Intro": {
+    "title1": "Registration",
+    "description1": "Design Registration Screen Here",
+    "title2": "Sign in to continue",
+    "description2": "Design Login Screen Here"
+  },
+  "register":{
+    "emailInput":{
+      "placeholder":"Email",
+      "label":" Your Email"
+    },
+    "passwordInput":{
+      "placeholder":"Password",
+      "label":" Your Password"
+    },
+    "alreadyHaveAccount":{
+      "text":"Already have a account?",
+      "loginText":"Sign In"
+    },
+    "registerBtn":{
+      "title":"Register"
+    } 
+  },
+  "login":{
+    "emailInput":{
+      "placeholder":"Email",
+      "label":" Your Email"
+    },
+    "passwordInput":{
+      "placeholder":"Password",
+      "label":" Your Password"
+    },
+    "resetYourPass":{
+      "text":"Forgot Your Password?",
+      "resetPassText":"Reset"
+    },
+    "registerBtn":{
+     "text":"Don't have an account?",
+     "registerBtnText": "Register"
+    }
+  },
+
+  "Home": {
+    "title": "Home"
+  },
+
+  "BottomTab": {
+    "challenges": "Challenges",
+    "workouts": "Workouts",
+    "excercises": "Excercises",
+    "community":"Community"
+  },
+
+  "Component": {
+    "continueWithFacebook": "Continue With Facebook",
+    "continueWithGoogle": "Continue With Google"
+  }
+}
