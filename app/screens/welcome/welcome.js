@@ -26,25 +26,21 @@ const Welcome = ({ navigation }) => {
       source={require('../../assets/images/splash_bg.png')}
       style={{ width: screenWidth, height: screenHeight }}>
       <SafeAreaView>
-        <View
-          style={{
-            width: screenWidth,
-            height: screenHeight,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <Image
-            source={require('../../assets/images/logo.png')}
-            style={styles.logoImage}
-          />
-          <View
-            style={styles.getStartedMainView}>
+        <View style={styles.mainContainer}>
+          <View style={styles.container}>
+            <Image
+              source={require('../../assets/images/logo.png')}
+              style={styles.img}
+              resizeMode={"contain"}
+            />
+          </View>
+          <View style={styles.btnContainer}>
             <View
-              style={styles.getStartedBtnView}>
+              style={styles.btn}>
               <Button title={'GET STARTED'} onPress={() => navigation.navigate(screens.getStarted)} />
             </View>
             <View
-              style={styles.loginBtnView}>
+              style={styles.btn}>
               <Button
                 title={'LOGIN'}
                 backgroundColor={colors.secondaryBlack}
@@ -64,6 +60,7 @@ const Welcome = ({ navigation }) => {
               </TouchableOpacity>
             </View>
           </View>
+
         </View>
       </SafeAreaView>
     </ImageBackground>
@@ -73,28 +70,39 @@ const Welcome = ({ navigation }) => {
 export default Welcome;
 
 const styles = StyleSheet.create({
-  logoImage: {
-
+  mainContainer: {
+    width: '100%',
+    height: '100%',
+    position: 'relative'
+  },
+  container: {
+    display: 'flex',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative'
+  },
+  img: {
     position: 'absolute',
     alignSelf: 'center',
-    top: 0.34 * screenHeight,
+    top: 175,
+    height: undefined,
+    aspectRatio: 1,
+    padding: 10
   },
-  getStartedMainView: {
+  btnContainer: {
     position: 'absolute',
-    bottom: 0.08 * screenHeight,
-    alignContent: 'center',
-  },
-  getStartedBtnView: {
-    marginTop: 0.02 * screenHeight,
+    width: '100%',
     alignItems: 'center',
+    bottom: 0,
+    marginVertical: 5
   },
-  loginBtnView: {
-    marginTop: 0.015 * screenHeight,
-    alignItems: 'center',
+  btn: {
+    margin: 2,
   },
   text: {
     textAlign: 'center',
-    paddingTop: 25,
+    marginTop: 5,
     color: colors.greyText,
     fontFamily: fontFamily.argentum_sans,
     fontWeight: fontWeight[400],
@@ -102,8 +110,7 @@ const styles = StyleSheet.create({
   },
   policyText: {
     textAlign: 'center',
-    paddingTop: 20,
-    paddingBottom: 20,
+    marginVertical: 10,
     color: colors.white,
     fontFamily: fontFamily.argentum_sans,
     fontWeight: fontWeight[400],

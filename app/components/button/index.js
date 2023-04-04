@@ -1,14 +1,14 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import {
   fontFamily,
   fontSize,
   fontWeight,
   textColors,
 } from '../../constants/fontDecorations';
-import {theme} from '../../theme';
-import {screenWidth} from '../../constants';
-const {colors} = theme;
+import { theme } from '../../theme';
+import { screenWidth } from '../../constants';
+const { colors } = theme;
 
 const Button = ({
   title,
@@ -31,11 +31,11 @@ const Button = ({
         {
           backgroundColor: backgroundColor ? backgroundColor : colors.primary,
         },
-        borderColor && {borderColor: borderColor},
-        borderWidth && {borderWidth: borderWidth},
-        borderRadius && {borderRadius: borderRadius},
-        btnWidth && {width: btnWidth},
-        btnHeight && {height: btnHeight},
+        borderColor && { borderColor: borderColor },
+        borderWidth && { borderWidth: borderWidth },
+        borderRadius && { borderRadius: borderRadius },
+        btnWidth && { width: btnWidth },
+        btnHeight && { height: btnHeight },
       ]}>
       <Text
         style={[
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: screenWidth * 0.87,
     borderRadius: 60,
-    height: 55,
+    height: 0.12 * screenWidth,
   },
   text: {
     textAlign: 'center',
