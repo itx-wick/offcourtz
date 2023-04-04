@@ -18,7 +18,7 @@ export const fontSize = {
 
   verbiage_16: 0.016 * screenHeight,
   verbiage_large: 0.017 * screenHeight,
-  verbiage_medium: 0.014 * screenHeight,
+  verbiage_medium: 0.016 * screenHeight,
   verbiage: 0.015 * screenHeight,
   verbiage_small: 0.012 * screenHeight,
   verbiage_13: 0.013 * screenHeight,
@@ -29,7 +29,7 @@ export const fontSize = {
   verbiage_20: 0.02 * screenHeight,
 
   verbiage_empty_screen: 0.018 * screenHeight,
-  screen_title: 0.024 * screenHeight,
+  screen_title: 0.036 * screenHeight,
 };
 export const textColors = {
   titleColor: '#003B7D',

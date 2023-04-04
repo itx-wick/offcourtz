@@ -20,6 +20,8 @@
     "react": "17.0.2",
     "react-i18next": "^12.2.0",
     "react-native": "0.67.1",
+    "react-native-collapsible": "^1.6.1",
+    "react-native-flags": "^1.0.0",
     "react-native-gesture-handler": "^2.9.0",
     "react-native-paper": "^5.5.2",
     "react-native-reanimated": "^3.0.2",
@@ -29,11 +31,13 @@
     "react-native-splash-screen": "^3.3.0",
     "react-native-step-indicator": "^1.0.3",
     "react-native-svg": "^13.9.0",
+    "react-native-time-date-picker": "^1.2.0",
     "react-native-vector-icons": "^9.2.0",
     "react-redux": "^8.0.5",
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
-    "redux-thunk": "^2.4.2"
+    "redux-thunk": "^2.4.2",
+    "rn-country-dropdown-picker": "^2.1.8"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

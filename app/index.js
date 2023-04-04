@@ -1,5 +1,6 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
+import {LogBox} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import {Provider as PaperProvider} from 'react-native-paper';
 
@@ -9,6 +10,7 @@ import {theme} from './theme';
 const App = () => {
   React.useEffect(() => {
     SplashScreen.hide();
+    LogBox.ignoreAllLogs();
   }, []);
 
   return (
