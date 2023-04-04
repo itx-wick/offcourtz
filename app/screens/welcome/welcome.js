@@ -8,22 +8,23 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import {screenHeight, screenWidth} from '../../constants';
-import Button from '../../components/button/button';
+import { screenHeight, screenWidth } from '../../constants';
+import Button from '../../components/button';
 
-import {theme} from '../../theme';
+import { theme } from '../../theme';
 import {
   fontFamily,
   fontSize,
   fontWeight,
 } from '../../constants/fontDecorations';
-const {colors} = theme;
+import { screens } from '../../config';
+const { colors } = theme;
 
-function Welcome() {
+const Welcome = ({ navigation }) => {
   return (
     <ImageBackground
       source={require('../../assets/images/splash_bg.png')}
-      style={{width: screenWidth, height: screenHeight}}>
+      style={{ width: screenWidth, height: screenHeight }}>
       <SafeAreaView>
         <View
           style={{
@@ -34,45 +35,31 @@ function Welcome() {
           }}>
           <Image
             source={require('../../assets/images/logo.png')}
-            style={{
-              position: 'absolute',
-              alignSelf: 'center',
-              top: 0.34 * screenHeight,
-            }}
+            style={styles.logoImage}
           />
           <View
-            style={{
-              position: 'absolute',
-              bottom: 0.08 * screenHeight,
-              alignContent: 'center',
-            }}>
+            style={styles.getStartedMainView}>
             <View
-              style={{
-                marginTop: 0.02 * screenHeight,
-                alignItems: 'center',
-              }}>
-              <Button title={'GET STARTED'} onPress={() => {}} />
+              style={styles.getStartedBtnView}>
+              <Button title={'GET STARTED'} onPress={() => navigation.navigate(screens.getStarted)} />
             </View>
             <View
-              style={{
-                marginTop: 0.015 * screenHeight,
-                alignItems: 'center',
-              }}>
+              style={styles.loginBtnView}>
               <Button
                 title={'LOGIN'}
                 backgroundColor={colors.secondaryBlack}
-                onPress={() => {}}
+                onPress={() => { }}
               />
             </View>
             <Text style={[styles.text]}>
               By clicking "Get Started" you agree to our
             </Text>
-            <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-              <TouchableOpacity onPress={() => {}}>
+            <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+              <TouchableOpacity onPress={() => { }}>
                 <Text style={styles.policyText}>Privacy Policy</Text>
               </TouchableOpacity>
               <Text style={styles.policyText}>{' |  '}</Text>
-              <TouchableOpacity onPress={() => {}}>
+              <TouchableOpacity onPress={() => { }}>
                 <Text style={styles.policyText}> Terms of Use</Text>
               </TouchableOpacity>
             </View>
@@ -86,6 +73,25 @@ function Welcome() {
 export default Welcome;
 
 const styles = StyleSheet.create({
+  logoImage: {
+
+    position: 'absolute',
+    alignSelf: 'center',
+    top: 0.34 * screenHeight,
+  },
+  getStartedMainView: {
+    position: 'absolute',
+    bottom: 0.08 * screenHeight,
+    alignContent: 'center',
+  },
+  getStartedBtnView: {
+    marginTop: 0.02 * screenHeight,
+    alignItems: 'center',
+  },
+  loginBtnView: {
+    marginTop: 0.015 * screenHeight,
+    alignItems: 'center',
+  },
   text: {
     textAlign: 'center',
     paddingTop: 25,

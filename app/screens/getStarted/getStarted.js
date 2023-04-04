@@ -1,18 +1,17 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import {
   Animated,
   FlatList,
   ImageBackground,
   StyleSheet,
   View,
-  SafeAreaView,
 } from 'react-native';
-import {screenHeight, screenWidth} from '../../constants';
-import Paginator from '../../components/paginator/paginator';
-import Button from '../../components/button/button';
+import { screenHeight, screenWidth } from '../../constants';
+import Paginator from '../../components/paginator';
+import Button from '../../components/button';
 import lightTheme from '../../theme/light-theme';
-import {svgImages} from '../../helpers';
-import {SvgXml} from 'react-native-svg';
+import { svgImages } from '../../helpers';
+import { SvgXml } from 'react-native-svg';
 
 const GetStarted = props => {
   const scrollX = useRef(new Animated.Value(0)).current;
@@ -33,25 +32,12 @@ const GetStarted = props => {
     },
   ];
 
-  const Item = ({image}) => (
+  const Item = ({ image }) => (
     <ImageBackground style={styles.item} source={image}>
-      {/* <SafeAreaView>
-        <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 0.01 * screenHeight,
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: screenWidth,
-          }}>
-          <SvgXml height="55" xml={svgImages.facebookSvg} />
-          <SvgXml height="55" xml={svgImages.googleSvg} />
-        </View>
-      </SafeAreaView> */}
     </ImageBackground>
   );
 
-  const renderItem = ({item}) => (
+  const renderItem = ({ item }) => (
     <Item title={item.title} image={item.image} scrollX={scrollX} />
   );
 
@@ -66,7 +52,7 @@ const GetStarted = props => {
         renderItem={renderItem}
         keyExtractor={item => item.id}
         onScroll={Animated.event(
-          [{nativeEvent: {contentOffset: {x: scrollX}}}],
+          [{ nativeEvent: { contentOffset: { x: scrollX } } }],
           {
             useNativeDriver: false,
           },
@@ -88,7 +74,7 @@ const GetStarted = props => {
 
         <Button
           title={'Login'}
-          onPress={() => {}}
+          onPress={() => { }}
           btnWidth={screenWidth * 0.25}
           btnHeight={40}
           titleColor={lightTheme.colors.black}
@@ -98,10 +84,10 @@ const GetStarted = props => {
       <View style={styles.slidesFooter}>
         <Paginator data={DATA} scrollX={scrollX} />
 
-        <View style={{marginTop: 0.03 * screenHeight}}>
+        <View style={{ marginTop: 0.03 * screenHeight }}>
           <Button
             title={'SIGN UP WITH EMAIL'}
-            onPress={() => {}}
+            onPress={() => { }}
             backgroundColor={lightTheme.colors.secondaryBlack}
           />
         </View>
