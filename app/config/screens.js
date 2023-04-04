@@ -1,7 +1,9 @@
 const screens = {
+  welcome: 'Welcome',
+  getStarted: 'GetStarted',
+  authStack: 'AuthStack',
   auth: 'Auth',
   login: 'Login',
-  authStack: 'AuthStack',
 };
 
 export {screens};

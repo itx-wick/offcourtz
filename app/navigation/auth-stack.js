@@ -1,13 +1,17 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import {screens} from '../config';
-import Login from '../screens/auth/login/Login';
+import {GetStarted, Login, Welcome} from '../screens';
 
 const AuthStack = createStackNavigator();
 
 function AuthNavigator() {
   return (
-    <AuthStack.Navigator headerMode="none">
+    <AuthStack.Navigator
+      headerMode="none"
+      initialRouteName={screens.getStarted}>
+      <AuthStack.Screen name={screens.getStarted} component={GetStarted} />
+      <AuthStack.Screen name={screens.welcome} component={Welcome} />
       <AuthStack.Screen name={screens.login} component={Login} />
     </AuthStack.Navigator>
   );

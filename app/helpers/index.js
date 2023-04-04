@@ -1,1 +1,1 @@
-export * from './bottom-tab-icons';
+export * from './svgImages';
