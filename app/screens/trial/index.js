@@ -98,7 +98,6 @@ const Trial = ({navigation}) => {
         onDismissHandler={onDismissHandler}
         paymentMethodRef={bottomSheetModalRef}
         snapPoints={snapPoints}
-        // cheildStateHandler={() => cheildStateHandler}
       />
     </ImageBackground>
   );

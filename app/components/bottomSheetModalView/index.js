@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {BottomSheetModal, BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 
-import {screenHeight, screenWidth} from '../../constants';
+import {screenWidth} from '../../constants';
 import {svgImages} from '../../helpers';
 import {
   fontFamily,
@@ -13,11 +13,9 @@ import Button from '../button';
 import {theme} from '../../theme';
 const BottomSheetModalView = ({
   paymentMethodRef,
-  accountCreatedRef,
   onDismissHandler,
   backdropComponent,
   snapPoints,
-  navigation,
 }) => {
   return (
     <BottomSheetModalProvider>
@@ -70,8 +68,6 @@ const BottomSheetModalView = ({
           </View>
         </BottomSheetModal>
       </View>
-
-      {/* this bottom sheet refer to account created */}
     </BottomSheetModalProvider>
   );
 };
