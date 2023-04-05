@@ -6,6 +6,7 @@ const screens = {
   login: 'Login',
   signUp: 'Signup',
   forgotPassword: 'ForgotPassword',
+  trial: 'Trial',
 };
 
 export {screens};

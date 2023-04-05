@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {SvgXml} from 'react-native-svg';
 import {
   fontFamily,
@@ -18,12 +18,15 @@ const Button = ({
   disabled,
   btnWidth,
   btnHeight,
+  btnStyle,
   titleColor,
   titleStyle,
   borderColor,
   borderWidth,
   borderRadius,
   icon,
+  iconBG,
+  iconBGStyle,
   iconHeight,
   iconWidth,
   backgroundColor,
@@ -42,8 +45,16 @@ const Button = ({
         borderRadius && {borderRadius: borderRadius},
         btnWidth && {width: btnWidth},
         btnHeight && {height: btnHeight},
+        btnStyle,
       ]}>
-      {icon && <SvgXml width={iconWidth} height={iconHeight} xml={icon} />}
+      {icon &&
+        (iconBG ? (
+          <View style={iconBGStyle}>
+            <SvgXml width={iconWidth} height={iconHeight} xml={icon} />
+          </View>
+        ) : (
+          <SvgXml width={iconWidth} height={iconHeight} xml={icon} />
+        ))}
       <Text
         style={[
           styles.text,

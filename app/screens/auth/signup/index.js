@@ -198,7 +198,7 @@ const Signup = ({navigation}) => {
           <View style={{marginTop: 15, marginBottom: 50}}>
             <Button
               title={'CREATE ACCOUNT'}
-              onPress={() => {}}
+              onPress={() => navigation.navigate(screens.trial)}
               btnWidth={screenWidth * 0.92}
               btnHeight={0.14 * screenWidth}
               titleColor={colors.white}

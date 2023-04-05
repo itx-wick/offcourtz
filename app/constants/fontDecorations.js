@@ -29,7 +29,10 @@ export const fontSize = {
   verbiage_20: 0.02 * screenHeight,
 
   verbiage_empty_screen: 0.018 * screenHeight,
+  bottom_sheet_title: 0.026 * screenHeight,
   screen_title: 0.036 * screenHeight,
+  screen_title_medium: 0.049 * screenHeight,
+  screen_title_large: 0.058 * screenHeight,
 };
 export const textColors = {
   titleColor: '#003B7D',

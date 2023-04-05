@@ -10,6 +10,7 @@ export default {
   secondary: '#F7AE05',
   whisper: '#EAEAEA',
   activeBorderColor: '#FF7139',
+  carrotOrange: '#F06F21',
   success: '#28a745',
   error: '#dc3545',
   background: '#ffffff',
