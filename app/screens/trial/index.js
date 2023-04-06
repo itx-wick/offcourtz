@@ -1,4 +1,4 @@
-import React, {useState, useMemo, useRef} from 'react';
+import React, {useState, useMemo, useRef, useEffect} from 'react';
 import {
   TouchableOpacity,
   ImageBackground,
@@ -20,11 +20,16 @@ import {
   fontWeight,
 } from '../../constants/fontDecorations';
 import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
+import CustomModal from '../../components/customModal';
+import Modal from 'react-native-modal';
+import {SvgXml} from 'react-native-svg';
+import {svgImages} from '../../helpers';
 
 const Trial = ({navigation}) => {
   const snapPoints = useMemo(() => ['37%', '37%'], []);
   const bottomSheetModalRef = useRef(null);
   const [IsEnable, setIsEnable] = useState(true);
+  const [modalVisible, setModalVisible] = useState(true);
 
   const onDismissHandler = () => {
     !IsEnable && setIsEnable(true);
@@ -36,70 +41,148 @@ const Trial = ({navigation}) => {
     bottomSheetModalRef.current?.dismiss();
   }
 
+  useEffect(() => {
+    setModalVisible(modalVisible && true);
+  }, [modalVisible]);
+
   return (
-    <ImageBackground style={styles.bgCont} source={bgTrial}>
-      <SafeAreaView style={styles.mainContainer}>
-        <View style={styles.headerMainContainer}>
-          <View style={styles.headContainer}>
-            <Button
-              title={'RESTORE'}
-              onPress={() => navigation.navigate(screens.login)}
-              btnWidth={screenWidth * 0.25}
-              btnHeight={40}
-              titleColor={theme.colors.black}
-              backgroundColor={theme.colors.white}
-            />
+    <>
+      <ImageBackground style={styles.bgCont} source={bgTrial}>
+        <SafeAreaView style={styles.mainContainer}>
+          <View style={styles.headerMainContainer}>
+            <View style={styles.headContainer}>
+              <Button
+                title={'RESTORE'}
+                onPress={() => navigation.navigate(screens.login)}
+                btnWidth={screenWidth * 0.25}
+                btnHeight={40}
+                titleColor={theme.colors.black}
+                backgroundColor={theme.colors.white}
+              />
+            </View>
+            <View style={styles.underlineView} />
           </View>
-          <View style={styles.underlineView} />
-        </View>
-        <View style={styles.sectionContainer}>
-          <Text style={styles.sectionTitle1}>{`TRY\nOFFCOUTRZ\nFOR FREE`}</Text>
-          <Text style={styles.sectionText}>
-            {`Get access to all excercises, workouts, \n challenges and more`}
-          </Text>
-        </View>
-        <View style={styles.btnsContainer}>
-          <TouchableOpacity
-            style={styles.btnMainView}
-            onPress={() => {
-              setIsEnable(false);
-              bottomSheetModalRef.current?.present();
-            }}>
-            <Text style={styles.btnMainText}>TRY IT FOR 3 DAY FREE</Text>
-            <View style={{flexDirection: 'row'}}>
-              <Text style={styles.btnPriceText}>€4.99</Text>
-              <Text style={styles.btnPriceText2}>/MONTHLY</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[
-              styles.btnMainView,
-              {backgroundColor: theme.colors.white, marginTop: 10},
-            ]}
-            onPress={() => {
-              setIsEnable(false);
-              bottomSheetModalRef.current?.present();
-            }}>
-            <Text style={[styles.btnMainText, {color: theme.colors.black}]}>
-              YEARLY SUBSCRIPTION
+          <View style={styles.sectionContainer}>
+            <Text
+              style={styles.sectionTitle1}>{`TRY\nOFFCOUTRZ\nFOR FREE`}</Text>
+            <Text style={styles.sectionText}>
+              {`Get access to all excercises, workouts, \n challenges and more`}
             </Text>
-            <View style={styles.priceTextMainView}>
-              <Text style={styles.btnPriceText}>€49.99</Text>
-              <Text style={[styles.btnPriceText2, {color: theme.colors.black}]}>
-                /YEARLY
+          </View>
+          <View style={styles.btnsContainer}>
+            <TouchableOpacity
+              style={styles.btnMainView}
+              onPress={() => {
+                setIsEnable(false);
+                bottomSheetModalRef.current?.present();
+              }}>
+              <Text style={styles.btnMainText}>TRY IT FOR 3 DAY FREE</Text>
+              <View style={{flexDirection: 'row'}}>
+                <Text style={styles.btnPriceText}>€4.99</Text>
+                <Text style={styles.btnPriceText2}>/MONTHLY</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                styles.btnMainView,
+                {backgroundColor: theme.colors.white, marginTop: 10},
+              ]}
+              onPress={() => {
+                setIsEnable(false);
+                bottomSheetModalRef.current?.present();
+              }}>
+              <Text style={[styles.btnMainText, {color: theme.colors.black}]}>
+                YEARLY SUBSCRIPTION
               </Text>
+              <View style={styles.priceTextMainView}>
+                <Text style={styles.btnPriceText}>€49.99</Text>
+                <Text
+                  style={[styles.btnPriceText2, {color: theme.colors.black}]}>
+                  /YEARLY
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        </SafeAreaView>
+        <BottomSheetModalView
+          backdropComponent={backdropComponent}
+          dismissSheetModal={() => dismissSheetModal}
+          onDismissHandler={onDismissHandler}
+          paymentMethodRef={bottomSheetModalRef}
+          snapPoints={snapPoints}
+          paymentClick={() => {
+            setModalVisible(true);
+            dismissSheetModal();
+          }}
+        />
+
+        <Modal
+          animationType={'fade'}
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            setModalVisible(!modalVisible);
+          }}>
+          <View
+            style={{
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <View
+              style={{
+                backgroundColor: theme.colors.white,
+                borderRadius: 20,
+                shadowOpacity: 0.25,
+                shadowRadius: 4,
+                elevation: 5,
+                width: screenWidth * 0.85,
+                paddingVertical: 20,
+                alignItems: 'center',
+              }}>
+              <SvgXml xml={svgImages.checkCircle} />
+              <Text
+                style={{
+                  fontFamily: fontFamily.argentum_sans,
+                  fontSize: fontSize.verbiage_22,
+                  fontWeight: 'bold',
+                  color: theme.colors.secondaryBlack,
+                  marginTop: 10,
+                }}>
+                Account Created
+              </Text>
+              <Text
+                style={{
+                  fontFamily: fontFamily.argentum_sans,
+                  fontSize: fontSize.verbiage,
+                  fontWeight: fontWeight[500],
+                  textAlign: 'left',
+                  color: theme.colors.greyText,
+                  marginVertical: 10,
+                }}>
+                Your account has been created successfully!
+              </Text>
+              <View style={{marginVertical: 5}}>
+                <Button
+                  title={'GO TO HOME'}
+                  onPress={() => setModalVisible(!modalVisible)}
+                  btnWidth={screenWidth * 0.75}
+                  btnHeight={0.14 * screenWidth}
+                  titleColor={theme.colors.white}
+                  titleStyle={{
+                    fontFamily: fontFamily.argentum_sans,
+                    fontSize: fontSize.verbiage_16,
+                    fontWeight: fontWeight[500],
+                    color: theme.colors.white,
+                  }}
+                  backgroundColor={theme.colors.primary}
+                />
+              </View>
             </View>
-          </TouchableOpacity>
-        </View>
-      </SafeAreaView>
-      <BottomSheetModalView
-        backdropComponent={backdropComponent}
-        dismissSheetModal={() => dismissSheetModal}
-        onDismissHandler={onDismissHandler}
-        paymentMethodRef={bottomSheetModalRef}
-        snapPoints={snapPoints}
-      />
-    </ImageBackground>
+          </View>
+        </Modal>
+      </ImageBackground>
+    </>
   );
 };
 

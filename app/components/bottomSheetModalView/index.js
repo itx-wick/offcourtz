@@ -11,22 +11,17 @@ import {
 } from '../../constants/fontDecorations';
 import Button from '../button';
 import {theme} from '../../theme';
-const BottomSheetModalView = ({
-  paymentMethodRef,
-  onDismissHandler,
-  backdropComponent,
-  snapPoints,
-}) => {
+const BottomSheetModalView = props => {
   return (
     <BottomSheetModalProvider>
       {/* this bottom sheet refer to payment methods */}
       <View style={styles.containerStyle}>
         <BottomSheetModal
-          onDismiss={() => onDismissHandler()}
-          ref={paymentMethodRef}
+          onDismiss={() => props.onDismissHandler()}
+          ref={props.paymentMethodRef}
           index={1}
-          snapPoints={snapPoints}
-          backdropComponent={backdropComponent}>
+          snapPoints={props.snapPoints}
+          backdropComponent={props.backdropComponent}>
           <View style={styles.bottomSheetModalViewCont}>
             <Text style={styles.paymentMethodTitle}>Payment Method</Text>
             <Text style={styles.paymentMethodDesc}>
@@ -39,7 +34,7 @@ const BottomSheetModalView = ({
                 iconWidth={17}
                 icon={svgImages.googlePlay}
                 iconBG={true}
-                onPress={() => {}}
+                onPress={props.paymentClick}
                 btnWidth={screenWidth * 0.9}
                 backgroundColor={theme.colors.primary}
                 iconBGStyle={[
@@ -51,7 +46,7 @@ const BottomSheetModalView = ({
               />
               <Button
                 title={'PAY WITH APPLE STORE'}
-                onPress={() => {}}
+                onPress={props.paymentClick}
                 btnWidth={screenWidth * 0.9}
                 iconHeight={17}
                 iconWidth={17}

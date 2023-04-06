@@ -16,6 +16,7 @@ export const fontWeight = {
 export const fontSize = {
   title: 0.03 * screenHeight,
 
+  verbiage_14: 0.014 * screenHeight,
   verbiage_16: 0.016 * screenHeight,
   verbiage_large: 0.017 * screenHeight,
   verbiage_medium: 0.016 * screenHeight,
@@ -27,6 +28,7 @@ export const fontSize = {
   verbiage_11: 0.011 * screenHeight,
 
   verbiage_20: 0.02 * screenHeight,
+  verbiage_22: 0.022 * screenHeight,
 
   verbiage_empty_screen: 0.018 * screenHeight,
   bottom_sheet_title: 0.026 * screenHeight,

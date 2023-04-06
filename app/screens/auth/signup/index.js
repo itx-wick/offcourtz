@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   ImageBackground,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
@@ -9,7 +8,6 @@ import {
   View,
 } from 'react-native';
 import {SvgXml} from 'react-native-svg';
-import CountryPicker from 'rn-country-dropdown-picker';
 
 import {svgImages} from '../../../helpers';
 import {theme} from '../../../theme';
@@ -22,11 +20,14 @@ import {
 } from '../../../constants/fontDecorations';
 import {screens} from '../../../config';
 import TextField from '../../../components/textField';
+import DropDown from '../../../components/dropDownView';
+import {countries} from '../../../utils/utils';
 const {colors} = theme;
 
 const Signup = ({navigation}) => {
+  const [selectedItem, setSelectedItem] = React.useState({});
   function handleSelection(e) {
-    console.log(e);
+    setSelectedItem(e);
   }
   return (
     <View style={styles.mainContainer}>
@@ -114,22 +115,17 @@ const Signup = ({navigation}) => {
               }}>
               Counrty
             </Text>
-            <View>
-              <CountryPicker
-                ContainerStyle={styles.containerStyle}
-                InputFieldStyle={styles.countryInputCont}
-                DropdownContainerStyle={styles.myDropdownContainerStyle}
-                DropdownRowStyle={styles.myDropdownRowStyle}
-                Placeholder="Select Country"
-                DropdownCountryTextStyle={styles.myDropdownCountryTextStyle}
-                countryNameStyle={styles.mycountryNameStyle}
-                flagSize={24}
-                selectedItem={handleSelection}
-              />
-              <View style={{position: 'absolute', top: 12, right: 20}}>
-                <SvgXml width="24" height="24" xml={svgImages.caretDown} />
-              </View>
-            </View>
+            <DropDown
+              width={0.92 * screenWidth}
+              height={0.12 * screenWidth}
+              borderColor={theme.colors.greyText}
+              borderRadius={0.12 * screenWidth}
+              icon={svgImages.caretDown}
+              title={'Select Country'}
+              data={countries}
+              selectedItem={selectedItem}
+              onPressItem={handleSelection}
+            />
           </View>
           <View style={{marginTop: 10}}>
             <TextField
