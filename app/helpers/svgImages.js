@@ -59,6 +59,68 @@ const svgImages = {
   </defs>
   </svg>
   `,
+  excercise: `<svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="9.70215" y="18.8276" width="1.5002" height="4.30965" rx="0.750098" transform="rotate(45 9.70215 18.8276)" stroke="#94A1B2" stroke-width="1.5002"/>
+  <path d="M10.5562 19.0776L17.4219 12.2119" stroke="#94A1B2" stroke-width="1.5"/>
+  <path d="M25.1202 4.34743L25.1203 4.34745C25.7654 4.99257 26.0973 6.04592 25.9757 7.27385C25.8552 8.49213 25.2896 9.81352 24.2405 10.8981C23.1341 12.0419 21.9592 12.7861 20.8552 13.0116C19.7978 13.2277 18.739 12.9852 17.7338 12.0058C16.7258 11.0236 16.448 9.97078 16.6271 8.90839C16.8139 7.80004 17.5142 6.60565 18.6205 5.462C19.665 4.38216 20.9956 3.77281 22.2301 3.61228C23.4818 3.4495 24.5277 3.75479 25.1202 4.34743Z" stroke="#94A1B2" stroke-width="1.5"/>
+  <rect y="1.0608" width="1.5002" height="4.30965" rx="0.750098" transform="matrix(-0.707107 0.707107 0.707107 0.707107 18.5487 18.0775)" stroke="#94A1B2" stroke-width="1.5002"/>
+  <path d="M18.4448 19.0776L11.5791 12.2119" stroke="#94A1B2" stroke-width="1.5"/>
+  <path d="M3.87975 4.34743L3.87973 4.34745C3.23461 4.99257 2.90273 6.04592 3.02426 7.27385C3.14483 8.49213 3.71041 9.81352 4.75948 10.8981C5.86589 12.0419 7.04079 12.7861 8.14481 13.0116C9.20222 13.2277 10.261 12.9852 11.2662 12.0058C12.2742 11.0236 12.552 9.97078 12.3729 8.90839C12.1861 7.80004 11.4858 6.60565 10.3795 5.462C9.33504 4.38216 8.00438 3.77281 6.76994 3.61228C5.51825 3.4495 4.47234 3.75479 3.87975 4.34743Z" stroke="#94A1B2" stroke-width="1.5"/>
+  </svg>
+  `,
+  activeExcercise: `<svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="9.70215" y="18.8275" width="1.5002" height="4.30965" rx="0.750098" transform="rotate(45 9.70215 18.8275)" stroke="#2D2D2D" stroke-width="1.5002"/>
+  <path d="M10.5557 19.0776L17.4214 12.2119" stroke="#2D2D2D" stroke-width="1.5"/>
+  <path d="M25.1202 4.34743L25.1203 4.34745C25.7654 4.99257 26.0973 6.04592 25.9757 7.27385C25.8552 8.49213 25.2896 9.81352 24.2405 10.8981C23.1341 12.0419 21.9592 12.7861 20.8552 13.0116C19.7978 13.2277 18.739 12.9852 17.7338 12.0058C16.7258 11.0236 16.448 9.97078 16.6271 8.90839C16.8139 7.80004 17.5142 6.60565 18.6205 5.462C19.665 4.38216 20.9956 3.77281 22.2301 3.61228C23.4818 3.4495 24.5277 3.75479 25.1202 4.34743Z" stroke="#2D2D2D" stroke-width="1.5"/>
+  <rect y="1.0608" width="1.5002" height="4.30965" rx="0.750098" transform="matrix(-0.707107 0.707107 0.707107 0.707107 18.5487 18.0775)" stroke="#2D2D2D" stroke-width="1.5002"/>
+  <path d="M18.4453 19.0776L11.5796 12.2119" stroke="#2D2D2D" stroke-width="1.5"/>
+  <path d="M3.87975 4.34743L3.87973 4.34745C3.23461 4.99257 2.90273 6.04592 3.02426 7.27385C3.14483 8.49213 3.71041 9.81352 4.75948 10.8981C5.86589 12.0419 7.04079 12.7861 8.14481 13.0116C9.20222 13.2277 10.261 12.9852 11.2662 12.0058C12.2742 11.0236 12.552 9.97078 12.3729 8.90839C12.1861 7.80004 11.4858 6.60565 10.3795 5.462C9.33504 4.38216 8.00438 3.77281 6.76994 3.61228C5.51825 3.4495 4.47234 3.75479 3.87975 4.34743Z" stroke="#2D2D2D" stroke-width="1.5"/>
+  </svg>
+  `,
+  challenges: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M19.5 13.5C19.5 6.75 12 2.25 12 2.25C12 2.25 4.5 6.75 4.5 13.5C4.5 15.4891 5.29018 17.3968 6.6967 18.8033C8.10322 20.2098 10.0109 21 12 21C13.9891 21 15.8968 20.2098 17.3033 18.8033C18.7098 17.3968 19.5 15.4891 19.5 13.5Z" stroke="#94A1B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M8.25 17.25C8.25 18.2446 8.64509 19.1984 9.34835 19.9017C10.0516 20.6049 11.0054 21 12 21C12.9946 21 13.9484 20.6049 14.6517 19.9017C15.3549 19.1984 15.75 18.2446 15.75 17.25C15.75 13.5 12 11.25 12 11.25C12 11.25 8.25 13.5 8.25 17.25Z" stroke="#94A1B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  `,
+  activeChallenges: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M19.5 13.5C19.5 6.75 12 2.25 12 2.25C12 2.25 4.5 6.75 4.5 13.5C4.5 15.4891 5.29018 17.3968 6.6967 18.8033C8.10322 20.2098 10.0109 21 12 21C13.9891 21 15.8968 20.2098 17.3033 18.8033C18.7098 17.3968 19.5 15.4891 19.5 13.5Z" stroke="#2D2D2D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M8.25 17.25C8.25 18.2446 8.64509 19.1984 9.34835 19.9017C10.0516 20.6049 11.0054 21 12 21C12.9946 21 13.9484 20.6049 14.6517 19.9017C15.3549 19.1984 15.75 18.2446 15.75 17.25C15.75 13.5 12 11.25 12 11.25C12 11.25 8.25 13.5 8.25 17.25Z" stroke="#2D2D2D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  `,
+  community: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#94A1B2" stroke-width="1.5" stroke-miterlimit="10"/>
+  <path d="M3 12H21" stroke="#94A1B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 20.7563C14.0711 20.7563 15.75 16.836 15.75 12C15.75 7.16408 14.0711 3.24377 12 3.24377C9.92893 3.24377 8.25 7.16408 8.25 12C8.25 16.836 9.92893 20.7563 12 20.7563Z" stroke="#94A1B2" stroke-width="1.5" stroke-miterlimit="10"/>
+  </svg>
+  `,
+  activeCommunity: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#2D2D2D" stroke-width="1.5" stroke-miterlimit="10"/>
+  <path d="M3 12H21" stroke="#2D2D2D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 20.7563C14.0711 20.7563 15.75 16.836 15.75 12C15.75 7.16408 14.0711 3.24377 12 3.24377C9.92893 3.24377 8.25 7.16408 8.25 12C8.25 16.836 9.92893 20.7563 12 20.7563Z" stroke="#2D2D2D" stroke-width="1.5" stroke-miterlimit="10"/>
+  </svg>
+  `,
+  workouts: `<svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M9.3657 18.9756C13.2452 18.9756 16.3901 15.8307 16.3901 11.9512C16.3901 8.07175 13.2452 4.92682 9.3657 4.92682C5.48624 4.92682 2.34131 8.07175 2.34131 11.9512C2.34131 15.8307 5.48624 18.9756 9.3657 18.9756Z" stroke="#94A1B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M9.35106 4.92682C9.34913 6.78533 8.60998 8.56716 7.29582 9.88133C5.98165 11.1955 4.19982 11.9346 2.34131 11.9366" stroke="#94A1B2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M16.3901 11.9659C14.5316 11.9678 12.7498 12.7069 11.4356 14.0211C10.1215 15.3353 9.38231 17.1171 9.38037 18.9756" stroke="#94A1B2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M13 3L17 1" stroke="#94A1B2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M17 5L22 3" stroke="#94A1B2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M20 8.5L25 6.5" stroke="#94A1B2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M19 13L24 11.5" stroke="#94A1B2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18 17L23 15.5" stroke="#94A1B2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  `,
+  activeWorkouts: `<svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M9.3657 18.9756C13.2452 18.9756 16.3901 15.8307 16.3901 11.9512C16.3901 8.07175 13.2452 4.92682 9.3657 4.92682C5.48624 4.92682 2.34131 8.07175 2.34131 11.9512C2.34131 15.8307 5.48624 18.9756 9.3657 18.9756Z" stroke="#2D2D2D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M9.35106 4.92682C9.34913 6.78533 8.60998 8.56716 7.29582 9.88133C5.98165 11.1955 4.19982 11.9346 2.34131 11.9366" stroke="#2D2D2D" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M16.3901 11.9659C14.5316 11.9678 12.7498 12.7069 11.4356 14.0211C10.1215 15.3353 9.38231 17.1171 9.38037 18.9756" stroke="#2D2D2D" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M13 3L17 1" stroke="#2D2D2D" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M17 5L22 3" stroke="#2D2D2D" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M20 8.5L25 6.5" stroke="#2D2D2D" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M19 13L24 11.5" stroke="#2D2D2D" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18 17L23 15.5" stroke="#2D2D2D" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  `,
   logo: `<svg width="155" height="40" viewBox="0 0 155 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <rect width="155" height="40" fill="url(#pattern0)"/>
     <defs>

@@ -1,19 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {Text, TouchableOpacity, View, TextInput, Platform} from 'react-native';
-// import {TextInput} from 'react-native-paper';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import {Text, View, TextInput, Platform} from 'react-native';
 import {SvgXml} from 'react-native-svg';
 
 import {
   fontFamily,
   fontSize,
   fontWeight,
-  screenHeight,
-  screenWidth,
 } from '../../constants/fontDecorations';
 import {theme} from '../../theme';
-import {TimeDatePicker, Modes} from 'react-native-time-date-picker';
 
 import moment from 'moment';
 
