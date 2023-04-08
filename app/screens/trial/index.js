@@ -20,16 +20,16 @@ import {
   fontWeight,
 } from '../../constants/fontDecorations';
 import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
-import CustomModal from '../../components/customModal';
 import Modal from 'react-native-modal';
 import {SvgXml} from 'react-native-svg';
 import {svgImages} from '../../helpers';
+import {Commons} from '../../utils';
 
 const Trial = ({navigation}) => {
   const snapPoints = useMemo(() => ['37%', '37%'], []);
   const bottomSheetModalRef = useRef(null);
-  const [IsEnable, setIsEnable] = useState(true);
-  const [modalVisible, setModalVisible] = useState(true);
+  const [IsEnable, setIsEnable] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const onDismissHandler = () => {
     !IsEnable && setIsEnable(true);
@@ -40,10 +40,6 @@ const Trial = ({navigation}) => {
   function dismissSheetModal() {
     bottomSheetModalRef.current?.dismiss();
   }
-
-  useEffect(() => {
-    setModalVisible(modalVisible && true);
-  }, [modalVisible]);
 
   return (
     <>
@@ -165,7 +161,10 @@ const Trial = ({navigation}) => {
               <View style={{marginVertical: 5}}>
                 <Button
                   title={'GO TO HOME'}
-                  onPress={() => setModalVisible(!modalVisible)}
+                  onPress={() => {
+                    setModalVisible(!modalVisible);
+                    Commons.reset(navigation, screens.bottomTabStack);
+                  }}
                   btnWidth={screenWidth * 0.75}
                   btnHeight={0.14 * screenWidth}
                   titleColor={theme.colors.white}

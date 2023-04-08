@@ -22,6 +22,7 @@ import {screens} from '../../../config';
 import TextField from '../../../components/textField';
 import DropDown from '../../../components/dropDownView';
 import {countries} from '../../../utils/utils';
+import {Commons} from '../../../utils';
 const {colors} = theme;
 
 const Signup = ({navigation}) => {
@@ -122,7 +123,7 @@ const Signup = ({navigation}) => {
               borderRadius={0.12 * screenWidth}
               icon={svgImages.caretDown}
               title={'Select Country'}
-              data={countries}
+              data={Commons.countries}
               selectedItem={selectedItem}
               onPressItem={handleSelection}
             />

@@ -17,7 +17,7 @@ export default {
   shadowColor: '#000',
   btnTextColor: 'white',
   inputBorderColor: '#EDF1F7',
-  activeTabColor: '#073D7D',
-  inActiveTabColor: '#D3DAE7',
-  bottomTabBackgroundColor: 'white',
+  activeTabColor: '#2D2D2D',
+  inActiveTabColor: '#94A1B2',
+  bottomTabBackgroundColor: '#fff',
 };

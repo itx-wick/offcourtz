@@ -5,7 +5,7 @@ import {screens} from '../config';
 import {useDispatch} from 'react-redux';
 import {useNavigationState} from '@react-navigation/native';
 
-import {Challenges} from '../screens';
+import {Challenges, Community, Exercises, Workouts} from '../screens';
 import {updateActiveTabAction} from '../redux/reducers/activeTabSlice';
 
 const MainStack = createStackNavigator();
@@ -16,7 +16,7 @@ const MainNavigator = ({props}) => {
     screen: '',
   };
 
-  const tabsStacks = ['CHallenges', 'Workouts', 'Excerices', 'Community'];
+  const tabsStacks = ['Challenges', 'Workouts', 'Exercises', 'Community'];
   useNavigationState(state => {
     try {
       let currentRouteName =
@@ -48,6 +48,21 @@ const MainNavigator = ({props}) => {
       <MainStack.Screen
         name={screens.challenges}
         component={Challenges}
+        options={{gestureEnabled: false}}
+      />
+      <MainStack.Screen
+        name={screens.workouts}
+        component={Workouts}
+        options={{gestureEnabled: false}}
+      />
+      <MainStack.Screen
+        name={screens.exercises}
+        component={Exercises}
+        options={{gestureEnabled: false}}
+      />
+      <MainStack.Screen
+        name={screens.community}
+        component={Community}
         options={{gestureEnabled: false}}
       />
       {/* // screens are able to swipe back */}

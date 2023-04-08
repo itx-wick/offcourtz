@@ -12,6 +12,9 @@ const screens = {
   forgotPassword: 'ForgotPassword',
   trial: 'Trial',
   challenges: 'Challenges',
+  workouts: 'Workouts',
+  exercises: 'Exercises',
+  community: 'Community',
 };
 
 export {screens};

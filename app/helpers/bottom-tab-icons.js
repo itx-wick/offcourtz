@@ -3,15 +3,23 @@ import {SvgXml} from 'react-native-svg';
 import {svgImages} from './svgImages';
 
 const tabIcons = {
-  challenge: <SvgXml xml={svgImages.challenges} />,
-  workout: <SvgXml xml={svgImages.workouts} />,
-  excercise: <SvgXml xml={svgImages.excercise} />,
-  community: <SvgXml xml={svgImages.community} />,
+  challenge: <SvgXml height={26} width={26} xml={svgImages.challenges} />,
+  workout: <SvgXml height={26} width={26} xml={svgImages.workouts} />,
+  exercise: <SvgXml height={26} width={26} xml={svgImages.exercise} />,
+  community: <SvgXml height={26} width={26} xml={svgImages.community} />,
 
-  activeChallenge: <SvgXml xml={svgImages.activeChallenges} />,
-  activeWorkout: <SvgXml xml={svgImages.activeWorkouts} />,
-  activeExcercise: <SvgXml xml={svgImages.activeExcercise} />,
-  activeCommunity: <SvgXml xml={svgImages.activeCommunity} />,
+  activeChallenge: (
+    <SvgXml height={26} width={26} xml={svgImages.activeChallenges} />
+  ),
+  activeWorkout: (
+    <SvgXml height={26} width={26} xml={svgImages.activeWorkouts} />
+  ),
+  activeExercise: (
+    <SvgXml height={26} width={26} xml={svgImages.activeExercise} />
+  ),
+  activeCommunity: (
+    <SvgXml height={26} width={26} xml={svgImages.activeCommunity} />
+  ),
 };
 
 export {tabIcons};

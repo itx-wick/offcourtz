@@ -10,7 +10,7 @@ const AppNavigator = () => {
   return (
     <>
       <RootStack.Navigator headerMode="none">
-        {/* <RootStack.Screen name={screens.authStack} component={AuthStack} /> */}
+        <RootStack.Screen name={screens.authStack} component={AuthStack} />
         <RootStack.Screen
           name={screens.bottomTabStack}
           component={BottomTabStack}
