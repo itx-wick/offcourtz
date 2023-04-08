@@ -8,7 +8,7 @@ import styles from './bottom-tab.styles';
 import {theme} from '../../theme';
 
 const BottomTab = props => {
-  const tabActive = useSelector(state => state.activeTab.activeTab);
+  const tabActive = useSelector(state => state.ActiveTab.activeTab);
 
   const activeTabTextColor = theme.colors.activeTabColor;
 

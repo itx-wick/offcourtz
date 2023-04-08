@@ -5,8 +5,8 @@ import {screens} from '../config';
 import {useDispatch} from 'react-redux';
 import {useNavigationState} from '@react-navigation/native';
 
-import {updateActiveTabAction} from '../components/bottom-tab/activeTab/activeTab.actions';
 import {Challenges} from '../screens';
+import {updateActiveTabAction} from '../redux/reducers/activeTabSlice';
 
 const MainStack = createStackNavigator();
 

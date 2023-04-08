@@ -1,25 +1,24 @@
-import {applyMiddleware, combineReducers} from 'redux';
+import {persistReducer, persistStore} from 'redux-persist';
 import {configureStore} from '@reduxjs/toolkit';
+import {combineReducers} from 'redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {persistStore, persistReducer} from 'redux-persist';
-import activeTabReducer from '../../components/bottom-tab/activeTab/activeTab.reducer';
-import thunk from 'redux-thunk';
-
+import {getDefaultMiddleware} from '@reduxjs/toolkit';
+import ActiveTab from '../reducers/activeTabSlice';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  // whitelist: [],
-  // blacklist: [],
-  // debug :true,
 };
-
-const rootReducer = combineReducers({
-  activeTab: activeTabReducer,
+const reducerToPersist = combineReducers({
+  ActiveTab,
+});
+const persistedReducer = persistReducer(persistConfig, reducerToPersist);
+const customizedMiddleware = getDefaultMiddleware({
+  serializableCheck: false,
+});
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: customizedMiddleware,
 });
 
-export const reduxStore = configureStore(
-  persistReducer(persistConfig, rootReducer),
-  applyMiddleware(thunk),
-);
-
-export const persistor = persistStore(reduxStore);
+const persistor = persistStore(store);
+export {store, persistor};

@@ -7,7 +7,7 @@ import SplashScreen from 'react-native-splash-screen';
 
 import AppNavigator from './navigation/root-stack';
 import {theme} from './theme';
-import {persistor, reduxStore} from './redux/store';
+import {persistor, store} from './redux/store';
 
 const App = () => {
   React.useEffect(() => {
@@ -16,7 +16,7 @@ const App = () => {
   }, []);
   return (
     <>
-      <Provider store={reduxStore}>
+      <Provider store={store}>
         <PersistGate persistor={persistor}>
           <NavigationContainer theme={theme}>
             <AppNavigator />
