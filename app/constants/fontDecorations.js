@@ -26,9 +26,12 @@ export const fontSize = {
   verbiage_extra_small: 0.008 * screenHeight,
   verbiage_10: 0.01 * screenHeight,
   verbiage_11: 0.011 * screenHeight,
-
+  verbiage_18: 0.018 * screenHeight,
+  verbiage_19: 0.019 * screenHeight,
   verbiage_20: 0.02 * screenHeight,
   verbiage_22: 0.022 * screenHeight,
+  verbiage_24: 0.024 * screenHeight,
+  verbiage_26: 0.026 * screenHeight,
 
   verbiage_empty_screen: 0.018 * screenHeight,
   bottom_sheet_title: 0.026 * screenHeight,

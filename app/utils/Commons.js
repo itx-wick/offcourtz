@@ -1,5 +1,8 @@
+import React from 'react';
 import {BackHandler} from 'react-native';
 import {CommonActions} from '@react-navigation/native';
+import {SvgXml} from 'react-native-svg';
+import {svgImages} from '../helpers';
 
 export default {
   reset: (navigation, screen) => {
@@ -28,6 +31,162 @@ export default {
     return true;
   },
 
+  challenges: [
+    {
+      id: 1,
+      title: 'Challenge\nThe World',
+      time: null,
+      image: (
+        <SvgXml
+          xml={svgImages.mask1}
+          style={{
+            transform: [{rotate: '180deg'}],
+            marginBottom: -8,
+            marginTop: 15,
+          }}
+        />
+      ),
+      bgColor: '#FFEBD4',
+    },
+    {
+      id: 2,
+      title: 'Backhand',
+      time: '20 Min',
+      image: (
+        <SvgXml
+          xml={svgImages.mask2}
+          style={{
+            transform: [{rotateX: '180deg'}],
+            marginBottom: -8,
+            marginTop: 15,
+          }}
+        />
+      ),
+      bgColor: '#E4DBFF',
+    },
+    {
+      id: 3,
+      title: 'Weekly',
+      time: '30 Min',
+      image: (
+        <SvgXml
+          xml={svgImages.mask3}
+          style={{
+            transform: [{rotateX: '180deg'}],
+            marginBottom: -5,
+            marginTop: 15,
+          }}
+        />
+      ),
+      bgColor: '#FFDBDB',
+    },
+  ],
+  workoutsFilter: [
+    {
+      id: 1,
+      value: 'Easy',
+    },
+    {
+      id: 2,
+      value: 'Medium',
+    },
+    {
+      id: 3,
+      value: 'Hard',
+    },
+    {
+      id: 4,
+      value: 'Weekly',
+    },
+    {
+      id: 5,
+      value: 'Custom',
+    },
+  ],
+  workouts: [
+    {
+      id: 1,
+      title: 'Smash',
+      time: '30 Min',
+      image: (
+        <SvgXml
+          xml={svgImages.mask2}
+          style={{
+            transform: [{rotateX: '180deg'}],
+            marginBottom: -8,
+            marginTop: 15,
+          }}
+        />
+      ),
+      bgColor: '#FFEBD4',
+    },
+    {
+      id: 2,
+      title: 'Backhand',
+      time: '20 Min',
+      image: (
+        <SvgXml
+          xml={svgImages.mask2}
+          style={{
+            transform: [{rotateX: '180deg'}],
+            marginBottom: -5,
+            marginTop: 15,
+          }}
+        />
+      ),
+      bgColor: '#E4DBFF',
+    },
+  ],
+  exercises: [
+    {
+      id: 1,
+      title: 'Forehand',
+      time: '30 Min',
+      image: (
+        <SvgXml
+          xml={svgImages.mask1}
+          style={{
+            transform: [{rotate: '180deg'}],
+            marginBottom: -8,
+            marginTop: 15,
+          }}
+        />
+      ),
+      bgColor: '#DBE9FF',
+    },
+    {
+      id: 2,
+      title: 'Smash',
+      time: '30 Min',
+      image: (
+        <SvgXml
+          xml={svgImages.mask2}
+          style={{
+            transform: [{rotateX: '180deg'}],
+            marginBottom: -8,
+            marginTop: 15,
+          }}
+        />
+      ),
+      bgColor: '#FFEBD4',
+    },
+    {
+      id: 3,
+      title: 'Backhand',
+      time: '20 Min',
+      image: (
+        <SvgXml
+          xml={svgImages.mask3}
+          style={{
+            transform: [{rotateX: '180deg'}],
+            marginBottom: -5,
+            marginTop: 15,
+          }}
+        />
+      ),
+      bgColor: '#E4DBFF',
+    },
+  ],
   countries: [
     {
       title: 'Ascension Island',

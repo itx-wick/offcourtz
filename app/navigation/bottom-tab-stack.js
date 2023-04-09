@@ -10,6 +10,7 @@ export default function TabNavigator() {
   return (
     <BottomTabStack.Navigator
       headerMode="none"
+      tabBarHideOnKeyboard={true}
       tabBar={props => <BottomTab {...props} />}>
       <BottomTabStack.Screen
         options={{headerShown: false}}
