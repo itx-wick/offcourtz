@@ -9,6 +9,7 @@ import {screenHeight, screenWidth} from '../../constants';
 import {fontFamily, fontSize} from '../../constants/fontDecorations';
 import TextField from '../../components/textField';
 import {Commons} from '../../utils';
+import {screens} from '../../config';
 function Challenges({navigation}) {
   return (
     <View style={styles.mainContainer}>
@@ -67,7 +68,9 @@ function Challenges({navigation}) {
               borderRadius: 20,
               marginVertical: 5,
             }}
-            onPress={() => {}}>
+            onPress={() => {
+              navigation.navigate(screens.createChallenge);
+            }}>
             <View>
               <Text
                 style={{

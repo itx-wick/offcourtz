@@ -10,6 +10,7 @@ import FAB from '../../components/fab';
 import TextField from '../../components/textField';
 import AppFlatlist from '../../components/appFlatlist';
 import {Commons} from '../../utils';
+
 function Workouts({navigation}) {
   const [filter, setFilter] = React.useState({});
   return (

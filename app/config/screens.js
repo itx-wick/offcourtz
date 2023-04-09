@@ -12,6 +12,7 @@ const screens = {
   forgotPassword: 'ForgotPassword',
   trial: 'Trial',
   challenges: 'Challenges',
+  createChallenge: 'CreateChallenge',
   workouts: 'Workouts',
   exercises: 'Exercises',
   community: 'Community',

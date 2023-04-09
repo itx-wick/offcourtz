@@ -142,7 +142,7 @@ const Signup = ({navigation}) => {
               type={'password'}
             />
           </View>
-          <View style={{marginTop: 15}}>
+          <View style={{marginTop: 15, marginBottom: 100}}>
             <View style={{flexDirection: 'row'}}>
               <Text
                 style={{
@@ -192,18 +192,22 @@ const Signup = ({navigation}) => {
               />
             </ImageBackground>
           </View>
-          <View style={{marginTop: 15, marginBottom: 50}}>
-            <Button
-              title={'CREATE ACCOUNT'}
-              onPress={() => navigation.navigate(screens.trial)}
-              btnWidth={screenWidth * 0.92}
-              btnHeight={0.14 * screenWidth}
-              titleColor={colors.white}
-              backgroundColor={colors.primary}
-            />
-          </View>
         </View>
       </ScrollView>
+      <View style={{width: screenWidth, alignItems: 'center'}}>
+        <Button
+          title={'CREATE ACCOUNT'}
+          onPress={() => navigation.navigate(screens.trial)}
+          btnWidth={screenWidth * 0.92}
+          btnHeight={0.14 * screenWidth}
+          titleColor={colors.white}
+          backgroundColor={colors.primary}
+          btnStyle={{
+            position: 'absolute',
+            bottom: 25,
+          }}
+        />
+      </View>
     </View>
   );
 };
