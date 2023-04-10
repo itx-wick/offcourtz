@@ -1,222 +1,507 @@
-import React, { useState, useEffect, useReducer } from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  FlatList
-} from 'react-native';
-import { Chip } from 'react-native-elements';
-import { SvgXml } from 'react-native-svg';
-import SelectableChips from 'react-native-chip/SelectableChips'
+import React, {useState, useEffect} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View, FlatList} from 'react-native';
+import {SvgXml} from 'react-native-svg';
+import {Calendar} from 'react-native-calendars';
 
-import { svgImages } from '../../helpers';
-import { theme } from '../../theme';
+import {svgImages} from '../../helpers';
+import {theme} from '../../theme';
 import Button from '../../components/button';
-import { screenWidth } from '../../constants';
+import {screenHeight, screenWidth} from '../../constants';
 import {
   fontFamily,
   fontSize,
   fontWeight,
 } from '../../constants/fontDecorations';
-const { colors } = theme;
+import {Commons} from '../../utils';
+import AppFlatlist from '../../components/appFlatlist';
+const {colors} = theme;
 
-const CreateChallenge = ({ route, navigation }) => {
+const CreateChallenge = ({route, navigation}) => {
   const [currentStep, setCurrentStep] = useState(0);
-  // const [state, dispatch] = useReducer(reducer, initialState)
+  const [step1Data, setStep1Data] = useState(Commons.step1Data);
+  const [step2Data, setStep2Data] = useState(Commons.step2Data);
+  const [step3Data, setStep3Data] = useState(Commons.step3Data);
+  const [step4Data, setStep4Data] = useState(Commons.step4Data);
+  const [step5Data, setStep5Data] = useState(Commons.step5Data);
+  const [selected, setSelected] = useState(new Date().toISOString());
 
-  const data = [
-    { key: '1', label: 'Chip 1' },
-    { key: '2', label: 'Chip 2' },
-    { key: '3', label: 'Chip 3' },
-    { key: '4', label: 'Chip 4' },
-    { key: '5', label: 'Chip 5' },
-    { key: '6', label: 'Chip 6' },
-    { key: '7', label: 'Chip 7' },
-    { key: '8', label: 'Chip 8' },
-    { key: '9', label: 'Chip 9' },
-  ];
+  useEffect(() => {
+    setSelected(Commons.calculateDateFromObj(new Date()));
+    setCurrentStep(0);
+  }, []);
 
-  const ChipsList = () => {
+  const renderArrow = direction => {
+    if (direction === 'left') {
+      return <SvgXml xml={svgImages.prevIcon} />;
+    } else {
+      return <SvgXml xml={svgImages.nextIcon} />;
+    }
+  };
+
+  const navigateBack = () => {
+    if (currentStep === 0) {
+      navigation.goBack();
+    } else {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  const step1ListRenderItem = ({item, index}) => {
     return (
-      <FlatList
-        data={data}
-        numColumns={3}
-        renderItem={({ item }) => (
-          <Chip
-            title={item.label}
-            containerStyle={styles.chipContainer}
-          />
-        )}
-        keyExtractor={item => item.key}
-        contentContainerStyle={styles.contentContainer}
-      />
+      <TouchableOpacity
+        onPress={() => {
+          step1Data[index].selected = !item.selected;
+          setStep1Data([...step1Data]);
+        }}
+        style={[
+          styles.chipView,
+          {
+            backgroundColor: item.selected
+              ? theme.colors.black
+              : theme.colors.white,
+          },
+        ]}>
+        <Text
+          style={[
+            styles.chipText,
+            {
+              color: item.selected ? theme.colors.white : theme.colors.black,
+            },
+          ]}>
+          {item.label}
+        </Text>
+      </TouchableOpacity>
     );
   };
 
-  useEffect(() => {
-    setCurrentStep(0)
-  }, [])
+  const step2ListRenderItem = ({item, index}) => {
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          step2Data[index].selected = !item.selected;
+          setStep2Data([...step2Data]);
+        }}
+        style={[
+          styles.step2ChipView,
+          {
+            backgroundColor: `${item.bgColor}`,
+            borderColor: item.selected
+              ? theme.colors.primary
+              : theme.colors.transparent,
+          },
+        ]}>
+        <View>
+          <Text style={styles.step2ChipTitle}>{`${item.title}`}</Text>
+          {item.time && (
+            <View style={styles.step2DescView}>
+              <SvgXml xml={svgImages.clock} style={{marginRight: 5}} />
+              <Text style={styles.step2Desc}>{`${item.time}`}</Text>
+            </View>
+          )}
+        </View>
+        {item.image}
+      </TouchableOpacity>
+    );
+  };
+
+  const step3ListRenderItem = ({item, index}) => {
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          step3Data[index].selected = !item.selected;
+          setStep3Data([...step3Data]);
+        }}
+        style={[
+          styles.chipView,
+          {
+            backgroundColor: item.selected
+              ? theme.colors.black
+              : theme.colors.white,
+          },
+        ]}>
+        <Text
+          style={[
+            styles.chipText,
+            {
+              color: item.selected ? theme.colors.white : theme.colors.black,
+            },
+          ]}>
+          {item.label}
+        </Text>
+      </TouchableOpacity>
+    );
+  };
+
+  const step4ListRenderItem = ({item, index}) => {
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          step4Data[index].selected = !item.selected;
+          setStep4Data([...step4Data]);
+        }}
+        style={[
+          styles.chipView,
+          {
+            backgroundColor: item.selected
+              ? theme.colors.black
+              : theme.colors.white,
+          },
+        ]}>
+        <Text
+          style={[
+            styles.chipText,
+            {
+              color: item.selected ? theme.colors.white : theme.colors.black,
+            },
+          ]}>
+          {item.label}
+        </Text>
+      </TouchableOpacity>
+    );
+  };
+
+  const step5ListRenderItem = ({item, index}) => {
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          step5Data[index].selected = !item.selected;
+          setStep5Data([...step5Data]);
+        }}
+        style={styles.step5ListItem}>
+        <Text style={styles.step5ListItemTitle}>{item.label}</Text>
+        <SvgXml
+          xml={item.selected ? svgImages.selectedRadioBtn : svgImages.radioBtn}
+        />
+      </TouchableOpacity>
+    );
+  };
 
   return (
     <View style={styles.mainContainer}>
       <View style={styles.headerMainContainer}>
         <View style={styles.headContainer}>
           <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={{ position: 'absolute', left: 15 }}>
+            onPress={navigateBack}
+            style={{position: 'absolute', left: 15}}>
             <SvgXml width="36" height="36 " xml={svgImages.back} />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Create Challenge</Text>
         </View>
       </View>
-      <View style={{ flex: 1 }}>
-        <View style={{ width: screenWidth, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 0.06 * screenWidth }}>
+      <View style={{flex: 1, alignItems: 'center'}}>
+        <View
+          style={{
+            width: screenWidth,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginTop: 0.06 * screenWidth,
+          }}>
           <View
             style={{
               width: 0.12 * screenWidth,
               height: 0.12 * screenWidth,
               borderRadius: 0.12 * screenWidth,
               borderWidth: 2,
-              borderColor: currentStep >= 0 ? theme.colors.primary : theme.colors.gray1,
-              backgroundColor: currentStep > 0 ? theme.colors.primary : theme.colors.white,
+              borderColor:
+                currentStep >= 0 ? theme.colors.primary : theme.colors.gray1,
+              backgroundColor:
+                currentStep > 0 ? theme.colors.primary : theme.colors.white,
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <SvgXml xml={currentStep > 0 ? svgImages.check : svgImages.baloonStep} />
+            <SvgXml
+              xml={currentStep > 0 ? svgImages.check : svgImages.baloonStep}
+            />
           </View>
           <View
             style={{
               width: 0.04 * screenWidth,
               height: 3,
-              backgroundColor: currentStep > 0 ? theme.colors.primary : theme.colors.white,
-            }} />
+              backgroundColor:
+                currentStep > 0 ? theme.colors.primary : theme.colors.white,
+            }}
+          />
           <View
             style={{
               width: 0.12 * screenWidth,
               height: 0.12 * screenWidth,
               borderRadius: 0.12 * screenWidth,
               borderWidth: 2,
-              borderColor: currentStep >= 1 ? theme.colors.primary : theme.colors.gray1,
-              backgroundColor: currentStep > 1 ? theme.colors.primary : theme.colors.white,
+              borderColor:
+                currentStep >= 1 ? theme.colors.primary : theme.colors.gray1,
+              backgroundColor:
+                currentStep > 1 ? theme.colors.primary : theme.colors.white,
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <SvgXml xml={currentStep > 1 ? svgImages.check : svgImages.tenisBallStep} />
+            <SvgXml
+              xml={currentStep > 1 ? svgImages.check : svgImages.tenisBallStep}
+            />
           </View>
           <View
             style={{
               width: 0.04 * screenWidth,
               height: 3,
-              backgroundColor: currentStep > 1 ? theme.colors.primary : theme.colors.white,
-            }} />
+              backgroundColor:
+                currentStep > 1 ? theme.colors.primary : theme.colors.white,
+            }}
+          />
           <View
             style={{
               width: 0.12 * screenWidth,
               height: 0.12 * screenWidth,
               borderRadius: 0.12 * screenWidth,
               borderWidth: 2,
-              borderColor: currentStep >= 2 ? theme.colors.primary : theme.colors.gray1,
-              backgroundColor: currentStep > 2 ? theme.colors.primary : theme.colors.white,
+              borderColor:
+                currentStep >= 2 ? theme.colors.primary : theme.colors.gray1,
+              backgroundColor:
+                currentStep > 2 ? theme.colors.primary : theme.colors.white,
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <SvgXml xml={currentStep > 2 ? svgImages.check : svgImages.lightningStep} />
+            <SvgXml
+              xml={currentStep > 2 ? svgImages.check : svgImages.lightningStep}
+            />
           </View>
           <View
             style={{
               width: 0.04 * screenWidth,
               height: 3,
-              backgroundColor: currentStep > 2 ? theme.colors.primary : theme.colors.white,
-            }} />
+              backgroundColor:
+                currentStep > 2 ? theme.colors.primary : theme.colors.white,
+            }}
+          />
           <View
             style={{
               width: 0.12 * screenWidth,
               height: 0.12 * screenWidth,
               borderRadius: 0.12 * screenWidth,
               borderWidth: 2,
-              borderColor: currentStep >= 3 ? theme.colors.primary : theme.colors.gray1,
-              backgroundColor: currentStep > 3 ? theme.colors.primary : theme.colors.white,
+              borderColor:
+                currentStep >= 3 ? theme.colors.primary : theme.colors.gray1,
+              backgroundColor:
+                currentStep > 3 ? theme.colors.primary : theme.colors.white,
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <SvgXml xml={currentStep > 3 ? svgImages.check : svgImages.fireStep} />
+            <SvgXml
+              xml={currentStep > 3 ? svgImages.check : svgImages.fireStep}
+            />
           </View>
           <View
             style={{
               width: 0.04 * screenWidth,
               height: 3,
-              backgroundColor: currentStep > 3 ? theme.colors.primary : theme.colors.white,
-            }} />
+              backgroundColor:
+                currentStep > 3 ? theme.colors.primary : theme.colors.white,
+            }}
+          />
           <View
             style={{
               width: 0.12 * screenWidth,
               height: 0.12 * screenWidth,
               borderRadius: 0.12 * screenWidth,
               borderWidth: 2,
-              borderColor: currentStep >= 4 ? theme.colors.primary : theme.colors.gray1,
-              backgroundColor: currentStep > 4 ? theme.colors.primary : theme.colors.white,
+              borderColor:
+                currentStep >= 4 ? theme.colors.primary : theme.colors.gray1,
+              backgroundColor:
+                currentStep > 4 ? theme.colors.primary : theme.colors.white,
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <SvgXml xml={currentStep > 4 ? svgImages.check : svgImages.userStep} />
+            <SvgXml
+              xml={currentStep > 4 ? svgImages.check : svgImages.userStep}
+            />
           </View>
           <View
             style={{
               width: 0.04 * screenWidth,
               height: 3,
-              backgroundColor: currentStep > 4 ? theme.colors.primary : theme.colors.white,
-            }} />
+              backgroundColor:
+                currentStep > 4 ? theme.colors.primary : theme.colors.white,
+            }}
+          />
           <View
             style={{
               width: 0.12 * screenWidth,
               height: 0.12 * screenWidth,
               borderRadius: 0.12 * screenWidth,
               borderWidth: 2,
-              borderColor: currentStep >= 5 ? theme.colors.primary : theme.colors.gray1,
-              backgroundColor: currentStep > 5 ? theme.colors.primary : theme.colors.white,
+              borderColor:
+                currentStep >= 5 ? theme.colors.primary : theme.colors.gray1,
+              backgroundColor:
+                currentStep > 5 ? theme.colors.primary : theme.colors.white,
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <SvgXml xml={currentStep > 5 ? svgImages.check : svgImages.clockStep} />
+            <SvgXml
+              xml={currentStep > 5 ? svgImages.check : svgImages.clockStep}
+            />
           </View>
         </View>
-        {
-          currentStep == 0 && <View style={{ width: screenWidth, alignItems: 'center' }}>
-
+        {currentStep === 0 && (
+          <View style={styles.secContainer1}>
+            <Text style={styles.sectionTitle}>
+              {'How would you \n like to start'}
+            </Text>
+            <FlatList
+              data={step1Data}
+              numColumns={2}
+              renderItem={step1ListRenderItem}
+              keyExtractor={item => item.key}
+              contentContainerStyle={styles.contentContainer}
+            />
           </View>
-        }
+        )}
+
+        {currentStep === 1 && (
+          <View
+            style={{
+              width: screenWidth,
+            }}>
+            <Text style={[styles.sectionTitle, {marginBottom: 15}]}>
+              {'Which exercise would \n you like to compete in?'}
+            </Text>
+            <AppFlatlist
+              data={step2Data}
+              ListFooterComponent={<View />}
+              height={screenHeight}
+              renderItem={step2ListRenderItem}
+            />
+          </View>
+        )}
+
+        {currentStep === 2 && (
+          <View style={styles.secContainer1}>
+            <Text style={styles.sectionTitle}>{'What is the challenge?'}</Text>
+            <FlatList
+              data={step3Data}
+              numColumns={2}
+              renderItem={step3ListRenderItem}
+              keyExtractor={item => item.key}
+              contentContainerStyle={styles.contentContainer}
+            />
+          </View>
+        )}
+
+        {currentStep === 3 && (
+          <View style={[styles.secContainer1]}>
+            <Text style={styles.sectionTitle}>
+              {'What are challenge \n specifications?'}
+            </Text>
+            <FlatList
+              data={step4Data}
+              numColumns={2}
+              renderItem={step4ListRenderItem}
+              keyExtractor={item => item.key}
+              contentContainerStyle={styles.contentContainer}
+            />
+          </View>
+        )}
+
+        {currentStep === 4 && (
+          <View style={styles.secContainer1}>
+            <Text style={styles.sectionTitle}>
+              {'Which group would you like\nto start your challenge with?'}
+            </Text>
+            <FlatList
+              data={step5Data}
+              numColumns={1}
+              renderItem={step5ListRenderItem}
+              keyExtractor={item => item.key}
+              contentContainerStyle={styles.contentContainer}
+            />
+          </View>
+        )}
+
+        {currentStep === 5 && (
+          <View
+            style={{
+              width: screenWidth,
+            }}>
+            <Text style={styles.sectionTitle}>
+              {'Your challenge deadline?'}
+            </Text>
+            <Calendar
+              // markedDates={markedDate}
+              onDayPress={day => {
+                console.log(day.dateString);
+                setSelected(day.dateString);
+              }}
+              markedDates={{
+                [selected]: {
+                  selected: true,
+                  disableTouchEvent: true,
+                  selectedDotColor: 'orange',
+                },
+              }}
+              horizontal={true}
+              showScrollIndicator={true}
+              monthFormat={'MMMM yyyy'}
+              enableSwipeMonths={true}
+              renderArrow={renderArrow}
+              theme={{
+                backgroundColor: theme.colors.transparent,
+                calendarBackground: theme.colors.transparent,
+                textSectionTitleColor: theme.colors.black,
+                textSectionTitleDisabledColor: theme.colors.gray1,
+                selectedDayBackgroundColor: theme.colors.primary,
+                selectedDayTextColor: theme.colors.white,
+                todayTextColor: theme.colors.primary,
+                dayTextColor: theme.colors.black,
+                textDisabledColor: theme.colors.greyText,
+                dotColor: theme.colors.primary,
+                selectedDotColor: theme.colors.black,
+                arrowColor: 'black',
+                disabledArrowColor: '#d9e1e8',
+                monthTextColor: theme.colors.black,
+                indicatorColor: theme.colors.activeTabColor,
+                textDayFontFamily: fontFamily.argentum_sans,
+                textMonthFontFamily: fontFamily.argentum_sans,
+                textDayHeaderFontFamily: fontFamily.argentum_sans,
+                textDayFontWeight: fontWeight[400],
+                textMonthFontWeight: fontWeight[500],
+                textDayHeaderFontWeight: fontWeight[300],
+                textDayFontSize: fontSize.verbiage_16,
+                textMonthFontSize: fontSize.verbiage_22,
+                textDayHeaderFontSize: fontSize.verbiage_16,
+              }}
+              style={{
+                marginTop: 0.06 * screenWidth,
+                backgroundColor: theme.colors.transparent,
+              }}
+            />
+          </View>
+        )}
       </View>
-      <View style={{ width: screenWidth, alignItems: 'center' }}>
+      <View style={styles.btnMainView}>
         <Button
-          title={currentStep == 5 ? 'CREATE CHALLENGE' : currentStep == 4 ? 'DONE' : 'NEXT'}
+          title={
+            currentStep == 5
+              ? 'CREATE CHALLENGE'
+              : currentStep == 4
+              ? 'DONE'
+              : 'NEXT'
+          }
           onPress={() => {
-            if (currentStep == 0) {
-              setCurrentStep(currentStep + 1)
-            } else if (currentStep == 5) {
-              navigation.goBack()
+            if (currentStep === 0) {
+              setCurrentStep(currentStep + 1);
+            } else if (currentStep === 5) {
+              navigation.goBack();
             } else {
-              setCurrentStep(currentStep + 1)
+              setCurrentStep(currentStep + 1);
             }
           }}
           btnWidth={screenWidth * 0.9}
           btnHeight={0.13 * screenWidth}
           titleColor={colors.white}
-          titleStyle={{
-            fontFamily: fontFamily.argentum_sans,
-            fontWeight: '500',
-            fontSize: fontSize.verbiage_16,
-            color: colors.white,
-          }}
+          titleStyle={styles.btnTitleStyle}
           backgroundColor={colors.primary}
-          btnStyle={{
-            position: 'absolute',
-            bottom: 15,
-          }}
+          btnStyle={styles.btnStyle}
         />
       </View>
-    </View >
+    </View>
   );
 };
 
@@ -245,63 +530,72 @@ const styles = StyleSheet.create({
     fontSize: fontSize.verbiage_18,
     color: colors.secondaryBlack,
   },
-  underlineView: {
-    width: screenWidth * 0.9,
-    height: 2.5,
-    backgroundColor: colors.white,
-    marginVertical: 15,
+  secContainer1: {
+    width: screenWidth,
+    alignItems: 'center',
   },
-  secondaryCont: {
-    width: '100%',
-    paddingHorizontal: 15,
-  },
-  titleText: {
+  sectionTitle: {
     fontFamily: fontFamily.argentum_sans,
-    fontWeight: 'bold',
-    fontSize: fontSize.screen_title,
-    color: colors.white,
-  },
-  subTitleText: {
-    fontFamily: fontFamily.argentum_sans,
-    fontSize: fontSize.verbiage_medium,
-    color: colors.greyText,
-    marginLeft: 2,
-  },
-  forgotPasswordText: {
-    marginVertical: 15,
-    fontFamily: fontFamily.argentum_sans,
-    fontSize: fontSize.verbiage_medium,
+    fontSize: fontSize.verbiage_22,
     fontWeight: fontWeight[500],
-    color: colors.secondaryBlack,
-    textAlign: 'right',
-    paddingHorizontal: 10,
-  },
-  stepContainer: {
-    alignItems: 'center',
-  },
-  step: {
-    backgroundColor: '#ffffff',
-    borderColor: '#999999',
-    borderWidth: 2,
-    borderRadius: 20,
-    width: 40,
-    height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  currentStep: {
-    backgroundColor: '#007bff',
-    borderColor: '#007bff',
-  },
-  finishedStep: {
-    backgroundColor: '#007bff',
-    borderColor: '#007bff',
-  },
-  stepLabel: {
-    marginTop: 5,
-    fontSize: 12,
-    color: '#999999',
+    marginTop: 0.1 * screenWidth,
     textAlign: 'center',
+    textTransform: 'uppercase',
+  },
+  chipView: {
+    height: 0.1 * screenWidth,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 0.1 * screenWidth,
+    paddingHorizontal: 20,
+    margin: 5,
+  },
+  step2ChipView: {
+    paddingHorizontal: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderWidth: 2,
+    marginHorizontal: 15,
+    borderRadius: 20,
+    marginVertical: 5,
+  },
+  step2ChipTitle: {
+    fontFamily: fontFamily.argentum_sans,
+    fontSize: fontSize.verbiage_24,
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+  },
+  step2DescView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 5,
+  },
+  step2Desc: {
+    fontFamily: fontFamily.argentum_sans,
+    fontSize: fontSize.verbiage_medium,
+  },
+  chipText: {
+    fontFamily: fontFamily.argentum_sans,
+    fontSize: fontFamily._14,
+    textTransform: 'capitalize',
+  },
+  step5ListItem: {
+    backgroundColor: theme.colors.white,
+    flexDirection: 'row',
+    width: screenWidth * 0.9,
+    height: 0.14 * screenWidth,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    margin: 5,
+  },
+  step5ListItemTitle: {
+    fontFamily: fontFamily.argentum_sans,
+    fontSize: fontFamily._14,
+    color: theme.colors.black,
+    textTransform: 'capitalize',
   },
   contentContainer: {
     paddingHorizontal: 16,
@@ -309,9 +603,25 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     flexDirection: 'row',
     alignItems: 'flex-start',
+    justifyContent: 'center',
+    marginVertical: 0.04 * screenWidth,
   },
   chipContainer: {
     marginHorizontal: 8,
     marginVertical: 4,
+  },
+  btnMainView: {
+    width: screenWidth,
+    alignItems: 'center',
+  },
+  btnTitleStyle: {
+    fontFamily: fontFamily.argentum_sans,
+    fontWeight: '500',
+    fontSize: fontSize.verbiage_16,
+    color: colors.white,
+  },
+  btnStyle: {
+    position: 'absolute',
+    bottom: 15,
   },
 });

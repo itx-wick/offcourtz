@@ -282,7 +282,7 @@ PODS:
   - React-jsinspector (0.68.2)
   - React-logger (0.68.2):
     - glog
-  - react-native-safe-area-context (4.5.0):
+  - react-native-safe-area-context (4.5.1):
     - RCT-Folly
     - RCTRequired
     - RCTTypeSafety
@@ -598,7 +598,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: b7b553412f2ec768fe6c8f27cd6bafdb9d8719e6
   React-jsinspector: c5989c77cb89ae6a69561095a61cce56a44ae8e8
   React-logger: a0833912d93b36b791b7a521672d8ee89107aff1
-  react-native-safe-area-context: 39c2d8be3328df5d437ac1700f4f3a4f75716acc
+  react-native-safe-area-context: f5549f36508b1b7497434baa0cd97d7e470920d4
   react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
   React-perflogger: a18b4f0bd933b8b24ecf9f3c54f9bf65180f3fe6
   React-RCTActionSheet: 547fe42fdb4b6089598d79f8e1d855d7c23e2162
@@ -623,6 +623,6 @@ SPEC CHECKSUMS:
   Yoga: 99652481fcd320aefa4a7ef90095b95acd181952
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: e3368d195eff22401426da230de1cdf72f5eadf0
+PODFILE CHECKSUM: 27c3dc0c929258f28f73d2a0d421aa4692ed5cab
 
 COCOAPODS: 1.11.3

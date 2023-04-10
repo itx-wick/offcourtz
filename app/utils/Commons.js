@@ -5,6 +5,18 @@ import {SvgXml} from 'react-native-svg';
 import {svgImages} from '../helpers';
 
 export default {
+  calculateDateFromObj: date => {
+    let strDate =
+      date.getFullYear() +
+      '-' +
+      (date.getMonth() > 8
+        ? date.getMonth() + 1
+        : '0' + (date.getMonth() + 1)) +
+      '-' +
+      (date.getDate() > 9 ? date.getDate() : '0' + date.getDate());
+    return strDate || date;
+  },
+
   reset: (navigation, screen) => {
     const resetAction = CommonActions.reset({
       index: 0,
@@ -2276,5 +2288,84 @@ export default {
       image:
         'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/WALES.svg',
     },
+  ],
+  step1Data: [
+    {key: '1', label: 'Challenge Yourself', selected: false},
+    {key: '2', label: 'Challenge Groups', selected: false},
+    {key: '3', label: 'Challenge Friends', selected: false},
+  ],
+  step2Data: [
+    {
+      id: 1,
+      title: 'Forehand',
+      time: '30 Min',
+      image: (
+        <SvgXml
+          xml={svgImages.mask1}
+          style={{
+            transform: [{rotate: '180deg'}],
+            marginBottom: -8,
+            marginTop: 15,
+          }}
+        />
+      ),
+      bgColor: '#DBE9FF',
+      selected: false,
+    },
+    {
+      id: 2,
+      title: 'Smash',
+      time: '30 Min',
+      image: (
+        <SvgXml
+          xml={svgImages.mask2}
+          style={{
+            transform: [{rotateX: '180deg'}],
+            marginBottom: -8,
+            marginTop: 15,
+          }}
+        />
+      ),
+      bgColor: '#FFEBD4',
+      selected: false,
+    },
+    {
+      id: 3,
+      title: 'Backhand',
+      time: '20 Min',
+      image: (
+        <SvgXml
+          xml={svgImages.mask3}
+          style={{
+            transform: [{rotateX: '180deg'}],
+            marginBottom: -5,
+            marginTop: 15,
+          }}
+        />
+      ),
+      bgColor: '#E4DBFF',
+      selected: false,
+    },
+  ],
+  step3Data: [
+    {key: '1', label: 'As many as possible', selected: false},
+    {key: '2', label: 'Hit a Target', selected: false},
+    {key: '3', label: 'time', selected: false},
+    {key: '4', label: 'As fast as possible', selected: false},
+    {key: '5', label: 'In a row', selected: false},
+    {key: '6', label: 'weight', selected: false},
+    {key: '7', label: 'Second Bounce', selected: false},
+    {key: '8', label: 'Repitions', selected: false},
+  ],
+  step4Data: [
+    {key: '1', label: '10 in a Row', selected: false},
+    {key: '2', label: '100 Kg with Weight', selected: false},
+    {key: '3', label: '5 in a Row', selected: false},
+    {key: '4', label: '5 mins long with time', selected: false},
+  ],
+  step5Data: [
+    {key: '1', label: 'Challenge Yourself', selected: false},
+    {key: '2', label: 'Challenge Groups', selected: false},
+    {key: '3', label: 'Challenge Friends', selected: false},
   ],
 };

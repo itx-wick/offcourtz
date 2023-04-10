@@ -1,5 +1,5 @@
 import React from 'react';
-import {withTheme} from 'react-native-paper';
+
 import {
   FlatList,
   KeyboardAvoidingView,
@@ -67,7 +67,7 @@ function AppFlatlist(props) {
   );
 }
 
-export default withTheme(AppFlatlist);
+export default AppFlatlist;
 
 const styles = StyleSheet.create({
   containerStyle: {},

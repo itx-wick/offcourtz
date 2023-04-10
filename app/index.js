@@ -1,5 +1,5 @@
 import {Provider} from 'react-redux';
-import {Provider as PaperProvider} from 'react-native-paper';
+import {ThemeProvider} from 'react-native-elements';
 import {PersistGate} from 'redux-persist/integration/react';
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
@@ -19,11 +19,11 @@ const App = () => {
     <>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <PaperProvider>
+          <ThemeProvider>
             <NavigationContainer theme={theme}>
               <AppNavigator />
             </NavigationContainer>
-          </PaperProvider>
+          </ThemeProvider>
         </PersistGate>
       </Provider>
     </>
