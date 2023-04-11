@@ -21,10 +21,10 @@ import {
 import {SvgXml, SvgUri} from 'react-native-svg';
 import {svgImages} from '../../helpers';
 function DropDown(props) {
+  const searchRef = useRef();
   const [search, setSearch] = useState('');
   const [isEnable, setIsEnable] = useState(false);
   const [data, setData] = useState(props.data);
-  const searchRef = useRef();
 
   useEffect(() => {
     setIsEnable(false);
@@ -124,7 +124,7 @@ function DropDown(props) {
                 setSearch(txt);
               }}
               style={styles.searchInput}
-              placeholder="Searce Excercise"
+              placeholder="Search Excercise"
             />
           </View>
           <View style={styles.flatListView}>

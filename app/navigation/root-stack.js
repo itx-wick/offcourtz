@@ -9,7 +9,9 @@ const RootStack = createStackNavigator();
 const AppNavigator = () => {
   return (
     <>
-      <RootStack.Navigator headerMode="none">
+      <RootStack.Navigator
+        headerMode="none"
+        initialRouteName={screens.bottomTabStack}>
         <RootStack.Screen name={screens.authStack} component={AuthStack} />
         <RootStack.Screen
           name={screens.bottomTabStack}

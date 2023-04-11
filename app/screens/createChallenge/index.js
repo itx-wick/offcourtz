@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo, useRef} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View, FlatList} from 'react-native';
 import {SvgXml} from 'react-native-svg';
 import {Calendar} from 'react-native-calendars';
@@ -14,10 +14,14 @@ import {
 } from '../../constants/fontDecorations';
 import {Commons} from '../../utils';
 import AppFlatlist from '../../components/appFlatlist';
+import BottomSheetModalView from '../../components/bottomSheetModalView';
+import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
 const {colors} = theme;
 
 const CreateChallenge = ({route, navigation}) => {
+  const bottomSheetModalRef = useRef(null);
   const [currentStep, setCurrentStep] = useState(0);
+  const snapPoints = useMemo(() => ['100%', '100%'], []);
   const [step1Data, setStep1Data] = useState(Commons.step1Data);
   const [step2Data, setStep2Data] = useState(Commons.step2Data);
   const [step3Data, setStep3Data] = useState(Commons.step3Data);
@@ -25,9 +29,16 @@ const CreateChallenge = ({route, navigation}) => {
   const [step5Data, setStep5Data] = useState(Commons.step5Data);
   const [selected, setSelected] = useState(new Date().toISOString());
 
+  const backdropComponent = backdropProps => (
+    <BottomSheetBackdrop {...backdropProps} enableTouchThrough={true} />
+  );
+  function dismissSheetModal() {
+    bottomSheetModalRef.current?.dismiss();
+  }
+
   useEffect(() => {
     setSelected(Commons.calculateDateFromObj(new Date()));
-    setCurrentStep(0);
+    setCurrentStep(4);
   }, []);
 
   const renderArrow = direction => {
@@ -164,8 +175,14 @@ const CreateChallenge = ({route, navigation}) => {
     return (
       <TouchableOpacity
         onPress={() => {
-          step5Data[index].selected = !item.selected;
+          step5Data.map((itm, i) => {
+            step5Data[i].selected = itm.key === step5Data[index].key;
+          });
           setStep5Data([...step5Data]);
+          if (item.label === 'Challenge Groups') {
+            bottomSheetModalRef.current.present();
+          } else if (item.label === 'Challenge Friends') {
+          }
         }}
         style={styles.step5ListItem}>
         <Text style={styles.step5ListItemTitle}>{item.label}</Text>
@@ -410,7 +427,7 @@ const CreateChallenge = ({route, navigation}) => {
               numColumns={1}
               renderItem={step5ListRenderItem}
               keyExtractor={item => item.key}
-              contentContainerStyle={styles.contentContainer}
+              contentContainerStyle={styles.listContentContainer}
             />
           </View>
         )}
@@ -501,6 +518,20 @@ const CreateChallenge = ({route, navigation}) => {
           btnStyle={styles.btnStyle}
         />
       </View>
+      <BottomSheetModalView
+        backdropComponent={backdropComponent}
+        dismissSheetModal={dismissSheetModal}
+        onDismissHandler={() => {}}
+        paymentMethodRef={bottomSheetModalRef}
+        snapPoints={snapPoints}
+        title={'Challenge Groups'}
+        titleStyle={styles.bottomSheetTitle}
+        isPayment={false}
+        closeIcon={true}
+        paymentClick={() => {
+          dismissSheetModal();
+        }}
+      />
     </View>
   );
 };
@@ -606,6 +637,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginVertical: 0.04 * screenWidth,
   },
+  listContentContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    marginVertical: 0.04 * screenWidth,
+  },
   chipContainer: {
     marginHorizontal: 8,
     marginVertical: 4,
@@ -623,5 +661,10 @@ const styles = StyleSheet.create({
   btnStyle: {
     position: 'absolute',
     bottom: 15,
+  },
+  bottomSheetTitle: {
+    color: theme.colors.secondaryBlack,
+    fontFamily: fontFamily.argentum_sans,
+    fontSize: fontSize.bottom_sheet_title,
   },
 });

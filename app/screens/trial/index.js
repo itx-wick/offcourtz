@@ -102,10 +102,14 @@ const Trial = ({navigation}) => {
         </SafeAreaView>
         <BottomSheetModalView
           backdropComponent={backdropComponent}
-          dismissSheetModal={() => dismissSheetModal}
+          dismissSheetModal={dismissSheetModal}
           onDismissHandler={onDismissHandler}
           paymentMethodRef={bottomSheetModalRef}
           snapPoints={snapPoints}
+          title={'Payment Method'}
+          titleStyle={styles.bottomSheetTitle}
+          subTitle={'Select payment method to continue'}
+          isPayment={true}
           paymentClick={() => {
             setModalVisible(true);
             dismissSheetModal();
