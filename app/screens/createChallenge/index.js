@@ -1,29 +1,38 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, FlatList, Image } from 'react-native';
-import { SvgXml } from 'react-native-svg';
-import { Calendar } from 'react-native-calendars';
+import React, {useState, useEffect, useMemo, useRef} from 'react';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  FlatList,
+  Image,
+} from 'react-native';
+import {SvgXml} from 'react-native-svg';
+import {Calendar} from 'react-native-calendars';
 
-import { svgImages } from '../../helpers';
-import { theme } from '../../theme';
+import {svgImages} from '../../helpers';
+import {theme} from '../../theme';
 import Button from '../../components/button';
-import { screenHeight, screenWidth } from '../../constants';
+import {screenHeight, screenWidth} from '../../constants';
 import {
   fontFamily,
   fontSize,
   fontWeight,
 } from '../../constants/fontDecorations';
-import { Commons } from '../../utils';
+import {Commons} from '../../utils';
 import AppFlatlist from '../../components/appFlatlist';
-import BottomSheetModalView from '../../components/bottomSheetModalView';
+import FriendsBottomSheetModalView from '../../components/bottomSheetModalView';
+import GroupsBottomSheetModalView from '../../components/bottomSheetModalView';
 import userPlaceholder from '../../assets/images/user.jpeg';
-import { BottomSheetBackdrop } from '@gorhom/bottom-sheet';
-const { colors } = theme;
+import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
+const {colors} = theme;
 
-const CreateChallenge = ({ route, navigation }) => {
-  const bottomSheetModalRef = useRef(null);
+const CreateChallenge = ({route, navigation}) => {
+  const friendsModalRef = useRef(null);
+  const groupsModalRef = useRef(null);
   const [currentStep, setCurrentStep] = useState(0);
   const snapPoints = useMemo(() => ['100%', '100%'], []);
-  const [listData, setListData] = useState([]);
+  const [bottomSheetTitle, setBottomSheetTitle] = useState('');
   const [step1Data, setStep1Data] = useState(Commons.step1Data);
   const [step2Data, setStep2Data] = useState(Commons.step2Data);
   const [step3Data, setStep3Data] = useState(Commons.step3Data);
@@ -36,8 +45,13 @@ const CreateChallenge = ({ route, navigation }) => {
   const backdropComponent = backdropProps => (
     <BottomSheetBackdrop {...backdropProps} enableTouchThrough={true} />
   );
-  function dismissSheetModal() {
-    bottomSheetModalRef.current?.dismiss();
+
+  function dismissGroupsSheetModal() {
+    groupsModalRef.current?.dismiss();
+  }
+
+  function dismissFriendsSheetModal() {
+    friendsModalRef.current?.dismiss();
   }
 
   useEffect(() => {
@@ -61,7 +75,7 @@ const CreateChallenge = ({ route, navigation }) => {
     }
   };
 
-  const step1ListRenderItem = ({ item, index }) => {
+  const step1ListRenderItem = ({item, index}) => {
     return (
       <TouchableOpacity
         onPress={() => {
@@ -89,7 +103,7 @@ const CreateChallenge = ({ route, navigation }) => {
     );
   };
 
-  const step2ListRenderItem = ({ item, index }) => {
+  const step2ListRenderItem = ({item, index}) => {
     return (
       <TouchableOpacity
         onPress={() => {
@@ -109,7 +123,7 @@ const CreateChallenge = ({ route, navigation }) => {
           <Text style={styles.step2ChipTitle}>{`${item.title}`}</Text>
           {item.time && (
             <View style={styles.step2DescView}>
-              <SvgXml xml={svgImages.clock} style={{ marginRight: 5 }} />
+              <SvgXml xml={svgImages.clock} style={{marginRight: 5}} />
               <Text style={styles.step2Desc}>{`${item.time}`}</Text>
             </View>
           )}
@@ -119,7 +133,7 @@ const CreateChallenge = ({ route, navigation }) => {
     );
   };
 
-  const step3ListRenderItem = ({ item, index }) => {
+  const step3ListRenderItem = ({item, index}) => {
     return (
       <TouchableOpacity
         onPress={() => {
@@ -147,7 +161,7 @@ const CreateChallenge = ({ route, navigation }) => {
     );
   };
 
-  const step4ListRenderItem = ({ item, index }) => {
+  const step4ListRenderItem = ({item, index}) => {
     return (
       <TouchableOpacity
         onPress={() => {
@@ -175,7 +189,7 @@ const CreateChallenge = ({ route, navigation }) => {
     );
   };
 
-  const step5ListRenderItem = ({ item, index }) => {
+  const step5ListRenderItem = ({item, index}) => {
     return (
       <TouchableOpacity
         onPress={() => {
@@ -184,11 +198,11 @@ const CreateChallenge = ({ route, navigation }) => {
           });
           setStep5Data([...step5Data]);
           if (item.label === 'Challenge Groups') {
-            setListData(Commons.groupsData)
-            bottomSheetModalRef.current.present();
+            setBottomSheetTitle('Groups');
+            groupsModalRef.current.present();
           } else if (item.label === 'Challenge Friends') {
-            setListData(Commons.friendsData)
-            bottomSheetModalRef.current.present();
+            setBottomSheetTitle('Friends');
+            friendsModalRef.current.present();
           }
         }}
         style={styles.step5ListItem}>
@@ -200,15 +214,20 @@ const CreateChallenge = ({ route, navigation }) => {
     );
   };
 
-  const renderListItem = ({ item, index }) => {
+  const renderListItem = ({item, index}) => {
     return (
       <TouchableOpacity
         onPress={() => {
-          groups[index].selected = !item.selected;
-          setGroups([...groups])
+          if (bottomSheetTitle == 'Groups') {
+            groups[index].selected = !item.selected;
+            setGroups([...groups]);
+          } else if (bottomSheetTitle == 'Friends') {
+            friends[index].selected = !item.selected;
+            setFriends([...friends]);
+          }
         }}
         style={styles.listItem}>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <Image source={userPlaceholder} style={styles.userImage} />
           <Text style={styles.listItemTitle}>{item.title}</Text>
         </View>
@@ -217,7 +236,7 @@ const CreateChallenge = ({ route, navigation }) => {
         />
       </TouchableOpacity>
     );
-  }
+  };
 
   const flatListItemSeparator = () => {
     return (
@@ -229,7 +248,7 @@ const CreateChallenge = ({ route, navigation }) => {
         }}
       />
     );
-  }
+  };
 
   return (
     <View style={styles.mainContainer}>
@@ -237,14 +256,14 @@ const CreateChallenge = ({ route, navigation }) => {
         <View style={styles.headContainer}>
           <TouchableOpacity
             onPress={navigateBack}
-            style={{ position: 'absolute', left: 15 }}>
+            style={{position: 'absolute', left: 15}}>
             <SvgXml width="36" height="36 " xml={svgImages.back} />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Create Challenge</Text>
         </View>
       </View>
 
-      <View style={{ flex: 1, alignItems: 'center' }}>
+      <View style={{flex: 1, alignItems: 'center'}}>
         <View
           style={{
             width: screenWidth,
@@ -417,7 +436,7 @@ const CreateChallenge = ({ route, navigation }) => {
             style={{
               width: screenWidth,
             }}>
-            <Text style={[styles.sectionTitle, { marginBottom: 15 }]}>
+            <Text style={[styles.sectionTitle, {marginBottom: 15}]}>
               {'Which exercise would \n you like to compete in?'}
             </Text>
             <AppFlatlist
@@ -539,8 +558,8 @@ const CreateChallenge = ({ route, navigation }) => {
             currentStep == 5
               ? 'CREATE CHALLENGE'
               : currentStep == 4
-                ? 'DONE'
-                : 'NEXT'
+              ? 'DONE'
+              : 'NEXT'
           }
           onPress={() => {
             if (currentStep === 0) {
@@ -559,18 +578,18 @@ const CreateChallenge = ({ route, navigation }) => {
           btnStyle={styles.btnStyle}
         />
       </View>
-      <BottomSheetModalView
+      <GroupsBottomSheetModalView
         backdropComponent={backdropComponent}
-        dismissSheetModal={dismissSheetModal}
+        dismissSheetModal={dismissGroupsSheetModal}
         renderListItem={renderListItem}
         flatListItemSeparator={flatListItemSeparator}
-        onDismissHandler={() => { }}
+        onDismissHandler={() => {}}
         onClickDone={() => {
-          const data = groups.filter(item => item.selected === true)
-          console.log(data)
-          bottomSheetModalRef.current?.dismiss();
+          const data = groups.filter(item => item.selected === true);
+          console.log('Groups', data);
+          groupsModalRef.current?.dismiss();
         }}
-        paymentMethodRef={bottomSheetModalRef}
+        paymentMethodRef={groupsModalRef}
         snapPoints={snapPoints}
         data={groups}
         title={'Challenge Groups'}
@@ -578,7 +597,29 @@ const CreateChallenge = ({ route, navigation }) => {
         isPayment={false}
         closeIcon={true}
         paymentClick={() => {
-          dismissSheetModal();
+          dismissGroupsSheetModal();
+        }}
+      />
+      <FriendsBottomSheetModalView
+        backdropComponent={backdropComponent}
+        dismissSheetModal={dismissFriendsSheetModal}
+        renderListItem={renderListItem}
+        flatListItemSeparator={flatListItemSeparator}
+        onDismissHandler={() => {}}
+        onClickDone={() => {
+          const data = friends.filter(item => item.selected === true);
+          console.log('friends', data);
+          friendsModalRef.current?.dismiss();
+        }}
+        paymentMethodRef={friendsModalRef}
+        snapPoints={snapPoints}
+        data={friends}
+        title={'Challenge Friends'}
+        titleStyle={styles.bottomSheetTitle}
+        isPayment={false}
+        closeIcon={true}
+        paymentClick={() => {
+          dismissFriendsSheetModal();
         }}
       />
     </View>
