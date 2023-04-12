@@ -1,26 +1,36 @@
-import React from 'react';
-import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
-import {BottomSheetModal, BottomSheetModalProvider} from '@gorhom/bottom-sheet';
+import React, { useState, useEffect } from 'react';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import {screenHeight, screenWidth} from '../../constants';
-import {svgImages} from '../../helpers';
+import { screenHeight, screenWidth } from '../../constants';
+import { svgImages } from '../../helpers';
 import {
   fontFamily,
   fontSize,
   fontWeight,
 } from '../../constants/fontDecorations';
 import Button from '../button';
-import {theme} from '../../theme';
-import {Commons} from '../../utils';
-import {SvgXml} from 'react-native-svg';
-import {TextInput} from 'react-native';
-import {FlatList} from 'react-native';
+import { theme } from '../../theme';
+import { SvgXml } from 'react-native-svg';
+import { TextInput } from 'react-native';
+import { FlatList } from 'react-native';
 const BottomSheetModalView = props => {
   const searchRef = React.useRef();
-  const bottomSheetModalRef = React.useRef(null);
-  const [search, setSearch] = React.useState('');
-  const [data, setData] = React.useState(Commons.countries);
+  const [search, setSearch] = useState('');
+  const [data, setData] = useState(props.data);
+
+  const onSearch = search => {
+    if (search !== '') {
+      let tempData = data.filter(item => {
+        return item.title.toLowerCase().indexOf(search.toLowerCase()) > -1;
+      });
+      setData(tempData);
+    } else {
+      setData(props.data);
+    }
+  };
+
   return (
     <BottomSheetModalProvider>
       {/* this bottom sheet refer to payment methods */}
@@ -38,7 +48,7 @@ const BottomSheetModalView = props => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginTop: 20,
+                marginTop: props.isPayment ? 0.06 * screenWidth : 0.1 * screenWidth,
               }}>
               <Text
                 style={
@@ -51,7 +61,7 @@ const BottomSheetModalView = props => {
               {props.closeIcon && (
                 <TouchableOpacity
                   onPress={() => props.dismissSheetModal()}
-                  style={{position: 'absolute', right: 25}}>
+                  style={{ position: 'absolute', right: 25 }}>
                   <SvgXml xml={svgImages.x} />
                 </TouchableOpacity>
               )}
@@ -111,6 +121,7 @@ const BottomSheetModalView = props => {
                     value={search}
                     ref={searchRef}
                     onChangeText={txt => {
+                      onSearch(txt);
                       setSearch(txt);
                     }}
                     style={styles.searchInput}
@@ -119,19 +130,30 @@ const BottomSheetModalView = props => {
                   />
                 </View>
                 <FlatList
-                  data={Commons.countries}
+                  data={data}
                   showsVerticalScrollIndicator={false}
-                  ListFooterComponent={<View style={{height: 10}} />}
-                  contentContainerStyle={{
-                    width: screenWidth,
-                    marginHorizontal: 20,
-                  }}
-                  renderItem={({item, index}) => {
-                    return <Text>{item.title}</Text>;
-                  }}
+                  ListFooterComponent={<View style={{ height: 10 }} />}
+                  ItemSeparatorComponent={props.flatListItemSeparator}
+                  keyExtractor={item => item.key}
+                  contentContainerStyle={styles.listContentContainer}
+                  renderItem={props.renderListItem}
                 />
               </>
             )}
+            <View style={{ width: screenWidth, alignItems: 'center' }}>
+              <Button
+                title={'Done'}
+                onPress={props.onClickDone}
+                btnWidth={screenWidth * 0.9}
+                btnHeight={0.12 * screenWidth}
+                titleColor={theme.colors.white}
+                backgroundColor={theme.colors.primary}
+                btnStyle={{
+                  position: 'absolute',
+                  bottom: 25,
+                }}
+              />
+            </View>
           </View>
         </BottomSheetModal>
       </View>
@@ -141,7 +163,7 @@ const BottomSheetModalView = props => {
 
 export default BottomSheetModalView;
 const styles = StyleSheet.create({
-  containerStyle: {opacity: 0.5},
+  containerStyle: { opacity: 0.5 },
   bottomSheetModalViewCont: {
     backgroundColor: theme.colors.white,
     alignItems: 'center',
@@ -196,5 +218,11 @@ const styles = StyleSheet.create({
   },
   searchIcon: {
     marginRight: 10,
+  },
+  listContentContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    alignItems: 'flex-start',
+    justifyContent: 'center',
   },
 });

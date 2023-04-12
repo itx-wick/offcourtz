@@ -1,32 +1,36 @@
-import React, {useState, useEffect, useMemo, useRef} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View, FlatList} from 'react-native';
-import {SvgXml} from 'react-native-svg';
-import {Calendar} from 'react-native-calendars';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View, FlatList, Image } from 'react-native';
+import { SvgXml } from 'react-native-svg';
+import { Calendar } from 'react-native-calendars';
 
-import {svgImages} from '../../helpers';
-import {theme} from '../../theme';
+import { svgImages } from '../../helpers';
+import { theme } from '../../theme';
 import Button from '../../components/button';
-import {screenHeight, screenWidth} from '../../constants';
+import { screenHeight, screenWidth } from '../../constants';
 import {
   fontFamily,
   fontSize,
   fontWeight,
 } from '../../constants/fontDecorations';
-import {Commons} from '../../utils';
+import { Commons } from '../../utils';
 import AppFlatlist from '../../components/appFlatlist';
 import BottomSheetModalView from '../../components/bottomSheetModalView';
-import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
-const {colors} = theme;
+import userPlaceholder from '../../assets/images/user.jpeg';
+import { BottomSheetBackdrop } from '@gorhom/bottom-sheet';
+const { colors } = theme;
 
-const CreateChallenge = ({route, navigation}) => {
+const CreateChallenge = ({ route, navigation }) => {
   const bottomSheetModalRef = useRef(null);
   const [currentStep, setCurrentStep] = useState(0);
   const snapPoints = useMemo(() => ['100%', '100%'], []);
+  const [listData, setListData] = useState([]);
   const [step1Data, setStep1Data] = useState(Commons.step1Data);
   const [step2Data, setStep2Data] = useState(Commons.step2Data);
   const [step3Data, setStep3Data] = useState(Commons.step3Data);
   const [step4Data, setStep4Data] = useState(Commons.step4Data);
   const [step5Data, setStep5Data] = useState(Commons.step5Data);
+  const [groups, setGroups] = useState(Commons.groupsData);
+  const [friends, setFriends] = useState(Commons.friendsData);
   const [selected, setSelected] = useState(new Date().toISOString());
 
   const backdropComponent = backdropProps => (
@@ -57,7 +61,7 @@ const CreateChallenge = ({route, navigation}) => {
     }
   };
 
-  const step1ListRenderItem = ({item, index}) => {
+  const step1ListRenderItem = ({ item, index }) => {
     return (
       <TouchableOpacity
         onPress={() => {
@@ -85,7 +89,7 @@ const CreateChallenge = ({route, navigation}) => {
     );
   };
 
-  const step2ListRenderItem = ({item, index}) => {
+  const step2ListRenderItem = ({ item, index }) => {
     return (
       <TouchableOpacity
         onPress={() => {
@@ -105,7 +109,7 @@ const CreateChallenge = ({route, navigation}) => {
           <Text style={styles.step2ChipTitle}>{`${item.title}`}</Text>
           {item.time && (
             <View style={styles.step2DescView}>
-              <SvgXml xml={svgImages.clock} style={{marginRight: 5}} />
+              <SvgXml xml={svgImages.clock} style={{ marginRight: 5 }} />
               <Text style={styles.step2Desc}>{`${item.time}`}</Text>
             </View>
           )}
@@ -115,7 +119,7 @@ const CreateChallenge = ({route, navigation}) => {
     );
   };
 
-  const step3ListRenderItem = ({item, index}) => {
+  const step3ListRenderItem = ({ item, index }) => {
     return (
       <TouchableOpacity
         onPress={() => {
@@ -143,7 +147,7 @@ const CreateChallenge = ({route, navigation}) => {
     );
   };
 
-  const step4ListRenderItem = ({item, index}) => {
+  const step4ListRenderItem = ({ item, index }) => {
     return (
       <TouchableOpacity
         onPress={() => {
@@ -171,7 +175,7 @@ const CreateChallenge = ({route, navigation}) => {
     );
   };
 
-  const step5ListRenderItem = ({item, index}) => {
+  const step5ListRenderItem = ({ item, index }) => {
     return (
       <TouchableOpacity
         onPress={() => {
@@ -180,8 +184,11 @@ const CreateChallenge = ({route, navigation}) => {
           });
           setStep5Data([...step5Data]);
           if (item.label === 'Challenge Groups') {
+            setListData(Commons.groupsData)
             bottomSheetModalRef.current.present();
           } else if (item.label === 'Challenge Friends') {
+            setListData(Commons.friendsData)
+            bottomSheetModalRef.current.present();
           }
         }}
         style={styles.step5ListItem}>
@@ -193,19 +200,51 @@ const CreateChallenge = ({route, navigation}) => {
     );
   };
 
+  const renderListItem = ({ item, index }) => {
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          groups[index].selected = !item.selected;
+          setGroups([...groups])
+        }}
+        style={styles.listItem}>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <Image source={userPlaceholder} style={styles.userImage} />
+          <Text style={styles.listItemTitle}>{item.title}</Text>
+        </View>
+        <SvgXml
+          xml={item.selected ? svgImages.selectedRadioBtn : svgImages.radioBtn}
+        />
+      </TouchableOpacity>
+    );
+  }
+
+  const flatListItemSeparator = () => {
+    return (
+      <View
+        style={{
+          height: 1,
+          width: screenWidth * 0.9,
+          backgroundColor: theme.colors.gray1,
+        }}
+      />
+    );
+  }
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.headerMainContainer}>
         <View style={styles.headContainer}>
           <TouchableOpacity
             onPress={navigateBack}
-            style={{position: 'absolute', left: 15}}>
+            style={{ position: 'absolute', left: 15 }}>
             <SvgXml width="36" height="36 " xml={svgImages.back} />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Create Challenge</Text>
         </View>
       </View>
-      <View style={{flex: 1, alignItems: 'center'}}>
+
+      <View style={{ flex: 1, alignItems: 'center' }}>
         <View
           style={{
             width: screenWidth,
@@ -357,6 +396,7 @@ const CreateChallenge = ({route, navigation}) => {
             />
           </View>
         </View>
+
         {currentStep === 0 && (
           <View style={styles.secContainer1}>
             <Text style={styles.sectionTitle}>
@@ -377,7 +417,7 @@ const CreateChallenge = ({route, navigation}) => {
             style={{
               width: screenWidth,
             }}>
-            <Text style={[styles.sectionTitle, {marginBottom: 15}]}>
+            <Text style={[styles.sectionTitle, { marginBottom: 15 }]}>
               {'Which exercise would \n you like to compete in?'}
             </Text>
             <AppFlatlist
@@ -492,14 +532,15 @@ const CreateChallenge = ({route, navigation}) => {
           </View>
         )}
       </View>
+
       <View style={styles.btnMainView}>
         <Button
           title={
             currentStep == 5
               ? 'CREATE CHALLENGE'
               : currentStep == 4
-              ? 'DONE'
-              : 'NEXT'
+                ? 'DONE'
+                : 'NEXT'
           }
           onPress={() => {
             if (currentStep === 0) {
@@ -521,9 +562,17 @@ const CreateChallenge = ({route, navigation}) => {
       <BottomSheetModalView
         backdropComponent={backdropComponent}
         dismissSheetModal={dismissSheetModal}
-        onDismissHandler={() => {}}
+        renderListItem={renderListItem}
+        flatListItemSeparator={flatListItemSeparator}
+        onDismissHandler={() => { }}
+        onClickDone={() => {
+          const data = groups.filter(item => item.selected === true)
+          console.log(data)
+          bottomSheetModalRef.current?.dismiss();
+        }}
         paymentMethodRef={bottomSheetModalRef}
         snapPoints={snapPoints}
+        data={groups}
         title={'Challenge Groups'}
         titleStyle={styles.bottomSheetTitle}
         isPayment={false}
@@ -628,6 +677,23 @@ const styles = StyleSheet.create({
     color: theme.colors.black,
     textTransform: 'capitalize',
   },
+  listItem: {
+    backgroundColor: theme.colors.white,
+    flexDirection: 'row',
+    width: screenWidth * 0.9,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderRadius: 10,
+    paddingRight: 10,
+    paddingVertical: 10,
+    margin: 5,
+  },
+  listItemTitle: {
+    fontFamily: fontFamily.argentum_sans,
+    fontSize: fontFamily._14,
+    color: theme.colors.black,
+    textTransform: 'capitalize',
+  },
   contentContainer: {
     paddingHorizontal: 16,
     paddingVertical: 8,
@@ -666,5 +732,14 @@ const styles = StyleSheet.create({
     color: theme.colors.secondaryBlack,
     fontFamily: fontFamily.argentum_sans,
     fontSize: fontSize.bottom_sheet_title,
+  },
+  userImage: {
+    width: 0.12 * screenWidth,
+    height: 0.12 * screenWidth,
+    borderRadius: 0.12 * screenWidth,
+    borderWidth: 2,
+    marginRight: 10,
+    resizeMode: 'contain',
+    borderColor: theme.colors.greyText,
   },
 });
