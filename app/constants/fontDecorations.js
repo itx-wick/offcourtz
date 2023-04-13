@@ -5,6 +5,9 @@ export const fontFamily = {
   argentum_sans: 'Argentum Sans',
 };
 export const fontWeight = {
+  100: '100',
+  200: '200',
+  300: '300',
   400: '400',
   500: '500',
   500: '600',

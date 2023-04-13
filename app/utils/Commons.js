@@ -1,8 +1,8 @@
 import React from 'react';
-import { BackHandler } from 'react-native';
-import { CommonActions } from '@react-navigation/native';
-import { SvgXml } from 'react-native-svg';
-import { svgImages } from '../helpers';
+import {BackHandler} from 'react-native';
+import {CommonActions} from '@react-navigation/native';
+import {SvgXml} from 'react-native-svg';
+import {svgImages} from '../helpers';
 
 export default {
   calculateDateFromObj: date => {
@@ -20,7 +20,7 @@ export default {
   reset: (navigation, screen) => {
     const resetAction = CommonActions.reset({
       index: 0,
-      routes: [{ name: screen }],
+      routes: [{name: screen}],
     });
     navigation.dispatch(resetAction);
   },
@@ -52,7 +52,7 @@ export default {
         <SvgXml
           xml={svgImages.mask1}
           style={{
-            transform: [{ rotate: '180deg' }],
+            transform: [{rotate: '180deg'}],
             marginBottom: -8,
             marginTop: 15,
           }}
@@ -68,7 +68,7 @@ export default {
         <SvgXml
           xml={svgImages.mask2}
           style={{
-            transform: [{ rotateX: '180deg' }],
+            transform: [{rotateX: '180deg'}],
             marginBottom: -8,
             marginTop: 15,
           }}
@@ -84,7 +84,7 @@ export default {
         <SvgXml
           xml={svgImages.mask3}
           style={{
-            transform: [{ rotateX: '180deg' }],
+            transform: [{rotateX: '180deg'}],
             marginBottom: -5,
             marginTop: 15,
           }}
@@ -117,6 +117,17 @@ export default {
     },
   ],
 
+  communityFilter: [
+    {
+      id: 1,
+      value: 'Global',
+    },
+    {
+      id: 2,
+      value: 'Friends',
+    },
+  ],
+
   workouts: [
     {
       id: 1,
@@ -126,7 +137,7 @@ export default {
         <SvgXml
           xml={svgImages.mask2}
           style={{
-            transform: [{ rotateX: '180deg' }],
+            transform: [{rotateX: '180deg'}],
             marginBottom: -8,
             marginTop: 15,
           }}
@@ -142,7 +153,7 @@ export default {
         <SvgXml
           xml={svgImages.mask2}
           style={{
-            transform: [{ rotateX: '180deg' }],
+            transform: [{rotateX: '180deg'}],
             marginBottom: -5,
             marginTop: 15,
           }}
@@ -161,7 +172,7 @@ export default {
         <SvgXml
           xml={svgImages.mask1}
           style={{
-            transform: [{ rotate: '180deg' }],
+            transform: [{rotate: '180deg'}],
             marginBottom: -8,
             marginTop: 15,
           }}
@@ -177,7 +188,7 @@ export default {
         <SvgXml
           xml={svgImages.mask2}
           style={{
-            transform: [{ rotateX: '180deg' }],
+            transform: [{rotateX: '180deg'}],
             marginBottom: -8,
             marginTop: 15,
           }}
@@ -193,7 +204,7 @@ export default {
         <SvgXml
           xml={svgImages.mask3}
           style={{
-            transform: [{ rotateX: '180deg' }],
+            transform: [{rotateX: '180deg'}],
             marginBottom: -5,
             marginTop: 15,
           }}
@@ -2295,9 +2306,9 @@ export default {
   ],
 
   step1Data: [
-    { key: '1', label: 'Challenge Yourself', selected: false },
-    { key: '2', label: 'Challenge Groups', selected: false },
-    { key: '3', label: 'Challenge Friends', selected: false },
+    {key: '1', label: 'Challenge Yourself', selected: false},
+    {key: '2', label: 'Challenge Groups', selected: false},
+    {key: '3', label: 'Challenge Friends', selected: false},
   ],
 
   step2Data: [
@@ -2309,7 +2320,7 @@ export default {
         <SvgXml
           xml={svgImages.mask1}
           style={{
-            transform: [{ rotate: '180deg' }],
+            transform: [{rotate: '180deg'}],
             marginBottom: -8,
             marginTop: 15,
           }}
@@ -2326,7 +2337,7 @@ export default {
         <SvgXml
           xml={svgImages.mask2}
           style={{
-            transform: [{ rotateX: '180deg' }],
+            transform: [{rotateX: '180deg'}],
             marginBottom: -8,
             marginTop: 15,
           }}
@@ -2343,7 +2354,7 @@ export default {
         <SvgXml
           xml={svgImages.mask3}
           style={{
-            transform: [{ rotateX: '180deg' }],
+            transform: [{rotateX: '180deg'}],
             marginBottom: -5,
             marginTop: 15,
           }}
@@ -2355,42 +2366,71 @@ export default {
   ],
 
   step3Data: [
-    { key: '1', label: 'As many as possible', selected: false },
-    { key: '2', label: 'Hit a Target', selected: false },
-    { key: '3', label: 'time', selected: false },
-    { key: '4', label: 'As fast as possible', selected: false },
-    { key: '5', label: 'In a row', selected: false },
-    { key: '6', label: 'weight', selected: false },
-    { key: '7', label: 'Second Bounce', selected: false },
-    { key: '8', label: 'Repitions', selected: false },
+    {key: '1', label: 'As many as possible', selected: false},
+    {key: '2', label: 'Hit a Target', selected: false},
+    {key: '3', label: 'time', selected: false},
+    {key: '4', label: 'As fast as possible', selected: false},
+    {key: '5', label: 'In a row', selected: false},
+    {key: '6', label: 'weight', selected: false},
+    {key: '7', label: 'Second Bounce', selected: false},
+    {key: '8', label: 'Repitions', selected: false},
   ],
 
   step4Data: [
-    { key: '1', label: '10 in a Row', selected: false },
-    { key: '2', label: '100 Kg with Weight', selected: false },
-    { key: '3', label: '5 in a Row', selected: false },
-    { key: '4', label: '5 mins long with time', selected: false },
+    {key: '1', label: '10 in a Row', selected: false},
+    {key: '2', label: '100 Kg with Weight', selected: false},
+    {key: '3', label: '5 in a Row', selected: false},
+    {key: '4', label: '5 mins long with time', selected: false},
   ],
 
   step5Data: [
-    { key: '1', label: 'Challenge Yourself', selected: false },
-    { key: '2', label: 'Challenge Groups', selected: false },
-    { key: '3', label: 'Challenge Friends', selected: false },
+    {key: '1', label: 'Challenge Yourself', selected: false},
+    {key: '2', label: 'Challenge Groups', selected: false},
+    {key: '3', label: 'Challenge Friends', selected: false},
   ],
 
   groupsData: [
-    { id: '1', title: 'Tennis Group', selected: false },
-    { id: '2', title: 'All England Club', selected: false },
-    { id: '3', title: 'Ronald Garr Group', selected: false },
-    { id: '4', title: 'Cross League Club', selected: false },
+    {id: '1', title: 'Tennis Group', selected: false},
+    {id: '2', title: 'All England Club', selected: false},
+    {id: '3', title: 'Ronald Garr Group', selected: false},
+    {id: '4', title: 'Cross League Club', selected: false},
   ],
 
   friendsData: [
-    { id: '1', title: 'Jane Cooper', selected: false },
-    { id: '2', title: 'Robert Smith', selected: false },
-    { id: '3', title: 'James Smith', selected: false },
-    { id: '4', title: 'David Hernz', selected: false },
-    { id: '5', title: 'Maria Rodriguez', selected: false },
-    { id: '6', title: 'Mary Hernandez', selected: false },
+    {id: '1', title: 'Jane Cooper', selected: false},
+    {id: '2', title: 'Robert Smith', selected: false},
+    {id: '3', title: 'James Smith', selected: false},
+    {id: '4', title: 'David Hernz', selected: false},
+    {id: '5', title: 'Maria Rodriguez', selected: false},
+    {id: '6', title: 'Mary Hernandez', selected: false},
+  ],
+
+  communityData: [
+    {
+      id: '1',
+      name: 'John Doe',
+      desc: 'Tenis Forehand Techinque!',
+      postTime: '8 mins ago',
+      playTime: '12 Mins',
+      playTechnique: 'Technique',
+      playCount: '7 Exercises',
+      userImage: require('../assets/images/userImg1.png'),
+      image: require('../assets/images/post1.png'),
+      likes: 65,
+      comments: 2,
+    },
+    {
+      id: '1',
+      name: 'Ronnie Wright',
+      desc: 'Tenis Backhand Techinque!',
+      postTime: '15 mins ago',
+      playTime: '12 Mins',
+      playTechnique: 'Technique',
+      playCount: '7 Exercises',
+      userImage: require('../assets/images/userImg2.png'),
+      image: require('../assets/images/post2.png'),
+      likes: 107,
+      comments: 2,
+    },
   ],
 };

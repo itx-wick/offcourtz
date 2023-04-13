@@ -10,18 +10,13 @@ import {SvgXml} from 'react-native-svg';
 
 import {svgImages} from '../../helpers';
 import {theme} from '../../theme';
-import FAB from '../../components/fab';
 import {screenHeight, screenWidth} from '../../constants';
-import {
-  fontFamily,
-  fontSize,
-  fontWeight,
-} from '../../constants/fontDecorations';
-import {screens} from '../../config';
-import TextField from '../../components/textField';
+import {fontFamily, fontSize} from '../../constants/fontDecorations';
 import {Commons} from '../../utils';
 import AppFlatlist from '../../components/appFlatlist';
+import Post from '../../components/communityPost';
 function Community({navigation}) {
+  const [filter, setFilter] = React.useState({});
   return (
     <View style={styles.mainContainer}>
       <View style={styles.headerMainContainer}>
@@ -61,6 +56,48 @@ function Community({navigation}) {
           </TouchableOpacity>
         </View>
       </View>
+      <AppFlatlist
+        horizontal
+        style={{
+          width: screenWidth,
+          padding: 10,
+          marginTop: 20,
+          backgroundColor: theme.colors.white,
+        }}
+        ListFooterComponent={<View style={{paddingHorizontal: 10}} />}
+        data={Commons.communityFilter}
+        renderItem={({item, index}) => (
+          <TouchableOpacity
+            style={{
+              flexDirection: 'row',
+              height: 0.1 * screenWidth,
+              borderRadius: 0.1 * screenWidth,
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              paddingHorizontal: 15,
+              marginHorizontal: 5,
+              borderColor: theme.colors.gray1,
+              backgroundColor:
+                item.value === filter.value
+                  ? theme.colors.primary
+                  : theme.colors.transparent,
+            }}
+            onPress={() => {
+              setFilter(item);
+            }}>
+            <SvgXml xml={svgImages.smallLogoIcon} style={{marginRight: 5}} />
+            <Text style={{fontFamily: fontFamily.argentum_sans}}>
+              {item.value}
+            </Text>
+          </TouchableOpacity>
+        )}
+      />
+      <AppFlatlist
+        data={Commons.communityData}
+        ListFooterComponent={<View style={{height: 0.66 * screenWidth}} />}
+        height={screenHeight}
+        renderItem={({item, index}) => <Post item={item} index={index} />}
+      />
     </View>
   );
 }

@@ -140,22 +140,23 @@ const BottomSheetModalView = props => {
                   contentContainerStyle={styles.listContentContainer}
                   renderItem={props.renderListItem}
                 />
+
+                <View style={{width: screenWidth, alignItems: 'center'}}>
+                  <Button
+                    title={'Done'}
+                    onPress={props.onClickDone}
+                    btnWidth={screenWidth * 0.9}
+                    btnHeight={0.12 * screenWidth}
+                    titleColor={theme.colors.white}
+                    backgroundColor={theme.colors.primary}
+                    btnStyle={{
+                      position: 'absolute',
+                      bottom: 25,
+                    }}
+                  />
+                </View>
               </>
             )}
-            <View style={{width: screenWidth, alignItems: 'center'}}>
-              <Button
-                title={'Done'}
-                onPress={props.onClickDone}
-                btnWidth={screenWidth * 0.9}
-                btnHeight={0.12 * screenWidth}
-                titleColor={theme.colors.white}
-                backgroundColor={theme.colors.primary}
-                btnStyle={{
-                  position: 'absolute',
-                  bottom: 25,
-                }}
-              />
-            </View>
           </View>
         </BottomSheetModal>
       </View>
