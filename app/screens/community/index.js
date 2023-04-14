@@ -6,23 +6,37 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {SvgXml} from 'react-native-svg';
+import { SvgXml } from 'react-native-svg';
 
-import {svgImages} from '../../helpers';
-import {theme} from '../../theme';
-import {screenHeight, screenWidth} from '../../constants';
-import {fontFamily, fontSize} from '../../constants/fontDecorations';
-import {Commons} from '../../utils';
+import { svgImages } from '../../helpers';
+import { theme } from '../../theme';
+import { screenHeight, screenWidth } from '../../constants';
+import { fontFamily, fontSize } from '../../constants/fontDecorations';
+import { Commons } from '../../utils';
 import AppFlatlist from '../../components/appFlatlist';
 import Post from '../../components/communityPost';
-function Community({navigation}) {
+import FAB from '../../components/fab';
+import BottomSheetModalView from '../../components/bottomSheetModalView';
+function Community({ navigation }) {
+  const bottomSheetModalRef = useRef(null);
+  const snapPoints = useMemo(() => ['100%', '100%'], []);
+  const [bottomSheetTitle, setBottomSheetTitle] = useState('');
   const [filter, setFilter] = React.useState({});
+
+  const backdropComponent = backdropProps => (
+    <BottomSheetBackdrop {...backdropProps} enableTouchThrough={true} />
+  );
+
+  function dismissBottomSheetModal() {
+    bottomSheetModalRef.current?.dismiss();
+  }
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.headerMainContainer}>
         <View style={styles.headContainer}>
           <TouchableOpacity
-            onPress={() => {}}
+            onPress={() => { }}
             style={{
               width: '10%',
               alignItems: 'center',
@@ -42,7 +56,7 @@ function Community({navigation}) {
             Community
           </Text>
           <TouchableOpacity
-            onPress={() => {}}
+            onPress={() => { }}
             style={{
               width: '10%',
               alignItems: 'center',
@@ -64,9 +78,9 @@ function Community({navigation}) {
           marginTop: 20,
           backgroundColor: theme.colors.white,
         }}
-        ListFooterComponent={<View style={{paddingHorizontal: 10}} />}
+        ListFooterComponent={<View style={{ paddingHorizontal: 10 }} />}
         data={Commons.communityFilter}
-        renderItem={({item, index}) => (
+        renderItem={({ item, index }) => (
           <TouchableOpacity
             style={{
               flexDirection: 'row',
@@ -85,8 +99,8 @@ function Community({navigation}) {
             onPress={() => {
               setFilter(item);
             }}>
-            <SvgXml xml={svgImages.smallLogoIcon} style={{marginRight: 5}} />
-            <Text style={{fontFamily: fontFamily.argentum_sans}}>
+            <SvgXml xml={svgImages.smallLogoIcon} style={{ marginRight: 5 }} />
+            <Text style={{ fontFamily: fontFamily.argentum_sans }}>
               {item.value}
             </Text>
           </TouchableOpacity>
@@ -94,9 +108,23 @@ function Community({navigation}) {
       />
       <AppFlatlist
         data={Commons.communityData}
-        ListFooterComponent={<View style={{height: 0.66 * screenWidth}} />}
+        ListFooterComponent={<View style={{ height: 0.66 * screenWidth }} />}
         height={screenHeight}
-        renderItem={({item, index}) => <Post item={item} index={index} />}
+        renderItem={({ item, index }) => <Post item={item} index={index} />}
+      />
+      <FAB onPress={() => { }} icon={svgImages.add} />
+      <BottomSheetModalView
+        backdropComponent={backdropComponent}
+        dismissSheetModal={dismissBottomSheetModal}
+        renderListItem={renderListItem}
+        flatListItemSeparator={flatListItemSeparator}
+        onDismissHandler={() => { }}
+        paymentMethodRef={bottomSheetModalRef}
+        snapPoints={snapPoints}
+        community={true}
+        paymentClick={() => {
+          dismissBottomSheetModal();
+        }}
       />
     </View>
   );
