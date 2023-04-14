@@ -122,9 +122,6 @@ function Community({ navigation }) {
         paymentMethodRef={bottomSheetModalRef}
         snapPoints={snapPoints}
         community={true}
-        paymentClick={() => {
-          dismissBottomSheetModal();
-        }}
       />
     </View>
   );
