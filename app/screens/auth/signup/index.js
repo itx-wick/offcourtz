@@ -123,6 +123,7 @@ const Signup = ({navigation}) => {
               borderRadius={0.12 * screenWidth}
               icon={svgImages.caretDown}
               title={'Select Country'}
+              type={'Country'}
               data={Commons.countries}
               selectedItem={selectedItem}
               onPressItem={handleSelection}

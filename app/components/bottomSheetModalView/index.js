@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
-import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import React, {useState, useEffect} from 'react';
+import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import {BottomSheetModal, BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { screenHeight, screenWidth } from '../../constants';
-import { svgImages } from '../../helpers';
+import {screenHeight, screenWidth} from '../../constants';
+import {svgImages} from '../../helpers';
 import {
   fontFamily,
   fontSize,
   fontWeight,
 } from '../../constants/fontDecorations';
 import Button from '../button';
-import { theme } from '../../theme';
-import { SvgXml } from 'react-native-svg';
-import { TextInput } from 'react-native';
-import { FlatList } from 'react-native';
+import {theme} from '../../theme';
+import {SvgXml} from 'react-native-svg';
+import {TextInput} from 'react-native';
+import {FlatList} from 'react-native';
 const BottomSheetModalView = props => {
   const searchRef = React.useRef();
   const [search, setSearch] = useState('');
@@ -48,9 +48,9 @@ const BottomSheetModalView = props => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginTop: props.isPayment
-                  ? 0.06 * screenWidth
-                  : 0.1 * screenWidth,
+                // marginTop: props.isPayment
+                //   ? 0.06 * screenWidth
+                //   : 0.1 * screenWidth,
               }}>
               <Text
                 style={
@@ -63,7 +63,7 @@ const BottomSheetModalView = props => {
               {props.closeIcon && (
                 <TouchableOpacity
                   onPress={() => props.dismissSheetModal()}
-                  style={{ position: 'absolute', right: 25 }}>
+                  style={{position: 'absolute', right: 25}}>
                   <SvgXml xml={svgImages.x} />
                 </TouchableOpacity>
               )}
@@ -134,14 +134,14 @@ const BottomSheetModalView = props => {
                 <FlatList
                   data={data}
                   showsVerticalScrollIndicator={false}
-                  ListFooterComponent={<View style={{ height: 10 }} />}
+                  ListFooterComponent={<View style={{height: 10}} />}
                   ItemSeparatorComponent={props.flatListItemSeparator}
                   keyExtractor={item => item.key}
                   contentContainerStyle={styles.listContentContainer}
                   renderItem={props.renderListItem}
                 />
 
-                <View style={{ width: screenWidth, alignItems: 'center' }}>
+                <View style={{width: screenWidth, alignItems: 'center'}}>
                   <Button
                     title={'Done'}
                     onPress={props.onClickDone}
@@ -157,9 +157,19 @@ const BottomSheetModalView = props => {
                 </View>
               </>
             )}
-            {props.community && (<View>
-              <Text>Hello</Text>
-            </View>)}
+            {props.community && (
+              <View>
+                <FlatList
+                  data={data}
+                  showsVerticalScrollIndicator={false}
+                  ListFooterComponent={<View style={{height: 10}} />}
+                  ItemSeparatorComponent={props.flatListItemSeparator}
+                  keyExtractor={item => item.id}
+                  contentContainerStyle={styles.listContentContainer}
+                  renderItem={props.renderListItem}
+                />
+              </View>
+            )}
           </View>
         </BottomSheetModal>
       </View>
@@ -169,7 +179,7 @@ const BottomSheetModalView = props => {
 
 export default BottomSheetModalView;
 const styles = StyleSheet.create({
-  containerStyle: { opacity: 0.5 },
+  containerStyle: {opacity: 0.5},
   bottomSheetModalViewCont: {
     backgroundColor: theme.colors.white,
     alignItems: 'center',

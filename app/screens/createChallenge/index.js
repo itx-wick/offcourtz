@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, {useState, useEffect, useMemo, useRef} from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,27 +7,27 @@ import {
   FlatList,
   Image,
 } from 'react-native';
-import { SvgXml } from 'react-native-svg';
-import { Calendar } from 'react-native-calendars';
+import {SvgXml} from 'react-native-svg';
+import {Calendar} from 'react-native-calendars';
 
-import { svgImages } from '../../helpers';
-import { theme } from '../../theme';
+import {svgImages} from '../../helpers';
+import {theme} from '../../theme';
 import Button from '../../components/button';
-import { screenHeight, screenWidth } from '../../constants';
+import {screenHeight, screenWidth} from '../../constants';
 import {
   fontFamily,
   fontSize,
   fontWeight,
 } from '../../constants/fontDecorations';
-import { Commons } from '../../utils';
+import {Commons} from '../../utils';
 import AppFlatlist from '../../components/appFlatlist';
 import FriendsBottomSheetModalView from '../../components/bottomSheetModalView';
 import GroupsBottomSheetModalView from '../../components/bottomSheetModalView';
 import userPlaceholder from '../../assets/images/user.jpeg';
-import { BottomSheetBackdrop } from '@gorhom/bottom-sheet';
-const { colors } = theme;
+import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
+const {colors} = theme;
 
-const CreateChallenge = ({ route, navigation }) => {
+const CreateChallenge = ({route, navigation}) => {
   const friendsModalRef = useRef(null);
   const groupsModalRef = useRef(null);
   const [currentStep, setCurrentStep] = useState(0);
@@ -74,7 +74,7 @@ const CreateChallenge = ({ route, navigation }) => {
     }
   };
 
-  const step1ListRenderItem = ({ item, index }) => {
+  const step1ListRenderItem = ({item, index}) => {
     return (
       <TouchableOpacity
         onPress={() => {
@@ -102,7 +102,7 @@ const CreateChallenge = ({ route, navigation }) => {
     );
   };
 
-  const step2ListRenderItem = ({ item, index }) => {
+  const step2ListRenderItem = ({item, index}) => {
     return (
       <TouchableOpacity
         onPress={() => {
@@ -122,7 +122,7 @@ const CreateChallenge = ({ route, navigation }) => {
           <Text style={styles.step2ChipTitle}>{`${item.title}`}</Text>
           {item.time && (
             <View style={styles.step2DescView}>
-              <SvgXml xml={svgImages.clock} style={{ marginRight: 5 }} />
+              <SvgXml xml={svgImages.clock} style={{marginRight: 5}} />
               <Text style={styles.step2Desc}>{`${item.time}`}</Text>
             </View>
           )}
@@ -132,7 +132,7 @@ const CreateChallenge = ({ route, navigation }) => {
     );
   };
 
-  const step3ListRenderItem = ({ item, index }) => {
+  const step3ListRenderItem = ({item, index}) => {
     return (
       <TouchableOpacity
         onPress={() => {
@@ -160,7 +160,7 @@ const CreateChallenge = ({ route, navigation }) => {
     );
   };
 
-  const step4ListRenderItem = ({ item, index }) => {
+  const step4ListRenderItem = ({item, index}) => {
     return (
       <TouchableOpacity
         onPress={() => {
@@ -188,7 +188,7 @@ const CreateChallenge = ({ route, navigation }) => {
     );
   };
 
-  const step5ListRenderItem = ({ item, index }) => {
+  const step5ListRenderItem = ({item, index}) => {
     return (
       <TouchableOpacity
         onPress={() => {
@@ -213,7 +213,7 @@ const CreateChallenge = ({ route, navigation }) => {
     );
   };
 
-  const renderListItem = ({ item, index }) => {
+  const renderListItem = ({item, index}) => {
     return (
       <TouchableOpacity
         onPress={() => {
@@ -226,7 +226,7 @@ const CreateChallenge = ({ route, navigation }) => {
           }
         }}
         style={styles.listItem}>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <Image source={userPlaceholder} style={styles.userImage} />
           <Text style={styles.listItemTitle}>{item.title}</Text>
         </View>
@@ -255,14 +255,14 @@ const CreateChallenge = ({ route, navigation }) => {
         <View style={styles.headContainer}>
           <TouchableOpacity
             onPress={navigateBack}
-            style={{ position: 'absolute', left: 15 }}>
+            style={{position: 'absolute', left: 15}}>
             <SvgXml width="36" height="36 " xml={svgImages.back} />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Create Challenge</Text>
         </View>
       </View>
 
-      <View style={{ flex: 1, alignItems: 'center' }}>
+      <View style={{flex: 1, alignItems: 'center'}}>
         <View
           style={{
             width: screenWidth,
@@ -435,7 +435,7 @@ const CreateChallenge = ({ route, navigation }) => {
             style={{
               width: screenWidth,
             }}>
-            <Text style={[styles.sectionTitle, { marginBottom: 15 }]}>
+            <Text style={[styles.sectionTitle, {marginBottom: 15}]}>
               {'Which exercise would \n you like to compete in?'}
             </Text>
             <AppFlatlist
@@ -557,8 +557,8 @@ const CreateChallenge = ({ route, navigation }) => {
             currentStep == 5
               ? 'CREATE CHALLENGE'
               : currentStep == 4
-                ? 'DONE'
-                : 'NEXT'
+              ? 'DONE'
+              : 'NEXT'
           }
           onPress={() => {
             if (currentStep === 0) {
@@ -582,7 +582,7 @@ const CreateChallenge = ({ route, navigation }) => {
         dismissSheetModal={dismissGroupsSheetModal}
         renderListItem={renderListItem}
         flatListItemSeparator={flatListItemSeparator}
-        onDismissHandler={() => { }}
+        onDismissHandler={() => {}}
         onClickDone={() => {
           const data = groups.filter(item => item.selected === true);
           console.log('Groups', data);
@@ -604,7 +604,7 @@ const CreateChallenge = ({ route, navigation }) => {
         dismissSheetModal={dismissFriendsSheetModal}
         renderListItem={renderListItem}
         flatListItemSeparator={flatListItemSeparator}
-        onDismissHandler={() => { }}
+        onDismissHandler={() => {}}
         onClickDone={() => {
           const data = friends.filter(item => item.selected === true);
           console.log('friends', data);
@@ -730,7 +730,7 @@ const styles = StyleSheet.create({
   },
   listItemTitle: {
     fontFamily: fontFamily.argentum_sans,
-    fontSize: fontFamily._14,
+    fontSize: fontSize.verbiage_medium,
     color: theme.colors.black,
     textTransform: 'capitalize',
   },

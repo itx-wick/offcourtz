@@ -55,18 +55,29 @@ function DropDown(props) {
               height: Platform.OS === 'ios' && props.height,
               borderColor: props.borderColor,
               borderRadius: props.width,
+              borderWidth: props.borderWidth,
             },
           ]}>
-          <View style={styles.dropDownTitleView}>
-            {props.selectedItem?.image && (
-              <SvgUri width="24" height="24" uri={props.selectedItem.image} />
-            )}
-            <Text style={styles.dropDownTitle}>
-              {props.selectedItem.title
-                ? props.selectedItem.title
-                : props.title}
-            </Text>
-          </View>
+          {props.type === 'Country' ? (
+            <View style={styles.dropDownTitleView}>
+              {props.selectedItem?.image && (
+                <SvgUri width="24" height="24" uri={props.selectedItem.image} />
+              )}
+              <Text style={styles.dropDownTitle}>
+                {props.selectedItem.title
+                  ? props.selectedItem.title
+                  : props.title}
+              </Text>
+            </View>
+          ) : (
+            <View style={styles.dropDownTitleView}>
+              <Text style={styles.dropDownTitle}>
+                {props.selectedItem.title
+                  ? props.selectedItem.title
+                  : props.title}
+              </Text>
+            </View>
+          )}
           {props.icon && (
             <SvgXml width="24" height="24 " xml={svgImages.caretDown} />
           )}
@@ -108,26 +119,28 @@ function DropDown(props) {
               },
             ]}
           />
-          <View style={styles.searchInputContainer}>
-            <Ionicons
-              name={'ios-search'}
-              size={24}
-              color={theme.colors.primary}
-              style={styles.searchIcon}
-            />
-            <TextInput
-              {...props}
-              value={search}
-              ref={searchRef}
-              onChangeText={txt => {
-                onSearch(txt);
-                setSearch(txt);
-              }}
-              style={styles.searchInput}
-              placeholder="Search Excercise"
-            />
-          </View>
-          <View style={styles.flatListView}>
+          {props.type === 'Country' && (
+            <View style={styles.searchInputContainer}>
+              <Ionicons
+                name={'ios-search'}
+                size={24}
+                color={theme.colors.primary}
+                style={styles.searchIcon}
+              />
+              <TextInput
+                {...props}
+                value={search}
+                ref={searchRef}
+                onChangeText={txt => {
+                  onSearch(txt);
+                  setSearch(txt);
+                }}
+                style={styles.searchInput}
+                placeholder="Search Excercise"
+              />
+            </View>
+          )}
+          <View style={[styles.flatListView, props.flatListView]}>
             <FlatList
               data={data}
               showsVerticalScrollIndicator={false}
@@ -148,12 +161,18 @@ function DropDown(props) {
                         onSearch('');
                         setSearch('');
                       }}>
-                      <View style={styles.listOptionIconView}>
-                        {item?.image && (
-                          <SvgUri width="24" height="24" uri={item.image} />
-                        )}
+                      {props.type === 'Country' ? (
+                        <View style={styles.listOptionIconView}>
+                          {item?.image && (
+                            <SvgUri width="24" height="24" uri={item.image} />
+                          )}
+                          <Text style={styles.listOptionTitle}>
+                            {item.title}
+                          </Text>
+                        </View>
+                      ) : (
                         <Text style={styles.listOptionTitle}>{item.title}</Text>
-                      </View>
+                      )}
                       {item.title == props.selectedItem.title && (
                         <MaterialIcons
                           name={'check'}
@@ -224,7 +243,7 @@ const styles = StyleSheet.create({
   },
   flatListView: {
     marginBottom: 10,
-    height: 0.35 * screenWidth,
+    minHeight: 0.35 * screenWidth,
   },
   listOptionMainRow: {
     display: 'flex',

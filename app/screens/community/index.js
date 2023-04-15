@@ -1,26 +1,29 @@
-import React from 'react';
+import React, {useRef, useMemo, useState} from 'react';
 import {
+  Image,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
-import { SvgXml } from 'react-native-svg';
+import {SvgXml} from 'react-native-svg';
 
-import { svgImages } from '../../helpers';
-import { theme } from '../../theme';
-import { screenHeight, screenWidth } from '../../constants';
-import { fontFamily, fontSize } from '../../constants/fontDecorations';
-import { Commons } from '../../utils';
+import {svgImages} from '../../helpers';
+import {theme} from '../../theme';
+import {screens} from '../../config';
+import {screenHeight, screenWidth} from '../../constants';
+import {fontFamily, fontSize} from '../../constants/fontDecorations';
+import {Commons} from '../../utils';
 import AppFlatlist from '../../components/appFlatlist';
 import Post from '../../components/communityPost';
 import FAB from '../../components/fab';
 import BottomSheetModalView from '../../components/bottomSheetModalView';
-function Community({ navigation }) {
+import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
+function Community({navigation}) {
   const bottomSheetModalRef = useRef(null);
-  const snapPoints = useMemo(() => ['100%', '100%'], []);
-  const [bottomSheetTitle, setBottomSheetTitle] = useState('');
+  const snapPoints = useMemo(() => ['20%', '20%'], []);
+  const [data, setData] = useState(Commons.communityModalData);
   const [filter, setFilter] = React.useState({});
 
   const backdropComponent = backdropProps => (
@@ -31,12 +34,54 @@ function Community({ navigation }) {
     bottomSheetModalRef.current?.dismiss();
   }
 
+  const renderListItem = ({item, index}) => {
+    console.log('===index===', index);
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          dismissBottomSheetModal();
+          if (index === 0) {
+            navigation.navigate(screens.createNewPost);
+          } else {
+            navigation.navigate(screens.createNewGroup);
+          }
+        }}
+        style={{width: 0.9 * screenWidth, paddingVertical: 15}}>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <SvgXml
+            xml={index === 0 ? svgImages.plusCircleIcon : svgImages.usersIcon}
+          />
+          <Text
+            style={{
+              fontFamily: fontFamily.argentum_sans,
+              fontSize: fontSize.verbiage_20,
+              paddingHorizontal: 10,
+            }}>
+            {item.title}
+          </Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
+  const flatListItemSeparator = () => {
+    return (
+      <View
+        style={{
+          height: 1,
+          width: screenWidth * 0.9,
+          backgroundColor: theme.colors.gray1,
+        }}
+      />
+    );
+  };
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.headerMainContainer}>
         <View style={styles.headContainer}>
           <TouchableOpacity
-            onPress={() => { }}
+            onPress={() => navigation.navigate(screens.manageCommunity)}
             style={{
               width: '10%',
               alignItems: 'center',
@@ -56,7 +101,7 @@ function Community({ navigation }) {
             Community
           </Text>
           <TouchableOpacity
-            onPress={() => { }}
+            onPress={() => {}}
             style={{
               width: '10%',
               alignItems: 'center',
@@ -78,9 +123,9 @@ function Community({ navigation }) {
           marginTop: 20,
           backgroundColor: theme.colors.white,
         }}
-        ListFooterComponent={<View style={{ paddingHorizontal: 10 }} />}
+        ListFooterComponent={<View style={{paddingHorizontal: 10}} />}
         data={Commons.communityFilter}
-        renderItem={({ item, index }) => (
+        renderItem={({item, index}) => (
           <TouchableOpacity
             style={{
               flexDirection: 'row',
@@ -92,33 +137,39 @@ function Community({ navigation }) {
               marginHorizontal: 5,
               borderColor: theme.colors.gray1,
               backgroundColor:
-                item.value === filter.value
+                item.title === filter.title
                   ? theme.colors.primary
                   : theme.colors.transparent,
             }}
             onPress={() => {
               setFilter(item);
             }}>
-            <SvgXml xml={svgImages.smallLogoIcon} style={{ marginRight: 5 }} />
-            <Text style={{ fontFamily: fontFamily.argentum_sans }}>
-              {item.value}
+            <SvgXml xml={svgImages.smallLogoIcon} style={{marginRight: 5}} />
+            <Text style={{fontFamily: fontFamily.argentum_sans}}>
+              {item.title}
             </Text>
           </TouchableOpacity>
         )}
       />
       <AppFlatlist
         data={Commons.communityData}
-        ListFooterComponent={<View style={{ height: 0.66 * screenWidth }} />}
+        ListFooterComponent={<View style={{height: 0.66 * screenWidth}} />}
         height={screenHeight}
-        renderItem={({ item, index }) => <Post item={item} index={index} />}
+        renderItem={({item, index}) => <Post item={item} index={index} />}
       />
-      <FAB onPress={() => { }} icon={svgImages.add} />
+      <FAB
+        onPress={() => {
+          bottomSheetModalRef.current?.present();
+        }}
+        icon={svgImages.add}
+      />
       <BottomSheetModalView
         backdropComponent={backdropComponent}
         dismissSheetModal={dismissBottomSheetModal}
+        data={data}
         renderListItem={renderListItem}
         flatListItemSeparator={flatListItemSeparator}
-        onDismissHandler={() => { }}
+        onDismissHandler={() => {}}
         paymentMethodRef={bottomSheetModalRef}
         snapPoints={snapPoints}
         community={true}

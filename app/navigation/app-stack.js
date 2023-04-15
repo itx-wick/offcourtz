@@ -9,8 +9,13 @@ import {
   Challenges,
   Community,
   CreateChallenge,
+  EditGroup,
   Exercises,
+  ManageCommunity,
+  ManageGroups,
   Workouts,
+  createNewGroup,
+  createNewPost,
 } from '../screens';
 import {updateActiveTabAction} from '../redux/reducers/activeTabSlice';
 
@@ -74,6 +79,31 @@ const MainNavigator = ({props}) => {
       <MainStack.Screen
         name={screens.createChallenge}
         component={CreateChallenge}
+        options={{gestureEnabled: false}}
+      />
+      <MainStack.Screen
+        name={screens.createNewPost}
+        component={createNewPost}
+        options={{gestureEnabled: false}}
+      />
+      <MainStack.Screen
+        name={screens.createNewGroup}
+        component={createNewGroup}
+        options={{gestureEnabled: false}}
+      />
+      <MainStack.Screen
+        name={screens.manageCommunity}
+        component={ManageCommunity}
+        options={{gestureEnabled: false}}
+      />
+      <MainStack.Screen
+        name={screens.manageGroups}
+        component={ManageGroups}
+        options={{gestureEnabled: false}}
+      />
+      <MainStack.Screen
+        name={screens.editGroup}
+        component={EditGroup}
         options={{gestureEnabled: false}}
       />
       {/* // screens are able to swipe back */}

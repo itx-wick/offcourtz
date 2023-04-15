@@ -249,6 +249,7 @@ function Post({item, index}) {
               borderRadius: 5,
             }}
             placeholder="Leave your comment here..."
+            placeholderTextColor={theme.colors.greyText}
           />
         </View>
       </View>

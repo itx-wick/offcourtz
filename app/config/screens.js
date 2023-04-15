@@ -16,6 +16,11 @@ const screens = {
   workouts: 'Workouts',
   exercises: 'Exercises',
   community: 'Community',
+  createNewPost: 'CreateNewPost',
+  createNewGroup: 'CreateNewGroup',
+  editGroup: 'EditGroup',
+  manageCommunity: 'ManageCommunity',
+  manageGroups: 'ManageGroups',
 };
 
 export {screens};

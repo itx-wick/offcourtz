@@ -9,3 +9,8 @@ export {default as CreateChallenge} from './createChallenge';
 export {default as Workouts} from './workouts';
 export {default as Exercises} from './exercises';
 export {default as Community} from './community';
+export {default as createNewPost} from './community/createNewPost';
+export {default as createNewGroup} from './community/createNewGroup';
+export {default as EditGroup} from './community/editGroup';
+export {default as ManageCommunity} from './community/manageCommunity';
+export {default as ManageGroups} from './community/manageGroups';
