@@ -1,11 +1,5 @@
-import React, {useState} from 'react';
-import {
-  Image,
-  ImageBackground,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
+import React from 'react';
+import {Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {View, Text} from 'react-native';
 import {theme} from '../../theme';
 import {
@@ -72,7 +66,7 @@ function ManageCommunity({navigation}) {
           />
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => {}}
+          onPress={() => navigation.navigate(screens.friendRequests)}
           style={{
             width: 0.92 * screenWidth,
             flexDirection: 'row',
@@ -108,7 +102,7 @@ function ManageCommunity({navigation}) {
           />
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => {}}
+          onPress={() => navigation.navigate(screens.challengeRequests)}
           style={{
             width: 0.92 * screenWidth,
             flexDirection: 'row',

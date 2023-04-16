@@ -2444,4 +2444,15 @@ export default {
       title: 'Create New Group',
     },
   ],
+
+  listTab: [
+    {
+      id: '1',
+      status: 'Recieved',
+    },
+    {
+      id: '2',
+      status: 'Sent',
+    },
+  ],
 };

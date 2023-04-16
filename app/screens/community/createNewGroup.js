@@ -24,7 +24,7 @@ import {Commons} from '../../utils';
 import {TextInput} from 'react-native-gesture-handler';
 import {FlatList} from 'react-native';
 import {Image} from 'react-native';
-function createNewGroup({navigation}) {
+function CreateNewGroup({navigation}) {
   const searchRef = useRef();
   const [search, setSearch] = useState('');
   const [data, setData] = useState(Commons.friendsData);
@@ -301,7 +301,7 @@ function createNewGroup({navigation}) {
   );
 }
 
-export default createNewGroup;
+export default CreateNewGroup;
 
 const styles = StyleSheet.create({
   mainContainer: {

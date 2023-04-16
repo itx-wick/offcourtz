@@ -21,6 +21,9 @@ const screens = {
   editGroup: 'EditGroup',
   manageCommunity: 'ManageCommunity',
   manageGroups: 'ManageGroups',
+  friendRequests: 'FriendRequests',
+  groupRequests: 'GroupRequests',
+  challengeRequests: 'ChallengeRequests',
 };
 
 export {screens};

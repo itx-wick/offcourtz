@@ -21,7 +21,7 @@ import {SvgXml} from 'react-native-svg';
 import Button from '../../components/button';
 import {Commons} from '../../utils';
 import {TextInput} from 'react-native-gesture-handler';
-function createNewPost({navigation}) {
+function CreateNewPost({navigation}) {
   const [selectedItem, setSelectedItem] = useState({});
   const [modalVisible, setModalVisible] = useState(false);
   function handleSelection(e) {
@@ -224,7 +224,7 @@ function createNewPost({navigation}) {
   );
 }
 
-export default createNewPost;
+export default CreateNewPost;
 
 const styles = StyleSheet.create({
   mainContainer: {
