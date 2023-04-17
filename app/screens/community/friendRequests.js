@@ -1,39 +1,62 @@
-import React, {useState} from 'react';
-import {StyleSheet, TouchableOpacity} from 'react-native';
-import {View, Text} from 'react-native';
-import {theme} from '../../theme';
+import React, { useEffect, useState } from 'react';
+import { FlatList, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native';
+import { theme } from '../../theme';
 import {
   fontFamily,
   fontSize,
   fontWeight,
 } from '../../constants/fontDecorations';
-import {screenWidth} from '../../constants';
-import {svgImages} from '../../helpers';
-import {screens} from '../../config';
-import {SvgXml} from 'react-native-svg';
-import {Commons} from '../../utils';
-function FriendRequests({navigation}) {
+import userPlaceholder from '../../assets/images/userImg1.png';
+import { screenWidth } from '../../constants';
+import { svgImages } from '../../helpers';
+import { screens } from '../../config';
+import { SvgXml } from 'react-native-svg';
+import { Commons } from '../../utils';
+function FriendRequests({ navigation }) {
   const [listTab, setListTab] = useState(Commons.listTab);
   const [status, setStatus] = useState('Recieved');
+  const [dataList, setDataList] = useState(Commons.recievedListData);
   const setStatusFilter = status => {
     setStatus(status);
   };
+
+  useEffect(() => {
+    if (status === "Recieved") {
+      setDataList(Commons.recievedListData)
+    } else {
+      setDataList(Commons.sentListData)
+    }
+  }, [status])
+
   const navigateBack = () => {
     navigation.goBack();
   };
+
+  const renderItem = ({ item, index }) => {
+    return (
+      <View key={index} style={styles.itemContainer}>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <Image source={userPlaceholder} style={styles.userImage} />
+          <Text style={styles.listItemTitle}>{item.title}</Text>
+        </View>
+      </View>
+    )
+  }
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.headerMainContainer}>
         <View style={styles.headContainer}>
           <TouchableOpacity
             onPress={navigateBack}
-            style={{position: 'absolute', left: 15}}>
+            style={{ position: 'absolute', left: 15 }}>
             <SvgXml width="36" height="36 " xml={svgImages.back} />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Friend Requests</Text>
           <TouchableOpacity
             onPress={() => navigation.navigate(screens.groupRequests)}
-            style={{position: 'absolute', right: 15}}>
+            style={{ position: 'absolute', right: 15 }}>
             <Text
               style={{
                 fontFamily: fontFamily.argentum_sans,
@@ -59,6 +82,10 @@ function FriendRequests({navigation}) {
             </TouchableOpacity>
           ))}
         </View>
+        <FlatList
+          data={dataList}
+          keyExtractor={(e, i) => i.toString()}
+          renderItem={renderItem} />
       </View>
     </View>
   );
@@ -127,5 +154,27 @@ const styles = StyleSheet.create({
   },
   btnTabActive: {
     backgroundColor: theme.colors.primary,
+  },
+  itemContainer: {
+    flexDirection: 'row',
+    padding: 15
+  },
+  itemName: {
+    fontFamily: fontFamily.argentum_sans
+  },
+  userImage: {
+    width: 0.12 * screenWidth,
+    height: 0.12 * screenWidth,
+    borderRadius: 0.12 * screenWidth,
+    borderWidth: 2,
+    marginRight: 10,
+    resizeMode: 'contain',
+    borderColor: theme.colors.gray1,
+  },
+  listItemTitle: {
+    fontFamily: fontFamily.argentum_sans,
+    fontSize: fontSize.verbiage_medium,
+    color: theme.colors.black,
+    textTransform: 'capitalize',
   },
 });
