@@ -452,6 +452,48 @@ const svgImages = {
   <path d="M16.125 9.75L10.6219 15L7.875 12.375" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
   `,
+  cancelIcon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="16" cy="16" r="16" fill="#F57600"/>
+  <g clip-path="url(#clip0_558_855)">
+  <path d="M20.5 11.5L11.5 20.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M20.5 20.5L11.5 11.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+  <clipPath id="clip0_558_855">
+  <rect width="16" height="16" fill="white" transform="translate(8 8)"/>
+  </clipPath>
+  </defs>
+  </svg>
+  `,
+  acceptIcon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="16" cy="16" r="16" fill="#F5C800"/>
+  <g clip-path="url(#clip0_558_856)">
+  <path d="M10.5 17L14 20.5L22 12.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+  <clipPath id="clip0_558_856">
+  <rect width="16" height="16" fill="white" transform="translate(8 8)"/>
+  </clipPath>
+  </defs>
+  </svg>
+  `,
+  smileyXEyes: `<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle opacity="0.3" cx="50" cy="50" r="50" fill="#D7D7D7"/>
+  <g clip-path="url(#clip0_562_857)">
+  <path d="M50 71C61.598 71 71 61.598 71 50C71 38.402 61.598 29 50 29C38.402 29 29 38.402 29 50C29 61.598 38.402 71 50 71Z" stroke="#94A1B2" stroke-width="2" stroke-miterlimit="10"/>
+  <path d="M62.25 43L55.25 50" stroke="#94A1B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M62.25 50L55.25 43" stroke="#94A1B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M44.75 43L37.75 50" stroke="#94A1B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M44.75 50L37.75 43" stroke="#94A1B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M50 64C51.4497 64 52.625 62.8247 52.625 61.375C52.625 59.9253 51.4497 58.75 50 58.75C48.5503 58.75 47.375 59.9253 47.375 61.375C47.375 62.8247 48.5503 64 50 64Z" fill="#94A1B2"/>
+  </g>
+  <defs>
+  <clipPath id="clip0_562_857">
+  <rect width="56" height="56" fill="white" transform="translate(22 22)"/>
+  </clipPath>
+  </defs>
+  </svg>
+  `,
 };
 
 export {svgImages};

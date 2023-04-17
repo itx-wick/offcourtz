@@ -45,7 +45,7 @@ const Welcome = ({navigation}) => {
               <Button
                 title={'LOGIN'}
                 backgroundColor={colors.secondaryBlack}
-                onPress={() => {}}
+                onPress={() => navigation.navigate(screens.login)}
               />
             </View>
             <Text style={[styles.text]}>

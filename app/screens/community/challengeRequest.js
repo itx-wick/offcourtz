@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import {View, Text} from 'react-native';
 import {theme} from '../../theme';
 import {
@@ -7,14 +7,43 @@ import {
   fontSize,
   fontWeight,
 } from '../../constants/fontDecorations';
-import {screenWidth} from '../../constants';
+import {SvgXml} from 'react-native-svg';
+import {screenHeight, screenWidth} from '../../constants';
 import {svgImages} from '../../helpers';
 import {screens} from '../../config';
-import {SvgXml} from 'react-native-svg';
 import {Commons} from '../../utils';
+import RequestListItem from '../../components/requestListItem';
+import ListEmptyComponent from '../../components/listEmptyComponent';
 function ChallengeRequests({navigation}) {
+  const [listTab, setListTab] = useState(Commons.listTab);
+  const [status, setStatus] = useState('Recieved');
+  const [dataList, setDataList] = useState(Commons.recievedListData);
+  const setStatusFilter = status => {
+    setStatus(status);
+  };
+
+  useEffect(() => {
+    if (status === 'Recieved') {
+      setDataList(Commons.recievedListData);
+    } else {
+      setDataList([]);
+    }
+  }, [status]);
+
   const navigateBack = () => {
     navigation.goBack();
+  };
+
+  const flatListItemSeparator = () => {
+    return <View style={styles.listItemSeperator} />;
+  };
+
+  const listEmptyComponent = () => {
+    return <ListEmptyComponent message={'No challenge requests found'} />;
+  };
+
+  const renderItem = ({item, index}) => {
+    return <RequestListItem item={item} index={index} status={status} />;
   };
   return (
     <View style={styles.mainContainer}>
@@ -27,6 +56,28 @@ function ChallengeRequests({navigation}) {
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Challenge Requests</Text>
         </View>
+      </View>
+      <View style={styles.secondaryCont}>
+        <View style={styles.listTab}>
+          {listTab.map(e => (
+            <TouchableOpacity
+              style={[
+                styles.btnTab,
+                status === e.status && styles.btnTabActive,
+              ]}
+              onPress={() => setStatusFilter(e.status)}>
+              <Text style={styles.textTab}>{e.status}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+        <FlatList
+          data={dataList}
+          keyExtractor={(e, i) => i.toString()}
+          renderItem={renderItem}
+          ItemSeparatorComponent={flatListItemSeparator}
+          ListEmptyComponent={listEmptyComponent}
+          style={styles.flatListStyle}
+        />
       </View>
     </View>
   );
@@ -66,5 +117,38 @@ const styles = StyleSheet.create({
   secondaryCont: {
     width: '100%',
     paddingHorizontal: 15,
+  },
+  listTab: {
+    width: 0.92 * screenWidth,
+    flexDirection: 'row',
+    backgroundColor: theme.colors.white,
+    height: 0.14 * screenWidth,
+    paddingHorizontal: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 0.14 * screenWidth,
+    marginTop: 15,
+  },
+  btnTab: {
+    // width: (0.92 * screenWidth) / 2.15,
+    // height: 0.09 * screenWidth,
+    width: '50%',
+    height: 0.11 * screenWidth,
+    borderRadius: 0.11 * screenWidth,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textTab: {
+    fontFamily: fontFamily.argentum_sans,
+    fontSize: fontSize.verbiage_medium,
+    fontWeight: fontWeight[400],
+  },
+  btnTabActive: {
+    backgroundColor: theme.colors.primary,
+  },
+  flatListStyle: {
+    height: screenHeight,
+    paddingTop: 15,
   },
 });

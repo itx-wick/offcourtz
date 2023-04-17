@@ -1,6 +1,6 @@
-import { createStackNavigator } from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import { screens } from '../config';
+import {screens} from '../config';
 import AuthStack from './auth-stack';
 import BottomTabStack from './bottom-tab-stack';
 
@@ -11,7 +11,7 @@ const AppNavigator = () => {
     <>
       <RootStack.Navigator
         headerMode="none"
-        initialRouteName={screens.bottomTabStack}>
+        initialRouteName={screens.authStack}>
         <RootStack.Screen name={screens.authStack} component={AuthStack} />
         <RootStack.Screen
           name={screens.bottomTabStack}

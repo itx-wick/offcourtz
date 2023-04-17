@@ -119,6 +119,7 @@ const Signup = ({navigation}) => {
             <DropDown
               width={0.92 * screenWidth}
               height={0.12 * screenWidth}
+              // borderWidth={1}
               borderColor={theme.colors.greyText}
               borderRadius={0.12 * screenWidth}
               icon={svgImages.caretDown}

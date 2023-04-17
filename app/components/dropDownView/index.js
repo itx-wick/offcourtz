@@ -55,7 +55,7 @@ function DropDown(props) {
               height: Platform.OS === 'ios' && props.height,
               borderColor: props.borderColor,
               borderRadius: props.width,
-              borderWidth: props.borderWidth,
+              borderWidth: props.borderWidth ? props.borderWidth : 1,
             },
           ]}>
           {props.type === 'Country' ? (
