@@ -13,6 +13,7 @@ import {
   CreateNewPost,
   EditGroup,
   Exercises,
+  Favorites,
   FriendRequests,
   GroupRequests,
   ManageCommunity,
@@ -122,6 +123,11 @@ const MainNavigator = ({props}) => {
       <MainStack.Screen
         name={screens.challengeRequests}
         component={challengeRequest}
+        options={{gestureEnabled: false}}
+      />
+      <MainStack.Screen
+        name={screens.favorites}
+        component={Favorites}
         options={{gestureEnabled: false}}
       />
       {/* // screens are able to swipe back */}

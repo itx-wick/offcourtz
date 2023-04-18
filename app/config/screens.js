@@ -24,6 +24,7 @@ const screens = {
   friendRequests: 'FriendRequests',
   groupRequests: 'GroupRequests',
   challengeRequests: 'ChallengeRequests',
+  favorites: 'Favorites',
 };
 
 export {screens};

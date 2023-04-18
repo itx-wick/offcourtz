@@ -108,7 +108,10 @@ function Exercises({navigation}) {
           </TouchableOpacity>
         )}
       />
-      <FAB onPress={() => {}} icon={svgImages.favourites} />
+      <FAB
+        onPress={() => navigation.navigate(screens.favorites)}
+        icon={svgImages.favourites}
+      />
     </View>
   );
 }

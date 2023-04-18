@@ -48,9 +48,11 @@ const BottomSheetModalView = props => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
-                // marginTop: props.isPayment
-                //   ? 0.06 * screenWidth
-                //   : 0.1 * screenWidth,
+                marginTop: props.peoples
+                  ? 0.075 * screenWidth
+                  : props.community
+                  ? 0.001 * screenWidth
+                  : 0.05 * screenWidth,
               }}>
               <Text
                 style={
@@ -230,7 +232,8 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.greyText,
     borderRadius: screenHeight * 0.14,
     paddingHorizontal: 10,
-    marginVertical: 25,
+    marginTop: 25,
+    marginBottom: 10,
   },
   searchIcon: {
     marginRight: 10,

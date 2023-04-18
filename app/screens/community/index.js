@@ -46,7 +46,11 @@ function Community({navigation}) {
             navigation.navigate(screens.createNewGroup);
           }
         }}
-        style={{width: 0.9 * screenWidth, paddingVertical: 15}}>
+        style={{
+          width: 0.9 * screenWidth,
+          paddingVertical: 15,
+          marginBottom: index === 1 && 15,
+        }}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <SvgXml
             xml={index === 0 ? svgImages.plusCircleIcon : svgImages.usersIcon}
