@@ -11,7 +11,7 @@ const AppNavigator = () => {
     <>
       <RootStack.Navigator
         headerMode="none"
-        initialRouteName={screens.authStack}>
+        initialRouteName={screens.bottomTabStack}>
         <RootStack.Screen name={screens.authStack} component={AuthStack} />
         <RootStack.Screen
           name={screens.bottomTabStack}

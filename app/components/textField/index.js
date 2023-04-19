@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View, TextInput, Platform} from 'react-native';
+import {Text, View, TextInput, Platform, TouchableOpacity} from 'react-native';
 import {SvgXml} from 'react-native-svg';
 
 import {
@@ -61,17 +61,26 @@ const TextField = props => {
                 keyboardType={props.keyboardType}
                 onFocus={() => setOnFocus(true)}
                 onBlur={() => setOnFocus(false)}
-                style={{
-                  width: '82%',
-                  height: Platform.OS === 'ios' && props.height,
-                  fontFamily: fontFamily.argentum_sans,
-                  fontSize: fontSize.verbiage_19,
-                  fontWeight: fontWeight[400],
-                }}
+                style={[
+                  {
+                    width: '82%',
+                    height: Platform.OS === 'ios' && props.height,
+                    fontFamily: fontFamily.argentum_sans,
+                    fontSize: fontSize.verbiage_19,
+                    fontWeight: fontWeight[400],
+                  },
+                ]}
               />
             </View>
             {props.filterIcon && (
-              <SvgXml width="34" height="34" xml={props.filterIcon} />
+              <TouchableOpacity onPress={props.filterIconPress}>
+                <SvgXml
+                  width={props.filterIconW ? props.filterIconW : '34'}
+                  height={props.filterIconH ? props.filterIconH : '34'}
+                  xml={props.filterIcon}
+                  style={props.filterIconStyle}
+                />
+              </TouchableOpacity>
             )}
           </View>
         </View>

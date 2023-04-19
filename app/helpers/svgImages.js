@@ -494,6 +494,12 @@ const svgImages = {
   </defs>
   </svg>
   `,
+  searchIcon2: `<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 20C0 8.95431 8.9543 0 20 0C31.0457 0 40 8.95431 40 20C40 31.0457 31.0457 40 20 40C8.9543 40 0 31.0457 0 20Z" fill="white"/>
+  <path d="M18.875 26.75C23.2242 26.75 26.75 23.2242 26.75 18.875C26.75 14.5258 23.2242 11 18.875 11C14.5258 11 11 14.5258 11 18.875C11 23.2242 14.5258 26.75 18.875 26.75Z" stroke="#2D2D2D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24.4434 24.4438L28.9996 29" stroke="#2D2D2D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  `,
 };
 
 export {svgImages};

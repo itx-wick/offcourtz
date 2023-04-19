@@ -35,7 +35,6 @@ function Community({navigation}) {
   }
 
   const renderListItem = ({item, index}) => {
-    console.log('===index===', index);
     return (
       <TouchableOpacity
         onPress={() => {
@@ -79,6 +78,10 @@ function Community({navigation}) {
       />
     );
   };
+
+  React.useEffect(() => {
+    setFilter(Commons.communityFilter[0]);
+  }, []);
 
   return (
     <View style={styles.mainContainer}>

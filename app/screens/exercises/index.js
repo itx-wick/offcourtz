@@ -27,7 +27,6 @@ function Exercises({navigation}) {
       <View style={styles.headerMainContainer}>
         <View style={styles.headContainer}>
           <TouchableOpacity
-            onPress={() => navigation.goBack()}
             style={{
               width: '10%',
               alignItems: 'center',

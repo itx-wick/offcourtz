@@ -2496,4 +2496,18 @@ export default {
       image: require('../assets/images/userImg1.png'),
     },
   ],
+  favorites: [
+    {
+      id: 1,
+      title: 'Forehand Exercise',
+      time: '10 Mins',
+      technique: 'Technique',
+    },
+    {
+      id: 2,
+      title: 'Classic vs Modern',
+      time: '12 Mins',
+      technique: 'Technique',
+    },
+  ],
 };
