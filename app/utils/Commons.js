@@ -214,6 +214,21 @@ export default {
     },
   ],
 
+  durations: [
+    {
+      id: 1,
+      title: '10',
+    },
+    {
+      id: 2,
+      title: '20',
+    },
+    {
+      id: 3,
+      title: '30',
+    },
+  ],
+
   countries: [
     {
       title: 'Ascension Island',
@@ -2476,6 +2491,7 @@ export default {
       image: require('../assets/images/userImg1.png'),
     },
   ],
+
   sentListData: [
     {
       id: '1',
@@ -2496,6 +2512,7 @@ export default {
       image: require('../assets/images/userImg1.png'),
     },
   ],
+
   favorites: [
     {
       id: 1,
@@ -2508,6 +2525,166 @@ export default {
       title: 'Classic vs Modern',
       time: '12 Mins',
       technique: 'Technique',
+    },
+  ],
+
+  notifications: [
+    {
+      id: 1,
+      title: 'Ronnie liked your post',
+      time: '5 hours ago',
+      image: require('../assets/images/userImg1.png'),
+      status: 1,
+    },
+    {
+      id: 2,
+      title: 'Alexa is now your friend',
+      time: '10 hours ago',
+      image: require('../assets/images/userImg1.png'),
+      status: 2,
+    },
+    {
+      id: 3,
+      title: 'Robert James sent you a friend request',
+      time: '6 hours ago',
+      image: require('../assets/images/userImg1.png'),
+      status: 3,
+    },
+  ],
+
+  sports: [
+    {
+      id: 1,
+      title: 'Tennis',
+      selected: false,
+    },
+    {
+      id: 2,
+      title: 'Pedal',
+      selected: false,
+    },
+  ],
+
+  gameType: [
+    {
+      id: 1,
+      title: 'Single',
+      selected: false,
+    },
+    {
+      id: 2,
+      title: 'Double',
+      selected: false,
+    },
+  ],
+
+  objectives: [
+    {
+      id: 1,
+      title: 'Technique',
+      selected: false,
+    },
+    {
+      id: 2,
+      title: 'Tactics',
+      selected: false,
+    },
+    {
+      id: 3,
+      title: 'Physical',
+      selected: false,
+    },
+    {
+      id: 4,
+      title: 'Mental',
+      selected: false,
+    },
+  ],
+
+  situation: [
+    {
+      id: 1,
+      title: 'Baseline',
+      selected: false,
+    },
+    {
+      id: 2,
+      title: 'Service',
+      selected: false,
+    },
+    {
+      id: 3,
+      title: 'Return',
+      selected: false,
+    },
+    {
+      id: 4,
+      title: 'Net Play',
+      selected: false,
+    },
+  ],
+
+  shots: [
+    {
+      id: 1,
+      title: 'Forehand',
+      selected: false,
+    },
+    {
+      id: 2,
+      title: 'Backhand',
+      selected: false,
+    },
+    {
+      id: 4,
+      title: '1st Service',
+      selected: false,
+    },
+    {
+      id: 5,
+      title: '2nd Service',
+      selected: false,
+    },
+  ],
+
+  abilities: [
+    {
+      id: 1,
+      title: 'Speed',
+      selected: false,
+    },
+    {
+      id: 2,
+      title: 'Direction',
+      selected: false,
+    },
+    {
+      id: 4,
+      title: 'Rotation',
+      selected: false,
+    },
+    {
+      id: 5,
+      title: 'Consistence',
+      selected: false,
+    },
+  ],
+
+  physicalQualities: [
+    {
+      id: 1,
+      title: 'Strength',
+      selected: false,
+    },
+    {
+      id: 2,
+      title: 'Flexibility',
+      selected: false,
+    },
+    {
+      id: 4,
+      title: 'Endurance',
+      selected: false,
     },
   ],
 };

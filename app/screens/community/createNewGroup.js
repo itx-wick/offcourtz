@@ -330,7 +330,7 @@ const styles = StyleSheet.create({
     width: screenWidth,
     height: 1,
     backgroundColor: theme.colors.gray1,
-    marginVertical: 15,
+    marginVertical: 10,
   },
   secondaryCont: {
     width: '100%',

@@ -16,7 +16,7 @@ function Challenges({navigation}) {
       <View style={styles.headerMainContainer}>
         <View style={styles.headContainer}>
           <TouchableOpacity
-            onPress={() => navigation.goBack()}
+            // onPress={() => navigation.goBack()}
             style={{
               width: '10%',
               alignItems: 'center',

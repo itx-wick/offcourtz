@@ -25,6 +25,8 @@ const screens = {
   groupRequests: 'GroupRequests',
   challengeRequests: 'ChallengeRequests',
   favorites: 'Favorites',
+  notifications: 'Notifications',
+  customWorkout: 'CustomWorkout',
 };
 
 export {screens};

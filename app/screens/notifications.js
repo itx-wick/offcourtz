@@ -1,35 +1,21 @@
-import React, {useEffect, useState} from 'react';
-import {FlatList, StyleSheet, TouchableOpacity} from 'react-native';
+import React, {useState, useRef} from 'react';
+import {Image, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 import {View, Text} from 'react-native';
-import {theme} from '../../theme';
-import {
-  fontFamily,
-  fontSize,
-  fontWeight,
-} from '../../constants/fontDecorations';
+import {theme} from '../theme';
+import {fontFamily, fontSize} from '../constants/fontDecorations';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import {screenHeight, screenWidth} from '../constants';
+import userPlaceholder from '../assets/images/user.jpeg';
+import {Commons} from '../utils';
+import {svgImages} from '../helpers';
+import {screens} from '../config';
 import {SvgXml} from 'react-native-svg';
-import {screenHeight, screenWidth} from '../../constants';
-import {svgImages} from '../../helpers';
-import {screens} from '../../config';
-import {Commons} from '../../utils';
-import RequestListItem from '../../components/requestListItem';
-import ListEmptyComponent from '../../components/listEmptyComponent';
-function ChallengeRequests({navigation}) {
-  const [listTab, setListTab] = useState(Commons.listTab);
-  const [status, setStatus] = useState('Recieved');
-  const [dataList, setDataList] = useState(Commons.recievedListData);
-  const setStatusFilter = status => {
-    setStatus(status);
-  };
-
-  useEffect(() => {
-    if (status === 'Recieved') {
-      setDataList(Commons.recievedListData);
-    } else {
-      setDataList([]);
-    }
-  }, [status]);
-
+import {FlatList} from 'react-native';
+import ListEmptyComponent from '../components/listEmptyComponent';
+import RequestListItem from '../components/requestListItem';
+import NotificationListItem from '../components/notificationListItem';
+function Notifications({navigation}) {
+  const [dataList, setDataList] = useState(Commons.notifications);
   const navigateBack = () => {
     navigation.goBack();
   };
@@ -39,11 +25,11 @@ function ChallengeRequests({navigation}) {
   };
 
   const listEmptyComponent = () => {
-    return <ListEmptyComponent message={'No challenge requests found'} />;
+    return <ListEmptyComponent message={'No notifications found'} />;
   };
 
   const renderItem = ({item, index}) => {
-    return <RequestListItem item={item} index={index} status={status} />;
+    return <NotificationListItem item={item} index={index} />;
   };
   return (
     <View style={styles.mainContainer}>
@@ -54,22 +40,12 @@ function ChallengeRequests({navigation}) {
             style={{position: 'absolute', left: 15}}>
             <SvgXml width="36" height="36 " xml={svgImages.back} />
           </TouchableOpacity>
-          <Text style={styles.headerTitle}>Challenge Requests</Text>
+          <Text style={styles.headerTitle}>Notifications</Text>
         </View>
+        <View style={styles.underlineView} />
       </View>
+
       <View style={styles.secondaryCont}>
-        <View style={styles.listTab}>
-          {listTab.map(e => (
-            <TouchableOpacity
-              style={[
-                styles.btnTab,
-                status === e.status && styles.btnTabActive,
-              ]}
-              onPress={() => setStatusFilter(e.status)}>
-              <Text style={styles.textTab}>{e.status}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
         <FlatList
           data={dataList}
           keyExtractor={(e, i) => i.toString()}
@@ -83,7 +59,7 @@ function ChallengeRequests({navigation}) {
   );
 }
 
-export default ChallengeRequests;
+export default Notifications;
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -118,38 +94,53 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: 15,
   },
-  listTab: {
-    width: 0.92 * screenWidth,
+  userImage: {
+    width: 0.12 * screenWidth,
+    height: 0.12 * screenWidth,
+    borderRadius: 0.12 * screenWidth,
+    borderWidth: 2,
+    marginRight: 10,
+    resizeMode: 'contain',
+    borderColor: theme.colors.gray1,
+  },
+  searchInputContainer: {
+    width: screenWidth * 0.92,
+    height: 0.12 * screenWidth,
     flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 0.75,
+    borderColor: theme.colors.gray1,
+    borderRadius: 0.12 * screenWidth,
     backgroundColor: theme.colors.white,
-    height: 0.14 * screenWidth,
     paddingHorizontal: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 0.14 * screenWidth,
-    marginTop: 15,
+    marginVertical: 10,
   },
-  btnTab: {
-    // width: (0.92 * screenWidth) / 2.15,
-    // height: 0.09 * screenWidth,
-    width: '50%',
-    height: 0.11 * screenWidth,
-    borderRadius: 0.11 * screenWidth,
+  searchIcon: {
+    marginRight: 10,
+  },
+  searchInput: {
+    flex: 1,
+    fontFamily: fontFamily.argentum_sans,
+    fontSize: fontSize.verbiage,
+    paddingRight: 15,
+  },
+  listItem: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    width: screenWidth * 0.92,
     alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingRight: 10,
+    paddingVertical: 10,
   },
-  textTab: {
+  listItemTitle: {
     fontFamily: fontFamily.argentum_sans,
     fontSize: fontSize.verbiage_medium,
-    fontWeight: fontWeight[400],
+    color: theme.colors.black,
+    textTransform: 'capitalize',
   },
-  btnTabActive: {
-    backgroundColor: theme.colors.primary,
-  },
-  flatListStyle: {
-    height: screenHeight,
-    paddingTop: 15,
+  listContentContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   listItemSeperator: {
     height: 1,

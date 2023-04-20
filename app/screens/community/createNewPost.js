@@ -98,7 +98,7 @@ function CreateNewPost({navigation}) {
                 title={'Choose '}
                 type={'Post'}
                 data={Commons.communityFilter}
-                selectedItem={selectedItem}
+                selectedItem={selectedItem.title}
                 onPressItem={handleSelection}
                 flatListView={{height: 0.15 * screenWidth}}
               />
@@ -253,7 +253,7 @@ const styles = StyleSheet.create({
     width: screenWidth,
     height: 1,
     backgroundColor: theme.colors.gray1,
-    marginVertical: 15,
+    marginVertical: 10,
   },
   secondaryCont: {
     width: '100%',

@@ -262,6 +262,11 @@ const svgImages = {
     <path d="M9 2.8125V15.1875" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
     `,
+  plus2: `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2.8125 9H15.1875" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M9 2.8125V15.1875" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    `,
   smiley: `<svg width="46" height="68" viewBox="0 0 46 68" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="23" cy="23" r="23" fill="#D7D7D7"/>
     <circle cx="15" cy="17" r="4" fill="white"/>

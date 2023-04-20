@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     width: screenWidth,
     height: 1,
     backgroundColor: theme.colors.gray1,
-    marginVertical: 15,
+    marginVertical: 10,
   },
   secondaryCont: {
     width: '100%',
@@ -164,5 +164,12 @@ const styles = StyleSheet.create({
   flatListStyle: {
     height: screenHeight,
     paddingTop: 15,
+  },
+  listItemSeperator: {
+    height: 1,
+    width: screenWidth * 0.72,
+    alignSelf: 'flex-end',
+    backgroundColor: theme.colors.gray1,
+    marginRight: 15,
   },
 });

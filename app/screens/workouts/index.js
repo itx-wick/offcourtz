@@ -1,6 +1,7 @@
 import React from 'react';
 import {Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {SvgXml} from 'react-native-svg';
+import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
 
 import {svgImages} from '../../helpers';
 import {theme} from '../../theme';
@@ -10,15 +11,31 @@ import FAB from '../../components/fab';
 import TextField from '../../components/textField';
 import AppFlatlist from '../../components/appFlatlist';
 import {Commons} from '../../utils';
+import {screens} from '../../config';
+import FiltersBottomSheet from '../../components/filtersBottomSheet';
 
 function Workouts({navigation}) {
+  const filtersRef = React.useRef(null);
+  const snapPoints = React.useMemo(() => ['100%', '100%'], []);
   const [filter, setFilter] = React.useState({});
+  React.useState(() => {
+    setFilter(Commons.workoutsFilter[0]);
+  }, []);
+
+  const backdropComponent = backdropProps => (
+    <BottomSheetBackdrop {...backdropProps} enableTouchThrough={true} />
+  );
+
+  function dismissFilters() {
+    filtersRef.current?.dismiss();
+  }
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.headerMainContainer}>
         <View style={styles.headContainer}>
           <TouchableOpacity
-            onPress={() => navigation.goBack()}
+            // onPress={() => navigation.goBack()}
             style={{
               width: '10%',
               alignItems: 'center',
@@ -42,6 +59,9 @@ function Workouts({navigation}) {
               showPassword={false}
               paddingHorizontal={10}
               type={'search'}
+              filterIconPress={() => {
+                filtersRef.current?.present();
+              }}
             />
           </View>
         </View>
@@ -132,7 +152,20 @@ function Workouts({navigation}) {
           )}
         />
       </View>
-      <FAB onPress={() => {}} icon={svgImages.add} />
+      <FiltersBottomSheet
+        backdropComponent={backdropComponent}
+        dismissSheetModal={dismissFilters}
+        onDismissHandler={() => {}}
+        bottomSheetRef={filtersRef}
+        snapPoints={snapPoints}
+        title={'Filters'}
+        titleStyle={styles.bottomSheetTitle}
+        closeIcon={true}
+      />
+      <FAB
+        onPress={() => navigation.navigate(screens.customWorkout)}
+        icon={svgImages.add}
+      />
     </View>
   );
 }

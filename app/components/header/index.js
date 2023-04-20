@@ -26,7 +26,7 @@ function Header(props) {
           ]}>
           {props.backIcon ? (
             <TouchableOpacity
-              onPress={props.backIconPress}
+              // onPress={props.backIconPress}
               style={{position: 'absolute', left: 15}}>
               <SvgXml width="36" height="36 " xml={svgImages.back} />
             </TouchableOpacity>
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     width: screenWidth,
     height: 1,
     backgroundColor: theme.colors.gray1,
-    marginVertical: 15,
+    marginVertical: 10,
   },
   secondaryCont: {
     width: '100%',

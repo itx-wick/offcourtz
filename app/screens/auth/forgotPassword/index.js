@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     width: screenWidth * 0.9,
     height: 2.5,
     backgroundColor: colors.white,
-    marginVertical: 15,
+    marginVertical: 10,
   },
   secondaryCont: {
     width: '100%',

@@ -78,7 +78,9 @@ const CreateChallenge = ({route, navigation}) => {
     return (
       <TouchableOpacity
         onPress={() => {
-          step1Data[index].selected = !item.selected;
+          step1Data.map((itm, i) => {
+            step1Data[i].selected = itm.key === step1Data[index].key;
+          });
           setStep1Data([...step1Data]);
         }}
         style={[
@@ -106,7 +108,9 @@ const CreateChallenge = ({route, navigation}) => {
     return (
       <TouchableOpacity
         onPress={() => {
-          step2Data[index].selected = !item.selected;
+          step2Data.map((itm, i) => {
+            step2Data[i].selected = itm.id === step2Data[index].id;
+          });
           setStep2Data([...step2Data]);
         }}
         style={[
@@ -136,7 +140,9 @@ const CreateChallenge = ({route, navigation}) => {
     return (
       <TouchableOpacity
         onPress={() => {
-          step3Data[index].selected = !item.selected;
+          step3Data.map((itm, i) => {
+            step3Data[i].selected = itm.key === step3Data[index].key;
+          });
           setStep3Data([...step3Data]);
         }}
         style={[
@@ -164,7 +170,9 @@ const CreateChallenge = ({route, navigation}) => {
     return (
       <TouchableOpacity
         onPress={() => {
-          step4Data[index].selected = !item.selected;
+          step4Data.map((itm, i) => {
+            step4Data[i].selected = itm.key === step4Data[index].key;
+          });
           setStep4Data([...step4Data]);
         }}
         style={[

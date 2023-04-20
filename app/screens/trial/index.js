@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
     width: screenWidth * 0.9,
     height: 1.5,
     backgroundColor: theme.colors.white,
-    marginVertical: 15,
+    marginVertical: 10,
   },
   sectionContainer: {
     alignItems: 'center',

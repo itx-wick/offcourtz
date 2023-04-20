@@ -108,7 +108,7 @@ function Community({navigation}) {
             Community
           </Text>
           <TouchableOpacity
-            onPress={() => {}}
+            onPress={() => navigation.navigate(screens.notifications)}
             style={{
               width: '10%',
               alignItems: 'center',

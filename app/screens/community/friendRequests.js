@@ -165,4 +165,11 @@ const styles = StyleSheet.create({
     height: screenHeight,
     paddingTop: 15,
   },
+  listItemSeperator: {
+    height: 1,
+    width: screenWidth * 0.72,
+    alignSelf: 'flex-end',
+    backgroundColor: theme.colors.gray1,
+    marginRight: 15,
+  },
 });

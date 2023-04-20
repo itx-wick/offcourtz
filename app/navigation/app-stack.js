@@ -11,6 +11,7 @@ import {
   CreateChallenge,
   CreateNewGroup,
   CreateNewPost,
+  CustomWorkout,
   EditGroup,
   Exercises,
   Favorites,
@@ -18,6 +19,7 @@ import {
   GroupRequests,
   ManageCommunity,
   ManageGroups,
+  Notifications,
   Workouts,
   challengeRequest,
 } from '../screens';
@@ -128,6 +130,16 @@ const MainNavigator = ({props}) => {
       <MainStack.Screen
         name={screens.favorites}
         component={Favorites}
+        options={{gestureEnabled: false}}
+      />
+      <MainStack.Screen
+        name={screens.notifications}
+        component={Notifications}
+        options={{gestureEnabled: false}}
+      />
+      <MainStack.Screen
+        name={screens.customWorkout}
+        component={CustomWorkout}
         options={{gestureEnabled: false}}
       />
       {/* // screens are able to swipe back */}
