@@ -11,6 +11,58 @@ import TextField from '../../components/textField';
 import {Commons} from '../../utils';
 import {screens} from '../../config';
 function Challenges({navigation}) {
+  const headerComponent = item => {
+    return (
+      <TouchableOpacity
+        style={{
+          paddingHorizontal: 20,
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          backgroundColor: `#FFEBD4`,
+          marginHorizontal: 15,
+          borderRadius: 20,
+          marginVertical: 5,
+        }}
+        onPress={() => {
+          navigation.navigate(screens.createChallenge);
+        }}>
+        <View>
+          <Text
+            style={{
+              fontFamily: fontFamily.argentum_sans,
+              fontSize: fontSize.verbiage_24,
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+            }}>{`Challenge\nThe World`}</Text>
+          {item.time && (
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                marginVertical: 5,
+              }}>
+              <SvgXml xml={svgImages.clock} style={{marginRight: 5}} />
+              <Text
+                style={{
+                  fontFamily: fontFamily.argentum_sans,
+                  fontSize: fontSize.verbiage_medium,
+                }}>{`${item.time}`}</Text>
+            </View>
+          )}
+        </View>
+        <SvgXml
+          xml={svgImages.mask1}
+          style={{
+            transform: [{rotate: '180deg'}],
+            marginBottom: -8,
+            marginTop: 15,
+          }}
+        />
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.headerMainContainer}>
@@ -54,6 +106,7 @@ function Challenges({navigation}) {
           marginBottom: 10,
         }}
         data={Commons.challenges}
+        ListHeaderComponent={headerComponent}
         ListFooterComponent={<View />}
         height={screenHeight}
         renderItem={({item, index}) => (
@@ -69,7 +122,7 @@ function Challenges({navigation}) {
               marginVertical: 5,
             }}
             onPress={() => {
-              navigation.navigate(screens.createChallenge);
+              navigation.navigate(screens.detail);
             }}>
             <View>
               <Text

@@ -27,6 +27,7 @@ const screens = {
   favorites: 'Favorites',
   notifications: 'Notifications',
   customWorkout: 'CustomWorkout',
+  detail: 'Detail',
 };
 
 export {screens};

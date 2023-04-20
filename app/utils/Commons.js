@@ -46,22 +46,6 @@ export default {
   challenges: [
     {
       id: 1,
-      title: 'Challenge\nThe World',
-      time: null,
-      image: (
-        <SvgXml
-          xml={svgImages.mask1}
-          style={{
-            transform: [{rotate: '180deg'}],
-            marginBottom: -8,
-            marginTop: 15,
-          }}
-        />
-      ),
-      bgColor: '#FFEBD4',
-    },
-    {
-      id: 2,
       title: 'Backhand',
       time: '20 Min',
       image: (
@@ -77,7 +61,7 @@ export default {
       bgColor: '#E4DBFF',
     },
     {
-      id: 3,
+      id: 2,
       title: 'Weekly',
       time: '30 Min',
       image: (

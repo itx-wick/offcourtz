@@ -20,3 +20,4 @@ export {default as challengeRequest} from './community/challengeRequest';
 export {default as Favorites} from './favorites';
 export {default as Notifications} from './notifications';
 export {default as CustomWorkout} from './customWorkout';
+export {default as Detail} from './detail';

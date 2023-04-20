@@ -12,6 +12,7 @@ import {
   CreateNewGroup,
   CreateNewPost,
   CustomWorkout,
+  Detail,
   EditGroup,
   Exercises,
   Favorites,
@@ -140,6 +141,11 @@ const MainNavigator = ({props}) => {
       <MainStack.Screen
         name={screens.customWorkout}
         component={CustomWorkout}
+        options={{gestureEnabled: false}}
+      />
+      <MainStack.Screen
+        name={screens.detail}
+        component={Detail}
         options={{gestureEnabled: false}}
       />
       {/* // screens are able to swipe back */}
