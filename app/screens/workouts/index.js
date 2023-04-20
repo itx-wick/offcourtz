@@ -17,6 +17,7 @@ import FiltersBottomSheet from '../../components/filtersBottomSheet';
 function Workouts({navigation}) {
   const filtersRef = React.useRef(null);
   const snapPoints = React.useMemo(() => ['100%', '100%'], []);
+  const [isFilter, setIsFilter] = React.useState(false);
   const [filter, setFilter] = React.useState({});
   React.useState(() => {
     setFilter(Commons.workoutsFilter[0]);
@@ -27,7 +28,13 @@ function Workouts({navigation}) {
   );
 
   function dismissFilters() {
+    setIsFilter(!isFilter);
     filtersRef.current?.dismiss();
+  }
+
+  function showFilters() {
+    setIsFilter(!isFilter);
+    filtersRef.current?.present();
   }
 
   return (
@@ -59,9 +66,7 @@ function Workouts({navigation}) {
               showPassword={false}
               paddingHorizontal={10}
               type={'search'}
-              filterIconPress={() => {
-                filtersRef.current?.present();
-              }}
+              filterIconPress={showFilters}
             />
           </View>
         </View>
@@ -162,10 +167,12 @@ function Workouts({navigation}) {
         titleStyle={styles.bottomSheetTitle}
         closeIcon={true}
       />
-      <FAB
-        onPress={() => navigation.navigate(screens.customWorkout)}
-        icon={svgImages.add}
-      />
+      {!isFilter && (
+        <FAB
+          onPress={() => navigation.navigate(screens.customWorkout)}
+          icon={svgImages.add}
+        />
+      )}
     </View>
   );
 }
