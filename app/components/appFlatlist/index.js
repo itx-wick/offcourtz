@@ -38,6 +38,7 @@ function AppFlatlist(props) {
           height={props.height ? props.height : null}
           onEndReachedThreshold={props.onEndReachedThreshold}
           onEndReached={props.onEndReached}
+          ItemSeparatorComponent={props.ItemSeparatorComponent}
           ListFooterComponent={props.ListFooterComponent}
           ListHeaderComponent={props.ListHeaderComponent}
           ListFooterComponentStyle={props.ListFooterComponentStyle}

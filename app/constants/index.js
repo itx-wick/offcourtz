@@ -1,3 +1,3 @@
 export * from './colors';
 export * from './common-styles';
-export * from './images';
+export * from './Images';

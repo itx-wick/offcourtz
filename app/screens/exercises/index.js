@@ -78,7 +78,9 @@ function Exercises({navigation}) {
               borderRadius: 20,
               marginVertical: 5,
             }}
-            onPress={() => {}}>
+            onPress={() => {
+              navigation.navigate(screens.detail);
+            }}>
             <View>
               <Text
                 style={{

@@ -10,6 +10,7 @@ import {SvgXml} from 'react-native-svg';
 import TextField from '../components/textField';
 import {Commons} from '../utils';
 import AppFlatlist from '../components/appFlatlist';
+import Images from '../constants/Images';
 function Favorites({navigation}) {
   const searchRef = React.useRef();
   const [search, setSearch] = React.useState('');
@@ -158,11 +159,9 @@ function Favorites({navigation}) {
                         flexDirection: 'row',
                         alignItems: 'center',
                         marginVertical: 5,
+                        marginRight: 7,
                       }}>
-                      <SvgXml
-                        xml={svgImages.clock}
-                        style={{marginHorizontal: 5}}
-                      />
+                      <Images.clock height={20} width={20} />
                       <Text
                         style={{
                           fontFamily: fontFamily.argentum_sans,
@@ -170,24 +169,19 @@ function Favorites({navigation}) {
                         }}>{`${item.time}`}</Text>
                     </View>
                   )}
-                  {item.time && (
+                  {item.technique && (
                     <View
                       style={{
                         flexDirection: 'row',
                         alignItems: 'center',
                         marginVertical: 5,
                       }}>
-                      <SvgXml
-                        xml={svgImages.fireStep}
-                        style={{marginHorizontal: 5}}
-                        width={24}
-                        height={24}
-                      />
+                      <Images.fire height={20} width={20} />
                       <Text
                         style={{
                           fontFamily: fontFamily.argentum_sans,
                           fontSize: fontSize.verbiage,
-                        }}>{`${item.time}`}</Text>
+                        }}>{`${item.technique}`}</Text>
                     </View>
                   )}
                 </View>
@@ -195,7 +189,7 @@ function Favorites({navigation}) {
             </View>
             <TouchableOpacity>
               <Image
-                source={require('../assets/images/delete.png')}
+                source={require('../assets/images/emptyHeart.png')}
                 style={{
                   width: 50,
                   height: 50,
