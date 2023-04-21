@@ -11,6 +11,7 @@ import TextField from '../components/textField';
 import {Commons} from '../utils';
 import AppFlatlist from '../components/appFlatlist';
 import Images from '../constants/Images';
+import {Platform} from 'react-native';
 function Favorites({navigation}) {
   const searchRef = React.useRef();
   const [search, setSearch] = React.useState('');
@@ -59,6 +60,9 @@ function Favorites({navigation}) {
                   borderRadius={0.4 * screenWidth}
                   searchIcon={svgImages.searchIcon}
                   filterIcon={svgImages.x}
+                  onChangeText={e => {
+                    console.log(e);
+                  }}
                   filterIconH={22}
                   filterIconW={22}
                   filterIconStyle={{
@@ -216,7 +220,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: 0.14 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

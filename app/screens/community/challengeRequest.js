@@ -14,6 +14,7 @@ import {screens} from '../../config';
 import {Commons} from '../../utils';
 import RequestListItem from '../../components/requestListItem';
 import ListEmptyComponent from '../../components/listEmptyComponent';
+import {Platform} from 'react-native';
 function ChallengeRequests({navigation}) {
   const [listTab, setListTab] = useState(Commons.listTab);
   const [status, setStatus] = useState('Recieved');
@@ -93,7 +94,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: 0.14 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

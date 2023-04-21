@@ -22,8 +22,10 @@ import {FlatList} from 'react-native';
 import Modal from 'react-native-modal';
 import DropDown from '../components/dropDownView';
 import Button from '../components/button';
+import {Platform} from 'react-native';
 function CustomWorkout({navigation}) {
   const [modalVisible, setModalVisible] = useState(false);
+
   function handleSelection(e, i, type) {
     let newForm = [...formVal];
     if (type === 'duration') {
@@ -188,6 +190,9 @@ function CustomWorkout({navigation}) {
                       dropDownListStyle={{
                         maxHeight: 0.25 * screenWidth,
                       }}
+                      flatListView={{
+                        maxHeight: 0.25 * screenWidth,
+                      }}
                     />
                   </View>
                   <View style={{marginTop: 10}}>
@@ -218,6 +223,9 @@ function CustomWorkout({navigation}) {
                       dropDownListStyle={{
                         maxHeight: 0.25 * screenWidth,
                       }}
+                      flatListView={{
+                        maxHeight: 0.25 * screenWidth,
+                      }}
                     />
                   </View>
                   <View style={{marginTop: 10}}>
@@ -227,7 +235,9 @@ function CustomWorkout({navigation}) {
                       borderColor={theme.colors.greyText}
                       borderRadius={0.4 * screenWidth}
                       value={item.workoutName}
-                      onChangeText={e => handleSelection(e, i, 'workoutName')}
+                      onChangeText={e => {
+                        // handleSelection(e, i, 'workoutName');
+                      }}
                       title={'Workout Name'}
                       placeholder={'Workout Name'}
                       paddingHorizontal={10}
@@ -402,7 +412,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: 0.14 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

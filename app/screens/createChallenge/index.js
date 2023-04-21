@@ -25,6 +25,7 @@ import FriendsBottomSheetModalView from '../../components/bottomSheetModalView';
 import GroupsBottomSheetModalView from '../../components/bottomSheetModalView';
 import userPlaceholder from '../../assets/images/user.jpeg';
 import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
+import { Platform } from 'react-native';
 const {colors} = theme;
 
 const CreateChallenge = ({route, navigation}) => {
@@ -643,7 +644,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: 0.12 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

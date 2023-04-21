@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   ImageBackground,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -63,6 +64,9 @@ const Signup = ({navigation}) => {
               height={0.12 * screenWidth}
               borderColor={theme.colors.greyText}
               borderRadius={0.4 * screenWidth}
+              onChangeText={e => {
+                console.log(e);
+              }}
               title={'First Name'}
               placeholder={'John'}
               paddingHorizontal={10}
@@ -73,6 +77,9 @@ const Signup = ({navigation}) => {
               height={0.12 * screenWidth}
               borderColor={theme.colors.greyText}
               borderRadius={0.4 * screenWidth}
+              onChangeText={e => {
+                console.log(e);
+              }}
               title={'Last Name'}
               placeholder={'Doe'}
               paddingHorizontal={10}
@@ -85,6 +92,9 @@ const Signup = ({navigation}) => {
               height={0.12 * screenWidth}
               borderColor={theme.colors.greyText}
               borderRadius={0.4 * screenWidth}
+              onChangeText={e => {
+                console.log(e);
+              }}
               title={'Email'}
               placeholder={'name@example.com'}
               paddingHorizontal={10}
@@ -98,6 +108,9 @@ const Signup = ({navigation}) => {
               borderColor={theme.colors.greyText}
               borderRadius={0.4 * screenWidth}
               icon={svgImages.calendarBlank}
+              onChangeText={e => {
+                console.log(e);
+              }}
               title={'Date of Birth'}
               placeholder={'01/07/1990'}
               paddingHorizontal={10}
@@ -128,6 +141,12 @@ const Signup = ({navigation}) => {
               data={Commons.countries}
               selectedItem={selectedItem.title}
               onPressItem={handleSelection}
+              dropDownListStyle={{
+                maxHeight: 0.35 * screenWidth,
+              }}
+              flatListView={{
+                maxHeight: 0.35 * screenWidth,
+              }}
             />
           </View>
           <View style={{marginTop: 10}}>
@@ -136,6 +155,9 @@ const Signup = ({navigation}) => {
               height={0.12 * screenWidth}
               borderColor={theme.colors.greyText}
               borderRadius={0.4 * screenWidth}
+              onChangeText={e => {
+                console.log(e);
+              }}
               icon={svgImages.eye}
               title={'Password'}
               placeholder={'Password'}
@@ -224,7 +246,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: 0.12 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

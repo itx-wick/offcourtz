@@ -1,6 +1,7 @@
 import React, {useState, useRef} from 'react';
 import {
   ImageBackground,
+  Platform,
   ScrollView,
   StyleSheet,
   TouchableOpacity,
@@ -311,7 +312,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: 0.14 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

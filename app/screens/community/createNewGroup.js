@@ -24,6 +24,7 @@ import {Commons} from '../../utils';
 import {TextInput} from 'react-native-gesture-handler';
 import {FlatList} from 'react-native';
 import {Image} from 'react-native';
+import {Platform} from 'react-native';
 function CreateNewGroup({navigation}) {
   const searchRef = useRef();
   const [search, setSearch] = useState('');
@@ -311,7 +312,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: 0.14 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

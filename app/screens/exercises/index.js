@@ -21,6 +21,7 @@ import {screens} from '../../config';
 import TextField from '../../components/textField';
 import {Commons} from '../../utils';
 import AppFlatlist from '../../components/appFlatlist';
+import {Platform} from 'react-native';
 function Exercises({navigation}) {
   return (
     <View style={styles.mainContainer}>
@@ -46,6 +47,9 @@ function Exercises({navigation}) {
               borderRadius={0.4 * screenWidth}
               searchIcon={svgImages.searchIcon}
               filterIcon={svgImages.filterIcon}
+              onChangeText={e => {
+                console.log(e);
+              }}
               placeholder={'Search'}
               showPassword={false}
               paddingHorizontal={10}
@@ -126,7 +130,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: 0.12 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

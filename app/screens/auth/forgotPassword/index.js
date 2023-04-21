@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -50,6 +51,9 @@ const ForgotPassword = ({navigation}) => {
               height={0.12 * screenWidth}
               borderColor={theme.colors.greyText}
               borderRadius={0.4 * screenWidth}
+              onChangeText={e => {
+                console.log(e);
+              }}
               title={'Email'}
               placeholder={'name@example.com'}
               paddingHorizontal={10}
@@ -82,7 +86,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: 0.12 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

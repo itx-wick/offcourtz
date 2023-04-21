@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {
   ImageBackground,
+  Platform,
   ScrollView,
   StyleSheet,
   TouchableOpacity,
@@ -100,7 +101,12 @@ function CreateNewPost({navigation}) {
                 data={Commons.communityFilter}
                 selectedItem={selectedItem.title}
                 onPressItem={handleSelection}
-                flatListView={{height: 0.15 * screenWidth}}
+                dropDownListStyle={{
+                  maxHeight: 0.15 * screenWidth,
+                }}
+                flatListView={{
+                  maxHeight: 0.15 * screenWidth,
+                }}
               />
             </View>
             <View style={{marginTop: 10}}>
@@ -234,7 +240,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: 0.14 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

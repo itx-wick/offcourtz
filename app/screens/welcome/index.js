@@ -7,6 +7,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 import {screenHeight, screenWidth} from '../../constants';
 import Button from '../../components/button';
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     alignItems: 'center',
-    bottom: 0,
+    bottom: Platform.OS === 'ios' ? 0 : 15,
     marginVertical: 5,
   },
   btn: {

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, StyleSheet, TouchableOpacity} from 'react-native';
+import {FlatList, Platform, StyleSheet, TouchableOpacity} from 'react-native';
 import {View, Text} from 'react-native';
 import {theme} from '../../theme';
 import {
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: 0.14 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

@@ -1,5 +1,11 @@
 import React, {useState, useRef} from 'react';
-import {Image, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
+import {
+  Image,
+  Platform,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 import {View, Text} from 'react-native';
 import {theme} from '../theme';
 import {fontFamily, fontSize} from '../constants/fontDecorations';
@@ -69,7 +75,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: 0.14 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

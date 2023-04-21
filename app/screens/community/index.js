@@ -1,6 +1,7 @@
 import React, {useRef, useMemo, useState} from 'react';
 import {
   Image,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -177,7 +178,7 @@ function Community({navigation}) {
         renderListItem={renderListItem}
         flatListItemSeparator={flatListItemSeparator}
         onDismissHandler={() => {}}
-        paymentMethodRef={bottomSheetModalRef}
+        bottomSheetModalRef={bottomSheetModalRef}
         snapPoints={snapPoints}
         community={true}
       />
@@ -194,7 +195,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: 0.12 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

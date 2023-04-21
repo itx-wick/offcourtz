@@ -84,10 +84,12 @@ function Challenges({navigation}) {
             <TextField
               inputWidth={0.8 * screenWidth}
               height={0.12 * screenWidth}
+              onChangeText={e => {
+                console.log(e);
+              }}
               borderColor={theme.colors.greyText}
               borderRadius={0.4 * screenWidth}
               searchIcon={svgImages.searchIcon}
-              // filterIcon={svgImages.filterIcon}
               placeholder={'Search'}
               showPassword={false}
               paddingHorizontal={10}
@@ -165,7 +167,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: 0.12 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

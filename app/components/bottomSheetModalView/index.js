@@ -36,7 +36,7 @@ const BottomSheetModalView = props => {
       {/* this bottom sheet refer to payment methods */}
       <View style={styles.containerStyle}>
         <BottomSheetModal
-          ref={props.paymentMethodRef}
+          ref={props.bottomSheetModalRef}
           onDismiss={() => props.onDismissHandler()}
           index={1}
           snapPoints={props.snapPoints}
@@ -160,7 +160,7 @@ const BottomSheetModalView = props => {
               </>
             )}
             {props.community && (
-              <View>
+              <View style={styles.communityContainer}>
                 <FlatList
                   data={data}
                   showsVerticalScrollIndicator={false}
@@ -209,6 +209,10 @@ const styles = StyleSheet.create({
   paymentBtnsContainer: {
     position: 'absolute',
     bottom: 50,
+  },
+  communityContainer: {
+    position: 'absolute',
+    bottom: 0,
   },
   paymentBtn: {
     marginTop: 10,

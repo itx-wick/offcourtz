@@ -49,6 +49,9 @@ function Header(props) {
                 borderRadius={0.4 * screenWidth}
                 searchIcon={svgImages.searchIcon}
                 filterIcon={svgImages.filterIcon}
+                onChangeText={e => {
+                  console.log(e);
+                }}
                 placeholder={'Search'}
                 showPassword={false}
                 paddingHorizontal={10}

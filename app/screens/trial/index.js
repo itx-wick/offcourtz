@@ -104,7 +104,7 @@ const Trial = ({navigation}) => {
           backdropComponent={backdropComponent}
           dismissSheetModal={dismissSheetModal}
           onDismissHandler={onDismissHandler}
-          paymentMethodRef={bottomSheetModalRef}
+          bottomSheetModalRef={bottomSheetModalRef}
           snapPoints={snapPoints}
           title={'Payment Method'}
           titleStyle={styles.bottomSheetTitle}
