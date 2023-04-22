@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Platform,
 } from 'react-native';
 import bgTrial from '../../assets/images/trial_bg.png';
 import {screenHeight, screenWidth} from '../../constants';
@@ -239,7 +240,7 @@ const styles = StyleSheet.create({
   btnsContainer: {
     alignItems: 'center',
     position: 'absolute',
-    bottom: 60,
+    bottom: Platform.OS === 'ios' ? 60 : 30,
   },
   btnMainView: {
     flexDirection: 'row',

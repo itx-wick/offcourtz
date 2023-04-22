@@ -60,9 +60,6 @@ function Favorites({navigation}) {
                   borderRadius={0.4 * screenWidth}
                   searchIcon={svgImages.searchIcon}
                   filterIcon={svgImages.x}
-                  onChangeText={e => {
-                    console.log(e);
-                  }}
                   filterIconH={22}
                   filterIconW={22}
                   filterIconStyle={{
@@ -195,8 +192,8 @@ function Favorites({navigation}) {
               <Image
                 source={require('../assets/images/emptyHeart.png')}
                 style={{
-                  width: 50,
-                  height: 50,
+                  width: 40,
+                  height: 40,
                   marginHorizontal: 3,
                   marginBottom: 15,
                 }}
@@ -220,7 +217,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.04 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

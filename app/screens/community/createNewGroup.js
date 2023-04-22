@@ -203,7 +203,10 @@ function CreateNewGroup({navigation}) {
                   contentContainerStyle={styles.listContentContainer}
                   ItemSeparatorComponent={flatListItemSeparator}
                   renderItem={renderListItem}
-                  style={{height: 0.5 * screenWidth}}
+                  style={{
+                    height: 0.75 * screenWidth,
+                    marginBottom: 0.14 * screenWidth,
+                  }}
                 />
               </View>
             </View>
@@ -312,7 +315,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.04 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

@@ -3,6 +3,7 @@ import {
   Animated,
   FlatList,
   ImageBackground,
+  Platform,
   StyleSheet,
   View,
 } from 'react-native';
@@ -121,7 +122,7 @@ const styles = StyleSheet.create({
     width: screenWidth,
     position: 'absolute',
     paddingHorizontal: 25,
-    top: 40,
+    top: Platform.OS === 'ios' ? 40 : 10,
   },
   item: {
     height: screenHeight,
@@ -140,7 +141,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     alignItems: 'center',
-    bottom: 50,
+    bottom: Platform.OS === 'ios' ? 50 : 20,
     marginVertical: 5,
   },
   socialBtns: {

@@ -10,6 +10,7 @@ import {
 import {theme} from '../../theme';
 
 import moment from 'moment';
+import {screenWidth} from '../../constants';
 
 const TextField = props => {
   const [error, setError] = useState('');
@@ -32,7 +33,7 @@ const TextField = props => {
               flexDirection: 'row',
               width: props.inputWidth,
               backgroundColor: theme.colors.white,
-              height: Platform.OS === 'ios' && props.height,
+              height: 0.12 * screenWidth,
               borderRadius: props.inputWidth,
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -42,7 +43,7 @@ const TextField = props => {
               style={{
                 width: '85%',
                 flexDirection: 'row',
-                height: Platform.OS === 'ios' && props.height,
+                height: 0.12 * screenWidth,
                 alignItems: 'center',
               }}>
               {props.searchIcon && (
@@ -64,7 +65,7 @@ const TextField = props => {
                 style={[
                   {
                     width: '82%',
-                    height: Platform.OS === 'ios' && props.height,
+                    height: 0.12 * screenWidth,
                     fontFamily: fontFamily.argentum_sans,
                     fontSize: fontSize.verbiage_19,
                     fontWeight: fontWeight[400],
@@ -100,7 +101,7 @@ const TextField = props => {
             style={{
               flexDirection: 'row',
               width: props.inputWidth,
-              height: Platform.OS === 'ios' && props.height,
+              height: 0.12 * screenWidth,
               borderWidth: 1,
               borderColor: props.borderColor,
               borderRadius: props.inputWidth,
@@ -126,7 +127,7 @@ const TextField = props => {
               onBlur={() => setOnFocus(false)}
               style={{
                 width: '85%',
-                height: Platform.OS === 'ios' && props.height,
+                height: 0.12 * screenWidth,
                 fontFamily: fontFamily.argentum_sans,
                 fontSize: fontSize.verbiage_medium,
                 fontWeight: fontWeight[400],

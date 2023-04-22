@@ -25,7 +25,7 @@ import FriendsBottomSheetModalView from '../../components/bottomSheetModalView';
 import GroupsBottomSheetModalView from '../../components/bottomSheetModalView';
 import userPlaceholder from '../../assets/images/user.jpeg';
 import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
-import { Platform } from 'react-native';
+import {Platform} from 'react-native';
 const {colors} = theme;
 
 const CreateChallenge = ({route, navigation}) => {
@@ -593,11 +593,9 @@ const CreateChallenge = ({route, navigation}) => {
         flatListItemSeparator={flatListItemSeparator}
         onDismissHandler={() => {}}
         onClickDone={() => {
-          const data = groups.filter(item => item.selected === true);
-          console.log('Groups', data);
           groupsModalRef.current?.dismiss();
         }}
-        paymentMethodRef={groupsModalRef}
+        bottomSheetModalRef={groupsModalRef}
         snapPoints={snapPoints}
         data={groups}
         title={'Challenge Groups'}
@@ -615,11 +613,9 @@ const CreateChallenge = ({route, navigation}) => {
         flatListItemSeparator={flatListItemSeparator}
         onDismissHandler={() => {}}
         onClickDone={() => {
-          const data = friends.filter(item => item.selected === true);
-          console.log('friends', data);
           friendsModalRef.current?.dismiss();
         }}
-        paymentMethodRef={friendsModalRef}
+        bottomSheetModalRef={friendsModalRef}
         snapPoints={snapPoints}
         data={friends}
         title={'Challenge Friends'}
@@ -644,7 +640,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.04 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

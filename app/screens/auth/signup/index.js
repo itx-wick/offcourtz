@@ -131,7 +131,7 @@ const Signup = ({navigation}) => {
             </Text>
             <DropDown
               width={0.92 * screenWidth}
-              height={0.12 * screenWidth}
+              // height={0.12 * screenWidth}
               // borderWidth={1}
               borderColor={theme.colors.greyText}
               borderRadius={0.12 * screenWidth}
@@ -142,10 +142,10 @@ const Signup = ({navigation}) => {
               selectedItem={selectedItem.title}
               onPressItem={handleSelection}
               dropDownListStyle={{
-                maxHeight: 0.35 * screenWidth,
+                height: 0.35 * screenWidth,
               }}
               flatListView={{
-                maxHeight: 0.35 * screenWidth,
+                height: 0.35 * screenWidth,
               }}
             />
           </View>
@@ -166,7 +166,11 @@ const Signup = ({navigation}) => {
               type={'password'}
             />
           </View>
-          <View style={{marginTop: 15, marginBottom: 100}}>
+          <View
+            style={{
+              marginTop: 15,
+              marginBottom: Platform.OS === 'ios' ? 100 : 75,
+            }}>
             <View style={{flexDirection: 'row'}}>
               <Text
                 style={{
@@ -228,7 +232,7 @@ const Signup = ({navigation}) => {
           backgroundColor={colors.primary}
           btnStyle={{
             position: 'absolute',
-            bottom: 25,
+            bottom: Platform.OS === 'ios' ? 25 : 15,
           }}
         />
       </View>
@@ -246,7 +250,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.04 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

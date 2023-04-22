@@ -42,7 +42,12 @@ function Detail({navigation}) {
         }}>
         <TouchableOpacity
           onPress={navigateBack}
-          style={{position: 'absolute', top: 60, left: 15, zIndex: 1}}>
+          style={{
+            position: 'absolute',
+            top: Platform.OS === 'ios' ? 60 : 25,
+            left: 15,
+            zIndex: 1,
+          }}>
           <Images.back height={28} width={28} fill={theme.colors.white} />
         </TouchableOpacity>
         <Video
@@ -113,7 +118,7 @@ function Detail({navigation}) {
               </View>
             </View>
           </View>
-          <Images.like height={50} width={50} />
+          <Images.like height={40} width={40} />
         </View>
         <View style={{marginTop: 10, paddingHorizontal: 15}}>
           <Text
@@ -233,8 +238,8 @@ function Detail({navigation}) {
                 <Image
                   source={require('../assets/images/emptyHeart.png')}
                   style={{
-                    width: 50,
-                    height: 50,
+                    width: 40,
+                    height: 40,
                     marginHorizontal: 3,
                     marginBottom: 15,
                   }}
@@ -272,7 +277,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   player: {
-    width: '100%',
+    width: screenWidth,
     height: '100%',
   },
   listItemSeperator: {

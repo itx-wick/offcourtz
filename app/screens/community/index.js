@@ -22,9 +22,10 @@ import FAB from '../../components/fab';
 import BottomSheetModalView from '../../components/bottomSheetModalView';
 import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
 function Community({navigation}) {
-  const bottomSheetModalRef = useRef(null);
-  const snapPoints = useMemo(() => ['20%', '20%'], []);
+  const bottomSheetModalRef = React.useRef(null);
+  const snapPoints = useMemo(() => ['21%', '21%'], []);
   const [data, setData] = useState(Commons.communityModalData);
+  const [IsEnable, setIsEnable] = useState(false);
   const [filter, setFilter] = React.useState({});
 
   const backdropComponent = backdropProps => (
@@ -35,7 +36,12 @@ function Community({navigation}) {
     bottomSheetModalRef.current?.dismiss();
   }
 
+  const onDismissHandler = () => {
+    !IsEnable && setIsEnable(true);
+  };
+
   const renderListItem = ({item, index}) => {
+    console.log('Item', item, index);
     return (
       <TouchableOpacity
         onPress={() => {
@@ -49,7 +55,7 @@ function Community({navigation}) {
         style={{
           width: 0.9 * screenWidth,
           paddingVertical: 15,
-          marginBottom: index === 1 && 15,
+          marginBottom: Platform.OS === 'ios' ? 15 : 0,
         }}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <SvgXml
@@ -85,104 +91,107 @@ function Community({navigation}) {
   }, []);
 
   return (
-    <View style={styles.mainContainer}>
-      <View style={styles.headerMainContainer}>
-        <View style={styles.headContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate(screens.manageCommunity)}
-            style={{
-              width: '10%',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <SvgXml
-              width={0.12 * screenWidth}
-              height={0.12 * screenWidth}
-              xml={svgImages.settingIcon}
-            />
-          </TouchableOpacity>
-          <Text
-            style={{
-              fontFamily: fontFamily.argentum_sans,
-              fontSize: fontSize.verbiage_22,
-            }}>
-            Community
-          </Text>
-          <TouchableOpacity
-            onPress={() => navigation.navigate(screens.notifications)}
-            style={{
-              width: '10%',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <SvgXml
-              width={0.12 * screenWidth}
-              height={0.12 * screenWidth}
-              xml={svgImages.notification}
-            />
-          </TouchableOpacity>
-        </View>
-      </View>
-      <AppFlatlist
-        horizontal
-        style={{
-          width: screenWidth,
-          padding: 10,
-          marginTop: 20,
-          backgroundColor: theme.colors.white,
-        }}
-        ListFooterComponent={<View style={{paddingHorizontal: 10}} />}
-        data={Commons.communityFilter}
-        renderItem={({item, index}) => (
-          <TouchableOpacity
-            style={{
-              flexDirection: 'row',
-              height: 0.1 * screenWidth,
-              borderRadius: 0.1 * screenWidth,
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              paddingHorizontal: 15,
-              marginHorizontal: 5,
-              borderColor: theme.colors.gray1,
-              backgroundColor:
-                item.title === filter.title
-                  ? theme.colors.primary
-                  : theme.colors.transparent,
-            }}
-            onPress={() => {
-              setFilter(item);
-            }}>
-            <SvgXml xml={svgImages.smallLogoIcon} style={{marginRight: 5}} />
-            <Text style={{fontFamily: fontFamily.argentum_sans}}>
-              {item.title}
+    <>
+      <View style={styles.mainContainer}>
+        <View style={styles.headerMainContainer}>
+          <View style={styles.headContainer}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate(screens.manageCommunity)}
+              style={{
+                width: '10%',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <SvgXml
+                width={0.12 * screenWidth}
+                height={0.12 * screenWidth}
+                xml={svgImages.settingIcon}
+              />
+            </TouchableOpacity>
+            <Text
+              style={{
+                fontFamily: fontFamily.argentum_sans,
+                fontSize: fontSize.verbiage_22,
+              }}>
+              Community
             </Text>
-          </TouchableOpacity>
-        )}
-      />
-      <AppFlatlist
-        data={Commons.communityData}
-        ListFooterComponent={<View style={{height: 0.66 * screenWidth}} />}
-        height={screenHeight}
-        renderItem={({item, index}) => <Post item={item} index={index} />}
-      />
-      <FAB
-        onPress={() => {
-          bottomSheetModalRef.current?.present();
-        }}
-        icon={svgImages.add}
-      />
+            <TouchableOpacity
+              onPress={() => navigation.navigate(screens.notifications)}
+              style={{
+                width: '10%',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <SvgXml
+                width={0.12 * screenWidth}
+                height={0.12 * screenWidth}
+                xml={svgImages.notification}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+        <AppFlatlist
+          horizontal
+          style={{
+            width: screenWidth,
+            padding: 10,
+            marginTop: 20,
+            backgroundColor: theme.colors.white,
+          }}
+          ListFooterComponent={<View style={{paddingHorizontal: 10}} />}
+          data={Commons.communityFilter}
+          renderItem={({item, index}) => (
+            <TouchableOpacity
+              style={{
+                flexDirection: 'row',
+                height: 0.1 * screenWidth,
+                borderRadius: 0.1 * screenWidth,
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                paddingHorizontal: 15,
+                marginHorizontal: 5,
+                borderColor: theme.colors.gray1,
+                backgroundColor:
+                  item.title === filter.title
+                    ? theme.colors.primary
+                    : theme.colors.transparent,
+              }}
+              onPress={() => {
+                setFilter(item);
+              }}>
+              <SvgXml xml={svgImages.smallLogoIcon} style={{marginRight: 5}} />
+              <Text style={{fontFamily: fontFamily.argentum_sans}}>
+                {item.title}
+              </Text>
+            </TouchableOpacity>
+          )}
+        />
+        <AppFlatlist
+          data={Commons.communityData}
+          ListFooterComponent={<View style={{height: 0.66 * screenWidth}} />}
+          height={screenHeight}
+          renderItem={({item, index}) => <Post item={item} index={index} />}
+        />
+        <FAB
+          onPress={() => {
+            setIsEnable(false);
+            bottomSheetModalRef.current?.present();
+          }}
+          icon={svgImages.add}
+        />
+      </View>
       <BottomSheetModalView
         backdropComponent={backdropComponent}
         dismissSheetModal={dismissBottomSheetModal}
+        bottomSheetModalRef={bottomSheetModalRef}
+        snapPoints={snapPoints}
         data={data}
         renderListItem={renderListItem}
         flatListItemSeparator={flatListItemSeparator}
-        onDismissHandler={() => {}}
-        bottomSheetModalRef={bottomSheetModalRef}
-        snapPoints={snapPoints}
+        onDismissHandler={onDismissHandler}
         community={true}
       />
-    </View>
+    </>
   );
 }
 export default Community;
@@ -195,7 +204,7 @@ const styles = StyleSheet.create({
   headerMainContainer: {
     width: screenWidth,
     alignItems: 'center',
-    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.06 * screenWidth,
+    marginTop: Platform.OS === 'ios' ? 0.12 * screenWidth : 0.04 * screenWidth,
   },
   headContainer: {
     flexDirection: 'row',

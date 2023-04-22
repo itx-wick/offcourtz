@@ -13,7 +13,7 @@ export default StyleSheet.create({
   container: {
     ...Platform.select({
       android: {
-        height: 70,
+        height: 0.15 * screenWidth,
         width: screenWidth,
         flexDirection: 'row',
         justifyContent: 'center',

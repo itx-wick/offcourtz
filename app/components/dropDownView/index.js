@@ -52,7 +52,7 @@ function DropDown(props) {
             styles.dropDownView,
             {
               width: props.width,
-              height: Platform.OS === 'ios' && props.height,
+              height: 0.12 * screenWidth,
               borderColor: props.borderColor,
               borderRadius: props.width,
               borderWidth: props.borderWidth ? props.borderWidth : 1,
@@ -87,7 +87,7 @@ function DropDown(props) {
                   Mins
                 </Text>
               )}
-              <SvgXml width="24" height="24 " xml={svgImages.caretDown} />
+              <SvgXml width="24" height="24" xml={svgImages.caretDown} />
             </View>
           )}
         </TouchableOpacity>
@@ -98,7 +98,7 @@ function DropDown(props) {
             styles.dropDownContainerView,
             {
               width: props.width,
-              borderRadius: props.height / 3,
+              borderRadius: (0.12 * screenWidth) / 3,
             },
           ]}>
           <TouchableOpacity onPress={() => setIsEnable(!isEnable)}>
@@ -107,7 +107,7 @@ function DropDown(props) {
                 styles.dropDownContainerTitleView,
                 {
                   width: props.width,
-                  height: Platform.OS === 'ios' && props.height,
+                  height: 0.12 * screenWidth,
                 },
               ]}>
               <Text style={styles.dropDownContainerTitle}>
@@ -279,6 +279,7 @@ const styles = StyleSheet.create({
   },
   searchInputContainer: {
     width: screenWidth * 0.85,
+    height: 0.12 * screenWidth,
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 0.75,

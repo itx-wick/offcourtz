@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity, Platform} from 'react-native';
 import {BottomSheetModal, BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -49,9 +49,13 @@ const BottomSheetModalView = props => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 marginTop: props.peoples
-                  ? 0.075 * screenWidth
+                  ? Platform.OS === 'ios'
+                    ? 0.075 * screenWidth
+                    : 0.02 * screenWidth
                   : props.community
                   ? 0.001 * screenWidth
+                  : props.isPayment
+                  ? 0.03 * screenWidth
                   : 0.05 * screenWidth,
               }}>
               <Text
@@ -187,6 +191,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: screenWidth,
     height: '100%',
+    marginTop: Platform.OS === 'ios' ? 0 : 10,
   },
   paymentMethodTitle: {
     color: theme.colors.secondaryBlack,
@@ -208,11 +213,11 @@ const styles = StyleSheet.create({
   },
   paymentBtnsContainer: {
     position: 'absolute',
-    bottom: 50,
+    bottom: Platform.OS === 'ios' ? 50 : 20,
   },
   communityContainer: {
     position: 'absolute',
-    bottom: 0,
+    bottom: Platform.OS === 'ios' ? 0 : 0,
   },
   paymentBtn: {
     marginTop: 10,

@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  StyleSheet,
+  Platform,
+} from 'react-native';
 import {
   fontFamily,
   fontSize,
@@ -157,7 +164,7 @@ function Post({item, index}) {
         style={{
           flexDirection: 'row',
           backgroundColor: theme.colors.white,
-          padding: 15,
+          padding: Platform.OS === 'ios' ? 15 : 10,
           alignItems: 'center',
         }}>
         <Text
@@ -242,7 +249,7 @@ function Post({item, index}) {
               width: 0.82 * screenWidth,
               borderWidth: 1,
               borderColor: theme.colors.gray1,
-              padding: 10,
+              padding: Platform.OS === 'ios' ? 10 : 5,
               fontFamily: fontFamily.argentum_sans,
               fontSize: fontSize.verbiage_14,
               fontWeight: fontWeight[400],
