@@ -48,32 +48,14 @@ export default {
       id: 1,
       title: 'Backhand',
       time: '20 Min',
-      image: (
-        <SvgXml
-          xml={svgImages.mask2}
-          style={{
-            transform: [{rotateX: '180deg'}],
-            marginBottom: -8,
-            marginTop: 15,
-          }}
-        />
-      ),
+      image: require('../assets/images/image1.png'),
       bgColor: '#E4DBFF',
     },
     {
       id: 2,
       title: 'Weekly',
       time: '30 Min',
-      image: (
-        <SvgXml
-          xml={svgImages.mask3}
-          style={{
-            transform: [{rotateX: '180deg'}],
-            marginBottom: -5,
-            marginTop: 15,
-          }}
-        />
-      ),
+      image: require('../assets/images/image1.png'),
       bgColor: '#FFDBDB',
     },
   ],
@@ -117,32 +99,14 @@ export default {
       id: 1,
       title: 'Smash',
       time: '30 Min',
-      image: (
-        <SvgXml
-          xml={svgImages.mask2}
-          style={{
-            transform: [{rotateX: '180deg'}],
-            marginBottom: -8,
-            marginTop: 15,
-          }}
-        />
-      ),
+      image: require('../assets/images/image1.png'),
       bgColor: '#FFEBD4',
     },
     {
       id: 2,
       title: 'Backhand',
       time: '20 Min',
-      image: (
-        <SvgXml
-          xml={svgImages.mask2}
-          style={{
-            transform: [{rotateX: '180deg'}],
-            marginBottom: -5,
-            marginTop: 15,
-          }}
-        />
-      ),
+      image: require('../assets/images/image1.png'),
       bgColor: '#E4DBFF',
     },
   ],
@@ -152,48 +116,21 @@ export default {
       id: 1,
       title: 'Forehand',
       time: '30 Min',
-      image: (
-        <SvgXml
-          xml={svgImages.mask1}
-          style={{
-            transform: [{rotate: '180deg'}],
-            marginBottom: -8,
-            marginTop: 15,
-          }}
-        />
-      ),
+      image: require('../assets/images/image1.png'),
       bgColor: '#DBE9FF',
     },
     {
       id: 2,
       title: 'Smash',
       time: '30 Min',
-      image: (
-        <SvgXml
-          xml={svgImages.mask2}
-          style={{
-            transform: [{rotateX: '180deg'}],
-            marginBottom: -8,
-            marginTop: 15,
-          }}
-        />
-      ),
+      image: require('../assets/images/image1.png'),
       bgColor: '#FFEBD4',
     },
     {
       id: 3,
       title: 'Backhand',
       time: '20 Min',
-      image: (
-        <SvgXml
-          xml={svgImages.mask3}
-          style={{
-            transform: [{rotateX: '180deg'}],
-            marginBottom: -5,
-            marginTop: 15,
-          }}
-        />
-      ),
+      image: require('../assets/images/image1.png'),
       bgColor: '#E4DBFF',
     },
   ],
@@ -2315,16 +2252,7 @@ export default {
       id: 1,
       title: 'Forehand',
       time: '30 Min',
-      image: (
-        <SvgXml
-          xml={svgImages.mask1}
-          style={{
-            transform: [{rotate: '180deg'}],
-            marginBottom: -8,
-            marginTop: 15,
-          }}
-        />
-      ),
+      image: require('../assets/images/image1.png'),
       bgColor: '#DBE9FF',
       selected: false,
     },
@@ -2332,16 +2260,7 @@ export default {
       id: 2,
       title: 'Smash',
       time: '30 Min',
-      image: (
-        <SvgXml
-          xml={svgImages.mask2}
-          style={{
-            transform: [{rotateX: '180deg'}],
-            marginBottom: -8,
-            marginTop: 15,
-          }}
-        />
-      ),
+      image: require('../assets/images/image1.png'),
       bgColor: '#FFEBD4',
       selected: false,
     },
@@ -2349,16 +2268,7 @@ export default {
       id: 3,
       title: 'Backhand',
       time: '20 Min',
-      image: (
-        <SvgXml
-          xml={svgImages.mask3}
-          style={{
-            transform: [{rotateX: '180deg'}],
-            marginBottom: -5,
-            marginTop: 15,
-          }}
-        />
-      ),
+      image: require('../assets/images/image1.png'),
       bgColor: '#E4DBFF',
       selected: false,
     },

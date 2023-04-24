@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
   },
   paymentBtnsContainer: {
     position: 'absolute',
-    bottom: Platform.OS === 'ios' ? 50 : 20,
+    bottom: Platform.OS === 'ios' ? 60 : 30,
   },
   communityContainer: {
     position: 'absolute',

@@ -13,6 +13,7 @@ import AppFlatlist from '../../components/appFlatlist';
 import {Commons} from '../../utils';
 import {screens} from '../../config';
 import FiltersBottomSheet from '../../components/filtersBottomSheet';
+import {Image} from 'react-native';
 
 function Workouts({navigation}) {
   const filtersRef = React.useRef(null);
@@ -121,6 +122,8 @@ function Workouts({navigation}) {
           renderItem={({item, index}) => (
             <TouchableOpacity
               style={{
+                height: 0.3 * screenWidth,
+                width: 0.92 * screenWidth,
                 paddingHorizontal: 20,
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -157,7 +160,13 @@ function Workouts({navigation}) {
                   </View>
                 )}
               </View>
-              {item.image}
+              <Image
+                source={item.image}
+                style={{
+                  width: '25%',
+                  height: '100%',
+                }}
+              />
             </TouchableOpacity>
           )}
         />

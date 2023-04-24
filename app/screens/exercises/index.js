@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Image,
   ScrollView,
   StyleSheet,
   Text,
@@ -73,6 +74,8 @@ function Exercises({navigation}) {
         renderItem={({item, index}) => (
           <TouchableOpacity
             style={{
+              height: 0.3 * screenWidth,
+              width: 0.92 * screenWidth,
               paddingHorizontal: 20,
               flexDirection: 'row',
               alignItems: 'center',
@@ -109,7 +112,13 @@ function Exercises({navigation}) {
                 </View>
               )}
             </View>
-            {item.image}
+            <Image
+              source={item.image}
+              style={{
+                width: '25%',
+                height: '100%',
+              }}
+            />
           </TouchableOpacity>
         )}
       />

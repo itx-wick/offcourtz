@@ -132,7 +132,14 @@ const CreateChallenge = ({route, navigation}) => {
             </View>
           )}
         </View>
-        {item.image}
+
+        <Image
+          source={item.image}
+          style={{
+            width: '25%',
+            height: '100%',
+          }}
+        />
       </TouchableOpacity>
     );
   };
@@ -676,6 +683,8 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   step2ChipView: {
+    height: 0.3 * screenWidth,
+    width: 0.92 * screenWidth,
     paddingHorizontal: 20,
     flexDirection: 'row',
     alignItems: 'center',

@@ -1,5 +1,12 @@
 import React from 'react';
-import {Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {SvgXml} from 'react-native-svg';
 
 import {svgImages} from '../../helpers';
@@ -15,6 +22,8 @@ function Challenges({navigation}) {
     return (
       <TouchableOpacity
         style={{
+          height: 0.3 * screenWidth,
+          width: 0.92 * screenWidth,
           paddingHorizontal: 20,
           flexDirection: 'row',
           alignItems: 'center',
@@ -51,12 +60,11 @@ function Challenges({navigation}) {
             </View>
           )}
         </View>
-        <SvgXml
-          xml={svgImages.mask1}
+        <Image
+          source={require('../../assets/images/image1.png')}
           style={{
-            transform: [{rotate: '180deg'}],
-            marginBottom: -8,
-            marginTop: 15,
+            width: '25%',
+            height: '100%',
           }}
         />
       </TouchableOpacity>
@@ -114,6 +122,8 @@ function Challenges({navigation}) {
         renderItem={({item, index}) => (
           <TouchableOpacity
             style={{
+              height: 0.3 * screenWidth,
+              width: 0.92 * screenWidth,
               paddingHorizontal: 20,
               flexDirection: 'row',
               alignItems: 'center',
@@ -150,7 +160,13 @@ function Challenges({navigation}) {
                 </View>
               )}
             </View>
-            {item.image}
+            <Image
+              source={item.image}
+              style={{
+                width: '25%',
+                height: '100%',
+              }}
+            />
           </TouchableOpacity>
         )}
       />
