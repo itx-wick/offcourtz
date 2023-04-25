@@ -1,18 +1,18 @@
 import React from 'react';
-import {Image, StyleSheet, TouchableOpacity} from 'react-native';
-import {View, Text} from 'react-native';
-import {theme} from '../theme';
-import {fontFamily, fontSize, fontWeight} from '../constants/fontDecorations';
-import {screenHeight, screenWidth} from '../constants';
-import {svgImages} from '../helpers';
-import {screens} from '../config';
-import {SvgXml} from 'react-native-svg';
+import { Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native';
+import { theme } from '../theme';
+import { fontFamily, fontSize, fontWeight } from '../constants/fontDecorations';
+import { screenHeight, screenWidth } from '../constants';
+import { svgImages } from '../helpers';
+import { screens } from '../config';
+import { SvgXml } from 'react-native-svg';
 import TextField from '../components/textField';
-import {Commons} from '../utils';
+import { Commons } from '../utils';
 import AppFlatlist from '../components/appFlatlist';
-import Images from '../constants/Images';
-import {Platform} from 'react-native';
-function Favorites({navigation}) {
+import Images from '../constants/images';
+import { Platform } from 'react-native';
+function Favorites({ navigation }) {
   const searchRef = React.useRef();
   const [search, setSearch] = React.useState('');
   const [showSearch, setShowSearch] = React.useState(false);
@@ -52,7 +52,7 @@ function Favorites({navigation}) {
                   xml={svgImages.back}
                 />
               </TouchableOpacity>
-              <View style={{width: '90%', alignItems: 'flex-end'}}>
+              <View style={{ width: '90%', alignItems: 'flex-end' }}>
                 <TextField
                   inputWidth={0.8 * screenWidth}
                   height={0.1 * screenWidth}
@@ -85,7 +85,7 @@ function Favorites({navigation}) {
             <>
               <TouchableOpacity
                 onPress={navigateBack}
-                style={{position: 'absolute', left: 15}}>
+                style={{ position: 'absolute', left: 15 }}>
                 <SvgXml
                   width={0.1 * screenWidth}
                   height={0.1 * screenWidth}
@@ -95,7 +95,7 @@ function Favorites({navigation}) {
               <Text style={styles.headerTitle}>Favorites</Text>
               <TouchableOpacity
                 onPress={() => setShowSearch(!showSearch)}
-                style={{position: 'absolute', right: 15}}>
+                style={{ position: 'absolute', right: 15 }}>
                 <SvgXml
                   width={0.1 * screenWidth}
                   height={0.1 * screenWidth}
@@ -118,7 +118,7 @@ function Favorites({navigation}) {
         data={data}
         ListFooterComponent={<View />}
         height={screenHeight}
-        renderItem={({item, index}) => (
+        renderItem={({ item, index }) => (
           <TouchableOpacity
             style={{
               paddingHorizontal: 20,
@@ -128,7 +128,7 @@ function Favorites({navigation}) {
               borderRadius: 20,
               marginVertical: 5,
             }}
-            onPress={() => {}}>
+            onPress={() => { }}>
             <View
               style={{
                 flexDirection: 'row',
@@ -142,7 +142,7 @@ function Favorites({navigation}) {
                   borderRadius: 15,
                 }}
               />
-              <View style={{paddingHorizontal: 10, width: 0.5 * screenWidth}}>
+              <View style={{ paddingHorizontal: 10, width: 0.5 * screenWidth }}>
                 <Text
                   style={{
                     fontFamily: fontFamily.argentum_sans,
@@ -153,7 +153,7 @@ function Favorites({navigation}) {
                   numberOfLines={1}>
                   {`${item.title}`}
                 </Text>
-                <View style={{flexDirection: 'row'}}>
+                <View style={{ flexDirection: 'row' }}>
                   {item.time && (
                     <View
                       style={{

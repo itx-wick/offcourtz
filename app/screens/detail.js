@@ -1,17 +1,17 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 import Video from 'react-native-video';
 import dummyVideo from '../assets/videos/dummyVideo.mp4';
-import {screenHeight, screenWidth} from '../constants';
-import {StyleSheet} from 'react-native';
-import {theme} from '../theme';
-import Images from '../constants/Images';
-import {fontFamily, fontSize, fontWeight} from '../constants/fontDecorations';
-import {SvgXml} from 'react-native-svg';
-import {svgImages} from '../helpers';
-import {Commons} from '../utils';
+import { screenHeight, screenWidth } from '../constants';
+import { StyleSheet } from 'react-native';
+import { theme } from '../theme';
+import Images from '../constants/images';
+import { fontFamily, fontSize, fontWeight } from '../constants/fontDecorations';
+import { SvgXml } from 'react-native-svg';
+import { svgImages } from '../helpers';
+import { Commons } from '../utils';
 import AppFlatlist from '../components/appFlatlist';
-function Detail({navigation}) {
+function Detail({ navigation }) {
   const videoPlayer = React.useRef(null);
   const [paused, setPaused] = React.useState(false);
   const [progress, setProgress] = React.useState(0);
@@ -20,7 +20,7 @@ function Detail({navigation}) {
   const [isMuted, setIsMuted] = React.useState(false);
   const [data, setData] = React.useState(Commons.favorites);
 
-  const togglePlaying = () => {};
+  const togglePlaying = () => { };
   function secondsToTime(time) {
     return time / 60 + ':' + (((time % 60 < 10 ? '0' : '') * time) % 60);
   }
@@ -65,7 +65,7 @@ function Detail({navigation}) {
             paddingHorizontal: 15,
           }}>
           <View>
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <Text
                 style={{
                   marginHorizontal: 3,
@@ -77,7 +77,7 @@ function Detail({navigation}) {
                 }}>
                 Backhand Techniques
               </Text>
-              <Images.info height={24} width={24} style={{marginTop: 15}} />
+              <Images.info height={24} width={24} style={{ marginTop: 15 }} />
             </View>
             <View
               style={{
@@ -103,7 +103,7 @@ function Detail({navigation}) {
                   10 Mins
                 </Text>
               </View>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <Images.fire height={20} width={20} />
                 <Text
                   style={{
@@ -120,7 +120,7 @@ function Detail({navigation}) {
           </View>
           <Images.like height={40} width={40} />
         </View>
-        <View style={{marginTop: 10, paddingHorizontal: 15}}>
+        <View style={{ marginTop: 10, paddingHorizontal: 15 }}>
           <Text
             style={{
               textAlign: 'justify',
@@ -164,7 +164,7 @@ function Detail({navigation}) {
           ListFooterComponent={<View />}
           ItemSeparatorComponent={flatListItemSeparator}
           height={screenHeight}
-          renderItem={({item, index}) => (
+          renderItem={({ item, index }) => (
             <TouchableOpacity
               style={{
                 paddingHorizontal: 20,
@@ -174,7 +174,7 @@ function Detail({navigation}) {
                 borderRadius: 20,
                 marginVertical: 5,
               }}
-              onPress={() => {}}>
+              onPress={() => { }}>
               <View
                 style={{
                   flexDirection: 'row',
@@ -188,7 +188,7 @@ function Detail({navigation}) {
                     borderRadius: 15,
                   }}
                 />
-                <View style={{paddingHorizontal: 10, width: 0.5 * screenWidth}}>
+                <View style={{ paddingHorizontal: 10, width: 0.5 * screenWidth }}>
                   <Text
                     style={{
                       fontFamily: fontFamily.argentum_sans,
@@ -199,7 +199,7 @@ function Detail({navigation}) {
                     numberOfLines={1}>
                     {`${item.title}`}
                   </Text>
-                  <View style={{flexDirection: 'row'}}>
+                  <View style={{ flexDirection: 'row' }}>
                     {item.time && (
                       <View
                         style={{
