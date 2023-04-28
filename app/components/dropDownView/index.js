@@ -56,6 +56,7 @@ function DropDown(props) {
               borderColor: props.borderColor,
               borderRadius: props.width,
               borderWidth: props.borderWidth ? props.borderWidth : 1,
+              backgroundColor: theme.colors.white,
             },
           ]}>
           {props.type === 'Country' ? (

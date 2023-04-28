@@ -1,8 +1,10 @@
 import React, {useRef} from 'react';
 import {
+  Alert,
   Animated,
   FlatList,
   ImageBackground,
+  Linking,
   Platform,
   StyleSheet,
   View,
@@ -20,6 +22,17 @@ const {colors} = theme;
 const GetStarted = ({navigation}) => {
   const scrollX = useRef(new Animated.Value(0)).current;
   const slidesRef = useRef(null);
+
+  const openUrl = async url => {
+    const supported = await Linking.canOpenURL(url);
+    if (supported) {
+      // Opening the link with some app, if the URL scheme is "http" the web link should be opened
+      // by some browser in the mobile
+      await Linking.openURL(url);
+    } else {
+      Alert.alert(`Don't know how to open this URL: ${url}`);
+    }
+  };
 
   const DATA = [
     {
@@ -87,7 +100,9 @@ const GetStarted = ({navigation}) => {
         <View style={styles.socialBtns}>
           <Button
             title={'FACEBOOK'}
-            onPress={() => {}}
+            onPress={() => {
+              openUrl('https://www.facebook.com');
+            }}
             iconHeight={26}
             iconWidth={26}
             icon={svgImages.facebook}
@@ -100,7 +115,9 @@ const GetStarted = ({navigation}) => {
             iconHeight={26}
             iconWidth={26}
             icon={svgImages.google}
-            onPress={() => {}}
+            onPress={() => {
+              openUrl('https://www.google.com');
+            }}
             btnWidth={screenWidth * 0.43}
             backgroundColor={'rgba(52, 52, 52, 0.4)'}
             titleStyle={{fontSize: fontSize.verbiage, paddingHorizontal: 7}}

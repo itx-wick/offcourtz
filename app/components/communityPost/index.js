@@ -72,6 +72,7 @@ function Post({item, index}) {
               style={{
                 fontFamily: fontFamily.argentum_sans,
                 fontSize: fontSize.verbiage_20,
+                color: theme.colors.black,
               }}>
               {item.name}
             </Text>
@@ -93,6 +94,7 @@ function Post({item, index}) {
             fontWeight: fontWeight[300],
             marginTop: 15,
             marginBottom: 10,
+            color: theme.colors.black,
           }}>
           {item.desc}
         </Text>
@@ -254,6 +256,7 @@ function Post({item, index}) {
               fontSize: fontSize.verbiage_14,
               fontWeight: fontWeight[400],
               borderRadius: 5,
+              color: theme.colors.black,
             }}
             placeholder="Leave your comment here..."
             placeholderTextColor={theme.colors.greyText}

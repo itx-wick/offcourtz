@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View, TextInput, Platform, TouchableOpacity} from 'react-native';
+import {
+  Text,
+  View,
+  TextInput,
+  Platform,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
 import {SvgXml} from 'react-native-svg';
 
 import {
@@ -11,6 +18,7 @@ import {theme} from '../../theme';
 
 import moment from 'moment';
 import {screenWidth} from '../../constants';
+import Ionicons from 'react-native-vector-icons/Entypo';
 
 const TextField = props => {
   const [error, setError] = useState('');
@@ -24,6 +32,11 @@ const TextField = props => {
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
+
+  const showHide = () => {
+    props.updateShowHidePassword();
+  };
+
   return (
     <>
       {props.type === 'search' ? (
@@ -105,6 +118,8 @@ const TextField = props => {
               borderWidth: 1,
               borderColor: props.borderColor,
               borderRadius: props.inputWidth,
+              backgroundColor: theme.colors.white,
+              color: theme.colors.black,
               alignItems: 'center',
               justifyContent: 'space-between',
               paddingRight: 15,
@@ -117,9 +132,7 @@ const TextField = props => {
               onChangeText={props.onChangeText}
               placeholder={props.placeholder}
               placeholderTextColor={theme.colors.greyText}
-              secureTextEntry={
-                showPassword && props.type === 'password' ? true : false
-              }
+              secureTextEntry={props.secureTextEntry ? true : false}
               keyboardType={props.keyboardType}
               editable={props.editable}
               maxLength={props.maxLength}
@@ -133,8 +146,24 @@ const TextField = props => {
                 fontWeight: fontWeight[400],
                 paddingLeft: 15,
                 paddingRight: 20,
+                color: theme.colors.black,
               }}
             />
+            {props.showHidePassIcon ? (
+              <TouchableOpacity
+                style={styles.showPasswordBtn}
+                onPress={() => showHide()}>
+                {props.secureTextEntry ? (
+                  <Ionicons name="eye" size={22} style={styles.Feather} />
+                ) : (
+                  <Ionicons
+                    name="eye-with-line"
+                    size={22}
+                    style={styles.Feather}
+                  />
+                )}
+              </TouchableOpacity>
+            ) : null}
             {props.icon && <SvgXml width="24" height="24 " xml={props.icon} />}
           </View>
         </View>
@@ -144,3 +173,17 @@ const TextField = props => {
 };
 
 export default TextField;
+
+const styles = StyleSheet.create({
+  Feather: {
+    color: theme.colors.secondaryBlack,
+  },
+  showPasswordBtn: {
+    // position: 'absolute',
+    bottom: 13,
+    right: 5,
+    alignSelf: 'flex-end',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});

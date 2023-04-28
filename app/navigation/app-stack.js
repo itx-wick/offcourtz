@@ -1,7 +1,7 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import {screens} from '../config';
-
+import {AppState} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {useNavigationState} from '@react-navigation/native';
 
@@ -34,6 +34,10 @@ const MainNavigator = ({props}) => {
     screen: '',
   };
 
+  React.useEffect(() => {
+    dispatch(updateActiveTabAction(`Challenges`));
+  }, []);
+
   const tabsStacks = ['Challenges', 'Workouts', 'Exercises', 'Community'];
   useNavigationState(state => {
     try {
@@ -41,6 +45,10 @@ const MainNavigator = ({props}) => {
         state?.routes[0]?.state?.routes?.slice(-1)[0]?.name;
       if (tabsStacks?.includes(currentRouteName)) {
         dispatch(updateActiveTabAction(`${currentRouteName}`));
+      }
+      if (currentRouteName === 'Challenges') {
+        console.log('Hot');
+        dispatch(updateActiveTabAction(`Challenges`));
       }
 
       if (currentRouteName) {

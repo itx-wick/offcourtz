@@ -43,6 +43,7 @@ function Challenges({navigation}) {
               fontSize: fontSize.verbiage_24,
               fontWeight: 'bold',
               textTransform: 'uppercase',
+              color: theme.colors.black,
             }}>{`Challenge\nThe World`}</Text>
           {item.time && (
             <View
@@ -56,6 +57,7 @@ function Challenges({navigation}) {
                 style={{
                   fontFamily: fontFamily.argentum_sans,
                   fontSize: fontSize.verbiage_medium,
+                  color: theme.colors.black,
                 }}>{`${item.time}`}</Text>
             </View>
           )}
@@ -63,7 +65,7 @@ function Challenges({navigation}) {
         <Image
           source={require('../../assets/images/image1.png')}
           style={{
-            width: '25%',
+            width: '30%',
             height: '100%',
           }}
         />
@@ -143,6 +145,7 @@ function Challenges({navigation}) {
                   fontSize: fontSize.verbiage_24,
                   fontWeight: 'bold',
                   textTransform: 'uppercase',
+                  color: theme.colors.black,
                 }}>{`${item.title}`}</Text>
               {item.time && (
                 <View
@@ -156,6 +159,7 @@ function Challenges({navigation}) {
                     style={{
                       fontFamily: fontFamily.argentum_sans,
                       fontSize: fontSize.verbiage_medium,
+                      color: theme.colors.black,
                     }}>{`${item.time}`}</Text>
                 </View>
               )}
@@ -163,7 +167,7 @@ function Challenges({navigation}) {
             <Image
               source={item.image}
               style={{
-                width: '25%',
+                width: '30%',
                 height: '100%',
               }}
             />

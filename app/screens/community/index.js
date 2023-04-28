@@ -66,6 +66,7 @@ function Community({navigation}) {
               fontFamily: fontFamily.argentum_sans,
               fontSize: fontSize.verbiage_20,
               paddingHorizontal: 10,
+              color: theme.colors.black,
             }}>
             {item.title}
           </Text>
@@ -112,6 +113,7 @@ function Community({navigation}) {
               style={{
                 fontFamily: fontFamily.argentum_sans,
                 fontSize: fontSize.verbiage_22,
+                color: theme.colors.black,
               }}>
               Community
             </Text>
@@ -160,7 +162,11 @@ function Community({navigation}) {
                 setFilter(item);
               }}>
               <SvgXml xml={svgImages.smallLogoIcon} style={{marginRight: 5}} />
-              <Text style={{fontFamily: fontFamily.argentum_sans}}>
+              <Text
+                style={{
+                  fontFamily: fontFamily.argentum_sans,
+                  color: theme.colors.black,
+                }}>
                 {item.title}
               </Text>
             </TouchableOpacity>

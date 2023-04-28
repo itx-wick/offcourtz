@@ -112,6 +112,7 @@ function CreateNewGroup({navigation}) {
                     marginTop: 5,
                     alignItems: 'center',
                     justifyContent: 'space-evenly',
+                    backgroundColor: theme.colors.white,
                   }}>
                   <View style={{height: 50}}>
                     <SvgXml
@@ -156,7 +157,8 @@ function CreateNewGroup({navigation}) {
                     paddingHorizontal: 15,
                     fontFamily: fontFamily.argentum_sans,
                     fontSize: fontSize.verbiage,
-                    color: theme.colors.greyText,
+                    color: theme.colors.black,
+                    backgroundColor: theme.colors.white,
                   }}
                 />
               </View>

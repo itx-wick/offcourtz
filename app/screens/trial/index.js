@@ -60,8 +60,9 @@ const Trial = ({navigation}) => {
             <View style={styles.underlineView} />
           </View>
           <View style={styles.sectionContainer}>
-            <Text
-              style={styles.sectionTitle1}>{`TRY\nOFFCOUTRZ\nFOR FREE`}</Text>
+            <Text style={styles.sectionTitle1}>{`OFFCOUTRZ`}</Text>
+            {/* <Text
+              style={styles.sectionTitle1}>{`TRY\nOFFCOUTRZ\nFOR FREE`}</Text> */}
             <Text style={styles.sectionText}>
               {`Get access to all excercises, workouts, \n challenges and more`}
             </Text>
@@ -73,7 +74,7 @@ const Trial = ({navigation}) => {
                 setIsEnable(false);
                 bottomSheetModalRef.current?.present();
               }}>
-              <Text style={styles.btnMainText}>TRY IT FOR 3 DAY FREE</Text>
+              <Text style={styles.btnMainText}>TRY IT 3 DAYS FOR FREE</Text>
               <View style={{flexDirection: 'row'}}>
                 <Text style={styles.btnPriceText}>€4.99</Text>
                 <Text style={styles.btnPriceText2}>/MONTHLY</Text>

@@ -23,6 +23,11 @@ import TextField from '../../../components/textField';
 const {colors} = theme;
 
 const Login = ({navigation}) => {
+  const [secureTextEntry, setSecureTextEntry] = React.useState(true);
+
+  const updateShowHidePassword = () => {
+    setSecureTextEntry(!secureTextEntry);
+  };
   return (
     <View style={styles.mainContainer}>
       <View style={styles.headerMainContainer}>
@@ -63,7 +68,10 @@ const Login = ({navigation}) => {
               height={0.12 * screenWidth}
               borderColor={theme.colors.greyText}
               borderRadius={0.4 * screenWidth}
-              icon={svgImages.eye}
+              // icon={svgImages.eye}
+              showHidePassIcon={true}
+              secureTextEntry={secureTextEntry}
+              updateShowHidePassword={updateShowHidePassword}
               title={'Password'}
               placeholder={'Password'}
               showPassword={false}

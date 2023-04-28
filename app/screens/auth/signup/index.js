@@ -28,9 +28,15 @@ const {colors} = theme;
 
 const Signup = ({navigation}) => {
   const [selectedItem, setSelectedItem] = React.useState({});
+  const [secureTextEntry, setSecureTextEntry] = React.useState(true);
   function handleSelection(e) {
     setSelectedItem(e);
   }
+
+  const updateShowHidePassword = () => {
+    setSecureTextEntry(!secureTextEntry);
+  };
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.headerMainContainer}>
@@ -92,6 +98,7 @@ const Signup = ({navigation}) => {
               height={0.12 * screenWidth}
               borderColor={theme.colors.greyText}
               borderRadius={0.4 * screenWidth}
+              backgroundColor={theme.colors.white}
               onChangeText={e => {
                 console.log(e);
               }}
@@ -127,7 +134,7 @@ const Signup = ({navigation}) => {
                 marginVertical: 5,
                 color: theme.colors.greyText,
               }}>
-              Counrty
+              Country
             </Text>
             <DropDown
               width={0.92 * screenWidth}
@@ -158,7 +165,9 @@ const Signup = ({navigation}) => {
               onChangeText={e => {
                 console.log(e);
               }}
-              icon={svgImages.eye}
+              showHidePassIcon={true}
+              secureTextEntry={secureTextEntry}
+              updateShowHidePassword={updateShowHidePassword}
               title={'Password'}
               placeholder={'Password'}
               showPassword={false}
@@ -201,18 +210,19 @@ const Signup = ({navigation}) => {
                 borderColor: colors.greyText,
                 borderRadius: 15,
                 marginTop: 5,
+                justifyContent: 'space-evenly',
                 alignItems: 'center',
-                justifyContent: 'center',
+                backgroundColor: theme.colors.white,
               }}>
               <View style={{height: 50}}>
-                <SvgXml width="60" height="60" xml={svgImages.smiley} />
+                <SvgXml width="90" height="90" xml={svgImages.smiley} />
               </View>
               <Button
                 title={'ADD'}
                 iconHeight={16}
                 iconWidth={16}
                 icon={svgImages.plus}
-                onPress={() => navigation.navigate(screens.login)}
+                onPress={() => {}}
                 btnWidth={screenWidth * 0.25}
                 btnHeight={40}
                 titleColor={colors.white}

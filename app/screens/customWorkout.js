@@ -259,6 +259,7 @@ function CustomWorkout({navigation}) {
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexDirection: 'row',
+                    backgroundColor: theme.colors.white,
                   }}>
                   <SvgXml width="22" height="22" xml={svgImages.plus2} />
                   <Text
@@ -294,6 +295,7 @@ function CustomWorkout({navigation}) {
                     marginTop: 5,
                     justifyContent: 'space-evenly',
                     alignItems: 'center',
+                    backgroundColor: theme.colors.white,
                   }}>
                   <View style={{height: 50}}>
                     <SvgXml width="90" height="90" xml={svgImages.smiley} />
@@ -303,7 +305,7 @@ function CustomWorkout({navigation}) {
                     iconHeight={16}
                     iconWidth={16}
                     icon={svgImages.plus}
-                    onPress={() => navigation.navigate(screens.login)}
+                    onPress={() => {}}
                     btnWidth={screenWidth * 0.25}
                     btnHeight={40}
                     titleColor={theme.colors.white}

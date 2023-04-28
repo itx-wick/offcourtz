@@ -53,6 +53,7 @@ function CreateNewPost({navigation}) {
                   height: 0.45 * screenWidth,
                   borderWidth: 2,
                   borderColor: theme.colors.gray1,
+                  backgroundColor: theme.colors.white,
                   borderRadius: 15,
                   marginTop: 5,
                   alignItems: 'center',
@@ -133,6 +134,7 @@ function CreateNewPost({navigation}) {
                   fontWeight: fontWeight[400],
                   paddingTop: 15,
                   paddingHorizontal: 15,
+                  backgroundColor: theme.colors.white,
                 }}
                 multiline
                 placeholderTextColor={theme.colors.greyText}

@@ -86,8 +86,8 @@ const styles = StyleSheet.create({
   img: {
     position: 'absolute',
     alignSelf: 'center',
-    top: 175,
-    height: undefined,
+    top: 0.27 * screenHeight,
+    width: 0.75 * screenWidth,
     aspectRatio: 1,
     padding: 10,
   },
