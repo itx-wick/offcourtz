@@ -179,9 +179,8 @@ const styles = StyleSheet.create({
     color: theme.colors.secondaryBlack,
   },
   showPasswordBtn: {
-    // position: 'absolute',
-    bottom: 13,
-    right: 5,
+    right: 3,
+    height: 0.12 * screenWidth,
     alignSelf: 'flex-end',
     alignItems: 'center',
     justifyContent: 'center',
