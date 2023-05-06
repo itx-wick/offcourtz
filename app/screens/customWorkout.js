@@ -259,13 +259,14 @@ function CustomWorkout({navigation}) {
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexDirection: 'row',
-                    backgroundColor: theme.colors.white,
+                    backgroundColor: theme.colors.black,
                   }}>
                   <SvgXml width="22" height="22" xml={svgImages.plus2} />
                   <Text
                     style={{
                       fontFamily: fontFamily.argentum_sans,
                       fontSize: fontSize.verbiage_large,
+                      color: 'white',
                       fontWeight: fontWeight[500],
                       marginHorizontal: 5,
                     }}>

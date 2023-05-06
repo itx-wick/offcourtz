@@ -134,7 +134,9 @@ function Workouts({navigation}) {
                 marginVertical: 5,
               }}
               onPress={() => {
-                navigation.navigate(screens.detail);
+                navigation.navigate(screens.detail, {
+                  from: `${item.title} Workout`,
+                });
               }}>
               <View>
                 <Text

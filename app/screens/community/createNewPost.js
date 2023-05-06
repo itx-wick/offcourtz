@@ -135,6 +135,7 @@ function CreateNewPost({navigation}) {
                   paddingTop: 15,
                   paddingHorizontal: 15,
                   backgroundColor: theme.colors.white,
+                  textAlignVertical: 'top',
                 }}
                 multiline
                 placeholderTextColor={theme.colors.greyText}

@@ -9,6 +9,7 @@ import {
   View,
 } from 'react-native';
 import {SvgXml} from 'react-native-svg';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
 import {svgImages} from '../../../helpers';
 import {theme} from '../../../theme';
@@ -24,10 +25,15 @@ import TextField from '../../../components/textField';
 import DropDown from '../../../components/dropDownView';
 import {countries} from '../../../utils/utils';
 import {Commons} from '../../../utils';
+import {TimeDatePicker, Modes} from 'react-native-time-date-picker';
+import moment from 'moment';
+
 const {colors} = theme;
 
 const Signup = ({navigation}) => {
   const [selectedItem, setSelectedItem] = React.useState({});
+  const [dateOfBirth, setDateOfBirth] = React.useState('');
+  const [isDatePickerVisible, setDatePickerVisible] = React.useState(false);
   const [secureTextEntry, setSecureTextEntry] = React.useState(true);
   function handleSelection(e) {
     setSelectedItem(e);
@@ -36,6 +42,27 @@ const Signup = ({navigation}) => {
   const updateShowHidePassword = () => {
     setSecureTextEntry(!secureTextEntry);
   };
+
+  const showDatePicker = () => {
+    setDatePickerVisible(true);
+  };
+
+  const hideDatePicker = () => {
+    setDatePickerVisible(false);
+  };
+
+  const pickADate = (date, check) => {
+    let tempDate = new Date(date);
+    let year = tempDate.getFullYear();
+    let month = ('0' + (tempDate.getMonth() + 1)).slice(-2);
+    let day =
+      tempDate.getDate() < 10 ? '0' + tempDate.getDate() : tempDate.getDate();
+    let fDate = `${day}/${month}/${year}`;
+    setDateOfBirth(fDate);
+    hideDatePicker();
+  };
+
+  const now = moment().valueOf();
 
   return (
     <View style={styles.mainContainer}>
@@ -108,23 +135,25 @@ const Signup = ({navigation}) => {
               type={'text'}
             />
           </View>
-          <View style={{marginTop: 10}}>
+          <TouchableOpacity
+            onPress={() => {
+              showDatePicker();
+            }}
+            style={{marginTop: 10}}>
             <TextField
               inputWidth={0.92 * screenWidth}
               height={0.12 * screenWidth}
               borderColor={theme.colors.greyText}
               borderRadius={0.4 * screenWidth}
               icon={svgImages.calendarBlank}
-              onChangeText={e => {
-                console.log(e);
-              }}
+              value={dateOfBirth}
               title={'Date of Birth'}
               placeholder={'01/07/1990'}
               paddingHorizontal={10}
               editable={false}
               type={'text'}
             />
-          </View>
+          </TouchableOpacity>
           <View style={{marginTop: 10}}>
             <Text
               style={{
@@ -232,6 +261,12 @@ const Signup = ({navigation}) => {
           </View>
         </View>
       </ScrollView>
+      <DateTimePickerModal
+        isVisible={isDatePickerVisible}
+        mode="date"
+        onConfirm={data => pickADate(data)}
+        onCancel={hideDatePicker}
+      />
       <View style={{width: screenWidth, alignItems: 'center'}}>
         <Button
           title={'CREATE ACCOUNT'}

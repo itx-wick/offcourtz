@@ -28,12 +28,18 @@ import {Platform} from 'react-native';
 function CreateNewGroup({navigation}) {
   const searchRef = useRef();
   const [search, setSearch] = useState('');
+  const [status, setStatus] = useState('Public');
+  const [listTab, setListTab] = useState(Commons.groupTabs);
   const [data, setData] = useState(Commons.friendsData);
   const [selectedItem, setSelectedItem] = useState({});
   const [modalVisible, setModalVisible] = useState(false);
   function handleSelection(e) {
     setSelectedItem(e);
   }
+
+  const setStatusFilter = status => {
+    setStatus(status);
+  };
 
   const onSearch = search => {
     if (search !== '') {
@@ -134,6 +140,18 @@ function CreateNewGroup({navigation}) {
                   />
                 </ImageBackground>
               </View>
+              <View style={styles.listTab}>
+                {listTab.map(e => (
+                  <TouchableOpacity
+                    style={[
+                      styles.btnTab,
+                      status === e.status && styles.btnTabActive,
+                    ]}
+                    onPress={() => setStatusFilter(e.status)}>
+                    <Text style={styles.textTab}>{e.status}</Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
               <View style={{marginTop: 10}}>
                 <Text
                   style={{
@@ -153,6 +171,34 @@ function CreateNewGroup({navigation}) {
                   borderRadius={0.12 * screenWidth}
                   placeholderTextColor={theme.colors.greyText}
                   placeholder="England Tennis Group"
+                  style={{
+                    paddingHorizontal: 15,
+                    fontFamily: fontFamily.argentum_sans,
+                    fontSize: fontSize.verbiage,
+                    color: theme.colors.black,
+                    backgroundColor: theme.colors.white,
+                  }}
+                />
+              </View>
+              <View style={{marginTop: 10}}>
+                <Text
+                  style={{
+                    fontFamily: fontFamily.argentum_sans,
+                    fontSize: fontSize.verbiage_medium,
+                    fontWeight: fontWeight[300],
+                    marginVertical: 5,
+                    color: theme.colors.greyText,
+                  }}>
+                  Group Description
+                </Text>
+                <TextInput
+                  width={0.92 * screenWidth}
+                  height={0.12 * screenWidth}
+                  borderWidth={2}
+                  borderColor={theme.colors.gray1}
+                  borderRadius={0.12 * screenWidth}
+                  placeholderTextColor={theme.colors.greyText}
+                  placeholder="Description Of The Group"
                   style={{
                     paddingHorizontal: 15,
                     fontFamily: fontFamily.argentum_sans,
@@ -389,5 +435,34 @@ const styles = StyleSheet.create({
   listContentContainer: {
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  listTab: {
+    width: 0.92 * screenWidth,
+    flexDirection: 'row',
+    backgroundColor: theme.colors.white,
+    height: 0.14 * screenWidth,
+    paddingHorizontal: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 0.14 * screenWidth,
+    marginTop: 15,
+  },
+  btnTab: {
+    // width: (0.92 * screenWidth) / 2.15,
+    // height: 0.09 * screenWidth,
+    width: '50%',
+    height: 0.11 * screenWidth,
+    borderRadius: 0.11 * screenWidth,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textTab: {
+    fontFamily: fontFamily.argentum_sans,
+    fontSize: fontSize.verbiage_medium,
+    fontWeight: fontWeight[400],
+  },
+  btnTabActive: {
+    backgroundColor: theme.colors.primary,
   },
 });

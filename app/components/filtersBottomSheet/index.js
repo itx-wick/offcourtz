@@ -5,8 +5,14 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  Platform,
 } from 'react-native';
-import {BottomSheetModal, BottomSheetModalProvider} from '@gorhom/bottom-sheet';
+import {
+  BottomSheetModal,
+  BottomSheetModalProvider,
+  BottomSheetScrollView,
+  BottomSheetFlatList,
+} from '@gorhom/bottom-sheet';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
@@ -73,6 +79,7 @@ const FiltersBottomSheet = props => {
           onDismiss={() => props.onDismissHandler()}
           index={1}
           snapPoints={props.snapPoints}
+          height={undefined}
           backdropComponent={props.backdropComponent}>
           <View style={styles.bottomSheetModalViewCont}>
             <View
@@ -81,7 +88,7 @@ const FiltersBottomSheet = props => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginTop: 0.1 * screenWidth,
+                marginTop: Platform.OS === 'ios' ? 0.1 * screenWidth : 0,
               }}>
               <Text
                 style={
@@ -99,13 +106,14 @@ const FiltersBottomSheet = props => {
                 </TouchableOpacity>
               )}
             </View>
-            <ScrollView
+            <BottomSheetScrollView
               horizontal={false}
+              nestedScrollEnabled={true}
               showsHorizontalScrollIndicator={false}
               showsVerticalScrollIndicator={false}
               contentContainerStyle={{width: screenWidth}}>
               <View style={styles.secondaryCont}>
-                <View style={{marginTop: 10}}>
+                {/* <View style={{marginTop: 10}}>
                   <Text
                     style={{
                       fontFamily: fontFamily.argentum_sans,
@@ -170,7 +178,7 @@ const FiltersBottomSheet = props => {
                       </TouchableOpacity>
                     )}
                   />
-                </View>
+                </View> */}
                 <View style={{marginTop: 15}}>
                   <Text
                     style={{
@@ -183,7 +191,8 @@ const FiltersBottomSheet = props => {
                     Game Type
                   </Text>
                   <AppFlatlist
-                    horizontal
+                    horizontal={true}
+                    ho
                     style={{width: screenWidth}}
                     ListFooterComponent={<View />}
                     data={gameTypes}
@@ -249,12 +258,13 @@ const FiltersBottomSheet = props => {
                     }}>
                     Objectives
                   </Text>
-                  <AppFlatlist
+                  <BottomSheetFlatList
                     horizontal
                     style={{width: screenWidth}}
                     ListFooterComponent={
                       <View style={{paddingHorizontal: 15}} />
                     }
+                    showsHorizontalScrollIndicator={false}
                     data={objectives}
                     renderItem={({item, index}) => (
                       <TouchableOpacity
@@ -318,12 +328,13 @@ const FiltersBottomSheet = props => {
                     }}>
                     Situations
                   </Text>
-                  <AppFlatlist
+                  <BottomSheetFlatList
                     horizontal
                     style={{width: screenWidth}}
                     ListFooterComponent={
                       <View style={{paddingHorizontal: 15}} />
                     }
+                    showsHorizontalScrollIndicator={false}
                     data={situations}
                     renderItem={({item, index}) => (
                       <TouchableOpacity
@@ -387,12 +398,13 @@ const FiltersBottomSheet = props => {
                     }}>
                     Shots
                   </Text>
-                  <AppFlatlist
+                  <BottomSheetFlatList
                     horizontal
                     style={{width: screenWidth}}
                     ListFooterComponent={
                       <View style={{paddingHorizontal: 15}} />
                     }
+                    showsHorizontalScrollIndicator={false}
                     data={shots}
                     renderItem={({item, index}) => (
                       <TouchableOpacity
@@ -455,12 +467,13 @@ const FiltersBottomSheet = props => {
                     }}>
                     Abilities
                   </Text>
-                  <AppFlatlist
+                  <BottomSheetFlatList
                     horizontal
                     style={{width: screenWidth}}
                     ListFooterComponent={
                       <View style={{paddingHorizontal: 15}} />
                     }
+                    showsHorizontalScrollIndicator={false}
                     data={abilities}
                     renderItem={({item, index}) => (
                       <TouchableOpacity
@@ -524,12 +537,13 @@ const FiltersBottomSheet = props => {
                     }}>
                     Physical Qualities
                   </Text>
-                  <AppFlatlist
+                  <BottomSheetFlatList
                     horizontal
                     style={{width: screenWidth}}
                     ListFooterComponent={
                       <View style={{paddingHorizontal: 15}} />
                     }
+                    showsHorizontalScrollIndicator={false}
                     data={physicalQualities}
                     renderItem={({item, index}) => (
                       <TouchableOpacity
@@ -587,7 +601,7 @@ const FiltersBottomSheet = props => {
                     style={{
                       flexDirection: 'row',
                       marginTop: 15,
-                      marginBottom: 25,
+                      marginBottom: Platform.os === 'ios' ? 0 : 50,
                       alignItems: 'center',
                       justifyContent: 'space-between',
                     }}>
@@ -614,7 +628,7 @@ const FiltersBottomSheet = props => {
                   </View>
                 </View>
               </View>
-            </ScrollView>
+            </BottomSheetScrollView>
           </View>
         </BottomSheetModal>
       </View>

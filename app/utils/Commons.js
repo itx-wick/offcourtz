@@ -2242,14 +2242,22 @@ export default {
   ],
 
   step1Data: [
-    {key: '1', label: 'Challenge Yourself', selected: false},
-    {key: '2', label: 'Challenge Groups', selected: false},
-    {key: '3', label: 'Challenge Friends', selected: false},
+    {key: '1', title: 'Challenge Yourself', selected: false},
+    {key: '2', title: 'Challenge Groups', selected: false},
+    {key: '3', title: 'Challenge Friends', selected: false},
   ],
 
   step2Data: [
     {
       id: 1,
+      title: 'Custom\nChallenge',
+      // time: '30 Min',
+      image: require('../assets/images/image1.png'),
+      bgColor: '#E4DBFF',
+      selected: false,
+    },
+    {
+      id: 2,
       title: 'Forehand',
       time: '30 Min',
       image: require('../assets/images/image1.png'),
@@ -2257,7 +2265,7 @@ export default {
       selected: false,
     },
     {
-      id: 2,
+      id: 3,
       title: 'Smash',
       time: '30 Min',
       image: require('../assets/images/image1.png'),
@@ -2265,7 +2273,7 @@ export default {
       selected: false,
     },
     {
-      id: 3,
+      id: 4,
       title: 'Backhand',
       time: '20 Min',
       image: require('../assets/images/image1.png'),
@@ -2275,27 +2283,26 @@ export default {
   ],
 
   step3Data: [
-    {key: '1', label: 'As many as possible', selected: false},
-    {key: '2', label: 'Hit a Target', selected: false},
-    {key: '3', label: 'time', selected: false},
-    {key: '4', label: 'As fast as possible', selected: false},
-    {key: '5', label: 'In a row', selected: false},
-    {key: '6', label: 'weight', selected: false},
-    {key: '7', label: 'Second Bounce', selected: false},
-    {key: '8', label: 'Repitions', selected: false},
+    {key: '1', title: 'In a row', selected: false},
+    {key: '2', title: 'Minutes', selected: false},
+    {key: '3', title: 'Km/h', selected: false},
+    {key: '4', title: 'In total', selected: false},
+    {key: '5', title: 'KG', selected: false},
+    {key: '6', title: 'Reps', selected: false},
+    {key: '7', title: 'Targets', selected: false},
   ],
 
   step4Data: [
-    {key: '1', label: '10 in a Row', selected: false},
-    {key: '2', label: '100 Kg with Weight', selected: false},
-    {key: '3', label: '5 in a Row', selected: false},
-    {key: '4', label: '5 mins long with time', selected: false},
+    {key: '1', title: '10 in a Row', selected: false},
+    {key: '2', title: '100 Kg with Weight', selected: false},
+    {key: '3', title: '5 in a Row', selected: false},
+    {key: '4', title: '5 mins long with time', selected: false},
   ],
 
   step5Data: [
-    {key: '1', label: 'Challenge Yourself', selected: false},
-    {key: '2', label: 'Challenge Groups', selected: false},
-    {key: '3', label: 'Challenge Friends', selected: false},
+    {key: '1', title: 'Challenge Yourself', selected: false},
+    {key: '2', title: 'Challenge Groups', selected: false},
+    {key: '3', title: 'Challenge Friends', selected: false},
   ],
 
   groupsData: [
@@ -2362,6 +2369,16 @@ export default {
     {
       id: '2',
       status: 'Sent',
+    },
+  ],
+  groupTabs: [
+    {
+      id: '1',
+      status: 'Public',
+    },
+    {
+      id: '2',
+      status: 'Private',
     },
   ],
 
@@ -2462,12 +2479,12 @@ export default {
   gameType: [
     {
       id: 1,
-      title: 'Single',
+      title: 'Singles',
       selected: false,
     },
     {
       id: 2,
-      title: 'Double',
+      title: 'Doubles',
       selected: false,
     },
   ],

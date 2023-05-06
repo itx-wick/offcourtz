@@ -17,7 +17,31 @@ import {fontFamily, fontSize} from '../../constants/fontDecorations';
 import TextField from '../../components/textField';
 import {Commons} from '../../utils';
 import {screens} from '../../config';
+import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
+import FiltersBottomSheet from '../../components/filtersBottomSheet';
 function Challenges({navigation}) {
+  const filtersRef = React.useRef(null);
+  const snapPoints = React.useMemo(() => ['100%', '100%'], []);
+  const [isFilter, setIsFilter] = React.useState(false);
+  const [filter, setFilter] = React.useState({});
+
+  React.useState(() => {
+    setFilter(Commons.workoutsFilter[0]);
+  }, []);
+
+  const backdropComponent = backdropProps => (
+    <BottomSheetBackdrop {...backdropProps} enableTouchThrough={true} />
+  );
+
+  function dismissFilters() {
+    setIsFilter(!isFilter);
+    filtersRef.current?.dismiss();
+  }
+
+  function showFilters() {
+    setIsFilter(!isFilter);
+    filtersRef.current?.present();
+  }
   const headerComponent = item => {
     return (
       <TouchableOpacity
@@ -78,7 +102,6 @@ function Challenges({navigation}) {
       <View style={styles.headerMainContainer}>
         <View style={styles.headContainer}>
           <TouchableOpacity
-            // onPress={() => navigation.goBack()}
             style={{
               width: '10%',
               alignItems: 'center',
@@ -94,16 +117,18 @@ function Challenges({navigation}) {
             <TextField
               inputWidth={0.8 * screenWidth}
               height={0.12 * screenWidth}
-              onChangeText={e => {
-                console.log(e);
-              }}
               borderColor={theme.colors.greyText}
               borderRadius={0.4 * screenWidth}
               searchIcon={svgImages.searchIcon}
+              filterIcon={svgImages.filterIcon}
+              onChangeText={e => {
+                console.log(e);
+              }}
               placeholder={'Search'}
               showPassword={false}
               paddingHorizontal={10}
               type={'search'}
+              filterIconPress={showFilters}
             />
           </View>
         </View>
@@ -136,7 +161,9 @@ function Challenges({navigation}) {
               marginVertical: 5,
             }}
             onPress={() => {
-              navigation.navigate(screens.detail);
+              navigation.navigate(screens.detail, {
+                from: `${item.title} Challenge`,
+              });
             }}>
             <View>
               <Text
@@ -173,6 +200,17 @@ function Challenges({navigation}) {
             />
           </TouchableOpacity>
         )}
+      />
+
+      <FiltersBottomSheet
+        backdropComponent={backdropComponent}
+        dismissSheetModal={dismissFilters}
+        onDismissHandler={() => {}}
+        bottomSheetRef={filtersRef}
+        snapPoints={snapPoints}
+        title={'Filters'}
+        titleStyle={styles.bottomSheetTitle}
+        closeIcon={true}
       />
     </View>
   );

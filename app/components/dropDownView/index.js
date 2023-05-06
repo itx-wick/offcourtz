@@ -76,14 +76,18 @@ function DropDown(props) {
             </View>
           )}
           {props.icon && (
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
               {props.type === 'Duration' && (
                 <Text
                   style={{
                     fontSize: fontSize.verbiage_16,
                     fontFamily: fontFamily.argentum_sans,
                     fontWeight: fontWeight[400],
-                    paddingRight: 5,
                   }}>
                   Mins
                 </Text>
@@ -279,8 +283,8 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
   },
   searchInputContainer: {
-    width: screenWidth * 0.85,
-    height: 0.12 * screenWidth,
+    width: '90%',
+    height: 0.11 * screenWidth,
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 0.75,
@@ -292,7 +296,7 @@ const styles = StyleSheet.create({
   searchIcon: {
     marginRight: 10,
   },
-  searchInput: {
-    flex: 1,
-  },
+  // searchInput: {
+  //   flex: 1,
+  // },
 });

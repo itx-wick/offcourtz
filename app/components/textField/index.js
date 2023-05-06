@@ -3,7 +3,7 @@ import {
   Text,
   View,
   TextInput,
-  Platform,
+  Image,
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
@@ -138,28 +138,32 @@ const TextField = props => {
               maxLength={props.maxLength}
               onFocus={() => setOnFocus(true)}
               onBlur={() => setOnFocus(false)}
-              style={{
-                width: '85%',
-                height: 0.12 * screenWidth,
-                fontFamily: fontFamily.argentum_sans,
-                fontSize: fontSize.verbiage_medium,
-                fontWeight: fontWeight[400],
-                paddingLeft: 15,
-                paddingRight: 20,
-                color: theme.colors.black,
-              }}
+              style={[
+                {
+                  width: props.icon || props.showHidePassIcon ? '85%' : '100%',
+                  height: 0.12 * screenWidth,
+                  fontFamily: fontFamily.argentum_sans,
+                  fontSize: fontSize.verbiage_medium,
+                  fontWeight: fontWeight[400],
+                  paddingLeft: 15,
+                  color: theme.colors.black,
+                },
+                props.inputStyle,
+              ]}
             />
             {props.showHidePassIcon ? (
               <TouchableOpacity
                 style={styles.showPasswordBtn}
                 onPress={() => showHide()}>
                 {props.secureTextEntry ? (
-                  <Ionicons name="eye" size={22} style={styles.Feather} />
+                  <Image
+                    source={require('../../assets/images/eye.png')}
+                    style={{height: 24, width: 24}}
+                  />
                 ) : (
-                  <Ionicons
-                    name="eye-with-line"
-                    size={22}
-                    style={styles.Feather}
+                  <Image
+                    source={require('../../assets/images/eye_slash.png')}
+                    style={{height: 24, width: 24}}
                   />
                 )}
               </TouchableOpacity>

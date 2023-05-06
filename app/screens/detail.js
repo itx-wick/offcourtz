@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {View, Text, TouchableOpacity, Image, Platform} from 'react-native';
 import Video from 'react-native-video';
 import dummyVideo from '../assets/videos/dummyVideo.mp4';
 import {screenHeight, screenWidth} from '../constants';
@@ -11,13 +11,21 @@ import {SvgXml} from 'react-native-svg';
 import {svgImages} from '../helpers';
 import {Commons} from '../utils';
 import AppFlatlist from '../components/appFlatlist';
-function Detail({navigation}) {
+import {useDispatch, useSelector} from 'react-redux';
+import {likeItem, updateFavourite} from '../redux/reducers/favouriteSlice';
+function Detail({route, navigation}) {
+  const dispatch = useDispatch();
+  const from = route.params?.from;
+  const favourites = useSelector(state => state.Favourites.favourites);
   const videoPlayer = React.useRef(null);
   const [paused, setPaused] = React.useState(false);
   const [progress, setProgress] = React.useState(0);
   const [duration, setDuration] = React.useState(0);
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [isMuted, setIsMuted] = React.useState(false);
+  const [isLiked, setIsLiked] = React.useState(false);
+  const [isItemLiked, setIsItemLiked] = React.useState(false);
+  const [selectedItems, setSelectedItems] = React.useState([]);
   const [data, setData] = React.useState(Commons.favorites);
 
   const togglePlaying = () => {};
@@ -29,9 +37,32 @@ function Detail({navigation}) {
     navigation.goBack();
   };
 
+  const handleSelectItem = id => {
+    const newSelectedItems = [...selectedItems];
+    const index = newSelectedItems.indexOf(id);
+    if (index === -1) {
+      newSelectedItems.push(id);
+    } else {
+      newSelectedItems.splice(index, 1);
+    }
+    setSelectedItems(newSelectedItems);
+  };
+
   const flatListItemSeparator = () => {
     return <View style={styles.listItemSeperator} />;
   };
+
+  function checkLastWord(str) {
+    // Split the string into an array of words
+    var words = str.split(' ');
+
+    // Get the last word in the array
+    var lastWord = words[words.length - 1];
+
+    // Return the last word
+    return lastWord;
+  }
+
   return (
     <View style={styles.mainContainer}>
       <View
@@ -47,13 +78,31 @@ function Detail({navigation}) {
             top: Platform.OS === 'ios' ? 60 : 25,
             left: 15,
             zIndex: 1,
+            flexDirection: 'row',
+            alignItems: 'center',
           }}>
-          <Images.back height={28} width={28} fill={theme.colors.white} />
+          <Image
+            source={require('../assets/images/back.png')}
+            style={{width: 28, height: 28}}
+          />
+          <Text
+            style={{
+              marginLeft: 5,
+              fontFamily: fontFamily.argentum_sans,
+              fontWeight: fontWeight[400],
+              fontSize: fontSize.verbiage,
+              color: theme.colors.white,
+            }}>
+            {from}
+          </Text>
         </TouchableOpacity>
+
         <Video
           ref={ref => (videoPlayer.current = ref)}
           source={dummyVideo} // the video file
           style={styles.player}
+          fullscreen={true}
+          resizeMode="cover"
         />
       </View>
       <View style={styles.sectionCont}>
@@ -75,7 +124,7 @@ function Detail({navigation}) {
                   color: theme.colors.black,
                   marginTop: 15,
                 }}>
-                Backhand Techniques
+                {from} Technique
               </Text>
               <Images.info height={24} width={24} style={{marginTop: 15}} />
             </View>
@@ -118,7 +167,24 @@ function Detail({navigation}) {
               </View>
             </View>
           </View>
-          <Images.like height={40} width={40} />
+          <TouchableOpacity
+            onPress={() => {
+              setIsLiked(!isLiked);
+              dispatch(
+                likeItem({
+                  id: 1,
+                  title: 'Backhand Techniques',
+                  time: '10 Mins',
+                  technique: 'Technique',
+                }),
+              );
+            }}>
+            {isLiked ? (
+              <Images.like height={40} width={40} />
+            ) : (
+              <Images.unlike height={40} width={40} />
+            )}
+          </TouchableOpacity>
         </View>
         <View style={{marginTop: 10, paddingHorizontal: 15}}>
           <Text
@@ -153,7 +219,9 @@ function Detail({navigation}) {
             color: theme.colors.black,
             paddingHorizontal: 15,
           }}>
-          Videos You May Like
+          {checkLastWord(from) === 'Challenge'
+            ? 'Videos You May Like'
+            : 'More Videos'}
         </Text>
         <AppFlatlist
           style={{
@@ -161,7 +229,7 @@ function Detail({navigation}) {
             marginBottom: 10,
           }}
           data={data}
-          ListFooterComponent={<View />}
+          ListFooterComponent={<View style={{height: 0.25 * screenHeight}} />}
           ItemSeparatorComponent={flatListItemSeparator}
           height={screenHeight}
           renderItem={({item, index}) => (
@@ -234,17 +302,17 @@ function Detail({navigation}) {
                   </View>
                 </View>
               </View>
-              <TouchableOpacity>
-                <Image
-                  source={require('../assets/images/emptyHeart.png')}
-                  style={{
-                    width: 40,
-                    height: 40,
-                    marginHorizontal: 3,
-                    marginBottom: 15,
-                  }}
-                  resizeMode="contain"
-                />
+              <TouchableOpacity
+                onPress={() => {
+                  setIsItemLiked(!isItemLiked);
+                  handleSelectItem(item.id);
+                  dispatch(likeItem(item));
+                }}>
+                {selectedItems.includes(item.id) ? (
+                  <Images.like height={40} width={40} />
+                ) : (
+                  <Images.unlike height={40} width={40} />
+                )}
               </TouchableOpacity>
             </TouchableOpacity>
           )}

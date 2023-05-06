@@ -23,7 +23,32 @@ import TextField from '../../components/textField';
 import {Commons} from '../../utils';
 import AppFlatlist from '../../components/appFlatlist';
 import {Platform} from 'react-native';
+import FiltersBottomSheet from '../../components/filtersBottomSheet';
+import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
 function Exercises({navigation}) {
+  const filtersRef = React.useRef(null);
+  const snapPoints = React.useMemo(() => ['100%', '100%'], []);
+  const [isFilter, setIsFilter] = React.useState(false);
+  const [filter, setFilter] = React.useState({});
+
+  React.useState(() => {
+    setFilter(Commons.workoutsFilter[0]);
+  }, []);
+
+  const backdropComponent = backdropProps => (
+    <BottomSheetBackdrop {...backdropProps} enableTouchThrough={true} />
+  );
+
+  function dismissFilters() {
+    setIsFilter(!isFilter);
+    filtersRef.current?.dismiss();
+  }
+
+  function showFilters() {
+    setIsFilter(!isFilter);
+    filtersRef.current?.present();
+  }
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.headerMainContainer}>
@@ -55,6 +80,7 @@ function Exercises({navigation}) {
               showPassword={false}
               paddingHorizontal={10}
               type={'search'}
+              filterIconPress={showFilters}
             />
           </View>
         </View>
@@ -86,7 +112,9 @@ function Exercises({navigation}) {
               marginVertical: 5,
             }}
             onPress={() => {
-              navigation.navigate(screens.detail);
+              navigation.navigate(screens.detail, {
+                from: `${item.title} Exercise`,
+              });
             }}>
             <View>
               <Text
@@ -123,6 +151,16 @@ function Exercises({navigation}) {
             />
           </TouchableOpacity>
         )}
+      />
+      <FiltersBottomSheet
+        backdropComponent={backdropComponent}
+        dismissSheetModal={dismissFilters}
+        onDismissHandler={() => {}}
+        bottomSheetRef={filtersRef}
+        snapPoints={snapPoints}
+        title={'Filters'}
+        titleStyle={styles.bottomSheetTitle}
+        closeIcon={true}
       />
       <FAB
         onPress={() => navigation.navigate(screens.favorites)}
