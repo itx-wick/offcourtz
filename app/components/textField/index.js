@@ -6,6 +6,8 @@ import {
   Image,
   TouchableOpacity,
   StyleSheet,
+  TouchableWithoutFeedback,
+  Pressable,
 } from 'react-native';
 import {SvgXml} from 'react-native-svg';
 
@@ -136,8 +138,9 @@ const TextField = props => {
               keyboardType={props.keyboardType}
               editable={props.editable}
               maxLength={props.maxLength}
-              onFocus={() => setOnFocus(true)}
-              onBlur={() => setOnFocus(false)}
+              onEndEditing={props.onEndEditing}
+              onFocus={props.onFocus}
+              onBlur={props.onBlur}
               style={[
                 {
                   width: props.icon || props.showHidePassIcon ? '85%' : '100%',

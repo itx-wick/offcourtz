@@ -1,6 +1,8 @@
 import React from 'react';
 import {
   ImageBackground,
+  Keyboard,
+  KeyboardAvoidingView,
   Platform,
   ScrollView,
   StyleSheet,
@@ -10,6 +12,7 @@ import {
 } from 'react-native';
 import {SvgXml} from 'react-native-svg';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import {launchImageLibrary} from 'react-native-image-picker';
 
 import {svgImages} from '../../../helpers';
 import {theme} from '../../../theme';
@@ -23,20 +26,71 @@ import {
 import {screens} from '../../../config';
 import TextField from '../../../components/textField';
 import DropDown from '../../../components/dropDownView';
-import {countries} from '../../../utils/utils';
 import {Commons} from '../../../utils';
-import {TimeDatePicker, Modes} from 'react-native-time-date-picker';
 import moment from 'moment';
+import {PlatformColor} from 'react-native';
 
 const {colors} = theme;
 
 const Signup = ({navigation}) => {
+  const [firstName, setFirstName] = React.useState('');
+  const [fnFocus, setFNFocus] = React.useState(false);
+  const [fnError, setFNError] = React.useState(false);
+  const [lastName, setLastName] = React.useState('');
+  const [lnFocus, setLNFocus] = React.useState(false);
+  const [lnError, setLNError] = React.useState(false);
+  const [email, setEmail] = React.useState('');
+  const [emailFocus, setEmailFocus] = React.useState(false);
+  const [emailError, setEmailError] = React.useState(false);
+  const [country, setCountry] = React.useState('');
+  const [countryError, setCountryError] = React.useState(false);
+  const [password, setPassword] = React.useState('');
+  const [pwdFocus, setPwdFocus] = React.useState(false);
+  const [pwdError, setPwdError] = React.useState(false);
   const [selectedItem, setSelectedItem] = React.useState({});
   const [dateOfBirth, setDateOfBirth] = React.useState('');
+  const [dobError, setDOBError] = React.useState(false);
   const [isDatePickerVisible, setDatePickerVisible] = React.useState(false);
   const [secureTextEntry, setSecureTextEntry] = React.useState(true);
+  const [isKeyboardVisible, setKeyboardVisible] = React.useState(false);
+  const [selectedImage, setSelectedImage] = React.useState({});
+
+  React.useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      'keyboardDidShow',
+      () => {
+        setKeyboardVisible(true); // or some other action
+      },
+    );
+    const keyboardDidHideListener = Keyboard.addListener(
+      'keyboardDidHide',
+      () => {
+        setKeyboardVisible(false); // or some other action
+      },
+    );
+
+    return () => {
+      keyboardDidHideListener.remove();
+      keyboardDidShowListener.remove();
+    };
+  }, []);
+
+  const handleChange = (type, value) => {
+    if (type === 'FirstName') {
+      setFirstName(value);
+    } else if (type === 'LastName') {
+      setLastName(value);
+    } else if (type === 'Email') {
+      setEmail(value);
+    } else if (type === 'Password') {
+      setPassword(value);
+    }
+  };
+
   function handleSelection(e) {
     setSelectedItem(e);
+    setCountry(e.title);
+    setCountryError(false);
   }
 
   const updateShowHidePassword = () => {
@@ -59,10 +113,118 @@ const Signup = ({navigation}) => {
       tempDate.getDate() < 10 ? '0' + tempDate.getDate() : tempDate.getDate();
     let fDate = `${day}/${month}/${year}`;
     setDateOfBirth(fDate);
+    setDOBError(false);
     hideDatePicker();
   };
 
-  const now = moment().valueOf();
+  // const now = moment().valueOf();
+
+  const pickImages = async () => {
+    await launchImageLibrary({
+      mediaType: 'photo',
+    })
+      .then(async res => {
+        setSelectedImage(res.assets[0]);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  const validateData = () => {
+    Keyboard.dismiss();
+    if (firstName.length >= 4) {
+      setFNError(false);
+    } else {
+      setFNError(true);
+    }
+    if (lastName.length >= 4) {
+      setLNError(false);
+    } else {
+      setLNError(true);
+    }
+    if (password.length >= 6) {
+      setPwdError(false);
+    } else {
+      setPwdError(true);
+    }
+    if (dateOfBirth !== '') {
+      setDOBError(false);
+    } else {
+      setDOBError(true);
+    }
+    if (country !== '') {
+      setCountryError(false);
+    } else {
+      setCountryError(true);
+    }
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      setEmailError(false);
+    } else {
+      setEmailError(true);
+    }
+  };
+
+  const fieldError = inputType => {
+    if (inputType == 'firstName') {
+      if (firstName === '') {
+        return 'Required*';
+      } else if (firstName.length < 4) return 'First Name Too Short';
+    } else if (inputType == 'lastName') {
+      if (lastName === '') {
+        return 'Required*';
+      } else if (lastName.length < 4) return 'Last Name Too Short';
+    } else if (inputType == 'userEmail') {
+      if (email === '') {
+        return 'Required*';
+      } else if (
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) == false
+      ) {
+        return 'Enter Valid Email';
+      }
+    } else if (inputType == 'password') {
+      if (password.length < 6) {
+        return 'Password too short';
+      }
+    }
+  };
+
+  const onBlur = onBlurInputType => {
+    if (onBlurInputType === 'FirstName') {
+      if (firstName) {
+        console.log('FirstName', firstName);
+        if (firstName.length >= 4) {
+          setFNError(false);
+        } else {
+          setFNError(true);
+        }
+      }
+    } else if (onBlurInputType === 'LastName') {
+      if (lastName) {
+        if (lastName.length >= 4) {
+          setLNError(false);
+        } else {
+          setLNError(true);
+        }
+      }
+    } else if (onBlurInputType === 'Password') {
+      if (password) {
+        if (password.length >= 6) {
+          setPwdError(false);
+        } else {
+          setPwdError(true);
+        }
+      }
+    } else if (onBlurInputType === 'Email') {
+      if (email) {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+          setEmailError(false);
+        } else {
+          setEmailError(true);
+        }
+      }
+    }
+  };
 
   return (
     <View style={styles.mainContainer}>
@@ -82,205 +244,250 @@ const Signup = ({navigation}) => {
         </View>
         <View style={styles.underlineView} />
       </View>
-      <ScrollView>
-        <View style={styles.secondaryCont}>
-          <Text style={styles.titleText}>SIGN UP</Text>
-          <Text style={styles.subTitleText}>Register your account</Text>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              marginTop: 25,
-            }}>
-            <TextField
-              inputWidth={0.45 * screenWidth}
-              height={0.12 * screenWidth}
-              borderColor={theme.colors.greyText}
-              borderRadius={0.4 * screenWidth}
-              onChangeText={e => {
-                console.log(e);
-              }}
-              title={'First Name'}
-              placeholder={'John'}
-              paddingHorizontal={10}
-              type={'text'}
-            />
-            <TextField
-              inputWidth={0.45 * screenWidth}
-              height={0.12 * screenWidth}
-              borderColor={theme.colors.greyText}
-              borderRadius={0.4 * screenWidth}
-              onChangeText={e => {
-                console.log(e);
-              }}
-              title={'Last Name'}
-              placeholder={'Doe'}
-              paddingHorizontal={10}
-              type={'text'}
-            />
-          </View>
-          <View style={{marginTop: 10}}>
-            <TextField
-              inputWidth={0.92 * screenWidth}
-              height={0.12 * screenWidth}
-              borderColor={theme.colors.greyText}
-              borderRadius={0.4 * screenWidth}
-              backgroundColor={theme.colors.white}
-              onChangeText={e => {
-                console.log(e);
-              }}
-              title={'Email'}
-              placeholder={'name@example.com'}
-              paddingHorizontal={10}
-              type={'text'}
-            />
-          </View>
-          <TouchableOpacity
-            onPress={() => {
-              showDatePicker();
-            }}
-            style={{marginTop: 10}}>
-            <TextField
-              inputWidth={0.92 * screenWidth}
-              height={0.12 * screenWidth}
-              borderColor={theme.colors.greyText}
-              borderRadius={0.4 * screenWidth}
-              icon={svgImages.calendarBlank}
-              value={dateOfBirth}
-              title={'Date of Birth'}
-              placeholder={'01/07/1990'}
-              paddingHorizontal={10}
-              editable={false}
-              type={'text'}
-            />
-          </TouchableOpacity>
-          <View style={{marginTop: 10}}>
-            <Text
+      <KeyboardAvoidingView
+        // keyboardVerticalOffset={
+        //   // Platform.OS === 'ios' ? 0.035 * screenHeight : null
+        // }
+        behavior={'padding'}>
+        <ScrollView>
+          <View style={styles.secondaryCont}>
+            <Text style={styles.titleText}>SIGN UP</Text>
+            <Text style={styles.subTitleText}>Register your account</Text>
+            <View
               style={{
-                fontFamily: fontFamily.argentum_sans,
-                fontSize: fontSize.verbiage_medium,
-                fontWeight: fontWeight[500],
-                marginVertical: 5,
-                color: theme.colors.greyText,
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginTop: 25,
               }}>
-              Country
-            </Text>
-            <DropDown
-              width={0.92 * screenWidth}
-              // height={0.12 * screenWidth}
-              // borderWidth={1}
-              borderColor={theme.colors.greyText}
-              borderRadius={0.12 * screenWidth}
-              icon={svgImages.caretDown}
-              title={'Select Country'}
-              type={'Country'}
-              data={Commons.countries}
-              selectedItem={selectedItem.title}
-              onPressItem={handleSelection}
-              dropDownListStyle={{
-                height: 0.35 * screenWidth,
-              }}
-              flatListView={{
-                height: 0.35 * screenWidth,
-              }}
-            />
-          </View>
-          <View style={{marginTop: 10}}>
-            <TextField
-              inputWidth={0.92 * screenWidth}
-              height={0.12 * screenWidth}
-              borderColor={theme.colors.greyText}
-              borderRadius={0.4 * screenWidth}
-              onChangeText={e => {
-                console.log(e);
-              }}
-              showHidePassIcon={true}
-              secureTextEntry={secureTextEntry}
-              updateShowHidePassword={updateShowHidePassword}
-              title={'Password'}
-              placeholder={'Password'}
-              showPassword={false}
-              paddingHorizontal={10}
-              type={'password'}
-            />
-          </View>
-          <View
-            style={{
-              marginTop: 15,
-              marginBottom: Platform.OS === 'ios' ? 100 : 75,
-            }}>
-            <View style={{flexDirection: 'row'}}>
-              <Text
-                style={{
-                  fontFamily: fontFamily.argentum_sans,
-                  fontSize: fontSize.verbiage_large,
-                  fontWeight: '500',
-                  marginVertical: 5,
-                  color: theme.colors.black,
-                }}>
-                Profile Photo
-              </Text>
-              <Text
-                style={{
-                  fontFamily: fontFamily.argentum_sans,
-                  fontSize: fontSize.verbiage,
-                  fontWeight: '300',
-                  marginTop: 6,
-                  marginHorizontal: 3,
-                  color: theme.colors.black,
-                }}>
-                {'(Optional)'}
-              </Text>
-            </View>
-            <ImageBackground
-              style={{
-                height: 0.4 * screenWidth,
-                borderWidth: 1,
-                borderColor: colors.greyText,
-                borderRadius: 15,
-                marginTop: 5,
-                justifyContent: 'space-evenly',
-                alignItems: 'center',
-                backgroundColor: theme.colors.white,
-              }}>
-              <View style={{height: 50}}>
-                <SvgXml width="90" height="90" xml={svgImages.smiley} />
+              <View>
+                <TextField
+                  onBlur={() => onBlur('FirstName')}
+                  inputWidth={0.45 * screenWidth}
+                  height={0.12 * screenWidth}
+                  borderColor={
+                    fnError ? theme.colors.error : theme.colors.greyText
+                  }
+                  borderRadius={0.4 * screenWidth}
+                  onChangeText={e => {
+                    handleChange('FirstName', e);
+                  }}
+                  onEndEditing={() => setFNFocus(false)}
+                  onFocus={() => setFNFocus(true)}
+                  value={firstName}
+                  title={'First Name'}
+                  placeholder={'John'}
+                  paddingHorizontal={10}
+                  type={'text'}
+                />
               </View>
-              <Button
-                title={'ADD'}
-                iconHeight={16}
-                iconWidth={16}
-                icon={svgImages.plus}
-                onPress={() => {}}
-                btnWidth={screenWidth * 0.25}
-                btnHeight={40}
-                titleColor={colors.white}
-                backgroundColor={colors.secondaryBlack}
+              <TextField
+                inputWidth={0.45 * screenWidth}
+                height={0.12 * screenWidth}
+                borderColor={
+                  lnError ? theme.colors.error : theme.colors.greyText
+                }
+                borderRadius={0.4 * screenWidth}
+                onChangeText={e => {
+                  handleChange('LastName', e);
+                }}
+                value={lastName}
+                onBlur={() => onBlur('LastName')}
+                onEndEditing={() => setLNFocus(false)}
+                onFocus={() => setLNFocus(true)}
+                title={'Last Name'}
+                placeholder={'Doe'}
+                paddingHorizontal={10}
+                type={'text'}
               />
-            </ImageBackground>
+            </View>
+            <View style={{marginTop: 10}}>
+              <TextField
+                inputWidth={0.92 * screenWidth}
+                height={0.12 * screenWidth}
+                borderColor={
+                  emailError ? theme.colors.error : theme.colors.greyText
+                }
+                borderRadius={0.4 * screenWidth}
+                backgroundColor={theme.colors.white}
+                onChangeText={e => {
+                  handleChange('Email', e);
+                }}
+                value={email}
+                onBlur={() => onBlur('Email')}
+                onEndEditing={() => setEmailFocus(false)}
+                onFocus={() => setEmailFocus(true)}
+                title={'Email'}
+                placeholder={'name@example.com'}
+                paddingHorizontal={10}
+                type={'text'}
+              />
+            </View>
+            <TouchableOpacity
+              onPress={() => {
+                showDatePicker();
+              }}
+              style={{marginTop: 10}}>
+              <TextField
+                inputWidth={0.92 * screenWidth}
+                height={0.12 * screenWidth}
+                borderColor={
+                  dobError ? theme.colors.error : theme.colors.greyText
+                }
+                borderRadius={0.4 * screenWidth}
+                icon={svgImages.calendarBlank}
+                value={dateOfBirth}
+                title={'Date of Birth'}
+                placeholder={'01/07/1990'}
+                paddingHorizontal={10}
+                editable={false}
+                type={'text'}
+              />
+            </TouchableOpacity>
+            <View style={{marginTop: 10}}>
+              <Text
+                style={{
+                  fontFamily: fontFamily.argentum_sans,
+                  fontSize: fontSize.verbiage_medium,
+                  fontWeight: fontWeight[500],
+                  marginVertical: 5,
+                  color: theme.colors.greyText,
+                }}>
+                Country
+              </Text>
+              <DropDown
+                width={0.92 * screenWidth}
+                // height={0.12 * screenWidth}
+                // borderWidth={1}
+                borderColor={
+                  countryError ? theme.colors.error : theme.colors.greyText
+                }
+                borderRadius={0.12 * screenWidth}
+                icon={svgImages.caretDown}
+                title={'Select Country'}
+                type={'Country'}
+                data={Commons.countries}
+                selectedItem={selectedItem.title}
+                onPressItem={handleSelection}
+                dropDownListStyle={{
+                  height: 0.35 * screenWidth,
+                }}
+                flatListView={{
+                  height: 0.35 * screenWidth,
+                }}
+              />
+            </View>
+            <View style={{marginTop: 10}}>
+              <TextField
+                inputWidth={0.92 * screenWidth}
+                height={0.12 * screenWidth}
+                borderColor={
+                  pwdError ? theme.colors.error : theme.colors.greyText
+                }
+                borderRadius={0.4 * screenWidth}
+                onChangeText={e => {
+                  handleChange('Password', e);
+                }}
+                value={password}
+                onBlur={() => onBlur('Password')}
+                onEndEditing={() => setPwdFocus(false)}
+                onFocus={() => setPwdFocus(true)}
+                showHidePassIcon={true}
+                secureTextEntry={secureTextEntry}
+                updateShowHidePassword={updateShowHidePassword}
+                title={'Password'}
+                placeholder={'Password'}
+                showPassword={false}
+                paddingHorizontal={10}
+                type={'password'}
+              />
+            </View>
+            <View
+              style={{
+                marginTop: 15,
+                marginBottom: Platform.OS === 'ios' ? 100 : 75,
+              }}>
+              <View style={{flexDirection: 'row'}}>
+                <Text
+                  style={{
+                    fontFamily: fontFamily.argentum_sans,
+                    fontSize: fontSize.verbiage_large,
+                    fontWeight: '500',
+                    marginVertical: 5,
+                    color: theme.colors.black,
+                  }}>
+                  Profile Photo
+                </Text>
+                <Text
+                  style={{
+                    fontFamily: fontFamily.argentum_sans,
+                    fontSize: fontSize.verbiage,
+                    fontWeight: '300',
+                    marginTop: 6,
+                    marginHorizontal: 3,
+                    color: theme.colors.black,
+                  }}>
+                  {'(Optional)'}
+                </Text>
+              </View>
+              <ImageBackground
+                style={{
+                  height: 0.4 * screenWidth,
+                  borderWidth: 1,
+                  borderColor: colors.greyText,
+                  borderRadius: 15,
+                  marginTop: 5,
+                  justifyContent: 'space-evenly',
+                  alignItems: 'center',
+                  backgroundColor: theme.colors.white,
+                }}
+                imageStyle={{
+                  borderRadius: 15,
+                }}
+                source={{uri: selectedImage.uri}}>
+                <View style={{height: 50}}>
+                  <SvgXml width="90" height="90" xml={svgImages.smiley} />
+                </View>
+                <Button
+                  title={'ADD'}
+                  iconHeight={16}
+                  iconWidth={16}
+                  icon={svgImages.plus}
+                  onPress={() => {
+                    pickImages();
+                  }}
+                  btnWidth={screenWidth * 0.25}
+                  btnHeight={40}
+                  titleColor={colors.white}
+                  backgroundColor={colors.secondaryBlack}
+                />
+              </ImageBackground>
+            </View>
           </View>
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </KeyboardAvoidingView>
       <DateTimePickerModal
         isVisible={isDatePickerVisible}
         mode="date"
         onConfirm={data => pickADate(data)}
         onCancel={hideDatePicker}
       />
-      <View style={{width: screenWidth, alignItems: 'center'}}>
-        <Button
-          title={'CREATE ACCOUNT'}
-          onPress={() => navigation.navigate(screens.trial)}
-          btnWidth={screenWidth * 0.92}
-          btnHeight={0.14 * screenWidth}
-          titleColor={colors.white}
-          backgroundColor={colors.primary}
-          btnStyle={{
-            position: 'absolute',
-            bottom: Platform.OS === 'ios' ? 25 : 15,
-          }}
-        />
-      </View>
+      {!isKeyboardVisible && (
+        <View style={{width: screenWidth, alignItems: 'center'}}>
+          <Button
+            title={'CREATE ACCOUNT'}
+            onPress={() => validateData()}
+            // onPress={() => navigation.navigate(screens.trial)}
+            btnWidth={screenWidth * 0.92}
+            btnHeight={0.14 * screenWidth}
+            titleColor={colors.white}
+            backgroundColor={colors.primary}
+            btnStyle={{
+              position: 'absolute',
+              bottom: Platform.OS === 'ios' ? 25 : 15,
+            }}
+          />
+        </View>
+      )}
     </View>
   );
 };
