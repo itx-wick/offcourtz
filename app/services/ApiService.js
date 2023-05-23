@@ -1,4 +1,4 @@
-import {api} from '../config/API';
+import { api } from '../config/API';
 
 export default {
   post: (endpoint, body, token = null) => {

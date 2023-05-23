@@ -10,29 +10,28 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {SvgXml} from 'react-native-svg';
+import { SvgXml } from 'react-native-svg';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
-import {launchImageLibrary} from 'react-native-image-picker';
+import { launchImageLibrary } from 'react-native-image-picker';
 
-import {svgImages} from '../../../helpers';
-import {theme} from '../../../theme';
+import { svgImages } from '../../../helpers';
+import { theme } from '../../../theme';
 import Button from '../../../components/button';
-import {screenHeight, screenWidth} from '../../../constants';
+import { screenHeight, screenWidth } from '../../../constants';
 import {
   fontFamily,
   fontSize,
   fontWeight,
 } from '../../../constants/fontDecorations';
-import {screens} from '../../../config';
+import { END_POINTS, screens } from '../../../config';
 import TextField from '../../../components/textField';
 import DropDown from '../../../components/dropDownView';
-import {Commons} from '../../../utils';
-import moment from 'moment';
-import {PlatformColor} from 'react-native';
+import ApiService from '../../../services/ApiService';
+import Commons from '../../../utils/Commons';
 
-const {colors} = theme;
+const { colors } = theme;
 
-const Signup = ({navigation}) => {
+const Signup = ({ navigation }) => {
   const [firstName, setFirstName] = React.useState('');
   const [fnFocus, setFNFocus] = React.useState(false);
   const [fnError, setFNError] = React.useState(false);
@@ -117,8 +116,6 @@ const Signup = ({navigation}) => {
     hideDatePicker();
   };
 
-  // const now = moment().valueOf();
-
   const pickImages = async () => {
     await launchImageLibrary({
       mediaType: 'photo',
@@ -162,6 +159,9 @@ const Signup = ({navigation}) => {
       setEmailError(false);
     } else {
       setEmailError(true);
+    }
+    if (firstName && lastName && email && dateOfBirth && country && password) {
+      process()
     }
   };
 
@@ -225,6 +225,29 @@ const Signup = ({navigation}) => {
       }
     }
   };
+
+  const process = async () => {
+    try {
+      let body = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        dob: dateOfBirth,
+        country: country,
+        password: password,
+        avatar: ''
+      };
+      await ApiService.post(END_POINTS.register, body)
+        .then(res => {
+          console.log("Result", res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <View style={styles.mainContainer}>
@@ -300,7 +323,7 @@ const Signup = ({navigation}) => {
                 type={'text'}
               />
             </View>
-            <View style={{marginTop: 10}}>
+            <View style={{ marginTop: 10 }}>
               <TextField
                 inputWidth={0.92 * screenWidth}
                 height={0.12 * screenWidth}
@@ -326,7 +349,7 @@ const Signup = ({navigation}) => {
               onPress={() => {
                 showDatePicker();
               }}
-              style={{marginTop: 10}}>
+              style={{ marginTop: 10 }}>
               <TextField
                 inputWidth={0.92 * screenWidth}
                 height={0.12 * screenWidth}
@@ -343,7 +366,7 @@ const Signup = ({navigation}) => {
                 type={'text'}
               />
             </TouchableOpacity>
-            <View style={{marginTop: 10}}>
+            <View style={{ marginTop: 10 }}>
               <Text
                 style={{
                   fontFamily: fontFamily.argentum_sans,
@@ -376,7 +399,7 @@ const Signup = ({navigation}) => {
                 }}
               />
             </View>
-            <View style={{marginTop: 10}}>
+            <View style={{ marginTop: 10 }}>
               <TextField
                 inputWidth={0.92 * screenWidth}
                 height={0.12 * screenWidth}
@@ -404,9 +427,8 @@ const Signup = ({navigation}) => {
             <View
               style={{
                 marginTop: 15,
-                marginBottom: Platform.OS === 'ios' ? 100 : 75,
               }}>
-              <View style={{flexDirection: 'row'}}>
+              <View style={{ flexDirection: 'row' }}>
                 <Text
                   style={{
                     fontFamily: fontFamily.argentum_sans,
@@ -443,8 +465,8 @@ const Signup = ({navigation}) => {
                 imageStyle={{
                   borderRadius: 15,
                 }}
-                source={{uri: selectedImage.uri}}>
-                <View style={{height: 50}}>
+                source={{ uri: selectedImage.uri }}>
+                <View style={{ height: 50 }}>
                   <SvgXml width="90" height="90" xml={svgImages.smiley} />
                 </View>
                 <Button
@@ -462,6 +484,20 @@ const Signup = ({navigation}) => {
                 />
               </ImageBackground>
             </View>
+            <View style={{ marginBottom: 0.05 * screenWidth }}>
+
+              <Button
+                title={'CREATE ACCOUNT'}
+                onPress={() => validateData()}
+                btnWidth={screenWidth * 0.92}
+                btnHeight={0.14 * screenWidth}
+                titleColor={colors.white}
+                backgroundColor={colors.primary}
+                btnStyle={{
+                  marginVertical: 15
+                }}
+              />
+            </View>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
@@ -471,23 +507,7 @@ const Signup = ({navigation}) => {
         onConfirm={data => pickADate(data)}
         onCancel={hideDatePicker}
       />
-      {!isKeyboardVisible && (
-        <View style={{width: screenWidth, alignItems: 'center'}}>
-          <Button
-            title={'CREATE ACCOUNT'}
-            onPress={() => validateData()}
-            // onPress={() => navigation.navigate(screens.trial)}
-            btnWidth={screenWidth * 0.92}
-            btnHeight={0.14 * screenWidth}
-            titleColor={colors.white}
-            backgroundColor={colors.primary}
-            btnStyle={{
-              position: 'absolute',
-              bottom: Platform.OS === 'ios' ? 25 : 15,
-            }}
-          />
-        </View>
-      )}
+
     </View>
   );
 };
