@@ -45,21 +45,15 @@ const Signup = ({ navigation }) => {
   const isLoader = useSelector(state => state.Common.loader);
   const [firstName, setFirstName] = React.useState('');
   const [fnFocus, setFNFocus] = React.useState(false);
-  const [fnError, setFNError] = React.useState(false);
   const [lastName, setLastName] = React.useState('');
   const [lnFocus, setLNFocus] = React.useState(false);
-  const [lnError, setLNError] = React.useState(false);
   const [email, setEmail] = React.useState('');
   const [emailFocus, setEmailFocus] = React.useState(false);
-  const [emailError, setEmailError] = React.useState(false);
   const [country, setCountry] = React.useState('');
-  const [countryError, setCountryError] = React.useState(false);
   const [password, setPassword] = React.useState('');
   const [pwdFocus, setPwdFocus] = React.useState(false);
-  const [pwdError, setPwdError] = React.useState(false);
   const [selectedItem, setSelectedItem] = React.useState({});
   const [dateOfBirth, setDateOfBirth] = React.useState('');
-  const [dobError, setDOBError] = React.useState(false);
   const [isDatePickerVisible, setDatePickerVisible] = React.useState(false);
   const [secureTextEntry, setSecureTextEntry] = React.useState(true);
   const [isKeyboardVisible, setKeyboardVisible] = React.useState(false);
@@ -101,7 +95,6 @@ const Signup = ({ navigation }) => {
   function handleSelection(e) {
     setSelectedItem(e);
     setCountry(e.title);
-    setCountryError(false);
   }
 
   const updateShowHidePassword = () => {
@@ -124,7 +117,6 @@ const Signup = ({ navigation }) => {
       tempDate.getDate() < 10 ? '0' + tempDate.getDate() : tempDate.getDate();
     let fDate = `${day}/${month}/${year}`;
     setDateOfBirth(fDate);
-    setDOBError(false);
     hideDatePicker();
   };
 
@@ -142,37 +134,19 @@ const Signup = ({ navigation }) => {
 
   const validateData = () => {
     Keyboard.dismiss();
-    if (firstName.length >= 4) {
-      setFNError(false);
+    if (firstName == '' || firstName.length < 4) {
+      showToast("normal", fieldError("firstName"), 3000)
+    } else if (lastName == '' || lastName.length < 4) {
+      showToast("normal", fieldError("lastName"), 3000)
+    } else if (email == '' || !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
+      showToast("normal", fieldError("userEmail"), 3000)
+    } else if (dateOfBirth == "") {
+      showToast("normal", fieldError("dob"), 3000)
+    } else if (country == "") {
+      showToast("normal", fieldError("counrty"), 3000)
+    } else if (password == '' || password.length < 6) {
+      showToast("normal", fieldError("password"), 3000)
     } else {
-      setFNError(true);
-    }
-    if (lastName.length >= 4) {
-      setLNError(false);
-    } else {
-      setLNError(true);
-    }
-    if (password.length >= 6) {
-      setPwdError(false);
-    } else {
-      setPwdError(true);
-    }
-    if (dateOfBirth !== '') {
-      setDOBError(false);
-    } else {
-      setDOBError(true);
-    }
-    if (country !== '') {
-      setCountryError(false);
-    } else {
-      setCountryError(true);
-    }
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-      setEmailError(false);
-    } else {
-      setEmailError(true);
-    }
-    if (firstName && lastName && email && dateOfBirth && country && password) {
       process()
     }
   };
@@ -180,60 +154,33 @@ const Signup = ({ navigation }) => {
   const fieldError = inputType => {
     if (inputType == 'firstName') {
       if (firstName === '') {
-        return 'Required*';
+        return 'Firstname Required';
       } else if (firstName.length < 4) return 'First Name Too Short';
     } else if (inputType == 'lastName') {
       if (lastName === '') {
-        return 'Required*';
+        return 'Lastname Required';
       } else if (lastName.length < 4) return 'Last Name Too Short';
     } else if (inputType == 'userEmail') {
       if (email === '') {
-        return 'Required*';
+        return 'Email Required';
       } else if (
         /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) == false
       ) {
         return 'Enter Valid Email';
       }
     } else if (inputType == 'password') {
-      if (password.length < 6) {
+      if (password === '') {
+        return 'Password Required';
+      } else if (password.length < 6) {
         return 'Password too short';
       }
-    }
-  };
-
-  const onBlur = onBlurInputType => {
-    if (onBlurInputType === 'FirstName') {
-      if (firstName) {
-        console.log('FirstName', firstName);
-        if (firstName.length >= 4) {
-          setFNError(false);
-        } else {
-          setFNError(true);
-        }
+    } else if (inputType == 'dob') {
+      if (dateOfBirth === '') {
+        return 'Date of birth Required';
       }
-    } else if (onBlurInputType === 'LastName') {
-      if (lastName) {
-        if (lastName.length >= 4) {
-          setLNError(false);
-        } else {
-          setLNError(true);
-        }
-      }
-    } else if (onBlurInputType === 'Password') {
-      if (password) {
-        if (password.length >= 6) {
-          setPwdError(false);
-        } else {
-          setPwdError(true);
-        }
-      }
-    } else if (onBlurInputType === 'Email') {
-      if (email) {
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-          setEmailError(false);
-        } else {
-          setEmailError(true);
-        }
+    } else if (inputType == 'counrty') {
+      if (country === '') {
+        return 'Country Required';
       }
     }
   };
@@ -312,11 +259,10 @@ const Signup = ({ navigation }) => {
               }}>
               <View>
                 <TextField
-                  onBlur={() => onBlur('FirstName')}
                   inputWidth={0.45 * screenWidth}
                   height={0.12 * screenWidth}
                   borderColor={
-                    fnError ? theme.colors.error : theme.colors.greyText
+                    theme.colors.greyText
                   }
                   borderRadius={0.4 * screenWidth}
                   onChangeText={e => {
@@ -335,14 +281,13 @@ const Signup = ({ navigation }) => {
                 inputWidth={0.45 * screenWidth}
                 height={0.12 * screenWidth}
                 borderColor={
-                  lnError ? theme.colors.error : theme.colors.greyText
+                  theme.colors.greyText
                 }
                 borderRadius={0.4 * screenWidth}
                 onChangeText={e => {
                   handleChange('LastName', e);
                 }}
                 value={lastName}
-                onBlur={() => onBlur('LastName')}
                 onEndEditing={() => setLNFocus(false)}
                 onFocus={() => setLNFocus(true)}
                 title={'Last Name'}
@@ -356,7 +301,7 @@ const Signup = ({ navigation }) => {
                 inputWidth={0.92 * screenWidth}
                 height={0.12 * screenWidth}
                 borderColor={
-                  emailError ? theme.colors.error : theme.colors.greyText
+                  theme.colors.greyText
                 }
                 borderRadius={0.4 * screenWidth}
                 backgroundColor={theme.colors.white}
@@ -364,7 +309,6 @@ const Signup = ({ navigation }) => {
                   handleChange('Email', e);
                 }}
                 value={email}
-                onBlur={() => onBlur('Email')}
                 onEndEditing={() => setEmailFocus(false)}
                 onFocus={() => setEmailFocus(true)}
                 title={'Email'}
@@ -382,7 +326,7 @@ const Signup = ({ navigation }) => {
                 inputWidth={0.92 * screenWidth}
                 height={0.12 * screenWidth}
                 borderColor={
-                  dobError ? theme.colors.error : theme.colors.greyText
+                  theme.colors.greyText
                 }
                 borderRadius={0.4 * screenWidth}
                 icon={svgImages.calendarBlank}
@@ -407,10 +351,8 @@ const Signup = ({ navigation }) => {
               </Text>
               <DropDown
                 width={0.92 * screenWidth}
-                // height={0.12 * screenWidth}
-                // borderWidth={1}
                 borderColor={
-                  countryError ? theme.colors.error : theme.colors.greyText
+                  theme.colors.greyText
                 }
                 borderRadius={0.12 * screenWidth}
                 icon={svgImages.caretDown}
@@ -432,14 +374,13 @@ const Signup = ({ navigation }) => {
                 inputWidth={0.92 * screenWidth}
                 height={0.12 * screenWidth}
                 borderColor={
-                  pwdError ? theme.colors.error : theme.colors.greyText
+                  theme.colors.greyText
                 }
                 borderRadius={0.4 * screenWidth}
                 onChangeText={e => {
                   handleChange('Password', e);
                 }}
                 value={password}
-                onBlur={() => onBlur('Password')}
                 onEndEditing={() => setPwdFocus(false)}
                 onFocus={() => setPwdFocus(true)}
                 showHidePassIcon={true}

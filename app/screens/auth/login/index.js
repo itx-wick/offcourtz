@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Platform,
   ScrollView,
@@ -6,28 +6,119 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Keyboard
 } from 'react-native';
-import {SvgXml} from 'react-native-svg';
+import { SvgXml } from 'react-native-svg';
+import { useToast } from "react-native-toast-notifications";
 
-import {svgImages} from '../../../helpers';
-import {theme} from '../../../theme';
+import { svgImages } from '../../../helpers';
+import { theme } from '../../../theme';
 import Button from '../../../components/button';
-import {screenHeight, screenWidth} from '../../../constants';
+import ApiService from '../../../services/ApiService';
+import { screenHeight, screenWidth } from '../../../constants';
 import {
   fontFamily,
   fontSize,
   fontWeight,
 } from '../../../constants/fontDecorations';
-import {screens} from '../../../config';
+import { END_POINTS, screens } from '../../../config';
 import TextField from '../../../components/textField';
-const {colors} = theme;
+import { useDispatch, useSelector } from 'react-redux';
+import Loader from '../../../components/loader';
+import { setLoader } from '../../../redux/reducers/commonSlice';
+import { login } from '../../../redux/reducers/authSlice';
+import Commons from '../../../utils/Commons';
+const { colors } = theme;
 
-const Login = ({navigation}) => {
+const Login = ({ navigation }) => {
+  const toast = useToast();
+  const dispatch = useDispatch();
+  const isLoader = useSelector(state => state.Common.loader);
+  const [email, setEmail] = React.useState('');
+  const [emailFocus, setEmailFocus] = React.useState(false);
+  const [password, setPassword] = React.useState('');
+  const [pwdFocus, setPwdFocus] = React.useState(false);
   const [secureTextEntry, setSecureTextEntry] = React.useState(true);
+
+  useEffect(() => {
+    dispatch(setLoader(false))
+  }, [])
+
+  const handleChange = (type, value) => {
+    if (type === 'Email') {
+      setEmail(value);
+    } else if (type === 'Password') {
+      setPassword(value);
+    }
+  };
 
   const updateShowHidePassword = () => {
     setSecureTextEntry(!secureTextEntry);
   };
+
+  const validateData = () => {
+    Keyboard.dismiss();
+    if (email == '' || !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
+      showToast("normal", fieldError("userEmail"), 3000)
+    } else if (password == '' || password.length < 6) {
+      showToast("normal", fieldError("password"), 3000)
+    } else {
+      process()
+    }
+  };
+
+  const fieldError = inputType => {
+    if (inputType == 'userEmail') {
+      if (email === '') {
+        return 'Email Required';
+      } else if (
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) == false
+      ) {
+        return 'Enter Valid Email';
+      }
+    } else if (inputType == 'password') {
+      if (password === '') {
+        return 'Password Required';
+      } else if (password.length < 6) {
+        return 'Password too short';
+      }
+    }
+  };
+
+  const showToast = (type, msg, duration) => {
+    toast.show(msg, {
+      type: type,
+      placement: "bottom",
+      duration: duration,
+      offset: 30,
+      animationType: "zoom-in",
+    })
+  }
+
+  const process = async () => {
+    try {
+      let body = {
+        email: email,
+        password: password
+      };
+      dispatch(setLoader(true))
+      await ApiService.post(END_POINTS.login, body)
+        .then(res => {
+          dispatch(login(res))
+          dispatch(setLoader(false))
+          Commons.reset(navigation, screens.bottomTabStack)
+        })
+        .catch(err => {
+          dispatch(setLoader(false))
+          showToast("normal", err, 3000);
+          console.log("promise error", err);
+        });
+    } catch (error) {
+      showToast("normal", error, 3000);
+      console.log("try/catch", error);
+    }
+  };
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.headerMainContainer}>
@@ -50,28 +141,39 @@ const Login = ({navigation}) => {
         <View style={styles.secondaryCont}>
           <Text style={styles.titleText}>LOGIN</Text>
           <Text style={styles.subTitleText}>Access your account</Text>
-          <View style={{marginTop: 25}}>
+          <View style={{ marginTop: 25 }}>
             <TextField
               inputWidth={0.92 * screenWidth}
               height={0.12 * screenWidth}
               borderColor={theme.colors.greyText}
               borderRadius={0.4 * screenWidth}
+              onChangeText={e => {
+                handleChange('Email', e);
+              }}
+              value={email}
+              onEndEditing={() => setEmailFocus(false)}
+              onFocus={() => setEmailFocus(true)}
               title={'Email'}
               placeholder={'name@example.com'}
               paddingHorizontal={10}
               type={'text'}
             />
           </View>
-          <View style={{marginTop: 10}}>
+          <View style={{ marginTop: 10 }}>
             <TextField
               inputWidth={0.92 * screenWidth}
               height={0.12 * screenWidth}
               borderColor={theme.colors.greyText}
               borderRadius={0.4 * screenWidth}
-              // icon={svgImages.eye}
               showHidePassIcon={true}
               secureTextEntry={secureTextEntry}
               updateShowHidePassword={updateShowHidePassword}
+              onChangeText={e => {
+                handleChange('Password', e);
+              }}
+              value={password}
+              onEndEditing={() => setPwdFocus(false)}
+              onFocus={() => setPwdFocus(true)}
               title={'Password'}
               placeholder={'Password'}
               showPassword={false}
@@ -83,10 +185,10 @@ const Login = ({navigation}) => {
             onPress={() => navigation.navigate(screens.forgotPassword)}>
             <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
           </TouchableOpacity>
-          <View style={{marginTop: 5}}>
+          <View style={{ marginTop: 5 }}>
             <Button
               title={'LOGIN'}
-              onPress={() => {}}
+              onPress={() => validateData()}
               btnWidth={screenWidth * 0.92}
               btnHeight={0.14 * screenWidth}
               titleColor={colors.white}
@@ -95,6 +197,8 @@ const Login = ({navigation}) => {
           </View>
         </View>
       </ScrollView>
+
+      {isLoader ? <Loader /> : null}
     </View>
   );
 };
