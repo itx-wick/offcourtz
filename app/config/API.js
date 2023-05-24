@@ -1,22 +1,17 @@
 import axios from 'axios';
 import { SERVER_URL } from './routes';
+import { API } from '../helpers/api';
 
-export const api = (method, endpoint, body, headers) => {
+export const api = (method, endpoint, body) => {
+
   return new Promise((resolve, reject) => {
-    axios({
+    API.fetch({
       method: method,
       url: SERVER_URL + endpoint,
       data: body,
-      headers: {
-        Authorization: 'Bearer ' + headers,
-      },
+    }).then(res => {
+      resolve(res.data)
     })
-      .then(res => {
-        if (res.data.status) resolve(res.data);
-        else {
-          reject(res.data.message);
-        }
-      })
       .catch(err => {
         reject(err);
       });

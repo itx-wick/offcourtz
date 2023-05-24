@@ -13,11 +13,16 @@ import {
 import { SvgXml } from 'react-native-svg';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import { launchImageLibrary } from 'react-native-image-picker';
+import { useToast } from "react-native-toast-notifications";
+
+
 
 import { svgImages } from '../../../helpers';
 import { theme } from '../../../theme';
 import Button from '../../../components/button';
 import { screenHeight, screenWidth } from '../../../constants';
+import { register } from '../../../redux/reducers/authSlice';
+import { setLoader } from '../../../redux/reducers/commonSlice';
 import {
   fontFamily,
   fontSize,
@@ -28,10 +33,16 @@ import TextField from '../../../components/textField';
 import DropDown from '../../../components/dropDownView';
 import ApiService from '../../../services/ApiService';
 import Commons from '../../../utils/Commons';
+import { useDispatch, useSelector } from 'react-redux';
+import Loader from '../../../components/loader';
 
 const { colors } = theme;
 
 const Signup = ({ navigation }) => {
+  const toast = useToast();
+  const dispatch = useDispatch();
+  const auth = useSelector(state => state.Auth);
+  const isLoader = useSelector(state => state.Common.loader);
   const [firstName, setFirstName] = React.useState('');
   const [fnFocus, setFNFocus] = React.useState(false);
   const [fnError, setFNError] = React.useState(false);
@@ -55,6 +66,7 @@ const Signup = ({ navigation }) => {
   const [selectedImage, setSelectedImage] = React.useState({});
 
   React.useEffect(() => {
+    dispatch(setLoader(false))
     const keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
       () => {
@@ -226,6 +238,16 @@ const Signup = ({ navigation }) => {
     }
   };
 
+  const showToast = (type, msg, duration) => {
+    toast.show(msg, {
+      type: type,
+      placement: "bottom",
+      duration: duration,
+      offset: 30,
+      animationType: "zoom-in",
+    })
+  }
+
   const process = async () => {
     try {
       let body = {
@@ -237,15 +259,21 @@ const Signup = ({ navigation }) => {
         password: password,
         avatar: ''
       };
+      dispatch(setLoader(true))
       await ApiService.post(END_POINTS.register, body)
         .then(res => {
-          console.log("Result", res);
+          dispatch(register(res))
+          dispatch(setLoader(false))
+          Commons.reset(navigation, screens.trial)
         })
         .catch(err => {
-          console.log(err);
+          dispatch(setLoader(false))
+          showToast("normal", err, 3000);
+          console.log("promise error", err);
         });
     } catch (error) {
-      console.log(error);
+      showToast("normal", error, 3000);
+      console.log("try/catch", error);
     }
   }
 
@@ -485,7 +513,6 @@ const Signup = ({ navigation }) => {
               </ImageBackground>
             </View>
             <View style={{ marginBottom: 0.05 * screenWidth }}>
-
               <Button
                 title={'CREATE ACCOUNT'}
                 onPress={() => validateData()}
@@ -507,7 +534,7 @@ const Signup = ({ navigation }) => {
         onConfirm={data => pickADate(data)}
         onCancel={hideDatePicker}
       />
-
+      {isLoader ? <Loader /> : null}
     </View>
   );
 };
