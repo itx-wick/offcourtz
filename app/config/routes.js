@@ -7,4 +7,5 @@ export const SERVER_URL = BASE_URL_SERVER;
 export const END_POINTS = {
   register: '/users',
   login: '/users/login',
+  forgotPassword: '/users/forgot-password',
 };
