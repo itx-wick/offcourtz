@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {
   Platform,
   ScrollView,
@@ -6,34 +6,32 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Keyboard
+  Keyboard,
 } from 'react-native';
-import { SvgXml } from 'react-native-svg';
-import { useToast } from "react-native-toast-notifications";
+import {SvgXml} from 'react-native-svg';
+import {useToast} from 'react-native-toast-notifications';
 
-import { svgImages } from '../../../helpers';
-import { theme } from '../../../theme';
+import {svgImages} from '../../../helpers';
+import {theme} from '../../../theme';
 import Button from '../../../components/button';
 import ApiService from '../../../services/ApiService';
-import { screenHeight, screenWidth } from '../../../constants';
+import {screenHeight, screenWidth} from '../../../constants';
 import {
   fontFamily,
   fontSize,
   fontWeight,
 } from '../../../constants/fontDecorations';
-import { END_POINTS, screens } from '../../../config';
+import {END_POINTS, screens} from '../../../config';
 import TextField from '../../../components/textField';
-import { useDispatch, useSelector } from 'react-redux';
-import Loader from '../../../components/loader';
-import { setLoader } from '../../../redux/reducers/commonSlice';
-import { login } from '../../../redux/reducers/authSlice';
+import {useDispatch, useSelector} from 'react-redux';
+import {setLoader} from '../../../redux/reducers/commonSlice';
+import {login} from '../../../redux/reducers/authSlice';
 import Commons from '../../../utils/Commons';
-const { colors } = theme;
+const {colors} = theme;
 
-const Login = ({ navigation }) => {
+const Login = ({navigation}) => {
   const toast = useToast();
   const dispatch = useDispatch();
-  const isLoader = useSelector(state => state.Common.loader);
   const [email, setEmail] = React.useState('');
   const [emailFocus, setEmailFocus] = React.useState(false);
   const [password, setPassword] = React.useState('');
@@ -41,8 +39,8 @@ const Login = ({ navigation }) => {
   const [secureTextEntry, setSecureTextEntry] = React.useState(true);
 
   useEffect(() => {
-    dispatch(setLoader(false))
-  }, [])
+    dispatch(setLoader(false));
+  }, []);
 
   const handleChange = (type, value) => {
     if (type === 'Email') {
@@ -58,12 +56,15 @@ const Login = ({ navigation }) => {
 
   const validateData = () => {
     Keyboard.dismiss();
-    if (email == '' || !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
-      showToast("normal", fieldError("userEmail"), 3000)
+    if (
+      email == '' ||
+      !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+    ) {
+      showToast('normal', fieldError('userEmail'), 3000);
     } else if (password == '' || password.length < 6) {
-      showToast("normal", fieldError("password"), 3000)
+      showToast('normal', fieldError('password'), 3000);
     } else {
-      process()
+      process();
     }
   };
 
@@ -88,34 +89,34 @@ const Login = ({ navigation }) => {
   const showToast = (type, msg, duration) => {
     toast.show(msg, {
       type: type,
-      placement: "bottom",
+      placement: 'bottom',
       duration: duration,
       offset: 30,
-      animationType: "zoom-in",
-    })
-  }
+      animationType: 'zoom-in',
+    });
+  };
 
   const process = async () => {
     try {
       let body = {
         email: email,
-        password: password
+        password: password,
       };
-      dispatch(setLoader(true))
+      dispatch(setLoader(true));
       await ApiService.post(END_POINTS.login, body)
         .then(res => {
-          dispatch(login(res))
-          dispatch(setLoader(false))
-          Commons.reset(navigation, screens.bottomTabStack)
+          dispatch(login(res));
+          dispatch(setLoader(false));
+          Commons.reset(navigation, screens.bottomTabStack);
         })
         .catch(err => {
-          dispatch(setLoader(false))
-          showToast("normal", err, 3000);
-          console.log("promise error", err);
+          dispatch(setLoader(false));
+          showToast('normal', err, 3000);
+          console.log('promise error', err);
         });
     } catch (error) {
-      showToast("normal", error, 3000);
-      console.log("try/catch", error);
+      showToast('normal', error, 3000);
+      console.log('try/catch', error);
     }
   };
 
@@ -141,7 +142,7 @@ const Login = ({ navigation }) => {
         <View style={styles.secondaryCont}>
           <Text style={styles.titleText}>LOGIN</Text>
           <Text style={styles.subTitleText}>Access your account</Text>
-          <View style={{ marginTop: 25 }}>
+          <View style={{marginTop: 25}}>
             <TextField
               inputWidth={0.92 * screenWidth}
               height={0.12 * screenWidth}
@@ -159,7 +160,7 @@ const Login = ({ navigation }) => {
               type={'text'}
             />
           </View>
-          <View style={{ marginTop: 10 }}>
+          <View style={{marginTop: 10}}>
             <TextField
               inputWidth={0.92 * screenWidth}
               height={0.12 * screenWidth}
@@ -185,7 +186,7 @@ const Login = ({ navigation }) => {
             onPress={() => navigation.navigate(screens.forgotPassword)}>
             <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
           </TouchableOpacity>
-          <View style={{ marginTop: 5 }}>
+          <View style={{marginTop: 5}}>
             <Button
               title={'LOGIN'}
               onPress={() => validateData()}
@@ -197,8 +198,6 @@ const Login = ({ navigation }) => {
           </View>
         </View>
       </ScrollView>
-
-      {isLoader ? <Loader /> : null}
     </View>
   );
 };

@@ -6,15 +6,15 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Keyboard
+  Keyboard,
 } from 'react-native';
-import { SvgXml } from 'react-native-svg';
-import { useToast } from "react-native-toast-notifications";
+import {SvgXml} from 'react-native-svg';
+import {useToast} from 'react-native-toast-notifications';
 
-import { svgImages } from '../../../helpers';
-import { theme } from '../../../theme';
+import {svgImages} from '../../../helpers';
+import {theme} from '../../../theme';
 import Button from '../../../components/button';
-import { screenHeight, screenWidth } from '../../../constants';
+import {screenHeight, screenWidth} from '../../../constants';
 import {
   fontFamily,
   fontSize,
@@ -22,17 +22,15 @@ import {
 } from '../../../constants/fontDecorations';
 import ApiService from '../../../services/ApiService';
 
-import { END_POINTS, screens } from '../../../config';
+import {END_POINTS, screens} from '../../../config';
 import TextField from '../../../components/textField';
-import { useDispatch, useSelector } from 'react-redux';
-import Loader from '../../../components/loader';
-import { setLoader } from '../../../redux/reducers/commonSlice';
-const { colors } = theme;
+import {useDispatch, useSelector} from 'react-redux';
+import {setLoader} from '../../../redux/reducers/commonSlice';
+const {colors} = theme;
 
-const ForgotPassword = ({ navigation }) => {
+const ForgotPassword = ({navigation}) => {
   const toast = useToast();
   const dispatch = useDispatch();
-  const isLoader = useSelector(state => state.Common.loader);
   const [email, setEmail] = React.useState('');
   const [emailFocus, setEmailFocus] = React.useState(false);
   const [password, setPassword] = React.useState('');
@@ -53,12 +51,15 @@ const ForgotPassword = ({ navigation }) => {
 
   const validateData = () => {
     Keyboard.dismiss();
-    if (email == '' || !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
-      showToast("normal", fieldError("userEmail"), 3000)
+    if (
+      email == '' ||
+      !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+    ) {
+      showToast('normal', fieldError('userEmail'), 3000);
     } else if (password == '' || password.length < 6) {
-      showToast("normal", fieldError("password"), 3000)
+      showToast('normal', fieldError('password'), 3000);
     } else {
-      process()
+      process();
     }
   };
 
@@ -83,36 +84,36 @@ const ForgotPassword = ({ navigation }) => {
   const showToast = (type, msg, duration) => {
     toast.show(msg, {
       type: type,
-      placement: "bottom",
+      placement: 'bottom',
       duration: duration,
       offset: 30,
-      animationType: "zoom-in",
-    })
-  }
+      animationType: 'zoom-in',
+    });
+  };
 
   const process = async () => {
     try {
       let body = {
         email: email,
-        password: password
+        password: password,
       };
-      console.log("Body", body);
-      dispatch(setLoader(true))
+      console.log('Body', body);
+      dispatch(setLoader(true));
       await ApiService.post(END_POINTS.forgotPassword, body)
         .then(res => {
-          dispatch(setLoader(false))
-          setEmail("");
-          setPassword("")
-          showToast("success", res.message, 3000);
+          dispatch(setLoader(false));
+          setEmail('');
+          setPassword('');
+          showToast('success', res.message, 3000);
         })
         .catch(err => {
-          dispatch(setLoader(false))
-          showToast("normal", err, 3000);
-          console.log("promise error", err);
+          dispatch(setLoader(false));
+          showToast('normal', err, 3000);
+          console.log('promise error', err);
         });
     } catch (error) {
-      showToast("normal", error, 3000);
-      console.log("try/catch", error);
+      showToast('normal', error, 3000);
+      console.log('try/catch', error);
     }
   };
 
@@ -138,7 +139,7 @@ const ForgotPassword = ({ navigation }) => {
         <View style={styles.secondaryCont}>
           <Text style={styles.titleText}>PASSWORD</Text>
           <Text style={styles.subTitleText}>Reset your password</Text>
-          <View style={{ marginTop: 25 }}>
+          <View style={{marginTop: 25}}>
             <TextField
               inputWidth={0.92 * screenWidth}
               height={0.12 * screenWidth}
@@ -157,7 +158,7 @@ const ForgotPassword = ({ navigation }) => {
             />
           </View>
 
-          <View style={{ marginTop: 10 }}>
+          <View style={{marginTop: 10}}>
             <TextField
               inputWidth={0.92 * screenWidth}
               height={0.12 * screenWidth}
@@ -179,7 +180,7 @@ const ForgotPassword = ({ navigation }) => {
               type={'password'}
             />
           </View>
-          <View style={{ marginTop: 15 }}>
+          <View style={{marginTop: 15}}>
             <Button
               title={'RESET PASSWORD'}
               onPress={() => validateData()}
@@ -191,8 +192,6 @@ const ForgotPassword = ({ navigation }) => {
           </View>
         </View>
       </ScrollView>
-
-      {isLoader ? <Loader /> : null}
     </View>
   );
 };

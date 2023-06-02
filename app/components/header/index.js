@@ -66,6 +66,13 @@ function Header(props) {
               <SvgXml width="36" height="36 " xml={svgImages.back} />
             </TouchableOpacity>
           )}
+          {props.logout && (
+            <TouchableOpacity
+              onPress={props.logoutPress}
+              style={{position: 'absolute', left: 15}}>
+              <SvgXml width="36" height="36 " xml={svgImages.logout} />
+            </TouchableOpacity>
+          )}
         </View>
         <View style={styles.underlineView} />
       </View>

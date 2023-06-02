@@ -3,10 +3,13 @@ import React from 'react';
 import {screens} from '../config';
 import AuthStack from './auth-stack';
 import BottomTabStack from './bottom-tab-stack';
+import Loader from '../components/loader';
+import {useSelector} from 'react-redux';
 
 const RootStack = createStackNavigator();
 
 const AppNavigator = () => {
+  const isLoader = useSelector(state => state.Common.loader);
   return (
     <>
       <RootStack.Navigator
@@ -18,6 +21,8 @@ const AppNavigator = () => {
           component={BottomTabStack}
         />
       </RootStack.Navigator>
+
+      {isLoader ? <Loader /> : null}
     </>
   );
 };

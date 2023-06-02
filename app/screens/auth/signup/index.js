@@ -10,43 +10,38 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { SvgXml } from 'react-native-svg';
+import {SvgXml} from 'react-native-svg';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
-import { launchImageLibrary } from 'react-native-image-picker';
-import { useToast } from "react-native-toast-notifications";
-import * as mime from 'react-native-mime-types';
+import {launchImageLibrary} from 'react-native-image-picker';
+import {useToast} from 'react-native-toast-notifications';
 import AWS from 'aws-sdk';
 import fs from 'react-native-fs';
-import { decode } from 'base64-arraybuffer';
+import {decode} from 'base64-arraybuffer';
 
-
-
-import { svgImages } from '../../../helpers';
-import { theme } from '../../../theme';
+import {svgImages} from '../../../helpers';
+import {theme} from '../../../theme';
 import Button from '../../../components/button';
-import { screenHeight, screenWidth } from '../../../constants';
-import { register } from '../../../redux/reducers/authSlice';
-import { setLoader } from '../../../redux/reducers/commonSlice';
+import {screenHeight, screenWidth} from '../../../constants';
+import {register} from '../../../redux/reducers/authSlice';
+import {setLoader} from '../../../redux/reducers/commonSlice';
 import {
   fontFamily,
   fontSize,
   fontWeight,
 } from '../../../constants/fontDecorations';
-import { END_POINTS, screens } from '../../../config';
+import {END_POINTS, screens} from '../../../config';
 import TextField from '../../../components/textField';
 import DropDown from '../../../components/dropDownView';
 import ApiService from '../../../services/ApiService';
 import Commons from '../../../utils/Commons';
-import { useDispatch, useSelector } from 'react-redux';
-import Loader from '../../../components/loader';
+import {useDispatch, useSelector} from 'react-redux';
 
-const { colors } = theme;
+const {colors} = theme;
 
-const Signup = ({ navigation }) => {
+const Signup = ({navigation}) => {
   const toast = useToast();
   const dispatch = useDispatch();
   const auth = useSelector(state => state.Auth);
-  const isLoader = useSelector(state => state.Common.loader);
   const [firstName, setFirstName] = React.useState('');
   const [fnFocus, setFNFocus] = React.useState(false);
   const [lastName, setLastName] = React.useState('');
@@ -64,7 +59,7 @@ const Signup = ({ navigation }) => {
   const [selectedImage, setSelectedImage] = React.useState({});
 
   React.useEffect(() => {
-    dispatch(setLoader(false))
+    dispatch(setLoader(false));
     const keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
       () => {
@@ -139,19 +134,22 @@ const Signup = ({ navigation }) => {
   const validateData = () => {
     Keyboard.dismiss();
     if (firstName == '' || firstName.length < 4) {
-      showToast("normal", fieldError("firstName"), 3000)
+      showToast('normal', fieldError('firstName'), 3000);
     } else if (lastName == '' || lastName.length < 4) {
-      showToast("normal", fieldError("lastName"), 3000)
-    } else if (email == '' || !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
-      showToast("normal", fieldError("userEmail"), 3000)
-    } else if (dateOfBirth == "") {
-      showToast("normal", fieldError("dob"), 3000)
-    } else if (country == "") {
-      showToast("normal", fieldError("counrty"), 3000)
+      showToast('normal', fieldError('lastName'), 3000);
+    } else if (
+      email == '' ||
+      !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+    ) {
+      showToast('normal', fieldError('userEmail'), 3000);
+    } else if (dateOfBirth == '') {
+      showToast('normal', fieldError('dob'), 3000);
+    } else if (country == '') {
+      showToast('normal', fieldError('counrty'), 3000);
     } else if (password == '' || password.length < 6) {
-      showToast("normal", fieldError("password"), 3000)
+      showToast('normal', fieldError('password'), 3000);
     } else {
-      process()
+      process();
     }
   };
 
@@ -192,23 +190,22 @@ const Signup = ({ navigation }) => {
   const showToast = (type, msg, duration) => {
     toast.show(msg, {
       type: type,
-      placement: "bottom",
+      placement: 'bottom',
       duration: duration,
       offset: 30,
-      animationType: "zoom-in",
-    })
-  }
+      animationType: 'zoom-in',
+    });
+  };
 
   const process = async () => {
     try {
-
-      dispatch(setLoader(true))
-      uploadFileToS3(selectedImage)
+      dispatch(setLoader(true));
+      uploadFileToS3(selectedImage);
     } catch (error) {
-      showToast("normal", error, 3000);
-      console.log("try/catch", error);
+      showToast('normal', error, 3000);
+      console.log('try/catch', error);
     }
-  }
+  };
 
   const uploadFileToS3 = async imgFile => {
     const s3bucket = new AWS.S3({
@@ -235,7 +232,7 @@ const Signup = ({ navigation }) => {
         if (error) {
           console.log('Uploading Error', error);
         } else {
-          console.log("Data", data.Location);
+          console.log('Data', data.Location);
           let body = {
             firstName: firstName,
             lastName: lastName,
@@ -247,14 +244,14 @@ const Signup = ({ navigation }) => {
           };
           await ApiService.post(END_POINTS.register, body)
             .then(res => {
-              dispatch(register(res))
-              dispatch(setLoader(false))
-              Commons.reset(navigation, screens.trial)
+              dispatch(register(res));
+              dispatch(setLoader(false));
+              Commons.reset(navigation, screens.trial);
             })
             .catch(err => {
-              dispatch(setLoader(false))
-              showToast("normal", err, 3000);
-              console.log("promise error", err);
+              dispatch(setLoader(false));
+              showToast('normal', err, 3000);
+              console.log('promise error', err);
             });
         }
       });
@@ -298,9 +295,7 @@ const Signup = ({ navigation }) => {
                 <TextField
                   inputWidth={0.45 * screenWidth}
                   height={0.12 * screenWidth}
-                  borderColor={
-                    theme.colors.greyText
-                  }
+                  borderColor={theme.colors.greyText}
                   borderRadius={0.4 * screenWidth}
                   onChangeText={e => {
                     handleChange('FirstName', e);
@@ -317,9 +312,7 @@ const Signup = ({ navigation }) => {
               <TextField
                 inputWidth={0.45 * screenWidth}
                 height={0.12 * screenWidth}
-                borderColor={
-                  theme.colors.greyText
-                }
+                borderColor={theme.colors.greyText}
                 borderRadius={0.4 * screenWidth}
                 onChangeText={e => {
                   handleChange('LastName', e);
@@ -333,13 +326,11 @@ const Signup = ({ navigation }) => {
                 type={'text'}
               />
             </View>
-            <View style={{ marginTop: 10 }}>
+            <View style={{marginTop: 10}}>
               <TextField
                 inputWidth={0.92 * screenWidth}
                 height={0.12 * screenWidth}
-                borderColor={
-                  theme.colors.greyText
-                }
+                borderColor={theme.colors.greyText}
                 borderRadius={0.4 * screenWidth}
                 backgroundColor={theme.colors.white}
                 onChangeText={e => {
@@ -358,13 +349,11 @@ const Signup = ({ navigation }) => {
               onPress={() => {
                 showDatePicker();
               }}
-              style={{ marginTop: 10 }}>
+              style={{marginTop: 10}}>
               <TextField
                 inputWidth={0.92 * screenWidth}
                 height={0.12 * screenWidth}
-                borderColor={
-                  theme.colors.greyText
-                }
+                borderColor={theme.colors.greyText}
                 borderRadius={0.4 * screenWidth}
                 icon={svgImages.calendarBlank}
                 value={dateOfBirth}
@@ -375,7 +364,7 @@ const Signup = ({ navigation }) => {
                 type={'text'}
               />
             </TouchableOpacity>
-            <View style={{ marginTop: 10 }}>
+            <View style={{marginTop: 10}}>
               <Text
                 style={{
                   fontFamily: fontFamily.argentum_sans,
@@ -388,9 +377,7 @@ const Signup = ({ navigation }) => {
               </Text>
               <DropDown
                 width={0.92 * screenWidth}
-                borderColor={
-                  theme.colors.greyText
-                }
+                borderColor={theme.colors.greyText}
                 borderRadius={0.12 * screenWidth}
                 icon={svgImages.caretDown}
                 title={'Select Country'}
@@ -406,13 +393,11 @@ const Signup = ({ navigation }) => {
                 }}
               />
             </View>
-            <View style={{ marginTop: 10 }}>
+            <View style={{marginTop: 10}}>
               <TextField
                 inputWidth={0.92 * screenWidth}
                 height={0.12 * screenWidth}
-                borderColor={
-                  theme.colors.greyText
-                }
+                borderColor={theme.colors.greyText}
                 borderRadius={0.4 * screenWidth}
                 onChangeText={e => {
                   handleChange('Password', e);
@@ -434,7 +419,7 @@ const Signup = ({ navigation }) => {
               style={{
                 marginTop: 15,
               }}>
-              <View style={{ flexDirection: 'row' }}>
+              <View style={{flexDirection: 'row'}}>
                 <Text
                   style={{
                     fontFamily: fontFamily.argentum_sans,
@@ -471,8 +456,8 @@ const Signup = ({ navigation }) => {
                 imageStyle={{
                   borderRadius: 15,
                 }}
-                source={{ uri: selectedImage.uri }}>
-                <View style={{ height: 50 }}>
+                source={{uri: selectedImage.uri}}>
+                <View style={{height: 50}}>
                   <SvgXml width="90" height="90" xml={svgImages.smiley} />
                 </View>
                 <Button
@@ -490,7 +475,7 @@ const Signup = ({ navigation }) => {
                 />
               </ImageBackground>
             </View>
-            <View style={{ marginBottom: 0.05 * screenWidth }}>
+            <View style={{marginBottom: 0.05 * screenWidth}}>
               <Button
                 title={'CREATE ACCOUNT'}
                 onPress={() => validateData()}
@@ -499,7 +484,7 @@ const Signup = ({ navigation }) => {
                 titleColor={colors.white}
                 backgroundColor={colors.primary}
                 btnStyle={{
-                  marginVertical: 15
+                  marginVertical: 15,
                 }}
               />
             </View>
@@ -512,7 +497,6 @@ const Signup = ({ navigation }) => {
         onConfirm={data => pickADate(data)}
         onCancel={hideDatePicker}
       />
-      {isLoader ? <Loader /> : null}
     </View>
   );
 };
