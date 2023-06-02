@@ -14,6 +14,10 @@ import { SvgXml } from 'react-native-svg';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { useToast } from "react-native-toast-notifications";
+import * as mime from 'react-native-mime-types';
+import AWS from 'aws-sdk';
+import fs from 'react-native-fs';
+import { decode } from 'base64-arraybuffer';
 
 
 
@@ -197,32 +201,65 @@ const Signup = ({ navigation }) => {
 
   const process = async () => {
     try {
-      let body = {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        dob: dateOfBirth,
-        country: country,
-        password: password,
-        avatar: ''
-      };
+
       dispatch(setLoader(true))
-      await ApiService.post(END_POINTS.register, body)
-        .then(res => {
-          dispatch(register(res))
-          dispatch(setLoader(false))
-          Commons.reset(navigation, screens.trial)
-        })
-        .catch(err => {
-          dispatch(setLoader(false))
-          showToast("normal", err, 3000);
-          console.log("promise error", err);
-        });
+      uploadFileToS3(selectedImage)
     } catch (error) {
       showToast("normal", error, 3000);
       console.log("try/catch", error);
     }
   }
+
+  const uploadFileToS3 = async imgFile => {
+    const s3bucket = new AWS.S3({
+      accessKeyId: 'AKIAZGOWSY7KCYB2AESW',
+      secretAccessKey: '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',
+      Bucket: 'offcourtz-files',
+      signatureVersion: 'v4',
+    });
+    const contentType = imgFile.type;
+    const contentDeposition = `inline;filename="${imgFile.fileName}"`;
+    const fPath = imgFile.uri;
+    const base64 = await fs.readFile(fPath, 'base64');
+    const arrayBuffer = decode(base64);
+
+    s3bucket.createBucket(() => {
+      const params = {
+        Bucket: 'offcourtz-files',
+        Key: 'images/' + imgFile.fileName,
+        Body: arrayBuffer,
+        ContentDisposition: contentDeposition,
+        ContentType: contentType,
+      };
+      s3bucket.upload(params, async (error, data) => {
+        if (error) {
+          console.log('Uploading Error', error);
+        } else {
+          console.log("Data", data.Location);
+          let body = {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            dob: dateOfBirth,
+            country: country,
+            password: password,
+            avatar: data.Location,
+          };
+          await ApiService.post(END_POINTS.register, body)
+            .then(res => {
+              dispatch(register(res))
+              dispatch(setLoader(false))
+              Commons.reset(navigation, screens.trial)
+            })
+            .catch(err => {
+              dispatch(setLoader(false))
+              showToast("normal", err, 3000);
+              console.log("promise error", err);
+            });
+        }
+      });
+    });
+  };
 
   return (
     <View style={styles.mainContainer}>

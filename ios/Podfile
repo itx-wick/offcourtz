@@ -17,6 +17,8 @@ target 'offcourtz' do
     :hermes_enabled => false
   )
 
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+
   target 'offcourtzTests' do
     inherit! :complete
     # Pods for testing
