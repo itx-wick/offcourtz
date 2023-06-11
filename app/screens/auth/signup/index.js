@@ -240,8 +240,9 @@ const Signup = ({navigation}) => {
             dob: dateOfBirth,
             country: country,
             password: password,
-            avatar: data.Location,
+            image: data.Location,
           };
+          console.log('Register Body', body);
           await ApiService.post(END_POINTS.register, body)
             .then(res => {
               dispatch(register(res));
@@ -386,10 +387,8 @@ const Signup = ({navigation}) => {
                 selectedItem={selectedItem.title}
                 onPressItem={handleSelection}
                 dropDownListStyle={{
-                  height: 0.35 * screenWidth,
-                }}
-                flatListView={{
-                  height: 0.35 * screenWidth,
+                  maxHeight: 0.35 * screenWidth,
+                  flexGrow: 0,
                 }}
               />
             </View>

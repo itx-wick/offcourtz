@@ -157,10 +157,16 @@ function CreateNewPost({navigation}) {
           console.log('Data', data.Location);
           let body = {
             caption: caption,
+            isGlobal: postTo,
             image: data.Location,
           };
+          console.log('Auth Token', authToken);
           await ApiService.post(END_POINTS.createPost, body, authToken)
             .then(res => {
+              console.log(
+                'Post Created Response',
+                JSON.stringify(res, null, 2),
+              );
               setTimeout(() => {
                 setModalVisible(true);
               }, 0);

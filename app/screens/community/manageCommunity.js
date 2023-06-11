@@ -151,42 +151,6 @@ function ManageCommunity({navigation}) {
             style={{height: 22, width: 22}}
           />
         </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate(screens.challengeRequests)}
-          style={{
-            width: 0.92 * screenWidth,
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            paddingVertical: 15,
-            paddingRight: 5,
-            borderBottomWidth: 2,
-            borderBottomColor: theme.colors.gray1,
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            <Image
-              source={require('../../assets/images/flame.png')}
-              style={{height: 32, width: 32}}
-            />
-            <Text
-              style={{
-                fontFamily: fontFamily.argentum_sans,
-                fontSize: fontSize.verbiage_20,
-                fontWeight: fontWeight[400],
-                marginHorizontal: 10,
-              }}>
-              Challenges Requests
-            </Text>
-          </View>
-          <Image
-            source={require('../../assets/images/caretRight.png')}
-            style={{height: 22, width: 22}}
-          />
-        </TouchableOpacity>
       </View>
     </View>
   );
