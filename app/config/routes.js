@@ -9,4 +9,5 @@ export const END_POINTS = {
   login: '/users/login',
   forgotPassword: '/users/forgot-password',
   createPost: '/posts',
+  myFriends: '/friends/my',
 };

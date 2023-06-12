@@ -16,17 +16,37 @@ import {screenHeight, screenWidth} from '../../constants';
 import {fontFamily, fontSize} from '../../constants/fontDecorations';
 import TextField from '../../components/textField';
 import {Commons} from '../../utils';
-import {screens} from '../../config';
+import {END_POINTS, screens} from '../../config';
 import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
 import FiltersBottomSheet from '../../components/filtersBottomSheet';
+import ApiService from '../../services/ApiService';
+import {useDispatch, useSelector} from 'react-redux';
+import {myFriends} from '../../redux/reducers/authSlice';
 function Challenges({navigation}) {
+  const dispatch = useDispatch();
+  const authToken = useSelector(state => state.Auth.token);
   const filtersRef = React.useRef(null);
   const snapPoints = React.useMemo(() => ['100%', '100%'], []);
   const [isFilter, setIsFilter] = React.useState(false);
   const [filter, setFilter] = React.useState({});
 
+  const getMyFriends = async () => {
+    await ApiService.get(END_POINTS.myFriends, authToken)
+      .then(res => {
+        let newArray = res.data[0].friends.map(obj => {
+          return {...obj, selected: false};
+        });
+        dispatch(myFriends(newArray));
+        console.log(res.data[0].friends);
+      })
+      .catch(err => {
+        console.log('promise error', err);
+      });
+  };
+
   React.useState(() => {
     setFilter(Commons.workoutsFilter[0]);
+    getMyFriends();
   }, []);
 
   const backdropComponent = backdropProps => (

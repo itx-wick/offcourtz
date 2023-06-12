@@ -1,0 +1,1224 @@
+2023-06-12 13:35:32 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x7fa9c14d6160; archive(resolved)="<IDEArchive: 0x60002c3c7420>", distributionTask(resolved)="2", distributionDestination(resolved)="1", distributionMethod(resolved)="<IDEDistributionMethodDevelopmentSigned: 0x60002eae7820>", team(resolved)="<IDEProvisioningDisambiguatableBasicTeam: 0x6000072d34c0; teamID='SY9YN3GDLU', teamName='TS Partners Ltd', teamType='Company', username='huzaifarasheed29@gmail.com', isFreeProvisioningTeam='0'>">
+	Chain (14, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x7fa9c14d6160; archive = "<IDEArchive: 0x60002c3c7420>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60002eae7820>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000072d34c0; teamID='SY9YN3GDLU', teamName='TS Partners Ltd', teamType='Company', username='huzaifarasheed29@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionProcessingPipelineContext: 0x7fa9abe19ee0; archive = "<IDEArchive: 0x60002c3c7420>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60002eae7820>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000072d34c0; teamID='SY9YN3GDLU', teamName='TS Partners Ltd', teamType='Company', username='huzaifarasheed29@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fa9abe42dd0; archive = "<IDEArchive: 0x60002c3c7420>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60002eae7820>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000072d34c0; teamID='SY9YN3GDLU', teamName='TS Partners Ltd', teamType='Company', username='huzaifarasheed29@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fa9aba91140; archive = "<IDEArchive: 0x60002c3c7420>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60002eae7820>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000072d34c0; teamID='SY9YN3GDLU', teamName='TS Partners Ltd', teamType='Company', username='huzaifarasheed29@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fa9abe45340; archive = "<IDEArchive: 0x60002c3c7420>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60002eae7820>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000072d34c0; teamID='SY9YN3GDLU', teamName='TS Partners Ltd', teamType='Company', username='huzaifarasheed29@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fa9abe44aa0; archive = "<IDEArchive: 0x60002c3c7420>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60002eae7820>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000072d34c0; teamID='SY9YN3GDLU', teamName='TS Partners Ltd', teamType='Company', username='huzaifarasheed29@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fa9abe21ce0; archive = "<IDEArchive: 0x60002c3c7420>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60002eae7820>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000072d34c0; teamID='SY9YN3GDLU', teamName='TS Partners Ltd', teamType='Company', username='huzaifarasheed29@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fa9abe48950; archive = "<IDEArchive: 0x60002c3c7420>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60002eae7820>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000072d34c0; teamID='SY9YN3GDLU', teamName='TS Partners Ltd', teamType='Company', username='huzaifarasheed29@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fa9c1758ce0; archive = "<IDEArchive: 0x60002c3c7420>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60002eae7820>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000072d34c0; teamID='SY9YN3GDLU', teamName='TS Partners Ltd', teamType='Company', username='huzaifarasheed29@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fa9abe4ef20; archive = "<IDEArchive: 0x60002c3c7420>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60002eae7820>", team="(null)">
+	<IDEDistributionContext: 0x7fa9abe13660; archive = "<IDEArchive: 0x60002c3c7420>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60002eae7820>", team="(null)">
+	<IDEDistributionContext: 0x7fa9c170c6a0; archive = "<IDEArchive: 0x60002c3c7420>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60002eae7820>", team="(null)">
+	<IDEDistributionContext: 0x7fa9aba969c0; archive = "<IDEArchive: 0x60002c3c7420>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60002eae7820>", team="(null)">
+	<IDEDistributionContext: 0x7fa9a865e130; archive = "<IDEArchive: 0x60002c3c7420>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x7fa9c14d6160>
+2023-06-12 13:35:32 +0000  Processing step: IDEDistributionCreateDestRootStep
+2023-06-12 13:35:32 +0000  Processing step: IDEDistributionCopyItemStep
+2023-06-12 13:35:32 +0000  Running /usr/bin/ditto '-V' '/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app'
+2023-06-12 13:35:32 +0000  >>> Copying /Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app 
+2023-06-12 13:35:32 +0000  copying file ./_CodeSignature/CodeResources ... 
+2023-06-12 13:35:32 +0000  51334 bytes for ./_CodeSignature/CodeResources
+2023-06-12 13:35:32 +0000  copying file ./Fontisto.ttf ... 
+2023-06-12 13:35:32 +0000  313528 bytes for ./Fontisto.ttf
+2023-06-12 13:35:32 +0000  copying file ./Octicons.ttf ... 
+2023-06-12 13:35:32 +0000  49404 bytes for ./Octicons.ttf
+2023-06-12 13:35:32 +0000  copying file ./Feather.ttf ... 
+2023-06-12 13:35:32 +0000  56228 bytes for ./Feather.ttf
+2023-06-12 13:35:32 +0000  copying file ./Entypo.ttf ... 
+2023-06-12 13:35:32 +0000  66200 bytes for ./Entypo.ttf
+2023-06-12 13:35:32 +0000  copying file ./FontAwesome5_Brands.ttf ... 
+2023-06-12 13:35:32 +0000  134040 bytes for ./FontAwesome5_Brands.ttf
+2023-06-12 13:35:32 +0000  copying file ./MaterialCommunityIcons.ttf ... 
+2023-06-12 13:35:32 +0000  1147844 bytes for ./MaterialCommunityIcons.ttf
+2023-06-12 13:35:32 +0000  copying file ./AppIcon60x60@2x.png ... 
+2023-06-12 13:35:32 +0000  3394 bytes for ./AppIcon60x60@2x.png
+copying file ./AntDesign.ttf ... 
+2023-06-12 13:35:32 +0000  70344 bytes for ./AntDesign.ttf
+2023-06-12 13:35:32 +0000  copying file ./Foundation.ttf ... 
+2023-06-12 13:35:32 +0000  56976 bytes for ./Foundation.ttf
+2023-06-12 13:35:32 +0000  copying file ./Ionicons.ttf ... 
+2023-06-12 13:35:32 +0000  247192 bytes for ./Ionicons.ttf
+2023-06-12 13:35:32 +0000  copying file ./FontAwesome5_Solid.ttf ... 
+2023-06-12 13:35:32 +0000  202744 bytes for ./FontAwesome5_Solid.ttf
+2023-06-12 13:35:32 +0000  copying file ./FontAwesome5_Regular.ttf ... 
+2023-06-12 13:35:32 +0000  33736 bytes for ./FontAwesome5_Regular.ttf
+2023-06-12 13:35:32 +0000  copying file ./AccessibilityResources.bundle/_CodeSignature/CodeResources ... 
+2023-06-12 13:35:32 +0000  2155 bytes for ./AccessibilityResources.bundle/_CodeSignature/CodeResources
+2023-06-12 13:35:32 +0000  copying file ./AccessibilityResources.bundle/_CodeSignature/CodeDirectory ... 
+2023-06-12 13:35:32 +0000  180 bytes for ./AccessibilityResources.bundle/_CodeSignature/CodeDirectory
+2023-06-12 13:35:32 +0000  copying file ./AccessibilityResources.bundle/_CodeSignature/CodeRequirements-1 ... 
+2023-06-12 13:35:32 +0000  228 bytes for ./AccessibilityResources.bundle/_CodeSignature/CodeRequirements-1
+2023-06-12 13:35:32 +0000  copying file ./AccessibilityResources.bundle/_CodeSignature/CodeSignature ... 
+2023-06-12 13:35:32 +0000  4868 bytes for ./AccessibilityResources.bundle/_CodeSignature/CodeSignature
+2023-06-12 13:35:32 +0000  copying file ./AccessibilityResources.bundle/_CodeSignature/CodeRequirements ... 
+2023-06-12 13:35:32 +0000  200 bytes for ./AccessibilityResources.bundle/_CodeSignature/CodeRequirements
+2023-06-12 13:35:32 +0000  copying file ./AccessibilityResources.bundle/en.lproj/Localizable.strings ... 
+2023-06-12 13:35:32 +0000  518 bytes for ./AccessibilityResources.bundle/en.lproj/Localizable.strings
+2023-06-12 13:35:32 +0000  copying file ./AccessibilityResources.bundle/Info.plist ... 
+2023-06-12 13:35:32 +0000  794 bytes for ./AccessibilityResources.bundle/Info.plist
+2023-06-12 13:35:32 +0000  copying file ./GoogleService-Info.plist ... 
+2023-06-12 13:35:32 +0000  666 bytes for ./GoogleService-Info.plist
+copying file ./FontAwesome.ttf ... 
+2023-06-12 13:35:32 +0000  165548 bytes for ./FontAwesome.ttf
+2023-06-12 13:35:32 +0000  copying file ./Zocial.ttf ... 
+2023-06-12 13:35:32 +0000  25788 bytes for ./Zocial.ttf
+2023-06-12 13:35:32 +0000  copying file ./Assets.car ... 
+2023-06-12 13:35:32 +0000  186431 bytes for ./Assets.car
+2023-06-12 13:35:32 +0000  copying file ./lmdc ... 
+2023-06-12 13:35:32 +0000  5721776 bytes for ./lmdc
+copying file ./EvilIcons.ttf ... 
+2023-06-12 13:35:32 +0000  13456 bytes for ./EvilIcons.ttf
+2023-06-12 13:35:32 +0000  copying file ./main.jsbundle ... 
+2023-06-12 13:35:32 +0000  3968894 bytes for ./main.jsbundle
+2023-06-12 13:35:32 +0000  copying file ./LaunchScreen.storyboardc/01J-lp-oVM-view-BUf-JI-XSU.nib ... 
+2023-06-12 13:35:32 +0000  1113 bytes for ./LaunchScreen.storyboardc/01J-lp-oVM-view-BUf-JI-XSU.nib
+2023-06-12 13:35:32 +0000  copying file ./LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib ... 
+2023-06-12 13:35:32 +0000  896 bytes for ./LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib
+copying file ./LaunchScreen.storyboardc/Info.plist ... 
+2023-06-12 13:35:32 +0000  258 bytes for ./LaunchScreen.storyboardc/Info.plist
+2023-06-12 13:35:32 +0000  copying file ./Frameworks/libswiftCoreImage.dylib ... 
+2023-06-12 13:35:32 +0000  335088 bytes for ./Frameworks/libswiftCoreImage.dylib
+copying file ./Frameworks/libswiftObjectiveC.dylib ... 
+2023-06-12 13:35:32 +0000  400112 bytes for ./Frameworks/libswiftObjectiveC.dylib
+copying file ./Frameworks/libswiftCore.dylib ... 
+2023-06-12 13:35:32 +0000  23297568 bytes for ./Frameworks/libswiftCore.dylib
+copying file ./Frameworks/libswiftCoreGraphics.dylib ... 
+2023-06-12 13:35:32 +0000  857648 bytes for ./Frameworks/libswiftCoreGraphics.dylib
+2023-06-12 13:35:32 +0000  copying file ./Frameworks/libswiftUIKit.dylib ... 
+2023-06-12 13:35:32 +0000  655616 bytes for ./Frameworks/libswiftUIKit.dylib
+2023-06-12 13:35:32 +0000  copying file ./Frameworks/libswiftMetal.dylib ... 
+2023-06-12 13:35:32 +0000  395696 bytes for ./Frameworks/libswiftMetal.dylib
+2023-06-12 13:35:32 +0000  copying file ./Frameworks/libswiftDispatch.dylib ... 
+2023-06-12 13:35:32 +0000  1377376 bytes for ./Frameworks/libswiftDispatch.dylib
+copying file ./Frameworks/libswiftos.dylib ... 
+2023-06-12 13:35:32 +0000  396976 bytes for ./Frameworks/libswiftos.dylib
+2023-06-12 13:35:32 +0000  copying file ./Frameworks/libswiftCoreFoundation.dylib ... 
+2023-06-12 13:35:32 +0000  335280 bytes for ./Frameworks/libswiftCoreFoundation.dylib
+2023-06-12 13:35:32 +0000  copying file ./Frameworks/libswiftDarwin.dylib ... 
+2023-06-12 13:35:32 +0000  499744 bytes for ./Frameworks/libswiftDarwin.dylib
+2023-06-12 13:35:32 +0000  copying file ./Frameworks/libswiftQuartzCore.dylib ... 
+2023-06-12 13:35:32 +0000  338272 bytes for ./Frameworks/libswiftQuartzCore.dylib
+2023-06-12 13:35:32 +0000  copying file ./Frameworks/libswiftFoundation.dylib ... 
+2023-06-12 13:35:32 +0000  11552336 bytes for ./Frameworks/libswiftFoundation.dylib
+2023-06-12 13:35:32 +0000  copying file ./SimpleLineIcons.ttf ... 
+2023-06-12 13:35:32 +0000  54056 bytes for ./SimpleLineIcons.ttf
+2023-06-12 13:35:32 +0000  copying file ./embedded.mobileprovision ... 
+2023-06-12 13:35:32 +0000  20353 bytes for ./embedded.mobileprovision
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/@react-navigation/drawer/src/views/assets/toggle-drawer-icon@3x.png ... 
+2023-06-12 13:35:32 +0000  212 bytes for ./assets/node_modules/@react-navigation/drawer/src/views/assets/toggle-drawer-icon@3x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/@react-navigation/drawer/src/views/assets/toggle-drawer-icon@2x.png ... 
+2023-06-12 13:35:32 +0000  163 bytes for ./assets/node_modules/@react-navigation/drawer/src/views/assets/toggle-drawer-icon@2x.png
+copying file ./assets/node_modules/@react-navigation/drawer/src/views/assets/toggle-drawer-icon.png ... 
+2023-06-12 13:35:32 +0000  108 bytes for ./assets/node_modules/@react-navigation/drawer/src/views/assets/toggle-drawer-icon.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/@react-navigation/elements/src/assets/back-icon@3x.png ... 
+2023-06-12 13:35:32 +0000  761 bytes for ./assets/node_modules/@react-navigation/elements/src/assets/back-icon@3x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/@react-navigation/elements/src/assets/back-icon@2x.png ... 
+2023-06-12 13:35:32 +0000  405 bytes for ./assets/node_modules/@react-navigation/elements/src/assets/back-icon@2x.png
+copying file ./assets/node_modules/@react-navigation/elements/src/assets/back-icon.png ... 
+2023-06-12 13:35:32 +0000  290 bytes for ./assets/node_modules/@react-navigation/elements/src/assets/back-icon.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/@react-navigation/elements/src/assets/back-icon-mask.png ... 
+2023-06-12 13:35:32 +0000  913 bytes for ./assets/node_modules/@react-navigation/elements/src/assets/back-icon-mask.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-calendar-strip/src/img/left-arrow-black.png ... 
+2023-06-12 13:35:32 +0000  311 bytes for ./assets/node_modules/react-native-calendar-strip/src/img/left-arrow-black.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-calendar-strip/src/img/right-arrow-black.png ... 
+2023-06-12 13:35:32 +0000  304 bytes for ./assets/node_modules/react-native-calendar-strip/src/img/right-arrow-black.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-calendars/src/calendar/img/previous@2x.png ... 
+2023-06-12 13:35:32 +0000  458 bytes for ./assets/node_modules/react-native-calendars/src/calendar/img/previous@2x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-calendars/src/calendar/img/next@2x.png ... 
+2023-06-12 13:35:32 +0000  462 bytes for ./assets/node_modules/react-native-calendars/src/calendar/img/next@2x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-calendars/src/img/down@3x.png ... 
+2023-06-12 13:35:32 +0000  508 bytes for ./assets/node_modules/react-native-calendars/src/img/down@3x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-calendars/src/img/down@2x.png ... 
+2023-06-12 13:35:32 +0000  354 bytes for ./assets/node_modules/react-native-calendars/src/img/down@2x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-calendars/src/img/up.png ... 
+2023-06-12 13:35:32 +0000  215 bytes for ./assets/node_modules/react-native-calendars/src/img/up.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-calendars/src/img/down.png ... 
+2023-06-12 13:35:32 +0000  208 bytes for ./assets/node_modules/react-native-calendars/src/img/down.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-calendars/src/img/up@2x.png ... 
+2023-06-12 13:35:32 +0000  347 bytes for ./assets/node_modules/react-native-calendars/src/img/up@2x.png
+copying file ./assets/node_modules/react-native-calendars/src/img/up@3x.png ... 
+2023-06-12 13:35:32 +0000  504 bytes for ./assets/node_modules/react-native-calendars/src/img/up@3x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/justify_full@3x.png ... 
+2023-06-12 13:35:32 +0000  1102 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/justify_full@3x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/ul@3x.png ... 
+2023-06-12 13:35:32 +0000  1228 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/ul@3x.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/image@3x.png ... 
+2023-06-12 13:35:32 +0000  3356 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/image@3x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/code@3x.png ... 
+2023-06-12 13:35:32 +0000  4638 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/code@3x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/blockquote.png ... 
+2023-06-12 13:35:32 +0000  2925 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/blockquote.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/ol.png ... 
+2023-06-12 13:35:32 +0000  2536 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/ol.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/outdent.png ... 
+2023-06-12 13:35:32 +0000  2500 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/outdent.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/bold.png ... 
+2023-06-12 13:35:32 +0000  2682 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/bold.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/justify_center@3x.png ... 
+2023-06-12 13:35:32 +0000  1156 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/justify_center@3x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/checkbox@3x.png ... 
+2023-06-12 13:35:32 +0000  2998 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/checkbox@3x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/code.png ... 
+2023-06-12 13:35:32 +0000  2760 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/code.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/remove_format.png ... 
+2023-06-12 13:35:32 +0000  2321 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/remove_format.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/indent@3x.png ... 
+2023-06-12 13:35:32 +0000  1939 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/indent@3x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/indent.png ... 
+2023-06-12 13:35:32 +0000  2479 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/indent.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/blockquote@2x.png ... 
+2023-06-12 13:35:32 +0000  2450 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/blockquote@2x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/blockquote@3x.png ... 
+2023-06-12 13:35:32 +0000  3965 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/blockquote@3x.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/indent@2x.png ... 
+2023-06-12 13:35:32 +0000  1326 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/indent@2x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/checkbox@2x.png ... 
+2023-06-12 13:35:32 +0000  2065 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/checkbox@2x.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/justify_center@2x.png ... 
+2023-06-12 13:35:32 +0000  757 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/justify_center@2x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/link.png ... 
+2023-06-12 13:35:32 +0000  2496 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/link.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/image@2x.png ... 
+2023-06-12 13:35:32 +0000  2040 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/image@2x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/code@2x.png ... 
+2023-06-12 13:35:32 +0000  3056 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/code@2x.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/ul@2x.png ... 
+2023-06-12 13:35:32 +0000  703 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/ul@2x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/justify_full@2x.png ... 
+2023-06-12 13:35:32 +0000  652 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/justify_full@2x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/keyboard.png ... 
+2023-06-12 13:35:32 +0000  3010 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/keyboard.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/underline@2x.png ... 
+2023-06-12 13:35:32 +0000  1578 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/underline@2x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/keyboard@3x.png ... 
+2023-06-12 13:35:32 +0000  1922 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/keyboard@3x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/table@2x.png ... 
+2023-06-12 13:35:32 +0000  1160 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/table@2x.png
+2023-06-12 13:35:32 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/justify_right@3x.png ... 
+2023-06-12 13:35:33 +0000  1168 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/justify_right@3x.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/strikethrough.png ... 
+2023-06-12 13:35:33 +0000  2999 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/strikethrough.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/fontSize@3x.png ... 
+2023-06-12 13:35:33 +0000  2335 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/fontSize@3x.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/fontSize@2x.png ... 
+2023-06-12 13:35:33 +0000  1521 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/fontSize@2x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/justify_right@2x.png ... 
+2023-06-12 13:35:33 +0000  723 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/justify_right@2x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/subscript.png ... 
+2023-06-12 13:35:33 +0000  792 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/subscript.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/table@3x.png ... 
+2023-06-12 13:35:33 +0000  1527 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/table@3x.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/underline@3x.png ... 
+2023-06-12 13:35:33 +0000  2476 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/underline@3x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/keyboard@2x.png ... 
+2023-06-12 13:35:33 +0000  1614 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/keyboard@2x.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/underline.png ... 
+2023-06-12 13:35:33 +0000  2254 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/underline.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/line@2x.png ... 
+2023-06-12 13:35:33 +0000  380 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/line@2x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/ol@2x.png ... 
+2023-06-12 13:35:33 +0000  1069 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/ol@2x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/outdent@2x.png ... 
+2023-06-12 13:35:33 +0000  1348 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/outdent@2x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/superscript@2x.png ... 
+2023-06-12 13:35:33 +0000  800 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/superscript@2x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/link@3x.png ... 
+2023-06-12 13:35:33 +0000  3459 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/link@3x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/strikethrough@2x.png ... 
+2023-06-12 13:35:33 +0000  2567 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/strikethrough@2x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/undo@3x.png ... 
+2023-06-12 13:35:33 +0000  3810 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/undo@3x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/justify_full.png ... 
+2023-06-12 13:35:33 +0000  1814 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/justify_full.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/undo@2x.png ... 
+2023-06-12 13:35:33 +0000  2448 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/undo@2x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/strikethrough@3x.png ... 
+2023-06-12 13:35:33 +0000  3892 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/strikethrough@3x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/italic.png ... 
+2023-06-12 13:35:33 +0000  2205 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/italic.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/video.png ... 
+2229 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/video.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/undo.png ... 
+2023-06-12 13:35:33 +0000  2854 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/undo.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/link@2x.png ... 
+2023-06-12 13:35:33 +0000  2306 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/link@2x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/superscript@3x.png ... 
+2023-06-12 13:35:33 +0000  800 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/superscript@3x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/outdent@3x.png ... 
+2023-06-12 13:35:33 +0000  1959 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/outdent@3x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/ol@3x.png ... 
+2023-06-12 13:35:33 +0000  1799 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/ol@3x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/fontSize.png ... 
+2023-06-12 13:35:33 +0000  2063 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/fontSize.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/line@3x.png ... 
+2023-06-12 13:35:33 +0000  572 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/line@3x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/bold@2x.png ... 
+2023-06-12 13:35:33 +0000  1883 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/bold@2x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/italic@2x.png ... 
+2023-06-12 13:35:33 +0000  1219 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/italic@2x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/justify_center.png ... 
+2023-06-12 13:35:33 +0000  2039 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/justify_center.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/checkbox.png ... 
+2023-06-12 13:35:33 +0000  2547 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/checkbox.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/justify_left@3x.png ... 
+2023-06-12 13:35:33 +0000  1145 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/justify_left@3x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/subscript@2x.png ... 
+2023-06-12 13:35:33 +0000  792 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/subscript@2x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/video@2x.png ... 
+2023-06-12 13:35:33 +0000  1681 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/video@2x.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/line.png ... 
+2023-06-12 13:35:33 +0000  1100 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/line.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/redo@2x.png ... 
+2023-06-12 13:35:33 +0000  2483 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/redo@2x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/justify_right.png ... 
+2023-06-12 13:35:33 +0000  1944 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/justify_right.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/remove_format@3x.png ... 
+2023-06-12 13:35:33 +0000  2759 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/remove_format@3x.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/ul.png ... 
+2023-06-12 13:35:33 +0000  2322 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/ul.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/redo.png ... 
+2023-06-12 13:35:33 +0000  2787 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/redo.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/remove_format@2x.png ... 
+2023-06-12 13:35:33 +0000  1864 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/remove_format@2x.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/redo@3x.png ... 
+2023-06-12 13:35:33 +0000  3738 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/redo@3x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/video@3x.png ... 
+2023-06-12 13:35:33 +0000  2602 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/video@3x.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/table.png ... 
+2023-06-12 13:35:33 +0000  2908 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/table.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/superscript.png ... 
+2023-06-12 13:35:33 +0000  800 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/superscript.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/subscript@3x.png ... 
+2023-06-12 13:35:33 +0000  792 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/subscript@3x.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/justify_left.png ... 
+2023-06-12 13:35:33 +0000  1931 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/justify_left.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/justify_left@2x.png ... 
+2023-06-12 13:35:33 +0000  728 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/justify_left@2x.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/image.png ... 
+2023-06-12 13:35:33 +0000  2632 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/image.png
+copying file ./assets/node_modules/react-native-pell-rich-editor/img/italic@3x.png ... 
+2023-06-12 13:35:33 +0000  1863 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/italic@3x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/node_modules/react-native-pell-rich-editor/img/bold@3x.png ... 
+2023-06-12 13:35:33 +0000  2999 bytes for ./assets/node_modules/react-native-pell-rich-editor/img/bold@3x.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/ic_calendar_icon.png ... 
+2023-06-12 13:35:33 +0000  13028 bytes for ./assets/src/assets/images/ic_calendar_icon.png
+copying file ./assets/src/assets/images/yesh_logo.png ... 
+2023-06-12 13:35:33 +0000  137504 bytes for ./assets/src/assets/images/yesh_logo.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/arrow_right.png ... 
+2023-06-12 13:35:33 +0000  209 bytes for ./assets/src/assets/images/arrow_right.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/uol_logo.png ... 
+2023-06-12 13:35:33 +0000  2768577 bytes for ./assets/src/assets/images/uol_logo.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/accounting.png ... 
+2023-06-12 13:35:33 +0000  12744 bytes for ./assets/src/assets/images/accounting.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/logout.png ... 
+2023-06-12 13:35:33 +0000  12608 bytes for ./assets/src/assets/images/logout.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/home.png ... 
+2023-06-12 13:35:33 +0000  7146 bytes for ./assets/src/assets/images/home.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/rmdc_logo.png ... 
+2023-06-12 13:35:33 +0000  113766 bytes for ./assets/src/assets/images/rmdc_logo.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/onboarding_homework.png ... 
+2023-06-12 13:35:33 +0000  25079 bytes for ./assets/src/assets/images/onboarding_homework.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/attendance.png ... 
+2023-06-12 13:35:33 +0000  14945 bytes for ./assets/src/assets/images/attendance.png
+copying file ./assets/src/assets/images/about_school.png ... 
+2023-06-12 13:35:33 +0000  12389 bytes for ./assets/src/assets/images/about_school.png
+copying file ./assets/src/assets/images/payment.png ... 
+2023-06-12 13:35:33 +0000  14694 bytes for ./assets/src/assets/images/payment.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/timetable.png ... 
+2023-06-12 13:35:33 +0000  19965 bytes for ./assets/src/assets/images/timetable.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/receipt.png ... 
+2023-06-12 13:35:33 +0000  13639 bytes for ./assets/src/assets/images/receipt.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/yesh_main_logo.png ... 
+2023-06-12 13:35:33 +0000  44985 bytes for ./assets/src/assets/images/yesh_main_logo.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/onboarding_notifications.png ... 
+2023-06-12 13:35:33 +0000  13919 bytes for ./assets/src/assets/images/onboarding_notifications.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/test.png ... 
+2023-06-12 13:35:33 +0000  16381 bytes for ./assets/src/assets/images/test.png
+copying file ./assets/src/assets/images/ic_add_child_icon.png ... 
+2023-06-12 13:35:33 +0000  16602 bytes for ./assets/src/assets/images/ic_add_child_icon.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/onboarding_timetable.png ... 
+2023-06-12 13:35:33 +0000  27589 bytes for ./assets/src/assets/images/onboarding_timetable.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/lmdc_main_logo.png ... 
+2023-06-12 13:35:33 +0000  41777 bytes for ./assets/src/assets/images/lmdc_main_logo.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/lmdc_logo.png ... 
+2023-06-12 13:35:33 +0000  29806 bytes for ./assets/src/assets/images/lmdc_logo.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/reset_pwd.png ... 
+2023-06-12 13:35:33 +0000  15612 bytes for ./assets/src/assets/images/reset_pwd.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/ic_take_attendacne_dashboard.png ... 
+2023-06-12 13:35:33 +0000  14120 bytes for ./assets/src/assets/images/ic_take_attendacne_dashboard.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/cpmc_logo.png ... 
+2023-06-12 13:35:33 +0000  216503 bytes for ./assets/src/assets/images/cpmc_logo.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/no_data.png ... 
+2023-06-12 13:35:33 +0000  23795 bytes for ./assets/src/assets/images/no_data.png
+2023-06-12 13:35:33 +0000  copying file ./assets/src/assets/images/messages.png ... 
+2023-06-12 13:35:33 +0000  12258 bytes for ./assets/src/assets/images/messages.png
+copying file ./assets/src/assets/images/rmcs_logo.png ... 
+2023-06-12 13:35:33 +0000  401280 bytes for ./assets/src/assets/images/rmcs_logo.png
+2023-06-12 13:35:33 +0000  copying file ./Info.plist ... 
+2023-06-12 13:35:33 +0000  3640 bytes for ./Info.plist
+copying file ./PkgInfo ... 
+2023-06-12 13:35:33 +0000  8 bytes for ./PkgInfo
+copying file ./MaterialIcons.ttf ... 
+2023-06-12 13:35:33 +0000  230384 bytes for ./MaterialIcons.ttf
+2023-06-12 13:35:33 +0000  /usr/bin/ditto exited with 0
+2023-06-12 13:35:33 +0000  Processing step: IDEDistributionEmbedProfileStep
+2023-06-12 13:35:33 +0000  Skipping profile for item: <IDEDistributionItem: 0x60002c3fe1c0; bundleID='com.apple.dt.runtime.swiftCore', path='<DVTFilePath:0x60001021fb10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCore.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006caa7d90; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600001d38580; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCore', executablePath='<DVTFilePath:0x60001021fb10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCore.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping profile for item: <IDEDistributionItem: 0x60002c3d1ec0; bundleID='com.apple.dt.runtime.swiftCoreFoundation', path='<DVTFilePath:0x600018678580:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreFoundation.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006caba1c0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600001d2b4f0; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCoreFoundation', executablePath='<DVTFilePath:0x600018678580:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreFoundation.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping profile for item: <IDEDistributionItem: 0x60002c3fe100; bundleID='com.apple.dt.runtime.swiftCoreGraphics', path='<DVTFilePath:0x6000186a9080:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreGraphics.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab89b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCoreGraphics', executablePath='<DVTFilePath:0x6000186a9080:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreGraphics.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping profile for item: <IDEDistributionItem: 0x60002c3fed60; bundleID='com.apple.dt.runtime.swiftCoreImage', path='<DVTFilePath:0x600010217b10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreImage.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab93b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCoreImage', executablePath='<DVTFilePath:0x600010217b10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreImage.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping profile for item: <IDEDistributionItem: 0x60002cd63f60; bundleID='com.apple.dt.runtime.swiftDarwin', path='<DVTFilePath:0x6000101cd2d0:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDarwin.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab8640; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftDarwin', executablePath='<DVTFilePath:0x6000101cd2d0:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDarwin.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping profile for item: <IDEDistributionItem: 0x60002c3fe580; bundleID='com.apple.dt.runtime.swiftDispatch', path='<DVTFilePath:0x600010275180:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDispatch.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006ca9b840; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec02c0; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftDispatch', executablePath='<DVTFilePath:0x600010275180:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDispatch.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping profile for item: <IDEDistributionItem: 0x60002c3ff000; bundleID='com.apple.dt.runtime.swiftFoundation', path='<DVTFilePath:0x6000186a9400:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftFoundation.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006c83e7b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftFoundation', executablePath='<DVTFilePath:0x6000186a9400:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftFoundation.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping profile for item: <IDEDistributionItem: 0x60002cd75ce0; bundleID='com.apple.dt.runtime.swiftMetal', path='<DVTFilePath:0x600010270070:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftMetal.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cabb2a0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftMetal', executablePath='<DVTFilePath:0x600010270070:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftMetal.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping profile for item: <IDEDistributionItem: 0x60002cd7c2a0; bundleID='com.apple.dt.runtime.swiftObjectiveC', path='<DVTFilePath:0x600018674c00:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftObjectiveC.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cabb8e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec02c0; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftObjectiveC', executablePath='<DVTFilePath:0x600018674c00:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftObjectiveC.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping profile for item: <IDEDistributionItem: 0x60002c3fefa0; bundleID='com.apple.dt.runtime.swiftQuartzCore', path='<DVTFilePath:0x6000186a9000:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftQuartzCore.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006caba9e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftQuartzCore', executablePath='<DVTFilePath:0x6000186a9000:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftQuartzCore.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping profile for item: <IDEDistributionItem: 0x60002c3fe880; bundleID='com.apple.dt.runtime.swiftUIKit', path='<DVTFilePath:0x6000101ce680:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftUIKit.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab95e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec02c0; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftUIKit', executablePath='<DVTFilePath:0x6000101ce680:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftUIKit.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping profile for item: <IDEDistributionItem: 0x60002c3f7e40; bundleID='com.apple.dt.runtime.swiftos', path='<DVTFilePath:0x60001026ad80:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftos.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006c85bca0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftos', executablePath='<DVTFilePath:0x60001026ad80:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftos.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Processing step: IDEDistributionInfoPlistStep
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-06-12 13:35:33 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2023-06-12 13:35:33 +0000  Processing step: IDEDistributionCompileBitcodeStep
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionCompileBitcodeStep because it said so
+2023-06-12 13:35:33 +0000  Processing step: IDEDistributionCodeSlimmingStep
+2023-06-12 13:35:33 +0000  Processing step: IDEDistributionCopyBCSymbolMapsStep
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-06-12 13:35:33 +0000  Processing step: IDEDistributionSymbolsStep
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-06-12 13:35:33 +0000  Processing step: IDEDistributionAppThinningStep
+2023-06-12 13:35:33 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2023-06-12 13:35:33 +0000  Processing step: IDEDistributionArchThinningStep
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCore.dylib' '-verify_arch' 'arm64e'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCore.dylib' '-remove' 'arm64e' '-output' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCore.dylib'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Successfully thinned item "libswiftCore.dylib", arch "arm64e"
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreFoundation.dylib' '-verify_arch' 'arm64e'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreFoundation.dylib' '-remove' 'arm64e' '-output' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreFoundation.dylib'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Successfully thinned item "libswiftCoreFoundation.dylib", arch "arm64e"
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreGraphics.dylib' '-verify_arch' 'arm64e'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreGraphics.dylib' '-remove' 'arm64e' '-output' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreGraphics.dylib'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Successfully thinned item "libswiftCoreGraphics.dylib", arch "arm64e"
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreImage.dylib' '-verify_arch' 'arm64e'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreImage.dylib' '-remove' 'arm64e' '-output' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreImage.dylib'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Successfully thinned item "libswiftCoreImage.dylib", arch "arm64e"
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftDarwin.dylib' '-verify_arch' 'arm64e'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftDarwin.dylib' '-remove' 'arm64e' '-output' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftDarwin.dylib'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Successfully thinned item "libswiftDarwin.dylib", arch "arm64e"
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftDispatch.dylib' '-verify_arch' 'arm64e'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftDispatch.dylib' '-remove' 'arm64e' '-output' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftDispatch.dylib'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Successfully thinned item "libswiftDispatch.dylib", arch "arm64e"
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftFoundation.dylib' '-verify_arch' 'arm64e'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftFoundation.dylib' '-remove' 'arm64e' '-output' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftFoundation.dylib'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Successfully thinned item "libswiftFoundation.dylib", arch "arm64e"
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftMetal.dylib' '-verify_arch' 'arm64e'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftMetal.dylib' '-remove' 'arm64e' '-output' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftMetal.dylib'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Successfully thinned item "libswiftMetal.dylib", arch "arm64e"
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftObjectiveC.dylib' '-verify_arch' 'arm64e'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftObjectiveC.dylib' '-remove' 'arm64e' '-output' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftObjectiveC.dylib'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Successfully thinned item "libswiftObjectiveC.dylib", arch "arm64e"
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftQuartzCore.dylib' '-verify_arch' 'arm64e'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftQuartzCore.dylib' '-remove' 'arm64e' '-output' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftQuartzCore.dylib'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Successfully thinned item "libswiftQuartzCore.dylib", arch "arm64e"
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftUIKit.dylib' '-verify_arch' 'arm64e'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftUIKit.dylib' '-remove' 'arm64e' '-output' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftUIKit.dylib'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Successfully thinned item "libswiftUIKit.dylib", arch "arm64e"
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftos.dylib' '-verify_arch' 'arm64e'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftos.dylib' '-remove' 'arm64e' '-output' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftos.dylib'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2023-06-12 13:35:33 +0000  Successfully thinned item "libswiftos.dylib", arch "arm64e"
+2023-06-12 13:35:33 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/lmdc' '-verify_arch' 'arm64e'
+2023-06-12 13:35:33 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-06-12 13:35:33 +0000  Skipping architecture thinning for item "lmdc" because arch "arm64e" wasn't found
+2023-06-12 13:35:33 +0000  Processing step: IDEDistributionODRStep
+2023-06-12 13:35:33 +0000  Processing step: IDEDistributionStripXattrsStep
+2023-06-12 13:35:33 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60002c3fe1c0; bundleID='com.apple.dt.runtime.swiftCore', path='<DVTFilePath:0x60001021fb10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCore.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006caa7d90; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCore', executablePath='<DVTFilePath:0x60001021fb10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCore.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60002c3d1ec0; bundleID='com.apple.dt.runtime.swiftCoreFoundation', path='<DVTFilePath:0x600018678580:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreFoundation.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006caba1c0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600001d38580; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCoreFoundation', executablePath='<DVTFilePath:0x600018678580:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreFoundation.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60002c3fe100; bundleID='com.apple.dt.runtime.swiftCoreGraphics', path='<DVTFilePath:0x6000186a9080:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreGraphics.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab89b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCoreGraphics', executablePath='<DVTFilePath:0x6000186a9080:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreGraphics.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60002c3fed60; bundleID='com.apple.dt.runtime.swiftCoreImage', path='<DVTFilePath:0x600010217b10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreImage.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab93b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCoreImage', executablePath='<DVTFilePath:0x600010217b10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreImage.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60002cd63f60; bundleID='com.apple.dt.runtime.swiftDarwin', path='<DVTFilePath:0x6000101cd2d0:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDarwin.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab8640; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftDarwin', executablePath='<DVTFilePath:0x6000101cd2d0:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDarwin.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60002c3fe580; bundleID='com.apple.dt.runtime.swiftDispatch', path='<DVTFilePath:0x600010275180:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDispatch.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006ca9b840; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftDispatch', executablePath='<DVTFilePath:0x600010275180:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDispatch.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60002c3ff000; bundleID='com.apple.dt.runtime.swiftFoundation', path='<DVTFilePath:0x6000186a9400:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftFoundation.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006c83e7b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftFoundation', executablePath='<DVTFilePath:0x6000186a9400:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftFoundation.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60002cd75ce0; bundleID='com.apple.dt.runtime.swiftMetal', path='<DVTFilePath:0x600010270070:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftMetal.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cabb2a0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftMetal', executablePath='<DVTFilePath:0x600010270070:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftMetal.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60002cd7c2a0; bundleID='com.apple.dt.runtime.swiftObjectiveC', path='<DVTFilePath:0x600018674c00:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftObjectiveC.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cabb8e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftObjectiveC', executablePath='<DVTFilePath:0x600018674c00:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftObjectiveC.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60002c3fefa0; bundleID='com.apple.dt.runtime.swiftQuartzCore', path='<DVTFilePath:0x6000186a9000:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftQuartzCore.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006caba9e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftQuartzCore', executablePath='<DVTFilePath:0x6000186a9000:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftQuartzCore.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60002c3fe880; bundleID='com.apple.dt.runtime.swiftUIKit', path='<DVTFilePath:0x6000101ce680:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftUIKit.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab95e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftUIKit', executablePath='<DVTFilePath:0x6000101ce680:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftUIKit.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60002c3f7e40; bundleID='com.apple.dt.runtime.swiftos', path='<DVTFilePath:0x60001026ad80:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftos.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006c85bca0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftos', executablePath='<DVTFilePath:0x60001026ad80:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftos.dylib'>', hardenedRuntime='0'>'>
+2023-06-12 13:35:33 +0000  Running /usr/bin/xattr '-crs' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app'
+2023-06-12 13:35:33 +0000  /usr/bin/xattr exited with 0
+2023-06-12 13:35:33 +0000  Processing step: IDEDistributionCodesignStep
+2023-06-12 13:35:33 +0000  Entitlements for <IDEDistributionItem: 0x60002c3fe1c0; bundleID='com.apple.dt.runtime.swiftCore', path='<DVTFilePath:0x60001021fb10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCore.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006caa7d90; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec0420; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCore', executablePath='<DVTFilePath:0x60001021fb10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCore.dylib'>', hardenedRuntime='0'>'>: {
+}
+2023-06-12 13:35:33 +0000  Entitlements for <IDEDistributionItem: 0x60002c3fe1c0; bundleID='com.apple.dt.runtime.swiftCore', path='<DVTFilePath:0x60001021fb10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCore.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006caa7d90; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec02c0; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCore', executablePath='<DVTFilePath:0x60001021fb10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCore.dylib'>', hardenedRuntime='0'>'> are: {
+}
+2023-06-12 13:35:33 +0000  Writing entitlements for <IDEDistributionItem: 0x60002c3fe1c0; bundleID='com.apple.dt.runtime.swiftCore', path='<DVTFilePath:0x60001021fb10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCore.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006caa7d90; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCore', executablePath='<DVTFilePath:0x60001021fb10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCore.dylib'>', hardenedRuntime='0'>'> to: /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~wV93g6
+2023-06-12 13:35:33 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'CC45F777EA09D029DA89BDADB5827F4BBB18345A' '--entitlements' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~wV93g6' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCore.dylib'
+2023-06-12 13:35:33 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCore.dylib: replacing existing signature
+2023-06-12 13:35:33 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCore.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftCore]
+2023-06-12 13:35:33 +0000  /usr/bin/codesign exited with 0
+2023-06-12 13:35:33 +0000  Entitlements for <IDEDistributionItem: 0x60002c3d1ec0; bundleID='com.apple.dt.runtime.swiftCoreFoundation', path='<DVTFilePath:0x600018678580:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreFoundation.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006caba1c0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec0420; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCoreFoundation', executablePath='<DVTFilePath:0x600018678580:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreFoundation.dylib'>', hardenedRuntime='0'>'>: {
+}
+2023-06-12 13:35:33 +0000  Entitlements for <IDEDistributionItem: 0x60002c3d1ec0; bundleID='com.apple.dt.runtime.swiftCoreFoundation', path='<DVTFilePath:0x600018678580:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreFoundation.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006caba1c0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600001d294a0; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCoreFoundation', executablePath='<DVTFilePath:0x600018678580:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreFoundation.dylib'>', hardenedRuntime='0'>'> are: {
+}
+2023-06-12 13:35:33 +0000  Writing entitlements for <IDEDistributionItem: 0x60002c3d1ec0; bundleID='com.apple.dt.runtime.swiftCoreFoundation', path='<DVTFilePath:0x600018678580:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreFoundation.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006caba1c0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4c60; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCoreFoundation', executablePath='<DVTFilePath:0x600018678580:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreFoundation.dylib'>', hardenedRuntime='0'>'> to: /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~BKSvON
+2023-06-12 13:35:33 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'CC45F777EA09D029DA89BDADB5827F4BBB18345A' '--entitlements' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~BKSvON' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreFoundation.dylib'
+2023-06-12 13:35:33 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreFoundation.dylib: replacing existing signature
+2023-06-12 13:35:34 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreFoundation.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftCoreFoundation]
+2023-06-12 13:35:34 +0000  /usr/bin/codesign exited with 0
+2023-06-12 13:35:34 +0000  Entitlements for <IDEDistributionItem: 0x60002c3fe100; bundleID='com.apple.dt.runtime.swiftCoreGraphics', path='<DVTFilePath:0x6000186a9080:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreGraphics.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab89b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec0420; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCoreGraphics', executablePath='<DVTFilePath:0x6000186a9080:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreGraphics.dylib'>', hardenedRuntime='0'>'>: {
+}
+2023-06-12 13:35:34 +0000  Entitlements for <IDEDistributionItem: 0x60002c3fe100; bundleID='com.apple.dt.runtime.swiftCoreGraphics', path='<DVTFilePath:0x6000186a9080:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreGraphics.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab89b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4c60; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCoreGraphics', executablePath='<DVTFilePath:0x6000186a9080:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreGraphics.dylib'>', hardenedRuntime='0'>'> are: {
+}
+2023-06-12 13:35:34 +0000  Writing entitlements for <IDEDistributionItem: 0x60002c3fe100; bundleID='com.apple.dt.runtime.swiftCoreGraphics', path='<DVTFilePath:0x6000186a9080:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreGraphics.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab89b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4b00; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCoreGraphics', executablePath='<DVTFilePath:0x6000186a9080:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreGraphics.dylib'>', hardenedRuntime='0'>'> to: /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~gxzilZ
+2023-06-12 13:35:34 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'CC45F777EA09D029DA89BDADB5827F4BBB18345A' '--entitlements' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~gxzilZ' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreGraphics.dylib'
+2023-06-12 13:35:34 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreGraphics.dylib: replacing existing signature
+2023-06-12 13:35:34 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreGraphics.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftCoreGraphics]
+2023-06-12 13:35:34 +0000  /usr/bin/codesign exited with 0
+2023-06-12 13:35:34 +0000  Entitlements for <IDEDistributionItem: 0x60002c3fed60; bundleID='com.apple.dt.runtime.swiftCoreImage', path='<DVTFilePath:0x600010217b10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreImage.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab93b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCoreImage', executablePath='<DVTFilePath:0x600010217b10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreImage.dylib'>', hardenedRuntime='0'>'>: {
+}
+2023-06-12 13:35:34 +0000  Entitlements for <IDEDistributionItem: 0x60002c3fed60; bundleID='com.apple.dt.runtime.swiftCoreImage', path='<DVTFilePath:0x600010217b10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreImage.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab93b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec49a0; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCoreImage', executablePath='<DVTFilePath:0x600010217b10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreImage.dylib'>', hardenedRuntime='0'>'> are: {
+}
+2023-06-12 13:35:34 +0000  Writing entitlements for <IDEDistributionItem: 0x60002c3fed60; bundleID='com.apple.dt.runtime.swiftCoreImage', path='<DVTFilePath:0x600010217b10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreImage.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab93b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec48f0; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftCoreImage', executablePath='<DVTFilePath:0x600010217b10:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftCoreImage.dylib'>', hardenedRuntime='0'>'> to: /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~zJdspK
+2023-06-12 13:35:34 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'CC45F777EA09D029DA89BDADB5827F4BBB18345A' '--entitlements' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~zJdspK' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreImage.dylib'
+2023-06-12 13:35:34 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreImage.dylib: replacing existing signature
+2023-06-12 13:35:34 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreImage.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftCoreImage]
+2023-06-12 13:35:34 +0000  /usr/bin/codesign exited with 0
+2023-06-12 13:35:34 +0000  Entitlements for <IDEDistributionItem: 0x60002cd63f60; bundleID='com.apple.dt.runtime.swiftDarwin', path='<DVTFilePath:0x6000101cd2d0:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDarwin.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab8640; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec0420; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftDarwin', executablePath='<DVTFilePath:0x6000101cd2d0:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDarwin.dylib'>', hardenedRuntime='0'>'>: {
+}
+2023-06-12 13:35:34 +0000  Entitlements for <IDEDistributionItem: 0x60002cd63f60; bundleID='com.apple.dt.runtime.swiftDarwin', path='<DVTFilePath:0x6000101cd2d0:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDarwin.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab8640; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4c60; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftDarwin', executablePath='<DVTFilePath:0x6000101cd2d0:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDarwin.dylib'>', hardenedRuntime='0'>'> are: {
+}
+2023-06-12 13:35:34 +0000  Writing entitlements for <IDEDistributionItem: 0x60002cd63f60; bundleID='com.apple.dt.runtime.swiftDarwin', path='<DVTFilePath:0x6000101cd2d0:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDarwin.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab8640; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4b00; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftDarwin', executablePath='<DVTFilePath:0x6000101cd2d0:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDarwin.dylib'>', hardenedRuntime='0'>'> to: /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~LAq4Fj
+2023-06-12 13:35:34 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'CC45F777EA09D029DA89BDADB5827F4BBB18345A' '--entitlements' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~LAq4Fj' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftDarwin.dylib'
+2023-06-12 13:35:34 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftDarwin.dylib: replacing existing signature
+2023-06-12 13:35:34 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftDarwin.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftDarwin]
+2023-06-12 13:35:34 +0000  /usr/bin/codesign exited with 0
+2023-06-12 13:35:34 +0000  Entitlements for <IDEDistributionItem: 0x60002c3fe580; bundleID='com.apple.dt.runtime.swiftDispatch', path='<DVTFilePath:0x600010275180:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDispatch.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006ca9b840; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftDispatch', executablePath='<DVTFilePath:0x600010275180:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDispatch.dylib'>', hardenedRuntime='0'>'>: {
+}
+2023-06-12 13:35:34 +0000  Entitlements for <IDEDistributionItem: 0x60002c3fe580; bundleID='com.apple.dt.runtime.swiftDispatch', path='<DVTFilePath:0x600010275180:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDispatch.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006ca9b840; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4b00; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftDispatch', executablePath='<DVTFilePath:0x600010275180:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDispatch.dylib'>', hardenedRuntime='0'>'> are: {
+}
+2023-06-12 13:35:34 +0000  Writing entitlements for <IDEDistributionItem: 0x60002c3fe580; bundleID='com.apple.dt.runtime.swiftDispatch', path='<DVTFilePath:0x600010275180:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDispatch.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006ca9b840; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec0420; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftDispatch', executablePath='<DVTFilePath:0x600010275180:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftDispatch.dylib'>', hardenedRuntime='0'>'> to: /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~JQrxZX
+2023-06-12 13:35:34 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'CC45F777EA09D029DA89BDADB5827F4BBB18345A' '--entitlements' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~JQrxZX' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftDispatch.dylib'
+2023-06-12 13:35:34 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftDispatch.dylib: replacing existing signature
+2023-06-12 13:35:34 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftDispatch.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftDispatch]
+2023-06-12 13:35:34 +0000  /usr/bin/codesign exited with 0
+2023-06-12 13:35:34 +0000  Entitlements for <IDEDistributionItem: 0x60002c3ff000; bundleID='com.apple.dt.runtime.swiftFoundation', path='<DVTFilePath:0x6000186a9400:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftFoundation.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006c83e7b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftFoundation', executablePath='<DVTFilePath:0x6000186a9400:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftFoundation.dylib'>', hardenedRuntime='0'>'>: {
+}
+2023-06-12 13:35:34 +0000  Entitlements for <IDEDistributionItem: 0x60002c3ff000; bundleID='com.apple.dt.runtime.swiftFoundation', path='<DVTFilePath:0x6000186a9400:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftFoundation.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006c83e7b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4b00; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftFoundation', executablePath='<DVTFilePath:0x6000186a9400:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftFoundation.dylib'>', hardenedRuntime='0'>'> are: {
+}
+2023-06-12 13:35:34 +0000  Writing entitlements for <IDEDistributionItem: 0x60002c3ff000; bundleID='com.apple.dt.runtime.swiftFoundation', path='<DVTFilePath:0x6000186a9400:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftFoundation.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006c83e7b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4d10; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftFoundation', executablePath='<DVTFilePath:0x6000186a9400:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftFoundation.dylib'>', hardenedRuntime='0'>'> to: /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~9G1OxX
+2023-06-12 13:35:34 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'CC45F777EA09D029DA89BDADB5827F4BBB18345A' '--entitlements' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~9G1OxX' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftFoundation.dylib'
+2023-06-12 13:35:34 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftFoundation.dylib: replacing existing signature
+2023-06-12 13:35:35 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftFoundation.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftFoundation]
+2023-06-12 13:35:35 +0000  /usr/bin/codesign exited with 0
+2023-06-12 13:35:35 +0000  Entitlements for <IDEDistributionItem: 0x60002cd75ce0; bundleID='com.apple.dt.runtime.swiftMetal', path='<DVTFilePath:0x600010270070:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftMetal.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cabb2a0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec0420; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftMetal', executablePath='<DVTFilePath:0x600010270070:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftMetal.dylib'>', hardenedRuntime='0'>'>: {
+}
+2023-06-12 13:35:35 +0000  Entitlements for <IDEDistributionItem: 0x60002cd75ce0; bundleID='com.apple.dt.runtime.swiftMetal', path='<DVTFilePath:0x600010270070:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftMetal.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cabb2a0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4c60; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftMetal', executablePath='<DVTFilePath:0x600010270070:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftMetal.dylib'>', hardenedRuntime='0'>'> are: {
+}
+2023-06-12 13:35:35 +0000  Writing entitlements for <IDEDistributionItem: 0x60002cd75ce0; bundleID='com.apple.dt.runtime.swiftMetal', path='<DVTFilePath:0x600010270070:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftMetal.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cabb2a0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600001d2b4f0; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftMetal', executablePath='<DVTFilePath:0x600010270070:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftMetal.dylib'>', hardenedRuntime='0'>'> to: /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~vDooI3
+2023-06-12 13:35:35 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'CC45F777EA09D029DA89BDADB5827F4BBB18345A' '--entitlements' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~vDooI3' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftMetal.dylib'
+2023-06-12 13:35:35 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftMetal.dylib: replacing existing signature
+2023-06-12 13:35:35 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftMetal.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftMetal]
+2023-06-12 13:35:35 +0000  /usr/bin/codesign exited with 0
+2023-06-12 13:35:35 +0000  Entitlements for <IDEDistributionItem: 0x60002cd7c2a0; bundleID='com.apple.dt.runtime.swiftObjectiveC', path='<DVTFilePath:0x600018674c00:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftObjectiveC.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cabb8e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec0420; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftObjectiveC', executablePath='<DVTFilePath:0x600018674c00:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftObjectiveC.dylib'>', hardenedRuntime='0'>'>: {
+}
+2023-06-12 13:35:35 +0000  Entitlements for <IDEDistributionItem: 0x60002cd7c2a0; bundleID='com.apple.dt.runtime.swiftObjectiveC', path='<DVTFilePath:0x600018674c00:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftObjectiveC.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cabb8e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec0370; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftObjectiveC', executablePath='<DVTFilePath:0x600018674c00:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftObjectiveC.dylib'>', hardenedRuntime='0'>'> are: {
+}
+2023-06-12 13:35:35 +0000  Writing entitlements for <IDEDistributionItem: 0x60002cd7c2a0; bundleID='com.apple.dt.runtime.swiftObjectiveC', path='<DVTFilePath:0x600018674c00:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftObjectiveC.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cabb8e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4c60; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftObjectiveC', executablePath='<DVTFilePath:0x600018674c00:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftObjectiveC.dylib'>', hardenedRuntime='0'>'> to: /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~h3DR6R
+2023-06-12 13:35:35 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'CC45F777EA09D029DA89BDADB5827F4BBB18345A' '--entitlements' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~h3DR6R' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftObjectiveC.dylib'
+2023-06-12 13:35:35 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftObjectiveC.dylib: replacing existing signature
+2023-06-12 13:35:35 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftObjectiveC.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftObjectiveC]
+2023-06-12 13:35:35 +0000  /usr/bin/codesign exited with 0
+2023-06-12 13:35:35 +0000  Entitlements for <IDEDistributionItem: 0x60002c3fefa0; bundleID='com.apple.dt.runtime.swiftQuartzCore', path='<DVTFilePath:0x6000186a9000:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftQuartzCore.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006caba9e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec0420; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftQuartzCore', executablePath='<DVTFilePath:0x6000186a9000:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftQuartzCore.dylib'>', hardenedRuntime='0'>'>: {
+}
+2023-06-12 13:35:35 +0000  Entitlements for <IDEDistributionItem: 0x60002c3fefa0; bundleID='com.apple.dt.runtime.swiftQuartzCore', path='<DVTFilePath:0x6000186a9000:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftQuartzCore.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006caba9e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4c60; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftQuartzCore', executablePath='<DVTFilePath:0x6000186a9000:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftQuartzCore.dylib'>', hardenedRuntime='0'>'> are: {
+}
+2023-06-12 13:35:35 +0000  Writing entitlements for <IDEDistributionItem: 0x60002c3fefa0; bundleID='com.apple.dt.runtime.swiftQuartzCore', path='<DVTFilePath:0x6000186a9000:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftQuartzCore.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006caba9e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4b00; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftQuartzCore', executablePath='<DVTFilePath:0x6000186a9000:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftQuartzCore.dylib'>', hardenedRuntime='0'>'> to: /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~unww30
+2023-06-12 13:35:35 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'CC45F777EA09D029DA89BDADB5827F4BBB18345A' '--entitlements' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~unww30' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftQuartzCore.dylib'
+2023-06-12 13:35:35 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftQuartzCore.dylib: replacing existing signature
+2023-06-12 13:35:35 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftQuartzCore.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftQuartzCore]
+2023-06-12 13:35:35 +0000  /usr/bin/codesign exited with 0
+2023-06-12 13:35:35 +0000  Entitlements for <IDEDistributionItem: 0x60002c3fe880; bundleID='com.apple.dt.runtime.swiftUIKit', path='<DVTFilePath:0x6000101ce680:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftUIKit.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab95e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec0420; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftUIKit', executablePath='<DVTFilePath:0x6000101ce680:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftUIKit.dylib'>', hardenedRuntime='0'>'>: {
+}
+2023-06-12 13:35:35 +0000  Entitlements for <IDEDistributionItem: 0x60002c3fe880; bundleID='com.apple.dt.runtime.swiftUIKit', path='<DVTFilePath:0x6000101ce680:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftUIKit.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab95e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4c60; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftUIKit', executablePath='<DVTFilePath:0x6000101ce680:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftUIKit.dylib'>', hardenedRuntime='0'>'> are: {
+}
+2023-06-12 13:35:35 +0000  Writing entitlements for <IDEDistributionItem: 0x60002c3fe880; bundleID='com.apple.dt.runtime.swiftUIKit', path='<DVTFilePath:0x6000101ce680:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftUIKit.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab95e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4b00; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftUIKit', executablePath='<DVTFilePath:0x6000101ce680:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftUIKit.dylib'>', hardenedRuntime='0'>'> to: /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~BGAST2
+2023-06-12 13:35:35 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'CC45F777EA09D029DA89BDADB5827F4BBB18345A' '--entitlements' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~BGAST2' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftUIKit.dylib'
+2023-06-12 13:35:35 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftUIKit.dylib: replacing existing signature
+2023-06-12 13:35:35 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftUIKit.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftUIKit]
+2023-06-12 13:35:35 +0000  /usr/bin/codesign exited with 0
+2023-06-12 13:35:35 +0000  Entitlements for <IDEDistributionItem: 0x60002c3f7e40; bundleID='com.apple.dt.runtime.swiftos', path='<DVTFilePath:0x60001026ad80:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftos.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006c85bca0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec0420; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftos', executablePath='<DVTFilePath:0x60001026ad80:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftos.dylib'>', hardenedRuntime='0'>'>: {
+}
+2023-06-12 13:35:35 +0000  Entitlements for <IDEDistributionItem: 0x60002c3f7e40; bundleID='com.apple.dt.runtime.swiftos', path='<DVTFilePath:0x60001026ad80:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftos.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006c85bca0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec02c0; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftos', executablePath='<DVTFilePath:0x60001026ad80:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftos.dylib'>', hardenedRuntime='0'>'> are: {
+}
+2023-06-12 13:35:35 +0000  Writing entitlements for <IDEDistributionItem: 0x60002c3f7e40; bundleID='com.apple.dt.runtime.swiftos', path='<DVTFilePath:0x60001026ad80:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftos.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006c85bca0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec4790; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='(null)', teamID='SY9YN3GDLU', identifier='com.apple.dt.runtime.swiftos', executablePath='<DVTFilePath:0x60001026ad80:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/Frameworks/libswiftos.dylib'>', hardenedRuntime='0'>'> to: /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~HRID2M
+2023-06-12 13:35:35 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'CC45F777EA09D029DA89BDADB5827F4BBB18345A' '--entitlements' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~HRID2M' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftos.dylib'
+2023-06-12 13:35:36 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftos.dylib: replacing existing signature
+2023-06-12 13:35:36 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftos.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftos]
+2023-06-12 13:35:36 +0000  /usr/bin/codesign exited with 0
+2023-06-12 13:35:36 +0000  Entitlements for <IDEDistributionItem: 0x60002c3ef5a0; bundleID='org.reactjs.native.example.lmdc-', path='<DVTFilePath:0x600010210e00:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab9220; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600001d294a0; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='{
+    "application-identifier" = "SY9YN3GDLU.org.reactjs.native.example.lmdc-";
+    "com.apple.developer.team-identifier" = SY9YN3GDLU;
+    "get-task-allow" = 1;
+}', teamID='SY9YN3GDLU', identifier='org.reactjs.native.example.lmdc-', executablePath='<DVTFilePath:0x60002c3ef480:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/lmdc'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "SY9YN3GDLU.org.reactjs.native.example.lmdc-";
+    "com.apple.developer.team-identifier" = SY9YN3GDLU;
+    "get-task-allow" = 1;
+}
+2023-06-12 13:35:36 +0000  Entitlements for <IDEDistributionItem: 0x60002c3ef5a0; bundleID='org.reactjs.native.example.lmdc-', path='<DVTFilePath:0x600010210e00:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab9220; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005ec49a0; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='{
+    "application-identifier" = "SY9YN3GDLU.org.reactjs.native.example.lmdc-";
+    "com.apple.developer.team-identifier" = SY9YN3GDLU;
+    "get-task-allow" = 1;
+}', teamID='SY9YN3GDLU', identifier='org.reactjs.native.example.lmdc-', executablePath='<DVTFilePath:0x60002c3ef480:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/lmdc'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "SY9YN3GDLU.org.reactjs.native.example.lmdc-";
+    "com.apple.developer.team-identifier" = SY9YN3GDLU;
+    "get-task-allow" = 1;
+}
+2023-06-12 13:35:36 +0000  Writing entitlements for <IDEDistributionItem: 0x60002c3ef5a0; bundleID='org.reactjs.native.example.lmdc-', path='<DVTFilePath:0x600010210e00:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60006cab9220; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600001d29c30; name='Apple Development: Huzaifa Rasheed (95LT3Q4T7W)', hash='CC45F777EA09D029DA89BDADB5827F4BBB18345A', serialNumber='671306F7E0236E338E654E29E1F8B5BA', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-07 13:34:14 +0000''>', entitlements='{
+    "application-identifier" = "SY9YN3GDLU.org.reactjs.native.example.lmdc-";
+    "com.apple.developer.team-identifier" = SY9YN3GDLU;
+    "get-task-allow" = 1;
+}', teamID='SY9YN3GDLU', identifier='org.reactjs.native.example.lmdc-', executablePath='<DVTFilePath:0x60002c3ef480:'/Users/apple/Library/Developer/Xcode/Archives/2023-06-12/lmdc 12-6-2023, 6.34 PM.xcarchive/Products/Applications/lmdc.app/lmdc'>', hardenedRuntime='0'>'> to: /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~PkS8yO
+2023-06-12 13:35:36 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'CC45F777EA09D029DA89BDADB5827F4BBB18345A' '--entitlements' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/entitlements~~~PkS8yO' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app'
+2023-06-12 13:35:36 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app: replacing existing signature
+2023-06-12 13:35:36 +0000  /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app: signed app bundle with Mach-O thin (arm64) [org.reactjs.native.example.lmdc-]
+2023-06-12 13:35:36 +0000  /usr/bin/codesign exited with 0
+2023-06-12 13:35:36 +0000  Processing step: IDEDistributionZipODRItemStep
+2023-06-12 13:35:36 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-06-12 13:35:36 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-06-12 13:35:36 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-06-12 13:35:36 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-06-12 13:35:36 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-06-12 13:35:36 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-06-12 13:35:36 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-06-12 13:35:36 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-06-12 13:35:36 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-06-12 13:35:36 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-06-12 13:35:36 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-06-12 13:35:36 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-06-12 13:35:36 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-06-12 13:35:36 +0000  Processing step: IDEDistributionCreateIPAStep
+2023-06-12 13:35:36 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root' '/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Packages/lmdc.ipa'
+2023-06-12 13:35:36 +0000  >>> Copying /var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root 
+2023-06-12 13:35:36 +0000  copying file ./Payload/lmdc.app/_CodeSignature/CodeResources ... 
+2023-06-12 13:35:36 +0000  51334 bytes for ./Payload/lmdc.app/_CodeSignature/CodeResources
+2023-06-12 13:35:36 +0000  copying file ./Payload/lmdc.app/Fontisto.ttf ... 
+2023-06-12 13:35:36 +0000  313528 bytes for ./Payload/lmdc.app/Fontisto.ttf
+copying file ./Payload/lmdc.app/Octicons.ttf ... 
+2023-06-12 13:35:36 +0000  49404 bytes for ./Payload/lmdc.app/Octicons.ttf
+copying file ./Payload/lmdc.app/Feather.ttf ... 
+2023-06-12 13:35:36 +0000  56228 bytes for ./Payload/lmdc.app/Feather.ttf
+copying file ./Payload/lmdc.app/Entypo.ttf ... 
+2023-06-12 13:35:36 +0000  66200 bytes for ./Payload/lmdc.app/Entypo.ttf
+2023-06-12 13:35:36 +0000  copying file ./Payload/lmdc.app/FontAwesome5_Brands.ttf ... 
+2023-06-12 13:35:36 +0000  134040 bytes for ./Payload/lmdc.app/FontAwesome5_Brands.ttf
+copying file ./Payload/lmdc.app/MaterialCommunityIcons.ttf ... 
+2023-06-12 13:35:36 +0000  1147844 bytes for ./Payload/lmdc.app/MaterialCommunityIcons.ttf
+2023-06-12 13:35:36 +0000  copying file ./Payload/lmdc.app/AppIcon60x60@2x.png ... 
+3394 bytes for ./Payload/lmdc.app/AppIcon60x60@2x.png
+copying file ./Payload/lmdc.app/AntDesign.ttf ... 
+2023-06-12 13:35:36 +0000  70344 bytes for ./Payload/lmdc.app/AntDesign.ttf
+copying file ./Payload/lmdc.app/Foundation.ttf ... 
+2023-06-12 13:35:36 +0000  56976 bytes for ./Payload/lmdc.app/Foundation.ttf
+2023-06-12 13:35:36 +0000  copying file ./Payload/lmdc.app/Ionicons.ttf ... 
+2023-06-12 13:35:36 +0000  247192 bytes for ./Payload/lmdc.app/Ionicons.ttf
+copying file ./Payload/lmdc.app/FontAwesome5_Solid.ttf ... 
+2023-06-12 13:35:36 +0000  202744 bytes for ./Payload/lmdc.app/FontAwesome5_Solid.ttf
+2023-06-12 13:35:36 +0000  copying file ./Payload/lmdc.app/FontAwesome5_Regular.ttf ... 
+2023-06-12 13:35:36 +0000  33736 bytes for ./Payload/lmdc.app/FontAwesome5_Regular.ttf
+2023-06-12 13:35:36 +0000  copying file ./Payload/lmdc.app/AccessibilityResources.bundle/_CodeSignature/CodeResources ... 
+2023-06-12 13:35:36 +0000  2155 bytes for ./Payload/lmdc.app/AccessibilityResources.bundle/_CodeSignature/CodeResources
+copying file ./Payload/lmdc.app/AccessibilityResources.bundle/_CodeSignature/CodeDirectory ... 
+2023-06-12 13:35:36 +0000  180 bytes for ./Payload/lmdc.app/AccessibilityResources.bundle/_CodeSignature/CodeDirectory
+copying file ./Payload/lmdc.app/AccessibilityResources.bundle/_CodeSignature/CodeRequirements-1 ... 
+2023-06-12 13:35:36 +0000  228 bytes for ./Payload/lmdc.app/AccessibilityResources.bundle/_CodeSignature/CodeRequirements-1
+copying file ./Payload/lmdc.app/AccessibilityResources.bundle/_CodeSignature/CodeSignature ... 
+2023-06-12 13:35:36 +0000  4868 bytes for ./Payload/lmdc.app/AccessibilityResources.bundle/_CodeSignature/CodeSignature
+copying file ./Payload/lmdc.app/AccessibilityResources.bundle/_CodeSignature/CodeRequirements ... 
+200 bytes for ./Payload/lmdc.app/AccessibilityResources.bundle/_CodeSignature/CodeRequirements
+copying file ./Payload/lmdc.app/AccessibilityResources.bundle/en.lproj/Localizable.strings ... 
+2023-06-12 13:35:36 +0000  518 bytes for ./Payload/lmdc.app/AccessibilityResources.bundle/en.lproj/Localizable.strings
+copying file ./Payload/lmdc.app/AccessibilityResources.bundle/Info.plist ... 
+2023-06-12 13:35:36 +0000  794 bytes for ./Payload/lmdc.app/AccessibilityResources.bundle/Info.plist
+copying file ./Payload/lmdc.app/GoogleService-Info.plist ... 
+666 bytes for ./Payload/lmdc.app/GoogleService-Info.plist
+2023-06-12 13:35:36 +0000  copying file ./Payload/lmdc.app/FontAwesome.ttf ... 
+2023-06-12 13:35:36 +0000  165548 bytes for ./Payload/lmdc.app/FontAwesome.ttf
+copying file ./Payload/lmdc.app/Zocial.ttf ... 
+2023-06-12 13:35:36 +0000  25788 bytes for ./Payload/lmdc.app/Zocial.ttf
+copying file ./Payload/lmdc.app/Assets.car ... 
+2023-06-12 13:35:36 +0000  186431 bytes for ./Payload/lmdc.app/Assets.car
+copying file ./Payload/lmdc.app/lmdc ... 
+2023-06-12 13:35:37 +0000  5721776 bytes for ./Payload/lmdc.app/lmdc
+2023-06-12 13:35:37 +0000  copying file ./Payload/lmdc.app/EvilIcons.ttf ... 
+13456 bytes for ./Payload/lmdc.app/EvilIcons.ttf
+copying file ./Payload/lmdc.app/main.jsbundle ... 
+2023-06-12 13:35:37 +0000  3968894 bytes for ./Payload/lmdc.app/main.jsbundle
+2023-06-12 13:35:37 +0000  copying file ./Payload/lmdc.app/LaunchScreen.storyboardc/01J-lp-oVM-view-BUf-JI-XSU.nib ... 
+1113 bytes for ./Payload/lmdc.app/LaunchScreen.storyboardc/01J-lp-oVM-view-BUf-JI-XSU.nib
+copying file ./Payload/lmdc.app/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib ... 
+896 bytes for ./Payload/lmdc.app/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib
+copying file ./Payload/lmdc.app/LaunchScreen.storyboardc/Info.plist ... 
+258 bytes for ./Payload/lmdc.app/LaunchScreen.storyboardc/Info.plist
+copying file ./Payload/lmdc.app/Frameworks/libswiftCoreImage.dylib ... 
+2023-06-12 13:35:37 +0000  253648 bytes for ./Payload/lmdc.app/Frameworks/libswiftCoreImage.dylib
+2023-06-12 13:35:37 +0000  copying file ./Payload/lmdc.app/Frameworks/libswiftObjectiveC.dylib ... 
+2023-06-12 13:35:37 +0000  302640 bytes for ./Payload/lmdc.app/Frameworks/libswiftObjectiveC.dylib
+2023-06-12 13:35:37 +0000  copying file ./Payload/lmdc.app/Frameworks/libswiftCore.dylib ... 
+2023-06-12 13:35:38 +0000  16915040 bytes for ./Payload/lmdc.app/Frameworks/libswiftCore.dylib
+copying file ./Payload/lmdc.app/Frameworks/libswiftCoreGraphics.dylib ... 
+2023-06-12 13:35:38 +0000  646848 bytes for ./Payload/lmdc.app/Frameworks/libswiftCoreGraphics.dylib
+copying file ./Payload/lmdc.app/Frameworks/libswiftUIKit.dylib ... 
+2023-06-12 13:35:38 +0000  477152 bytes for ./Payload/lmdc.app/Frameworks/libswiftUIKit.dylib
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/Frameworks/libswiftMetal.dylib ... 
+2023-06-12 13:35:38 +0000  298096 bytes for ./Payload/lmdc.app/Frameworks/libswiftMetal.dylib
+copying file ./Payload/lmdc.app/Frameworks/libswiftDispatch.dylib ... 
+2023-06-12 13:35:38 +0000  1018912 bytes for ./Payload/lmdc.app/Frameworks/libswiftDispatch.dylib
+copying file ./Payload/lmdc.app/Frameworks/libswiftos.dylib ... 
+2023-06-12 13:35:38 +0000  299424 bytes for ./Payload/lmdc.app/Frameworks/libswiftos.dylib
+copying file ./Payload/lmdc.app/Frameworks/libswiftCoreFoundation.dylib ... 
+2023-06-12 13:35:38 +0000  253792 bytes for ./Payload/lmdc.app/Frameworks/libswiftCoreFoundation.dylib
+copying file ./Payload/lmdc.app/Frameworks/libswiftDarwin.dylib ... 
+2023-06-12 13:35:38 +0000  369728 bytes for ./Payload/lmdc.app/Frameworks/libswiftDarwin.dylib
+copying file ./Payload/lmdc.app/Frameworks/libswiftQuartzCore.dylib ... 
+2023-06-12 13:35:38 +0000  256864 bytes for ./Payload/lmdc.app/Frameworks/libswiftQuartzCore.dylib
+copying file ./Payload/lmdc.app/Frameworks/libswiftFoundation.dylib ... 
+2023-06-12 13:35:38 +0000  8479552 bytes for ./Payload/lmdc.app/Frameworks/libswiftFoundation.dylib
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/SimpleLineIcons.ttf ... 
+2023-06-12 13:35:38 +0000  54056 bytes for ./Payload/lmdc.app/SimpleLineIcons.ttf
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/embedded.mobileprovision ... 
+2023-06-12 13:35:38 +0000  20353 bytes for ./Payload/lmdc.app/embedded.mobileprovision
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/node_modules/@react-navigation/drawer/src/views/assets/toggle-drawer-icon@3x.png ... 
+2023-06-12 13:35:38 +0000  212 bytes for ./Payload/lmdc.app/assets/node_modules/@react-navigation/drawer/src/views/assets/toggle-drawer-icon@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/@react-navigation/drawer/src/views/assets/toggle-drawer-icon@2x.png ... 
+2023-06-12 13:35:38 +0000  163 bytes for ./Payload/lmdc.app/assets/node_modules/@react-navigation/drawer/src/views/assets/toggle-drawer-icon@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/@react-navigation/drawer/src/views/assets/toggle-drawer-icon.png ... 
+108 bytes for ./Payload/lmdc.app/assets/node_modules/@react-navigation/drawer/src/views/assets/toggle-drawer-icon.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon@3x.png ... 
+2023-06-12 13:35:38 +0000  761 bytes for ./Payload/lmdc.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon@2x.png ... 
+2023-06-12 13:35:38 +0000  405 bytes for ./Payload/lmdc.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon.png ... 
+2023-06-12 13:35:38 +0000  290 bytes for ./Payload/lmdc.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon.png
+copying file ./Payload/lmdc.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon-mask.png ... 
+2023-06-12 13:35:38 +0000  913 bytes for ./Payload/lmdc.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon-mask.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/node_modules/react-native-calendar-strip/src/img/left-arrow-black.png ... 
+2023-06-12 13:35:38 +0000  311 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-calendar-strip/src/img/left-arrow-black.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-calendar-strip/src/img/right-arrow-black.png ... 
+2023-06-12 13:35:38 +0000  304 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-calendar-strip/src/img/right-arrow-black.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/node_modules/react-native-calendars/src/calendar/img/previous@2x.png ... 
+2023-06-12 13:35:38 +0000  458 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-calendars/src/calendar/img/previous@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-calendars/src/calendar/img/next@2x.png ... 
+462 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-calendars/src/calendar/img/next@2x.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/node_modules/react-native-calendars/src/img/down@3x.png ... 
+2023-06-12 13:35:38 +0000  508 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-calendars/src/img/down@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-calendars/src/img/down@2x.png ... 
+2023-06-12 13:35:38 +0000  354 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-calendars/src/img/down@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-calendars/src/img/up.png ... 
+215 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-calendars/src/img/up.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-calendars/src/img/down.png ... 
+2023-06-12 13:35:38 +0000  208 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-calendars/src/img/down.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-calendars/src/img/up@2x.png ... 
+2023-06-12 13:35:38 +0000  347 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-calendars/src/img/up@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-calendars/src/img/up@3x.png ... 
+504 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-calendars/src/img/up@3x.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_full@3x.png ... 
+2023-06-12 13:35:38 +0000  1102 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_full@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/ul@3x.png ... 
+2023-06-12 13:35:38 +0000  1228 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/ul@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/image@3x.png ... 
+2023-06-12 13:35:38 +0000  3356 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/image@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/code@3x.png ... 
+2023-06-12 13:35:38 +0000  4638 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/code@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/blockquote.png ... 
+2023-06-12 13:35:38 +0000  2925 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/blockquote.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/ol.png ... 
+2023-06-12 13:35:38 +0000  2536 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/ol.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/outdent.png ... 
+2023-06-12 13:35:38 +0000  2500 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/outdent.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/bold.png ... 
+2023-06-12 13:35:38 +0000  2682 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/bold.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_center@3x.png ... 
+2023-06-12 13:35:38 +0000  1156 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_center@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/checkbox@3x.png ... 
+2023-06-12 13:35:38 +0000  2998 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/checkbox@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/code.png ... 
+2023-06-12 13:35:38 +0000  2760 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/code.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/remove_format.png ... 
+2023-06-12 13:35:38 +0000  2321 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/remove_format.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/indent@3x.png ... 
+2023-06-12 13:35:38 +0000  1939 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/indent@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/indent.png ... 
+2023-06-12 13:35:38 +0000  2479 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/indent.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/blockquote@2x.png ... 
+2023-06-12 13:35:38 +0000  2450 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/blockquote@2x.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/blockquote@3x.png ... 
+2023-06-12 13:35:38 +0000  3965 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/blockquote@3x.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/indent@2x.png ... 
+2023-06-12 13:35:38 +0000  1326 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/indent@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/checkbox@2x.png ... 
+2023-06-12 13:35:38 +0000  2065 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/checkbox@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_center@2x.png ... 
+2023-06-12 13:35:38 +0000  757 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_center@2x.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/link.png ... 
+2023-06-12 13:35:38 +0000  2496 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/link.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/image@2x.png ... 
+2023-06-12 13:35:38 +0000  2040 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/image@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/code@2x.png ... 
+2023-06-12 13:35:38 +0000  3056 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/code@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/ul@2x.png ... 
+2023-06-12 13:35:38 +0000  703 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/ul@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_full@2x.png ... 
+2023-06-12 13:35:38 +0000  652 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_full@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/keyboard.png ... 
+2023-06-12 13:35:38 +0000  3010 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/keyboard.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/underline@2x.png ... 
+2023-06-12 13:35:38 +0000  1578 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/underline@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/keyboard@3x.png ... 
+2023-06-12 13:35:38 +0000  1922 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/keyboard@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/table@2x.png ... 
+1160 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/table@2x.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_right@3x.png ... 
+1168 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_right@3x.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/strikethrough.png ... 
+2999 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/strikethrough.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/fontSize@3x.png ... 
+2335 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/fontSize@3x.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/fontSize@2x.png ... 
+1521 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/fontSize@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_right@2x.png ... 
+2023-06-12 13:35:38 +0000  723 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_right@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/subscript.png ... 
+2023-06-12 13:35:38 +0000  792 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/subscript.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/table@3x.png ... 
+2023-06-12 13:35:38 +0000  1527 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/table@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/underline@3x.png ... 
+2023-06-12 13:35:38 +0000  2476 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/underline@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/keyboard@2x.png ... 
+2023-06-12 13:35:38 +0000  1614 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/keyboard@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/underline.png ... 
+2023-06-12 13:35:38 +0000  2254 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/underline.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/line@2x.png ... 
+2023-06-12 13:35:38 +0000  380 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/line@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/ol@2x.png ... 
+2023-06-12 13:35:38 +0000  1069 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/ol@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/outdent@2x.png ... 
+2023-06-12 13:35:38 +0000  1348 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/outdent@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/superscript@2x.png ... 
+2023-06-12 13:35:38 +0000  800 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/superscript@2x.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/link@3x.png ... 
+3459 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/link@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/strikethrough@2x.png ... 
+2023-06-12 13:35:38 +0000  2567 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/strikethrough@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/undo@3x.png ... 
+2023-06-12 13:35:38 +0000  3810 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/undo@3x.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_full.png ... 
+2023-06-12 13:35:38 +0000  1814 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_full.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/undo@2x.png ... 
+2023-06-12 13:35:38 +0000  2448 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/undo@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/strikethrough@3x.png ... 
+2023-06-12 13:35:38 +0000  3892 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/strikethrough@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/italic.png ... 
+2023-06-12 13:35:38 +0000  2205 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/italic.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/video.png ... 
+2023-06-12 13:35:38 +0000  2229 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/video.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/undo.png ... 
+2023-06-12 13:35:38 +0000  2854 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/undo.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/link@2x.png ... 
+2023-06-12 13:35:38 +0000  2306 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/link@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/superscript@3x.png ... 
+2023-06-12 13:35:38 +0000  800 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/superscript@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/outdent@3x.png ... 
+2023-06-12 13:35:38 +0000  1959 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/outdent@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/ol@3x.png ... 
+2023-06-12 13:35:38 +0000  1799 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/ol@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/fontSize.png ... 
+2023-06-12 13:35:38 +0000  2063 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/fontSize.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/line@3x.png ... 
+2023-06-12 13:35:38 +0000  572 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/line@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/bold@2x.png ... 
+2023-06-12 13:35:38 +0000  1883 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/bold@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/italic@2x.png ... 
+2023-06-12 13:35:38 +0000  1219 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/italic@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_center.png ... 
+2039 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_center.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/checkbox.png ... 
+2023-06-12 13:35:38 +0000  2547 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/checkbox.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_left@3x.png ... 
+2023-06-12 13:35:38 +0000  1145 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_left@3x.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/subscript@2x.png ... 
+2023-06-12 13:35:38 +0000  792 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/subscript@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/video@2x.png ... 
+2023-06-12 13:35:38 +0000  1681 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/video@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/line.png ... 
+2023-06-12 13:35:38 +0000  1100 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/line.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/redo@2x.png ... 
+2023-06-12 13:35:38 +0000  2483 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/redo@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_right.png ... 
+2023-06-12 13:35:38 +0000  1944 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_right.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/remove_format@3x.png ... 
+2023-06-12 13:35:38 +0000  2759 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/remove_format@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/ul.png ... 
+2023-06-12 13:35:38 +0000  2322 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/ul.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/redo.png ... 
+2023-06-12 13:35:38 +0000  2787 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/redo.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/remove_format@2x.png ... 
+2023-06-12 13:35:38 +0000  1864 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/remove_format@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/redo@3x.png ... 
+2023-06-12 13:35:38 +0000  3738 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/redo@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/video@3x.png ... 
+2023-06-12 13:35:38 +0000  2602 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/video@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/table.png ... 
+2023-06-12 13:35:38 +0000  2908 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/table.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/superscript.png ... 
+800 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/superscript.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/subscript@3x.png ... 
+792 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/subscript@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_left.png ... 
+2023-06-12 13:35:38 +0000  1931 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_left.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_left@2x.png ... 
+2023-06-12 13:35:38 +0000  728 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/justify_left@2x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/image.png ... 
+2023-06-12 13:35:38 +0000  2632 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/image.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/italic@3x.png ... 
+2023-06-12 13:35:38 +0000  1863 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/italic@3x.png
+copying file ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/bold@3x.png ... 
+2023-06-12 13:35:38 +0000  2999 bytes for ./Payload/lmdc.app/assets/node_modules/react-native-pell-rich-editor/img/bold@3x.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/src/assets/images/ic_calendar_icon.png ... 
+2023-06-12 13:35:38 +0000  13028 bytes for ./Payload/lmdc.app/assets/src/assets/images/ic_calendar_icon.png
+copying file ./Payload/lmdc.app/assets/src/assets/images/yesh_logo.png ... 
+2023-06-12 13:35:38 +0000  137504 bytes for ./Payload/lmdc.app/assets/src/assets/images/yesh_logo.png
+copying file ./Payload/lmdc.app/assets/src/assets/images/arrow_right.png ... 
+2023-06-12 13:35:38 +0000  209 bytes for ./Payload/lmdc.app/assets/src/assets/images/arrow_right.png
+copying file ./Payload/lmdc.app/assets/src/assets/images/uol_logo.png ... 
+2023-06-12 13:35:38 +0000  2768577 bytes for ./Payload/lmdc.app/assets/src/assets/images/uol_logo.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/src/assets/images/accounting.png ... 
+2023-06-12 13:35:38 +0000  12744 bytes for ./Payload/lmdc.app/assets/src/assets/images/accounting.png
+copying file ./Payload/lmdc.app/assets/src/assets/images/logout.png ... 
+2023-06-12 13:35:38 +0000  12608 bytes for ./Payload/lmdc.app/assets/src/assets/images/logout.png
+copying file ./Payload/lmdc.app/assets/src/assets/images/home.png ... 
+2023-06-12 13:35:38 +0000  7146 bytes for ./Payload/lmdc.app/assets/src/assets/images/home.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/src/assets/images/rmdc_logo.png ... 
+2023-06-12 13:35:38 +0000  113766 bytes for ./Payload/lmdc.app/assets/src/assets/images/rmdc_logo.png
+copying file ./Payload/lmdc.app/assets/src/assets/images/onboarding_homework.png ... 
+2023-06-12 13:35:38 +0000  25079 bytes for ./Payload/lmdc.app/assets/src/assets/images/onboarding_homework.png
+copying file ./Payload/lmdc.app/assets/src/assets/images/attendance.png ... 
+2023-06-12 13:35:38 +0000  14945 bytes for ./Payload/lmdc.app/assets/src/assets/images/attendance.png
+copying file ./Payload/lmdc.app/assets/src/assets/images/about_school.png ... 
+2023-06-12 13:35:38 +0000  12389 bytes for ./Payload/lmdc.app/assets/src/assets/images/about_school.png
+copying file ./Payload/lmdc.app/assets/src/assets/images/payment.png ... 
+2023-06-12 13:35:38 +0000  14694 bytes for ./Payload/lmdc.app/assets/src/assets/images/payment.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/src/assets/images/timetable.png ... 
+2023-06-12 13:35:38 +0000  19965 bytes for ./Payload/lmdc.app/assets/src/assets/images/timetable.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/src/assets/images/receipt.png ... 
+2023-06-12 13:35:38 +0000  13639 bytes for ./Payload/lmdc.app/assets/src/assets/images/receipt.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/src/assets/images/yesh_main_logo.png ... 
+2023-06-12 13:35:38 +0000  44985 bytes for ./Payload/lmdc.app/assets/src/assets/images/yesh_main_logo.png
+copying file ./Payload/lmdc.app/assets/src/assets/images/onboarding_notifications.png ... 
+2023-06-12 13:35:38 +0000  13919 bytes for ./Payload/lmdc.app/assets/src/assets/images/onboarding_notifications.png
+copying file ./Payload/lmdc.app/assets/src/assets/images/test.png ... 
+2023-06-12 13:35:38 +0000  16381 bytes for ./Payload/lmdc.app/assets/src/assets/images/test.png
+copying file ./Payload/lmdc.app/assets/src/assets/images/ic_add_child_icon.png ... 
+2023-06-12 13:35:38 +0000  16602 bytes for ./Payload/lmdc.app/assets/src/assets/images/ic_add_child_icon.png
+copying file ./Payload/lmdc.app/assets/src/assets/images/onboarding_timetable.png ... 
+2023-06-12 13:35:38 +0000  27589 bytes for ./Payload/lmdc.app/assets/src/assets/images/onboarding_timetable.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/src/assets/images/lmdc_main_logo.png ... 
+2023-06-12 13:35:38 +0000  41777 bytes for ./Payload/lmdc.app/assets/src/assets/images/lmdc_main_logo.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/src/assets/images/lmdc_logo.png ... 
+2023-06-12 13:35:38 +0000  29806 bytes for ./Payload/lmdc.app/assets/src/assets/images/lmdc_logo.png
+copying file ./Payload/lmdc.app/assets/src/assets/images/reset_pwd.png ... 
+2023-06-12 13:35:38 +0000  15612 bytes for ./Payload/lmdc.app/assets/src/assets/images/reset_pwd.png
+copying file ./Payload/lmdc.app/assets/src/assets/images/ic_take_attendacne_dashboard.png ... 
+2023-06-12 13:35:38 +0000  14120 bytes for ./Payload/lmdc.app/assets/src/assets/images/ic_take_attendacne_dashboard.png
+copying file ./Payload/lmdc.app/assets/src/assets/images/cpmc_logo.png ... 
+2023-06-12 13:35:38 +0000  216503 bytes for ./Payload/lmdc.app/assets/src/assets/images/cpmc_logo.png
+copying file ./Payload/lmdc.app/assets/src/assets/images/no_data.png ... 
+2023-06-12 13:35:38 +0000  23795 bytes for ./Payload/lmdc.app/assets/src/assets/images/no_data.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/assets/src/assets/images/messages.png ... 
+2023-06-12 13:35:38 +0000  12258 bytes for ./Payload/lmdc.app/assets/src/assets/images/messages.png
+copying file ./Payload/lmdc.app/assets/src/assets/images/rmcs_logo.png ... 
+2023-06-12 13:35:38 +0000  401280 bytes for ./Payload/lmdc.app/assets/src/assets/images/rmcs_logo.png
+2023-06-12 13:35:38 +0000  copying file ./Payload/lmdc.app/Info.plist ... 
+3640 bytes for ./Payload/lmdc.app/Info.plist
+copying file ./Payload/lmdc.app/PkgInfo ... 
+2023-06-12 13:35:38 +0000  8 bytes for ./Payload/lmdc.app/PkgInfo
+copying file ./Payload/lmdc.app/MaterialIcons.ttf ... 
+2023-06-12 13:35:38 +0000  230384 bytes for ./Payload/lmdc.app/MaterialIcons.ttf
+2023-06-12 13:35:38 +0000  /usr/bin/ditto exited with 0
+2023-06-12 13:35:38 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2023-06-12 13:35:38 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2023-06-12 13:35:38 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2023-06-12 13:35:38 +0000  IDEDistributionItem init <DVTFilePath:0x600010233950:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftMetal.dylib'>
+2023-06-12 13:35:38 +0000  [OPTIONAL] Can't have a profile, not a bundle at <DVTFilePath:0x600010233950:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftMetal.dylib'>
+2023-06-12 13:35:38 +0000  IDEDistributionItem init <DVTFilePath:0x600018677d80:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreFoundation.dylib'>
+2023-06-12 13:35:38 +0000  [OPTIONAL] Can't have a profile, not a bundle at <DVTFilePath:0x600018677d80:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreFoundation.dylib'>
+2023-06-12 13:35:38 +0000  IDEDistributionItem init <DVTFilePath:0x60001023e6f0:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreImage.dylib'>
+2023-06-12 13:35:38 +0000  [OPTIONAL] Can't have a profile, not a bundle at <DVTFilePath:0x60001023e6f0:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreImage.dylib'>
+2023-06-12 13:35:38 +0000  IDEDistributionItem init <DVTFilePath:0x600018671f00:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreGraphics.dylib'>
+2023-06-12 13:35:38 +0000  [OPTIONAL] Can't have a profile, not a bundle at <DVTFilePath:0x600018671f00:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCoreGraphics.dylib'>
+2023-06-12 13:35:39 +0000  IDEDistributionItem init <DVTFilePath:0x600018675d00:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftObjectiveC.dylib'>
+2023-06-12 13:35:39 +0000  [OPTIONAL] Can't have a profile, not a bundle at <DVTFilePath:0x600018675d00:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftObjectiveC.dylib'>
+2023-06-12 13:35:39 +0000  IDEDistributionItem init <DVTFilePath:0x600018672e80:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftFoundation.dylib'>
+2023-06-12 13:35:39 +0000  [OPTIONAL] Can't have a profile, not a bundle at <DVTFilePath:0x600018672e80:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftFoundation.dylib'>
+2023-06-12 13:35:39 +0000  IDEDistributionItem init <DVTFilePath:0x600018672180:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftQuartzCore.dylib'>
+2023-06-12 13:35:39 +0000  [OPTIONAL] Can't have a profile, not a bundle at <DVTFilePath:0x600018672180:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftQuartzCore.dylib'>
+2023-06-12 13:35:39 +0000  IDEDistributionItem init <DVTFilePath:0x600010233790:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftos.dylib'>
+2023-06-12 13:35:39 +0000  [OPTIONAL] Can't have a profile, not a bundle at <DVTFilePath:0x600010233790:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftos.dylib'>
+2023-06-12 13:35:39 +0000  IDEDistributionItem init <DVTFilePath:0x60001023e8b0:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftDarwin.dylib'>
+2023-06-12 13:35:39 +0000  [OPTIONAL] Can't have a profile, not a bundle at <DVTFilePath:0x60001023e8b0:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftDarwin.dylib'>
+2023-06-12 13:35:39 +0000  IDEDistributionItem init <DVTFilePath:0x600010238f50:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftDispatch.dylib'>
+2023-06-12 13:35:39 +0000  [OPTIONAL] Can't have a profile, not a bundle at <DVTFilePath:0x600010238f50:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftDispatch.dylib'>
+2023-06-12 13:35:39 +0000  IDEDistributionItem init <DVTFilePath:0x600010233870:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftUIKit.dylib'>
+2023-06-12 13:35:39 +0000  [OPTIONAL] Can't have a profile, not a bundle at <DVTFilePath:0x600010233870:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftUIKit.dylib'>
+2023-06-12 13:35:39 +0000  IDEDistributionItem init <DVTFilePath:0x600010232ae0:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCore.dylib'>
+2023-06-12 13:35:39 +0000  [OPTIONAL] Can't have a profile, not a bundle at <DVTFilePath:0x600010232ae0:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app/Frameworks/libswiftCore.dylib'>
+2023-06-12 13:35:39 +0000  IDEDistributionItem init <DVTFilePath:0x600010232610:'/var/folders/x1/1qqz_l_n0ys3klv46ybr7_gm0000gn/T/XcodeDistPipeline.~~~1GuC7X/Root/Payload/lmdc.app'>
+2023-06-12 13:35:39 +0000  Processing step: IDEDistributionCreateManifestStep

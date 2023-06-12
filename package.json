@@ -5,7 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "clean:android": "cd android && ./gradlew cleanBuildCache && ./gradlew clean && cd ..",
-    "release:build": "cd android && ./gradlew cleanBuildCache && ./gradlew clean && ./gradlew assembleRelease && cd ..",
+    "release:build": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/ && cd android && ./gradlew assembleRelease",
     "bundleRelease:build": "cd android && ./gradlew cleanBuildCache && ./gradlew clean && ./gradlew bundleRelease && cd ..",
     "upload": "git add . && git commit -m \"new updates\" && git push origin authB",
     "start": "react-native start",

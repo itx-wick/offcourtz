@@ -25,14 +25,24 @@ import {TextInput} from 'react-native-gesture-handler';
 import {FlatList} from 'react-native';
 import {Image} from 'react-native';
 import {Platform} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 function CreateNewGroup({navigation}) {
   const searchRef = useRef();
+  const dispatch = useDispatch();
+  const authToken = useSelector(state => state.Auth.token);
+  const myFriends = useSelector(state => state.Auth.friends);
   const [search, setSearch] = useState('');
   const [status, setStatus] = useState('Public');
   const [listTab, setListTab] = useState(Commons.groupTabs);
-  const [data, setData] = useState(Commons.friendsData);
+  const [data, setData] = useState(myFriends);
   const [selectedItem, setSelectedItem] = useState({});
   const [modalVisible, setModalVisible] = useState(false);
+
+  React.useEffect(() => {
+    console.log('My Friends', JSON.stringify(myFriends, null, 2));
+    setData(myFriends);
+  }, [myFriends]);
+
   function handleSelection(e) {
     setSelectedItem(e);
   }
@@ -56,13 +66,25 @@ function CreateNewGroup({navigation}) {
     return (
       <TouchableOpacity
         onPress={() => {
-          data[index].selected = !item.selected;
+          data[index] = {
+            ...data[index],
+            selected: !item.selected,
+          };
           setData([...data]);
         }}
         style={styles.listItem}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Image source={userPlaceholder} style={styles.userImage} />
-          <Text style={styles.listItemTitle}>{item.title}</Text>
+          <Image
+            source={item?.image ? {uri: item.image} : userPlaceholder}
+            style={styles.userImage}
+          />
+          <View>
+            <Text
+              style={
+                styles.listItemTitle
+              }>{`${item.firstName} ${item.lastName}`}</Text>
+            <Text style={styles.listItemSubTitle}>{`${item.email}`}</Text>
+          </View>
         </View>
         <SvgXml
           xml={
@@ -247,7 +269,7 @@ function CreateNewGroup({navigation}) {
                   data={data}
                   showsVerticalScrollIndicator={false}
                   ListFooterComponent={<View style={{height: 10}} />}
-                  keyExtractor={item => item.id}
+                  keyExtractor={item => item._id}
                   contentContainerStyle={styles.listContentContainer}
                   ItemSeparatorComponent={flatListItemSeparator}
                   renderItem={renderListItem}
@@ -428,9 +450,15 @@ const styles = StyleSheet.create({
   },
   listItemTitle: {
     fontFamily: fontFamily.argentum_sans,
-    fontSize: fontSize.verbiage_medium,
+    fontSize: fontSize.verbiage_large,
+    fontWeight: fontWeight[600],
     color: theme.colors.black,
     textTransform: 'capitalize',
+  },
+  listItemSubTitle: {
+    fontFamily: fontFamily.argentum_sans,
+    fontSize: fontSize.verbiage_medium,
+    color: theme.colors.secondaryBlack,
   },
   listContentContainer: {
     alignItems: 'center',
