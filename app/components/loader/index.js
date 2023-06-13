@@ -1,14 +1,8 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 import {UIActivityIndicator} from 'react-native-indicators';
-import AnimatedLoader from 'react-native-animated-loader';
 
 import {theme} from '../../theme';
-import {
-  fontFamily,
-  fontSize,
-  fontWeight,
-} from '../../constants/fontDecorations';
 
 const Loader = () => {
   return (
@@ -26,14 +20,14 @@ const Loader = () => {
       }}>
       <View
         style={{
-          // width: 60,
-          // height: 60,
-          // borderRadius: 10,
-          // backgroundColor: '#FFFFFF',
+          width: 60,
+          height: 60,
+          borderRadius: 10,
+          backgroundColor: '#FFFFFF',
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <AnimatedLoader
+        {/* <AnimatedLoader
           visible={true}
           overlayColor="rgba(255,255,255,0.75)"
           source={require('../../assets/anim/loader.json')}
@@ -49,12 +43,12 @@ const Loader = () => {
             }}>
             Processing
           </Text>
-        </AnimatedLoader>
-        {/* <UIActivityIndicator
+        </AnimatedLoader> */}
+        <UIActivityIndicator
           color={theme.colors.primary}
           size={30}
           animationDuration={400}
-        /> */}
+        />
       </View>
     </View>
   );
