@@ -10,6 +10,7 @@ import {ToastProvider} from 'react-native-toast-notifications';
 import AppNavigator from './navigation/root-stack';
 import {theme} from './theme';
 import {persistor, store} from './redux/store';
+import {StripeProvider} from '@stripe/stripe-react-native';
 
 const App = () => {
   React.useEffect(() => {
@@ -20,13 +21,18 @@ const App = () => {
     <>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <ThemeProvider>
-            <ToastProvider>
-              <NavigationContainer theme={theme}>
-                <AppNavigator />
-              </NavigationContainer>
-            </ToastProvider>
-          </ThemeProvider>
+          <StripeProvider
+            publishableKey={
+              'pk_test_51NAXSiJppEpHaEkXacREtvERTqGpzcLMbP05XCXgp8rfniDZR4fsy5wNveGDS6J7oOQXVtzXOGLxPjIci12dnhhn00ydOUph1a'
+            }>
+            <ThemeProvider>
+              <ToastProvider>
+                <NavigationContainer theme={theme}>
+                  <AppNavigator />
+                </NavigationContainer>
+              </ToastProvider>
+            </ThemeProvider>
+          </StripeProvider>
         </PersistGate>
       </Provider>
     </>

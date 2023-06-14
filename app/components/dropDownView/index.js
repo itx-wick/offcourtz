@@ -281,6 +281,7 @@ const styles = StyleSheet.create({
     fontFamily: fontFamily.argentum_sans,
     fontWeight: fontWeight[400],
     paddingLeft: 5,
+    color: theme.colors.black,
   },
   searchInputContainer: {
     width: '90%',

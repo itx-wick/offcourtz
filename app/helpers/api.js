@@ -1,23 +1,23 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import axios from "axios";
-import _ from "lodash";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
+import _ from 'lodash';
 
 class API {
   static async fetch(options) {
     if (options.authorized) {
       const token = await getAuthToken();
       options.headers = {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        authorization: "Bearer " + token,
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        authorization: 'Bearer ' + token,
       };
     }
-    return axios(options).catch((errorResponse) => {
-      var errorMessages = "";
+    return axios(options).catch(errorResponse => {
+      var errorMessages = '';
 
       if (!options.silent) {
         if (errorResponse.response && errorResponse.response.data.errors) {
-          errorMessages = _.join(errorResponse.response.data.errors, "\n");
+          errorMessages = _.join(errorResponse.response.data.errors, '\n');
         } else if (
           errorResponse.response &&
           errorResponse.response.data.error
@@ -28,13 +28,13 @@ class API {
           errorResponse.response.data.message
         ) {
           errorMessages = errorResponse.response.data.message;
-        } else if (errorResponse.message == "Network Error") {
+        } else if (errorResponse.message == 'Network Error') {
           errorMessages =
-            "Please check your internet connection and try again.";
+            'Please check your internet connection and try again.';
         } else if (errorResponse.message) {
           errorMessages = errorResponse.message;
         } else {
-          errorMessages = "Something went wrong, please try again later.";
+          errorMessages = 'Something went wrong, please try again later.';
         }
       }
 
@@ -43,16 +43,16 @@ class API {
   }
 }
 
-export { API };
+export {API};
 
 const getAuthToken = async () => {
   try {
-    const value = await AsyncStorage.getItem("@token");
+    const value = await AsyncStorage.getItem('@token');
     if (value) {
       return value;
     }
-    return "";
+    return '';
   } catch (e) {
-    return "";
+    return '';
   }
 };

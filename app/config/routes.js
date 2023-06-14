@@ -10,4 +10,6 @@ export const END_POINTS = {
   forgotPassword: '/users/forgot-password',
   createPost: '/posts',
   myFriends: '/friends/my',
+  subscription: '/payments/start-subscription',
+  sentReqList: '/friend-requests/sent',
 };

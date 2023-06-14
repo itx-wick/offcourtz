@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {Image, View} from 'react-native';
+import moment from 'moment';
 import {svgImages} from '../../helpers';
 import {SvgXml} from 'react-native-svg';
 import {theme} from '../../theme';
@@ -9,13 +10,19 @@ import userPlaceholder from '../../assets/images/userImg1.png';
 import {screenWidth} from '../../constants';
 
 function RequestListItem({item, index, status}) {
+  let time = moment(item.createdAt).fromNow();
   return (
     <View key={index} style={styles.itemContainer}>
-      <Image source={userPlaceholder} style={styles.userImage} />
+      <Image
+        source={
+          item.receiver.image ? {uri: item.receiver.image} : userPlaceholder
+        }
+        style={styles.userImage}
+      />
       <View style={styles.itemSecCont}>
         <View>
-          <Text style={styles.listItemTitle}>{item.title}</Text>
-          <Text style={styles.listItemTime}>{item.time}</Text>
+          <Text style={styles.listItemTitle}>{item.receiver.firstName}</Text>
+          <Text style={styles.listItemTime}>{time}</Text>
         </View>
         {status === 'Recieved' ? (
           <View style={{flexDirection: 'row'}}>
@@ -82,6 +89,7 @@ const styles = StyleSheet.create({
     fontFamily: fontFamily.argentum_sans,
     fontSize: fontSize.verbiage_13,
     color: theme.colors.greyText,
+    textTransform: 'capitalize',
     marginTop: 5,
   },
   listItemIcon: {

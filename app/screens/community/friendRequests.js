@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList, Platform, StyleSheet, TouchableOpacity} from 'react-native';
 import {View, Text} from 'react-native';
+
 import {theme} from '../../theme';
 import {
   fontFamily,
@@ -9,26 +10,38 @@ import {
 } from '../../constants/fontDecorations';
 import {screenHeight, screenWidth} from '../../constants';
 import {svgImages} from '../../helpers';
-import {screens} from '../../config';
+import {END_POINTS, screens} from '../../config';
 import {SvgXml} from 'react-native-svg';
 import {Commons} from '../../utils';
 import RequestListItem from '../../components/requestListItem';
 import ListEmptyComponent from '../../components/listEmptyComponent';
+import ApiService from '../../services/ApiService';
+import {useDispatch, useSelector} from 'react-redux';
 function FriendRequests({navigation}) {
+  const dispatch = useDispatch();
+  const authToken = useSelector(state => state.Auth.token);
   const [listTab, setListTab] = useState(Commons.listTab);
   const [status, setStatus] = useState('Recieved');
-  const [dataList, setDataList] = useState(Commons.recievedListData);
+  const [sentList, setSentList] = useState([]);
+  const [receivedList, setReceivedList] = useState([]);
   const setStatusFilter = status => {
     setStatus(status);
   };
 
+  const getMySentList = async () => {
+    await ApiService.get(END_POINTS.sentReqList, authToken)
+      .then(res => {
+        setSentList(res.data);
+        console.log('My Sent List', JSON.stringify(res.data, null, 2));
+      })
+      .catch(err => {
+        console.log('promise error', err);
+      });
+  };
+
   useEffect(() => {
-    if (status === 'Recieved') {
-      setDataList(Commons.recievedListData);
-    } else {
-      setDataList(Commons.sentListData);
-    }
-  }, [status]);
+    getMySentList();
+  }, []);
 
   const navigateBack = () => {
     navigation.goBack();
@@ -85,7 +98,7 @@ function FriendRequests({navigation}) {
           ))}
         </View>
         <FlatList
-          data={dataList}
+          data={status === 'Sent' ? sentList : receivedList}
           keyExtractor={(e, i) => i.toString()}
           renderItem={renderItem}
           ItemSeparatorComponent={flatListItemSeparator}

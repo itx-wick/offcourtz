@@ -105,6 +105,7 @@ const Login = ({navigation}) => {
       dispatch(setLoader(true));
       await ApiService.post(END_POINTS.login, body)
         .then(res => {
+          console.log('Response', JSON.stringify(res, null, 2));
           dispatch(login(res));
           dispatch(setLoader(false));
           Commons.reset(navigation, screens.bottomTabStack);

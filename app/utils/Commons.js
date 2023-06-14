@@ -17,6 +17,48 @@ export default {
     return strDate || date;
   },
 
+  timeDiff: (start, end) => {
+    var diff = end - start;
+    var units = [1000 * 60 * 60 * 24, 1000 * 60 * 60, 1000 * 60, 1000];
+
+    var rv = [];
+    for (var i = 0; i < units.length; ++i) {
+      rv.push(Math.floor(diff / units[i]));
+      diff = diff % units[i];
+    }
+    var thisFullYear = end.getFullYear();
+    var daysInLastMonth = new Date(thisFullYear, end.getMonth(), 0).getDate();
+    var thisMonth = end.getMonth();
+    thisFullYear = thisFullYear - start.getFullYear();
+    thisMonth = thisMonth - start.getMonth();
+    var subAddDays = daysInLastMonth - start.getDate();
+    var thisDay = end.getDate();
+    thisMonth = thisMonth - 1;
+    if (thisMonth < 0) {
+      thisFullYear = thisFullYear - 1;
+      thisMonth = 12 + thisMonth;
+    }
+    subAddDays = daysInLastMonth - start.getDate();
+    subAddDays = thisDay + subAddDays;
+
+    if (subAddDays >= daysInLastMonth) {
+      subAddDays = subAddDays - daysInLastMonth;
+      thisMonth++;
+      if (thisMonth > 11) {
+        thisFullYear++;
+        thisMonth = 0;
+      }
+    }
+    return {
+      years: thisFullYear,
+      months: thisMonth,
+      days: subAddDays,
+      hours: rv[1],
+      minutes: rv[2],
+      seconds: rv[3],
+    };
+  },
+
   reset: (navigation, screen) => {
     const resetAction = CommonActions.reset({
       index: 0,

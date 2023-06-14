@@ -7,12 +7,14 @@ import {
   Text,
   View,
   Platform,
+  Alert,
 } from 'react-native';
 import bgTrial from '../../assets/images/trial_bg.png';
 import {screenHeight, screenWidth} from '../../constants';
 import BottomSheetModalView from '../../components/bottomSheetModalView';
 
-import {screens} from '../../config';
+import ApiService from '../../services/ApiService';
+import {END_POINTS, SERVER_URL, screens} from '../../config';
 import {theme} from '../../theme';
 import Button from '../../components/button';
 import {
@@ -25,8 +27,15 @@ import Modal from 'react-native-modal';
 import {SvgXml} from 'react-native-svg';
 import {svgImages} from '../../helpers';
 import {Commons} from '../../utils';
+import axios from 'axios';
+import {useStripe} from '@stripe/stripe-react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {setLoader} from '../../redux/reducers/commonSlice';
 
 const Trial = ({navigation}) => {
+  const dispatch = useDispatch();
+  const authToken = useSelector(state => state.Auth.token);
+  const {initPaymentSheet, presentPaymentSheet} = useStripe();
   const snapPoints = useMemo(() => ['37%', '37%'], []);
   const bottomSheetModalRef = useRef(null);
   const [IsEnable, setIsEnable] = useState(false);
@@ -41,6 +50,35 @@ const Trial = ({navigation}) => {
   function dismissSheetModal() {
     bottomSheetModalRef.current?.dismiss();
   }
+
+  const fetchPaymentSheetParams = async id => {
+    let body = {
+      priceId: id,
+    };
+    dispatch(setLoader(true));
+    await ApiService.post(END_POINTS.subscription, body, authToken)
+      .then(async response => {
+        console.log(response);
+        dispatch(setLoader(false));
+        const {error} = await initPaymentSheet({
+          paymentIntentClientSecret: response.data.clientSecret,
+          allowsDelayedPaymentMethods: false,
+          style: 'alwaysLight',
+        });
+        if (!error) {
+          const {error} = await presentPaymentSheet();
+          if (error) {
+            Alert.alert(`${error.code}`, error.message);
+          } else {
+            setModalVisible(!modalVisible);
+            // Alert.alert('Success', 'Your payment is confirmed!');
+          }
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   return (
     <>
@@ -71,8 +109,9 @@ const Trial = ({navigation}) => {
             <TouchableOpacity
               style={styles.btnMainView}
               onPress={() => {
-                setIsEnable(false);
-                bottomSheetModalRef.current?.present();
+                // setIsEnable(false);
+                // bottomSheetModalRef.current?.present();
+                fetchPaymentSheetParams('price_1NFubJJppEpHaEkXuV115O1J');
               }}>
               <Text style={styles.btnMainText}>TRY IT 3 DAYS FOR FREE</Text>
               <View style={{flexDirection: 'row'}}>
@@ -86,8 +125,9 @@ const Trial = ({navigation}) => {
                 {backgroundColor: theme.colors.white, marginTop: 10},
               ]}
               onPress={() => {
-                setIsEnable(false);
-                bottomSheetModalRef.current?.present();
+                // setIsEnable(false);
+                // bottomSheetModalRef.current?.present();
+                fetchPaymentSheetParams('price_1NFubkJppEpHaEkXtmU3ryQA');
               }}>
               <Text style={[styles.btnMainText, {color: theme.colors.black}]}>
                 YEARLY SUBSCRIPTION
@@ -113,7 +153,7 @@ const Trial = ({navigation}) => {
           subTitle={'Select payment method to continue'}
           isPayment={true}
           paymentClick={() => {
-            setModalVisible(true);
+            // setModalVisible(true);
             dismissSheetModal();
           }}
         />
@@ -151,7 +191,7 @@ const Trial = ({navigation}) => {
                   color: theme.colors.secondaryBlack,
                   marginTop: 10,
                 }}>
-                Account Created
+                Success
               </Text>
               <Text
                 style={{
@@ -162,7 +202,7 @@ const Trial = ({navigation}) => {
                   color: theme.colors.greyText,
                   marginVertical: 10,
                 }}>
-                Your account has been created successfully!
+                Your payment is confirmed!
               </Text>
               <View style={{marginVertical: 5}}>
                 <Button

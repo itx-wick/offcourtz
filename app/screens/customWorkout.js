@@ -209,7 +209,6 @@ function CustomWorkout({navigation}) {
                     <DropDown
                       width={0.92 * screenWidth}
                       height={0.12 * screenWidth}
-                      // borderWidth={1}
                       borderColor={theme.colors.greyText}
                       borderRadius={0.12 * screenWidth}
                       icon={svgImages.caretDown}
@@ -221,10 +220,8 @@ function CustomWorkout({navigation}) {
                         handleSelection(e, i, 'duration');
                       }}
                       dropDownListStyle={{
-                        maxHeight: 0.25 * screenWidth,
-                      }}
-                      flatListView={{
-                        maxHeight: 0.25 * screenWidth,
+                        maxHeight: 0.35 * screenWidth,
+                        flexGrow: 0,
                       }}
                     />
                   </View>

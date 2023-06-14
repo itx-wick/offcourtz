@@ -262,10 +262,8 @@ function CreateNewPost({navigation}) {
                 selectedItem={selectedItem.title}
                 onPressItem={handleSelection}
                 dropDownListStyle={{
-                  maxHeight: 0.15 * screenWidth,
-                }}
-                flatListView={{
-                  maxHeight: 0.15 * screenWidth,
+                  maxHeight: 0.35 * screenWidth,
+                  flexGrow: 0,
                 }}
               />
             </View>

@@ -16,6 +16,8 @@ import {launchImageLibrary} from 'react-native-image-picker';
 import {useToast} from 'react-native-toast-notifications';
 import AWS from 'aws-sdk';
 import fs from 'react-native-fs';
+
+import Modal from 'react-native-modal';
 import {decode} from 'base64-arraybuffer';
 
 import {svgImages} from '../../../helpers';
@@ -43,6 +45,7 @@ const Signup = ({navigation}) => {
   const dispatch = useDispatch();
   const auth = useSelector(state => state.Auth);
   const [firstName, setFirstName] = React.useState('');
+  const [modalVisible, setModalVisible] = React.useState(false);
   const [fnFocus, setFNFocus] = React.useState(false);
   const [lastName, setLastName] = React.useState('');
   const [lnFocus, setLNFocus] = React.useState(false);
@@ -242,12 +245,16 @@ const Signup = ({navigation}) => {
             password: password,
             image: data.Location,
           };
-          console.log('Register Body', body);
+
           await ApiService.post(END_POINTS.register, body)
             .then(res => {
+              console.log(
+                'Register Response',
+                JSON.stringify(res.data, null, 2),
+              );
               dispatch(register(res));
               dispatch(setLoader(false));
-              Commons.reset(navigation, screens.trial);
+              setModalVisible(!modalVisible);
             })
             .catch(err => {
               dispatch(setLoader(false));
@@ -277,225 +284,296 @@ const Signup = ({navigation}) => {
         </View>
         <View style={styles.underlineView} />
       </View>
-      <KeyboardAvoidingView
-        // keyboardVerticalOffset={
-        //   // Platform.OS === 'ios' ? 0.035 * screenHeight : null
-        // }
-        behavior={'padding'}>
-        <ScrollView>
-          <View style={styles.secondaryCont}>
-            <Text style={styles.titleText}>SIGN UP</Text>
-            <Text style={styles.subTitleText}>Register your account</Text>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                marginTop: 25,
-              }}>
-              <View>
+      {!modalVisible && (
+        <KeyboardAvoidingView
+          // keyboardVerticalOffset={
+          //   // Platform.OS === 'ios' ? 0.035 * screenHeight : null
+          // }
+          behavior={'padding'}>
+          <ScrollView>
+            <View style={styles.secondaryCont}>
+              <Text style={styles.titleText}>SIGN UP</Text>
+              <Text style={styles.subTitleText}>Register your account</Text>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  marginTop: 25,
+                }}>
+                <View>
+                  <TextField
+                    inputWidth={0.45 * screenWidth}
+                    height={0.12 * screenWidth}
+                    borderColor={theme.colors.greyText}
+                    borderRadius={0.4 * screenWidth}
+                    onChangeText={e => {
+                      handleChange('FirstName', e);
+                    }}
+                    onEndEditing={() => setFNFocus(false)}
+                    onFocus={() => setFNFocus(true)}
+                    value={firstName}
+                    title={'First Name'}
+                    placeholder={'John'}
+                    paddingHorizontal={10}
+                    type={'text'}
+                  />
+                </View>
                 <TextField
                   inputWidth={0.45 * screenWidth}
                   height={0.12 * screenWidth}
                   borderColor={theme.colors.greyText}
                   borderRadius={0.4 * screenWidth}
                   onChangeText={e => {
-                    handleChange('FirstName', e);
+                    handleChange('LastName', e);
                   }}
-                  onEndEditing={() => setFNFocus(false)}
-                  onFocus={() => setFNFocus(true)}
-                  value={firstName}
-                  title={'First Name'}
-                  placeholder={'John'}
+                  value={lastName}
+                  onEndEditing={() => setLNFocus(false)}
+                  onFocus={() => setLNFocus(true)}
+                  title={'Last Name'}
+                  placeholder={'Doe'}
                   paddingHorizontal={10}
                   type={'text'}
                 />
               </View>
-              <TextField
-                inputWidth={0.45 * screenWidth}
-                height={0.12 * screenWidth}
-                borderColor={theme.colors.greyText}
-                borderRadius={0.4 * screenWidth}
-                onChangeText={e => {
-                  handleChange('LastName', e);
-                }}
-                value={lastName}
-                onEndEditing={() => setLNFocus(false)}
-                onFocus={() => setLNFocus(true)}
-                title={'Last Name'}
-                placeholder={'Doe'}
-                paddingHorizontal={10}
-                type={'text'}
-              />
-            </View>
-            <View style={{marginTop: 10}}>
-              <TextField
-                inputWidth={0.92 * screenWidth}
-                height={0.12 * screenWidth}
-                borderColor={theme.colors.greyText}
-                borderRadius={0.4 * screenWidth}
-                backgroundColor={theme.colors.white}
-                onChangeText={e => {
-                  handleChange('Email', e);
-                }}
-                value={email}
-                onEndEditing={() => setEmailFocus(false)}
-                onFocus={() => setEmailFocus(true)}
-                title={'Email'}
-                placeholder={'name@example.com'}
-                paddingHorizontal={10}
-                type={'text'}
-              />
-            </View>
-            <TouchableOpacity
-              onPress={() => {
-                showDatePicker();
-              }}
-              style={{marginTop: 10}}>
-              <TextField
-                inputWidth={0.92 * screenWidth}
-                height={0.12 * screenWidth}
-                borderColor={theme.colors.greyText}
-                borderRadius={0.4 * screenWidth}
-                icon={svgImages.calendarBlank}
-                value={dateOfBirth}
-                title={'Date of Birth'}
-                placeholder={'01/07/1990'}
-                paddingHorizontal={10}
-                editable={false}
-                type={'text'}
-              />
-            </TouchableOpacity>
-            <View style={{marginTop: 10}}>
-              <Text
-                style={{
-                  fontFamily: fontFamily.argentum_sans,
-                  fontSize: fontSize.verbiage_medium,
-                  fontWeight: fontWeight[500],
-                  marginVertical: 5,
-                  color: theme.colors.greyText,
-                }}>
-                Country
-              </Text>
-              <DropDown
-                width={0.92 * screenWidth}
-                borderColor={theme.colors.greyText}
-                borderRadius={0.12 * screenWidth}
-                icon={svgImages.caretDown}
-                title={'Select Country'}
-                type={'Country'}
-                data={Commons.countries}
-                selectedItem={selectedItem.title}
-                onPressItem={handleSelection}
-                dropDownListStyle={{
-                  maxHeight: 0.35 * screenWidth,
-                  flexGrow: 0,
-                }}
-              />
-            </View>
-            <View style={{marginTop: 10}}>
-              <TextField
-                inputWidth={0.92 * screenWidth}
-                height={0.12 * screenWidth}
-                borderColor={theme.colors.greyText}
-                borderRadius={0.4 * screenWidth}
-                onChangeText={e => {
-                  handleChange('Password', e);
-                }}
-                value={password}
-                onEndEditing={() => setPwdFocus(false)}
-                onFocus={() => setPwdFocus(true)}
-                showHidePassIcon={true}
-                secureTextEntry={secureTextEntry}
-                updateShowHidePassword={updateShowHidePassword}
-                title={'Password'}
-                placeholder={'Password'}
-                showPassword={false}
-                paddingHorizontal={10}
-                type={'password'}
-              />
-            </View>
-            <View
-              style={{
-                marginTop: 15,
-              }}>
-              <View style={{flexDirection: 'row'}}>
-                <Text
-                  style={{
-                    fontFamily: fontFamily.argentum_sans,
-                    fontSize: fontSize.verbiage_large,
-                    fontWeight: '500',
-                    marginVertical: 5,
-                    color: theme.colors.black,
-                  }}>
-                  Profile Photo
-                </Text>
-                <Text
-                  style={{
-                    fontFamily: fontFamily.argentum_sans,
-                    fontSize: fontSize.verbiage,
-                    fontWeight: '300',
-                    marginTop: 6,
-                    marginHorizontal: 3,
-                    color: theme.colors.black,
-                  }}>
-                  {'(Optional)'}
-                </Text>
-              </View>
-              <ImageBackground
-                style={{
-                  height: 0.4 * screenWidth,
-                  borderWidth: 1,
-                  borderColor: colors.greyText,
-                  borderRadius: 15,
-                  marginTop: 5,
-                  justifyContent: 'space-evenly',
-                  alignItems: 'center',
-                  backgroundColor: theme.colors.white,
-                }}
-                imageStyle={{
-                  borderRadius: 15,
-                }}
-                source={{uri: selectedImage.uri}}>
-                <View style={{height: 50}}>
-                  <SvgXml width="90" height="90" xml={svgImages.smiley} />
-                </View>
-                <Button
-                  title={'ADD'}
-                  iconHeight={16}
-                  iconWidth={16}
-                  icon={svgImages.plus}
-                  onPress={() => {
-                    pickImages();
+              <View style={{marginTop: 10}}>
+                <TextField
+                  inputWidth={0.92 * screenWidth}
+                  height={0.12 * screenWidth}
+                  borderColor={theme.colors.greyText}
+                  borderRadius={0.4 * screenWidth}
+                  backgroundColor={theme.colors.white}
+                  onChangeText={e => {
+                    handleChange('Email', e);
                   }}
-                  btnWidth={screenWidth * 0.25}
-                  btnHeight={40}
-                  titleColor={colors.white}
-                  backgroundColor={colors.secondaryBlack}
+                  value={email}
+                  onEndEditing={() => setEmailFocus(false)}
+                  onFocus={() => setEmailFocus(true)}
+                  title={'Email'}
+                  placeholder={'name@example.com'}
+                  paddingHorizontal={10}
+                  type={'text'}
                 />
-              </ImageBackground>
-            </View>
-            <View style={{marginBottom: 0.05 * screenWidth}}>
-              <Button
-                title={'CREATE ACCOUNT'}
-                onPress={() => validateData()}
-                btnWidth={screenWidth * 0.92}
-                btnHeight={0.14 * screenWidth}
-                titleColor={colors.white}
-                backgroundColor={colors.primary}
-                btnStyle={{
-                  marginVertical: 15,
+              </View>
+              <TouchableOpacity
+                onPress={() => {
+                  showDatePicker();
                 }}
-              />
+                style={{marginTop: 10}}>
+                <TextField
+                  inputWidth={0.92 * screenWidth}
+                  height={0.12 * screenWidth}
+                  borderColor={theme.colors.greyText}
+                  borderRadius={0.4 * screenWidth}
+                  icon={svgImages.calendarBlank}
+                  value={dateOfBirth}
+                  title={'Date of Birth'}
+                  placeholder={'01/07/1990'}
+                  paddingHorizontal={10}
+                  editable={false}
+                  type={'text'}
+                />
+              </TouchableOpacity>
+              <View style={{marginTop: 10}}>
+                <Text
+                  style={{
+                    fontFamily: fontFamily.argentum_sans,
+                    fontSize: fontSize.verbiage_medium,
+                    fontWeight: fontWeight[500],
+                    marginVertical: 5,
+                    color: theme.colors.greyText,
+                  }}>
+                  Country
+                </Text>
+                <DropDown
+                  width={0.92 * screenWidth}
+                  borderColor={theme.colors.greyText}
+                  borderRadius={0.12 * screenWidth}
+                  icon={svgImages.caretDown}
+                  title={'Select Country'}
+                  type={'Country'}
+                  data={Commons.countries}
+                  selectedItem={selectedItem.title}
+                  onPressItem={handleSelection}
+                  dropDownListStyle={{
+                    maxHeight: 0.35 * screenWidth,
+                    flexGrow: 0,
+                  }}
+                />
+              </View>
+              <View style={{marginTop: 10}}>
+                <TextField
+                  inputWidth={0.92 * screenWidth}
+                  height={0.12 * screenWidth}
+                  borderColor={theme.colors.greyText}
+                  borderRadius={0.4 * screenWidth}
+                  onChangeText={e => {
+                    handleChange('Password', e);
+                  }}
+                  value={password}
+                  onEndEditing={() => setPwdFocus(false)}
+                  onFocus={() => setPwdFocus(true)}
+                  showHidePassIcon={true}
+                  secureTextEntry={secureTextEntry}
+                  updateShowHidePassword={updateShowHidePassword}
+                  title={'Password'}
+                  placeholder={'Password'}
+                  showPassword={false}
+                  paddingHorizontal={10}
+                  type={'password'}
+                />
+              </View>
+              <View
+                style={{
+                  marginTop: 15,
+                }}>
+                <View style={{flexDirection: 'row'}}>
+                  <Text
+                    style={{
+                      fontFamily: fontFamily.argentum_sans,
+                      fontSize: fontSize.verbiage_large,
+                      fontWeight: '500',
+                      marginVertical: 5,
+                      color: theme.colors.black,
+                    }}>
+                    Profile Photo
+                  </Text>
+                  <Text
+                    style={{
+                      fontFamily: fontFamily.argentum_sans,
+                      fontSize: fontSize.verbiage,
+                      fontWeight: '300',
+                      marginTop: 6,
+                      marginHorizontal: 3,
+                      color: theme.colors.black,
+                    }}>
+                    {'(Optional)'}
+                  </Text>
+                </View>
+                <ImageBackground
+                  style={{
+                    height: 0.4 * screenWidth,
+                    borderWidth: 1,
+                    borderColor: colors.greyText,
+                    borderRadius: 15,
+                    marginTop: 5,
+                    justifyContent: 'space-evenly',
+                    alignItems: 'center',
+                    backgroundColor: theme.colors.white,
+                  }}
+                  imageStyle={{
+                    borderRadius: 15,
+                  }}
+                  source={{uri: selectedImage.uri}}>
+                  <View style={{height: 50}}>
+                    <SvgXml width="90" height="90" xml={svgImages.smiley} />
+                  </View>
+                  <Button
+                    title={'ADD'}
+                    iconHeight={16}
+                    iconWidth={16}
+                    icon={svgImages.plus}
+                    onPress={() => {
+                      pickImages();
+                    }}
+                    btnWidth={screenWidth * 0.25}
+                    btnHeight={40}
+                    titleColor={colors.white}
+                    backgroundColor={colors.secondaryBlack}
+                  />
+                </ImageBackground>
+              </View>
+              <View style={{marginBottom: 0.05 * screenWidth}}>
+                <Button
+                  title={'CREATE ACCOUNT'}
+                  onPress={() => validateData()}
+                  btnWidth={screenWidth * 0.92}
+                  btnHeight={0.14 * screenWidth}
+                  titleColor={colors.white}
+                  backgroundColor={colors.primary}
+                  btnStyle={{
+                    marginVertical: 15,
+                  }}
+                />
+              </View>
             </View>
-          </View>
-        </ScrollView>
-      </KeyboardAvoidingView>
+          </ScrollView>
+        </KeyboardAvoidingView>
+      )}
       <DateTimePickerModal
         isVisible={isDatePickerVisible}
         mode="date"
         onConfirm={data => pickADate(data)}
         onCancel={hideDatePicker}
       />
+
+      <Modal
+        animationType={'fade'}
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(!modalVisible);
+        }}>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <View
+            style={{
+              backgroundColor: theme.colors.white,
+              borderRadius: 20,
+              shadowOpacity: 0.25,
+              shadowRadius: 4,
+              elevation: 5,
+              width: screenWidth * 0.85,
+              paddingVertical: 20,
+              alignItems: 'center',
+            }}>
+            <SvgXml xml={svgImages.checkCircle} />
+            <Text
+              style={{
+                fontFamily: fontFamily.argentum_sans,
+                fontSize: fontSize.verbiage_22,
+                fontWeight: 'bold',
+                color: theme.colors.secondaryBlack,
+                marginTop: 10,
+              }}>
+              Account Created
+            </Text>
+            <Text
+              style={{
+                fontFamily: fontFamily.argentum_sans,
+                fontSize: fontSize.verbiage,
+                fontWeight: fontWeight[500],
+                textAlign: 'left',
+                color: theme.colors.greyText,
+                marginVertical: 10,
+              }}>
+              Your account has been created successfully!
+            </Text>
+            <View style={{marginVertical: 5}}>
+              <Button
+                title={'CONTINUE'}
+                onPress={() => {
+                  setModalVisible(!modalVisible);
+                  Commons.reset(navigation, screens.trial);
+                }}
+                btnWidth={screenWidth * 0.75}
+                btnHeight={0.14 * screenWidth}
+                titleColor={theme.colors.white}
+                titleStyle={{
+                  fontFamily: fontFamily.argentum_sans,
+                  fontSize: fontSize.verbiage_16,
+                  fontWeight: fontWeight[500],
+                  color: theme.colors.white,
+                }}
+                backgroundColor={theme.colors.primary}
+              />
+            </View>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };

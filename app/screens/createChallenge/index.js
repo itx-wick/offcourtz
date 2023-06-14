@@ -607,7 +607,7 @@ const CreateChallenge = ({route, navigation}) => {
                         <View style={{marginVertical: 5}}>
                           <DropDown
                             width={0.7 * screenWidth}
-                            // height={0.12 * screenWidth}
+                            height={0.12 * screenWidth}
                             // borderWidth={1}
                             borderColor={theme.colors.greyText}
                             borderRadius={0.12 * screenWidth}
@@ -620,11 +620,8 @@ const CreateChallenge = ({route, navigation}) => {
                               handleSelection(e, i, 'title');
                             }}
                             dropDownListStyle={{
-                              height: 0.35 * screenWidth,
-                            }}
-                            flatListView={{
-                              height: 0.35 * screenWidth,
-                              zIndex: 1,
+                              height: 0.25 * screenWidth,
+                              flexGrow: 0,
                             }}
                           />
                         </View>

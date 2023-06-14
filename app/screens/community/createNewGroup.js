@@ -54,11 +54,11 @@ function CreateNewGroup({navigation}) {
   const onSearch = search => {
     if (search !== '') {
       let tempData = data.filter(item => {
-        return item.title.toLowerCase().indexOf(search.toLowerCase()) > -1;
+        return item.firstName.toLowerCase().indexOf(search.toLowerCase()) > -1;
       });
       setData(tempData);
     } else {
-      setData(Commons.friendsData);
+      setData(myFriends);
     }
   };
 

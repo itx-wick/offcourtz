@@ -37,7 +37,7 @@ function Challenges({navigation}) {
           return {...obj, selected: false};
         });
         dispatch(myFriends(newArray));
-        console.log(res.data[0].friends);
+        console.log('My Friends', res.data[0].friends);
       })
       .catch(err => {
         console.log('promise error', err);
