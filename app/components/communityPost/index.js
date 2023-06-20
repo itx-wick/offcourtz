@@ -1,23 +1,23 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, Platform} from 'react-native';
-import {useToast} from 'react-native-toast-notifications';
+import { View, Text, Image, StyleSheet, Platform } from 'react-native';
+import { useToast } from 'react-native-toast-notifications';
 import {
   fontFamily,
   fontSize,
   fontWeight,
 } from '../../constants/fontDecorations';
-import {theme} from '../../theme';
-import {screenWidth} from '../../constants';
-import {svgImages} from '../../helpers';
+import { theme } from '../../theme';
+import { screenWidth } from '../../constants';
+import { svgImages } from '../../helpers';
 import userPlaceholder from '../../assets/images/user.jpeg';
-import {setLoader} from '../../redux/reducers/commonSlice';
+import { setLoader } from '../../redux/reducers/commonSlice';
 import ApiService from '../../services/ApiService';
-import {END_POINTS, screens} from '../../config';
-import {SvgXml} from 'react-native-svg';
-import {TextInput, TouchableOpacity} from 'react-native-gesture-handler';
+import { END_POINTS, screens } from '../../config';
+import { SvgXml } from 'react-native-svg';
+import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import moment from 'moment/moment';
-import {useDispatch, useSelector} from 'react-redux';
-function Post({item, index}) {
+import { useDispatch, useSelector } from 'react-redux';
+function Post(props) {
   const toast = useToast();
   const dispatch = useDispatch();
   const auth = useSelector(state => state.Auth.user);
@@ -26,8 +26,8 @@ function Post({item, index}) {
   const [isExist, setIsExist] = React.useState(false);
 
   React.useEffect(() => {
-    console.log(item);
-    const exist = myFriends.some(obj => obj?._id === item.user._id);
+    console.log("Post", props.item);
+    const exist = myFriends.some(obj => obj?._id === props.item.user._id);
     setIsExist(exist);
   }, [myFriends]);
 
@@ -69,68 +69,61 @@ function Post({item, index}) {
         backgroundColor: theme.colors.white,
         marginTop: 5,
       }}>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          position: 'absolute',
-          top: 15,
-          right: 15,
-        }}>
-        {/* {!isExist && auth?._id !== item.user._id && ( */}
-        <TouchableOpacity
-          onPress={() => {
-            console.log('Item', item._id);
-            // reqSent(item._id);
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              padding: 5,
-              marginHorizontal: 10,
-            }}>
-            <SvgXml xml={svgImages.userCirclePlus} />
-            <Text
-              style={{
-                fontFamily: fontFamily.argentum_sans,
-                fontSize: fontSize.verbiage_14,
-                fontWeight: fontWeight[400],
-                color: theme.colors.black,
-                marginHorizontal: 3,
-              }}>
-              Add as friend
-            </Text>
+      <View style={{ padding: 15 }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Image source={props.item.user.image ? { uri: props.item.user.image } : userPlaceholder} style={styles.userImage} />
+            <View>
+              <Text
+                style={{
+                  fontFamily: fontFamily.argentum_sans,
+                  fontSize: fontSize.verbiage_20,
+                  color: theme.colors.black,
+                }}>
+                {props.item.user.firstName}
+              </Text>
+              <Text
+                style={{
+                  fontFamily: fontFamily.argentum_sans,
+                  fontSize: fontSize.verbiage_14,
+                  color: theme.colors.greyText,
+                  marginVertical: 3,
+                }}>
+                {moment(props.item.createdAt).fromNow()}
+              </Text>
+            </View>
           </View>
-        </TouchableOpacity>
-        {/* )} */}
-        <SvgXml xml={svgImages.threeDots} />
-      </View>
-      <View style={{padding: 15}}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Image
-            source={item.user.image ? {uri: item.user.image} : userPlaceholder}
-            style={styles.userImage}
-          />
-          <View>
-            <Text
-              style={{
-                fontFamily: fontFamily.argentum_sans,
-                fontSize: fontSize.verbiage_20,
-                color: theme.colors.black,
-              }}>
-              {item.user.firstName}
-            </Text>
-            <Text
-              style={{
-                fontFamily: fontFamily.argentum_sans,
-                fontSize: fontSize.verbiage_14,
-                color: theme.colors.greyText,
-                marginVertical: 3,
-                textTransform: 'capitalize',
-              }}>
-              {moment(item.createdAt).fromNow()}
-            </Text>
+          <View style={{ flexDirection: 'row', marginVertical: 5 }}>
+            {!isExist && auth?._id !== props.item.user._id &&
+              <TouchableOpacity onPress={() => reqSent(props.item.user._id)}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    marginHorizontal: 5
+                  }}>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                    }}>
+                    <SvgXml xml={svgImages.userCirclePlus} />
+                    <Text
+                      style={{
+                        fontFamily: fontFamily.argentum_sans,
+                        fontSize: fontSize.verbiage_14,
+                        fontWeight: fontWeight[400],
+                        color: theme.colors.black,
+                        marginHorizontal: 3,
+                      }}>
+                      Add as friend
+                    </Text>
+                  </View>
+                </View>
+              </TouchableOpacity>
+            }
+            <TouchableOpacity>
+              <SvgXml xml={svgImages.threeDots} />
+            </TouchableOpacity>
           </View>
         </View>
         <Text
@@ -142,9 +135,9 @@ function Post({item, index}) {
             marginBottom: 10,
             color: theme.colors.black,
           }}>
-          {item.caption}
+          {props.item.caption}
         </Text>
-        {/* <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        {/* <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <View
             style={{
               flexDirection: 'row',
@@ -153,7 +146,7 @@ function Post({item, index}) {
             }}>
             <SvgXml
               xml={svgImages.clockIcon}
-              style={{marginRight: 3}}
+              style={{ marginRight: 3 }}
               stroke={theme.colors.primary}
             />
             <Text
@@ -163,7 +156,7 @@ function Post({item, index}) {
                 fontWeight: fontWeight[400],
                 color: theme.colors.greyText,
               }}>
-              {item.playTime}
+              {props.item.playTime}
             </Text>
           </View>
           <View
@@ -173,7 +166,7 @@ function Post({item, index}) {
               paddingHorizontal: 2,
               marginHorizontal: 5,
             }}>
-            <SvgXml xml={svgImages.fire} style={{marginRight: 3}} />
+            <SvgXml xml={svgImages.fire} style={{ marginRight: 3 }} />
             <Text
               style={{
                 fontFamily: fontFamily.argentum_sans,
@@ -181,7 +174,7 @@ function Post({item, index}) {
                 fontWeight: fontWeight[400],
                 color: theme.colors.greyText,
               }}>
-              {item.playTechnique}
+              {props.item.playTechnique}
             </Text>
           </View>
           <View
@@ -191,7 +184,7 @@ function Post({item, index}) {
               paddingHorizontal: 2,
               marginHorizontal: 5,
             }}>
-            <SvgXml xml={svgImages.tenisBallIcon} style={{marginRight: 3}} />
+            <SvgXml xml={svgImages.tenisBallIcon} style={{ marginRight: 3 }} />
             <Text
               style={{
                 fontFamily: fontFamily.argentum_sans,
@@ -199,14 +192,14 @@ function Post({item, index}) {
                 fontWeight: fontWeight[400],
                 color: theme.colors.greyText,
               }}>
-              {item.playCount}
+              {props.item.playCount}
             </Text>
           </View>
         </View> */}
       </View>
       <Image
-        source={{uri: item.image}}
-        style={{width: screenWidth, height: 0.7 * screenWidth}}
+        source={{ uri: props.item.image }}
+        style={{ width: screenWidth, height: 0.7 * screenWidth }}
       />
       <View
         style={{
@@ -220,17 +213,17 @@ function Post({item, index}) {
             fontFamily: fontFamily.argentum_sans,
             color: theme.colors.greyText,
           }}>
-          {`${item.likes.length} Likes`}
+          {`${props.item.likes.length} Likes`}
         </Text>
         <SvgXml
           xml={svgImages.smallDot}
-          style={{height: 10, width: 10, marginHorizontal: 10}}
+          style={{ height: 10, width: 10, marginHorizontal: 10 }}
         />
         <Text
           style={{
             fontFamily: fontFamily.argentum_sans,
             color: theme.colors.greyText,
-          }}>{`${item.comments.length} Comments`}</Text>
+          }}>{`${props.item.comments.length} Comments`}</Text>
       </View>
       <View
         style={{
@@ -243,10 +236,10 @@ function Post({item, index}) {
             flexDirection: 'row',
             paddingHorizontal: 15,
           }}>
-          <View style={{alignItems: 'center', marginRight: 30}}>
+          <View style={{ alignItems: 'center', marginRight: 30 }}>
             <Image
               source={require('../../assets/images/thumbsUp.png')}
-              style={{height: 24, width: 24}}
+              style={{ height: 24, width: 24 }}
             />
             <Text
               style={{
@@ -257,10 +250,10 @@ function Post({item, index}) {
               Like
             </Text>
           </View>
-          <View style={{alignItems: 'center', marginRight: 30}}>
+          <View style={{ alignItems: 'center', marginRight: 30 }}>
             <Image
               source={require('../../assets/images/chatIcon.png')}
-              style={{height: 24, width: 24}}
+              style={{ height: 24, width: 24 }}
             />
             <Text
               style={{
@@ -271,10 +264,10 @@ function Post({item, index}) {
               Comment
             </Text>
           </View>
-          <View style={{alignItems: 'center'}}>
+          <View style={{ alignItems: 'center' }}>
             <Image
               source={require('../../assets/images/shareIcon.png')}
-              style={{height: 24, width: 24}}
+              style={{ height: 24, width: 24 }}
             />
             <Text
               style={{
@@ -294,7 +287,7 @@ function Post({item, index}) {
             justifyContent: 'space-between',
           }}>
           <Image
-            source={item.user.image ? {uri: item.user.image} : userPlaceholder}
+            source={props.item.user.image ? { uri: props.item.user.image } : userPlaceholder}
             style={{
               width: 0.09 * screenWidth,
               height: 0.09 * screenWidth,

@@ -13,5 +13,8 @@ export const END_POINTS = {
   subscription: '/payments/start-subscription',
   sentReq: '/friend-requests',
   sentReqList: '/friend-requests/sent',
+  receivedReqList: '/friend-requests/received',
+  acceptReq: '/friend-requests/accept-request',
+  cancelReq: '/friend-requests/cancel-request',
   fetchAllPosts: '/posts',
 };

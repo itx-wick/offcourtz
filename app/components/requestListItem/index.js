@@ -1,32 +1,32 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {Image, View} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Image, View } from 'react-native';
 import moment from 'moment';
-import {svgImages} from '../../helpers';
-import {SvgXml} from 'react-native-svg';
-import {theme} from '../../theme';
-import {fontFamily, fontSize} from '../../constants/fontDecorations';
+import { svgImages } from '../../helpers';
+import { SvgXml } from 'react-native-svg';
+import { theme } from '../../theme';
+import { fontFamily, fontSize } from '../../constants/fontDecorations';
 import userPlaceholder from '../../assets/images/userImg1.png';
-import {screenWidth} from '../../constants';
+import { screenWidth } from '../../constants';
 
-function RequestListItem({item, index, status}) {
-  let time = moment(item.createdAt).fromNow();
+function RequestListItem(props) {
+  let time = moment(props.item.createdAt).fromNow();
   return (
-    <View key={index} style={styles.itemContainer}>
+    <View key={props.index} style={styles.itemContainer}>
       <Image
         source={
-          item.receiver.image ? {uri: item.receiver.image} : userPlaceholder
+          props.item.receiver.image ? { uri: props.item.receiver.image } : userPlaceholder
         }
         style={styles.userImage}
       />
       <View style={styles.itemSecCont}>
         <View>
-          <Text style={styles.listItemTitle}>{item.receiver.firstName}</Text>
+          <Text style={styles.listItemTitle}>{props.status === "Received" ? props.item.sender.firstName : props.item.receiver.firstName}</Text>
           <Text style={styles.listItemTime}>{time}</Text>
         </View>
-        {status === 'Recieved' ? (
-          <View style={{flexDirection: 'row'}}>
-            <TouchableOpacity onPress={() => {}}>
+        {props.status === 'Received' ? (
+          <View style={{ flexDirection: 'row' }}>
+            <TouchableOpacity onPress={() => props.reqCancelCallback()}>
               <SvgXml
                 xml={svgImages.cancelIcon}
                 width={37}
@@ -34,7 +34,7 @@ function RequestListItem({item, index, status}) {
                 style={styles.listItemIcon}
               />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity onPress={() => props.reqAcceptCallback()}>
               <SvgXml
                 xml={svgImages.acceptIcon}
                 width={37}
@@ -44,7 +44,7 @@ function RequestListItem({item, index, status}) {
             </TouchableOpacity>
           </View>
         ) : (
-          <TouchableOpacity style={styles.cancelReqBtn}>
+          <TouchableOpacity onPress={() => props.reqCancelCallback()} style={styles.cancelReqBtn}>
             <Text style={styles.cancelReqBtnText}>Cancel Request</Text>
           </TouchableOpacity>
         )}

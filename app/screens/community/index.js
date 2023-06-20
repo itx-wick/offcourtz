@@ -1,4 +1,4 @@
-import React, {useRef, useMemo, useState} from 'react';
+import React, { useRef, useMemo, useState } from 'react';
 import {
   Image,
   Platform,
@@ -8,23 +8,23 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {SvgXml} from 'react-native-svg';
+import { SvgXml } from 'react-native-svg';
 
-import {svgImages} from '../../helpers';
-import {theme} from '../../theme';
-import {END_POINTS, screens} from '../../config';
-import {screenHeight, screenWidth} from '../../constants';
-import {fontFamily, fontSize} from '../../constants/fontDecorations';
-import {setCommunityPosts} from '../../redux/reducers/communitySlice';
-import {Commons} from '../../utils';
+import { svgImages } from '../../helpers';
+import { theme } from '../../theme';
+import { END_POINTS, screens } from '../../config';
+import { screenHeight, screenWidth } from '../../constants';
+import { fontFamily, fontSize } from '../../constants/fontDecorations';
+import { setCommunityPosts } from '../../redux/reducers/communitySlice';
+import { Commons } from '../../utils';
 import AppFlatlist from '../../components/appFlatlist';
 import Post from '../../components/communityPost';
 import FAB from '../../components/fab';
 import BottomSheetModalView from '../../components/bottomSheetModalView';
-import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
+import { BottomSheetBackdrop } from '@gorhom/bottom-sheet';
 import ApiService from '../../services/ApiService';
-import {useDispatch, useSelector} from 'react-redux';
-function Community({navigation}) {
+import { useDispatch, useSelector } from 'react-redux';
+function Community({ navigation }) {
   const dispatch = useDispatch();
   const authToken = useSelector(state => state.Auth.token);
   const allPosts = useSelector(state => state.Community.posts);
@@ -68,7 +68,7 @@ function Community({navigation}) {
     !IsEnable && setIsEnable(true);
   };
 
-  const renderListItem = ({item, index}) => {
+  const renderListItem = ({ item, index }) => {
     return (
       <TouchableOpacity
         onPress={() => {
@@ -84,7 +84,7 @@ function Community({navigation}) {
           paddingVertical: 15,
           marginBottom: Platform.OS === 'ios' ? 10 : 0,
         }}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <SvgXml
             xml={index === 0 ? svgImages.plusCircleIcon : svgImages.usersIcon}
           />
@@ -163,9 +163,9 @@ function Community({navigation}) {
             marginTop: 20,
             backgroundColor: theme.colors.white,
           }}
-          ListFooterComponent={<View style={{paddingHorizontal: 10}} />}
+          ListFooterComponent={<View style={{ paddingHorizontal: 10 }} />}
           data={Commons.communityFilter}
-          renderItem={({item, index}) => (
+          renderItem={({ item, index }) => (
             <TouchableOpacity
               style={{
                 flexDirection: 'row',
@@ -184,7 +184,7 @@ function Community({navigation}) {
               onPress={() => {
                 setFilter(item);
               }}>
-              <SvgXml xml={svgImages.smallLogoIcon} style={{marginRight: 5}} />
+              <SvgXml xml={svgImages.smallLogoIcon} style={{ marginRight: 5 }} />
               <Text
                 style={{
                   fontFamily: fontFamily.argentum_sans,
@@ -197,9 +197,9 @@ function Community({navigation}) {
         />
         <AppFlatlist
           data={postsList}
-          ListFooterComponent={<View style={{height: 0.66 * screenWidth}} />}
+          ListFooterComponent={<View style={{ height: 0.66 * screenWidth }} />}
           height={screenHeight}
-          renderItem={({item, index}) => <Post item={item} index={index} />}
+          renderItem={({ item, index }) => <Post item={item} index={index} />}
         />
         <FAB
           onPress={() => {
