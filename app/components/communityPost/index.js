@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Image,
-  StyleSheet,
-  Platform,
-} from 'react-native';
+import {View, Text, Image, StyleSheet, Platform} from 'react-native';
+import {useToast} from 'react-native-toast-notifications';
 import {
   fontFamily,
   fontSize,
@@ -15,9 +9,60 @@ import {
 import {theme} from '../../theme';
 import {screenWidth} from '../../constants';
 import {svgImages} from '../../helpers';
+import userPlaceholder from '../../assets/images/user.jpeg';
+import {setLoader} from '../../redux/reducers/commonSlice';
+import ApiService from '../../services/ApiService';
+import {END_POINTS, screens} from '../../config';
 import {SvgXml} from 'react-native-svg';
-import {TextInput} from 'react-native-gesture-handler';
+import {TextInput, TouchableOpacity} from 'react-native-gesture-handler';
+import moment from 'moment/moment';
+import {useDispatch, useSelector} from 'react-redux';
 function Post({item, index}) {
+  const toast = useToast();
+  const dispatch = useDispatch();
+  const auth = useSelector(state => state.Auth.user);
+  const authToken = useSelector(state => state.Auth.token);
+  const myFriends = useSelector(state => state.Auth.friends);
+  const [isExist, setIsExist] = React.useState(false);
+
+  React.useEffect(() => {
+    console.log(item);
+    const exist = myFriends.some(obj => obj?._id === item.user._id);
+    setIsExist(exist);
+  }, [myFriends]);
+
+  const showToast = (type, msg, duration) => {
+    toast.show(msg, {
+      type: type,
+      placement: 'bottom',
+      duration: duration,
+      offset: 30,
+      animationType: 'zoom-in',
+    });
+  };
+
+  const reqSent = async id => {
+    try {
+      let body = {
+        receiver: id,
+      };
+      dispatch(setLoader(true));
+      await ApiService.post(END_POINTS.sentReq, body, authToken)
+        .then(res => {
+          console.log('Response', JSON.stringify(res, null, 2));
+          dispatch(setLoader(false));
+        })
+        .catch(err => {
+          dispatch(setLoader(false));
+          showToast('normal', err, 3000);
+          console.log('promise error', err);
+        });
+    } catch (error) {
+      showToast('normal', error, 3000);
+      console.log('try/catch', error);
+    }
+  };
+
   return (
     <View
       style={{
@@ -32,41 +77,41 @@ function Post({item, index}) {
           top: 15,
           right: 15,
         }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            padding: 5,
-            marginHorizontal: 10,
+        {/* {!isExist && auth?._id !== item.user._id && ( */}
+        <TouchableOpacity
+          onPress={() => {
+            console.log('Item', item._id);
+            // reqSent(item._id);
           }}>
-          <SvgXml xml={svgImages.userCirclePlus} />
-          <Text
+          <View
             style={{
-              fontFamily: fontFamily.argentum_sans,
-              fontSize: fontSize.verbiage_14,
-              fontWeight: fontWeight[400],
-              color: theme.colors.black,
-              marginHorizontal: 3,
+              flexDirection: 'row',
+              alignItems: 'center',
+              padding: 5,
+              marginHorizontal: 10,
             }}>
-            Add as friend
-          </Text>
-        </View>
+            <SvgXml xml={svgImages.userCirclePlus} />
+            <Text
+              style={{
+                fontFamily: fontFamily.argentum_sans,
+                fontSize: fontSize.verbiage_14,
+                fontWeight: fontWeight[400],
+                color: theme.colors.black,
+                marginHorizontal: 3,
+              }}>
+              Add as friend
+            </Text>
+          </View>
+        </TouchableOpacity>
+        {/* )} */}
         <SvgXml xml={svgImages.threeDots} />
       </View>
-      {/* <TouchableOpacity
-        style={{
-          position: 'absolute',
-          width: 0.08 * screenWidth,
-          height: 0.08 * screenWidth,
-          alignItems: 'flex-end',
-          top: 15,
-          right: 20,
-        }}>
-        <SvgXml xml={svgImages.threeDots} />
-      </TouchableOpacity> */}
       <View style={{padding: 15}}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Image source={item.userImage} style={styles.userImage} />
+          <Image
+            source={item.user.image ? {uri: item.user.image} : userPlaceholder}
+            style={styles.userImage}
+          />
           <View>
             <Text
               style={{
@@ -74,7 +119,7 @@ function Post({item, index}) {
                 fontSize: fontSize.verbiage_20,
                 color: theme.colors.black,
               }}>
-              {item.name}
+              {item.user.firstName}
             </Text>
             <Text
               style={{
@@ -82,8 +127,9 @@ function Post({item, index}) {
                 fontSize: fontSize.verbiage_14,
                 color: theme.colors.greyText,
                 marginVertical: 3,
+                textTransform: 'capitalize',
               }}>
-              {item.postTime}
+              {moment(item.createdAt).fromNow()}
             </Text>
           </View>
         </View>
@@ -96,9 +142,9 @@ function Post({item, index}) {
             marginBottom: 10,
             color: theme.colors.black,
           }}>
-          {item.desc}
+          {item.caption}
         </Text>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        {/* <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <View
             style={{
               flexDirection: 'row',
@@ -156,10 +202,10 @@ function Post({item, index}) {
               {item.playCount}
             </Text>
           </View>
-        </View>
+        </View> */}
       </View>
       <Image
-        source={item.image}
+        source={{uri: item.image}}
         style={{width: screenWidth, height: 0.7 * screenWidth}}
       />
       <View
@@ -173,7 +219,9 @@ function Post({item, index}) {
           style={{
             fontFamily: fontFamily.argentum_sans,
             color: theme.colors.greyText,
-          }}>{`${item.likes} Likes`}</Text>
+          }}>
+          {`${item.likes.length} Likes`}
+        </Text>
         <SvgXml
           xml={svgImages.smallDot}
           style={{height: 10, width: 10, marginHorizontal: 10}}
@@ -182,7 +230,7 @@ function Post({item, index}) {
           style={{
             fontFamily: fontFamily.argentum_sans,
             color: theme.colors.greyText,
-          }}>{`${item.comments} Comments`}</Text>
+          }}>{`${item.comments.length} Comments`}</Text>
       </View>
       <View
         style={{
@@ -245,10 +293,20 @@ function Post({item, index}) {
             alignItems: 'center',
             justifyContent: 'space-between',
           }}>
-          <Image source={item.userImage} />
+          <Image
+            source={item.user.image ? {uri: item.user.image} : userPlaceholder}
+            style={{
+              width: 0.09 * screenWidth,
+              height: 0.09 * screenWidth,
+              borderRadius: 0.09 * screenWidth,
+              resizeMode: 'center',
+              borderColor: theme.colors.greyText,
+              borderWidth: 1,
+            }}
+          />
           <TextInput
             style={{
-              width: 0.82 * screenWidth,
+              width: 0.84 * screenWidth,
               borderWidth: 1,
               borderColor: theme.colors.gray1,
               padding: Platform.OS === 'ios' ? 10 : 5,
@@ -277,5 +335,6 @@ const styles = StyleSheet.create({
     marginRight: 10,
     resizeMode: 'contain',
     borderColor: theme.colors.greyText,
+    borderWidth: 1,
   },
 });

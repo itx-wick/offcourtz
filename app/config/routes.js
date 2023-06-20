@@ -11,5 +11,7 @@ export const END_POINTS = {
   createPost: '/posts',
   myFriends: '/friends/my',
   subscription: '/payments/start-subscription',
+  sentReq: '/friend-requests',
   sentReqList: '/friend-requests/sent',
+  fetchAllPosts: '/posts',
 };

@@ -23,6 +23,17 @@ export default {
         });
     });
   },
+  getByParams: (endpoint, token, params) => {
+    return new Promise((resolve, reject) => {
+      api('GET', endpoint + params, null, token)
+        .then(res => {
+          resolve(res);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
+  },
   patch: (endpoint, body, token, id = '') => {
     return new Promise((resolve, reject) => {
       api('PATCH', endpoint + id, body, token)
