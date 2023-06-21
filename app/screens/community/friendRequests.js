@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { FlatList, Platform, StyleSheet, TouchableOpacity } from 'react-native';
-import { View, Text } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {FlatList, Platform, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text} from 'react-native';
 
-import { theme } from '../../theme';
+import {theme} from '../../theme';
 import {
   fontFamily,
   fontSize,
   fontWeight,
 } from '../../constants/fontDecorations';
-import { screenHeight, screenWidth } from '../../constants';
-import { svgImages } from '../../helpers';
-import { END_POINTS, screens } from '../../config';
-import { SvgXml } from 'react-native-svg';
-import { Commons } from '../../utils';
+import {screenHeight, screenWidth} from '../../constants';
+import {svgImages} from '../../helpers';
+import {END_POINTS, screens} from '../../config';
+import {SvgXml} from 'react-native-svg';
+import {Commons} from '../../utils';
 import RequestListItem from '../../components/requestListItem';
 import ListEmptyComponent from '../../components/listEmptyComponent';
 import ApiService from '../../services/ApiService';
-import { useDispatch, useSelector } from 'react-redux';
-import { setLoader } from '../../redux/reducers/commonSlice';
-function FriendRequests({ navigation }) {
+import {useDispatch, useSelector} from 'react-redux';
+import {setLoader} from '../../redux/reducers/commonSlice';
+function FriendRequests({navigation}) {
   const dispatch = useDispatch();
   const isLoader = useSelector(state => state.Common.loader);
   const authToken = useSelector(state => state.Auth.token);
@@ -32,7 +32,7 @@ function FriendRequests({ navigation }) {
 
   const getMySentList = async () => {
     if (!isLoader) {
-      dispatch(setLoader(true))
+      dispatch(setLoader(true));
     }
     await ApiService.get(END_POINTS.sentReqList, authToken)
       .then(res => {
@@ -47,7 +47,7 @@ function FriendRequests({ navigation }) {
 
   const getMyReceivedList = async () => {
     if (!isLoader) {
-      dispatch(setLoader(true))
+      dispatch(setLoader(true));
     }
     await ApiService.get(END_POINTS.receivedReqList, authToken)
       .then(res => {
@@ -60,10 +60,10 @@ function FriendRequests({ navigation }) {
       });
   };
 
-  const acceptReq = async (item) => {
+  const acceptReq = async item => {
     let body = {
       friendRequestId: item._id,
-    }
+    };
     dispatch(setLoader(true));
     await ApiService.post(END_POINTS.acceptReq, body, authToken)
       .then(res => {
@@ -77,11 +77,11 @@ function FriendRequests({ navigation }) {
       });
   };
 
-  const cancelReq = async (item) => {
+  const cancelReq = async item => {
     // console.log(item);
     let body = {
       friendRequestId: item._id,
-    }
+    };
     dispatch(setLoader(true));
     await ApiService.post(END_POINTS.cancelReq, body, authToken)
       .then(res => {
@@ -112,8 +112,16 @@ function FriendRequests({ navigation }) {
     return <ListEmptyComponent message={'No friend requests found'} />;
   };
 
-  const renderItem = ({ item, index }) => {
-    return <RequestListItem item={item} index={index} status={status} reqAcceptCallback={() => acceptReq(item)} reqCancelCallback={() => cancelReq(item)} />;
+  const renderItem = ({item, index}) => {
+    return (
+      <RequestListItem
+        item={item}
+        index={index}
+        status={status}
+        reqAcceptCallback={() => acceptReq(item)}
+        reqCancelCallback={() => cancelReq(item)}
+      />
+    );
   };
 
   return (
@@ -122,13 +130,13 @@ function FriendRequests({ navigation }) {
         <View style={styles.headContainer}>
           <TouchableOpacity
             onPress={navigateBack}
-            style={{ position: 'absolute', left: 15 }}>
+            style={{position: 'absolute', left: 15}}>
             <SvgXml width="36" height="36 " xml={svgImages.back} />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Friend Requests</Text>
           <TouchableOpacity
             onPress={() => navigation.navigate(screens.groupRequests)}
-            style={{ position: 'absolute', right: 15 }}>
+            style={{position: 'absolute', right: 15}}>
             <Text
               style={{
                 fontFamily: fontFamily.argentum_sans,

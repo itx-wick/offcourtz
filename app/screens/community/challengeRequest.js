@@ -44,7 +44,7 @@ function ChallengeRequests({navigation}) {
   };
 
   const renderItem = ({item, index}) => {
-    return <RequestListItem item={item} index={index} status={status} />;
+    return <View />;
   };
   return (
     <View style={styles.mainContainer}>

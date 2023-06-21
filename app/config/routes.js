@@ -17,4 +17,5 @@ export const END_POINTS = {
   acceptReq: '/friend-requests/accept-request',
   cancelReq: '/friend-requests/cancel-request',
   fetchAllPosts: '/posts',
+  unfriend: '/friends/unfriend/',
 };

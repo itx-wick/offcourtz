@@ -20,6 +20,7 @@ const screens = {
   createNewGroup: 'CreateNewGroup',
   editGroup: 'EditGroup',
   manageCommunity: 'ManageCommunity',
+  myFriends: 'MyFriends',
   manageGroups: 'ManageGroups',
   friendRequests: 'FriendRequests',
   groupRequests: 'GroupRequests',

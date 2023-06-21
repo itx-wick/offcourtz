@@ -1,10 +1,14 @@
 import React, {useState, useRef} from 'react';
 import {
   ImageBackground,
+  Keyboard,
   ScrollView,
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
+import AWS from 'aws-sdk';
+import fs from 'react-native-fs';
+import {decode} from 'base64-arraybuffer';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {View, Text} from 'react-native';
 import {theme} from '../../theme';
@@ -17,7 +21,7 @@ import Modal from 'react-native-modal';
 import userPlaceholder from '../../assets/images/user.jpeg';
 import {screenHeight, screenWidth} from '../../constants';
 import {svgImages} from '../../helpers';
-import {screens} from '../../config';
+import {END_POINTS, screens} from '../../config';
 import {SvgXml} from 'react-native-svg';
 import Button from '../../components/button';
 import {Commons} from '../../utils';
@@ -26,17 +30,49 @@ import {FlatList} from 'react-native';
 import {Image} from 'react-native';
 import {Platform} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
+import {setLoader} from '../../redux/reducers/commonSlice';
+import {launchImageLibrary} from 'react-native-image-picker';
+import {useToast} from 'react-native-toast-notifications';
+import ApiService from '../../services/ApiService';
 function CreateNewGroup({navigation}) {
+  const toast = useToast();
   const searchRef = useRef();
   const dispatch = useDispatch();
   const authToken = useSelector(state => state.Auth.token);
   const myFriends = useSelector(state => state.Auth.friends);
   const [search, setSearch] = useState('');
+  const [name, setName] = useState('');
+  const [desc, setDesc] = useState('');
   const [status, setStatus] = useState('Public');
   const [listTab, setListTab] = useState(Commons.groupTabs);
   const [data, setData] = useState(myFriends);
   const [selectedItem, setSelectedItem] = useState({});
+  const [selectedImage, setSelectedImage] = useState({});
   const [modalVisible, setModalVisible] = useState(false);
+  const [nameFocus, setNameFocus] = React.useState(false);
+  const [descFocus, setDescFocus] = React.useState(false);
+  const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+
+  React.useEffect(() => {
+    dispatch(setLoader(false));
+    const keyboardDidShowListener = Keyboard.addListener(
+      'keyboardDidShow',
+      () => {
+        setKeyboardVisible(true); // or some other action
+      },
+    );
+    const keyboardDidHideListener = Keyboard.addListener(
+      'keyboardDidHide',
+      () => {
+        setKeyboardVisible(false); // or some other action
+      },
+    );
+
+    return () => {
+      keyboardDidHideListener.remove();
+      keyboardDidShowListener.remove();
+    };
+  }, []);
 
   React.useEffect(() => {
     console.log('My Friends', JSON.stringify(myFriends, null, 2));
@@ -71,6 +107,7 @@ function CreateNewGroup({navigation}) {
             selected: !item.selected,
           };
           setData([...data]);
+          console.log(JSON.stringify(item, null, 2));
         }}
         style={styles.listItem}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -97,6 +134,18 @@ function CreateNewGroup({navigation}) {
     );
   };
 
+  const pickImages = async () => {
+    await launchImageLibrary({
+      mediaType: 'photo',
+    })
+      .then(async res => {
+        setSelectedImage(res.assets[0]);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   const flatListItemSeparator = () => {
     return (
       <View
@@ -112,6 +161,114 @@ function CreateNewGroup({navigation}) {
   const navigateBack = () => {
     navigation.goBack();
   };
+
+  const showToast = (type, msg, duration) => {
+    toast.show(msg, {
+      type: type,
+      placement: 'bottom',
+      duration: duration,
+      offset: 30,
+      animationType: 'zoom-in',
+    });
+  };
+
+  const handleChange = (type, value) => {
+    if (type === 'Name') {
+      setName(value);
+    } else if (type === 'Description') {
+      setDesc(value);
+    }
+  };
+
+  const fieldError = inputType => {
+    if (inputType == 'name') {
+      if (name === '') {
+        return 'Group Name Required';
+      } else if (name.length < 4) return 'Group Name Too Short';
+    } else if (inputType == 'description') {
+      if (desc === '') {
+        return 'Group Description Required';
+      }
+    }
+  };
+
+  const validateData = () => {
+    Keyboard.dismiss();
+    if (name == '' || name.length < 4) {
+      showToast('normal', fieldError('name'), 3000);
+    } else if (desc == '') {
+      showToast('normal', fieldError('description'), 3000);
+    } else {
+      process();
+    }
+  };
+
+  const process = async () => {
+    try {
+      dispatch(setLoader(true));
+      if (Object.keys(selectedImage).length !== 0) {
+        uploadFileToS3(selectedImage);
+      }
+      dispatch(setLoader(false));
+    } catch (error) {
+      showToast('normal', error, 3000);
+      console.log('try/catch', error);
+    }
+  };
+
+  const uploadFileToS3 = async imgFile => {
+    const s3bucket = new AWS.S3({
+      accessKeyId: 'AKIAZGOWSY7KCYB2AESW',
+      secretAccessKey: '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',
+      Bucket: 'offcourtz-files',
+      signatureVersion: 'v4',
+    });
+    const contentType = imgFile.type;
+    const contentDeposition = `inline;filename="${imgFile.fileName}"`;
+    const fPath = imgFile.uri;
+    const base64 = await fs.readFile(fPath, 'base64');
+    const arrayBuffer = decode(base64);
+
+    s3bucket.createBucket(() => {
+      const params = {
+        Bucket: 'offcourtz-files',
+        Key: 'images/' + imgFile.fileName,
+        Body: arrayBuffer,
+        ContentDisposition: contentDeposition,
+        ContentType: contentType,
+      };
+      s3bucket.upload(params, async (error, data) => {
+        if (error) {
+          console.log('Uploading Error', error);
+        } else {
+          console.log('Data', data.Location);
+          let body = {
+            caption: name,
+            isGlobal: desc,
+            image: data.Location,
+          };
+          // console.log('Auth Token', authToken);
+          // await ApiService.post(END_POINTS.createPost, body, authToken)
+          //   .then(res => {
+          //     console.log(
+          //       'Post Created Response',
+          //       JSON.stringify(res, null, 2),
+          //     );
+          //     setTimeout(() => {
+          //       setModalVisible(true);
+          //     }, 0);
+          //     dispatch(setLoader(false));
+          //   })
+          //   .catch(err => {
+          //     dispatch(setLoader(false));
+          //     showToast('normal', err, 3000);
+          //     console.log('promise error', err);
+          //   });
+        }
+      });
+    });
+  };
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.headerMainContainer}>
@@ -154,7 +311,7 @@ function CreateNewGroup({navigation}) {
                     iconHeight={16}
                     iconWidth={16}
                     icon={svgImages.plus}
-                    onPress={() => navigation.navigate(screens.login)}
+                    onPress={() => pickImages()}
                     btnWidth={screenWidth * 0.4}
                     btnHeight={45}
                     titleColor={theme.colors.white}
@@ -193,6 +350,12 @@ function CreateNewGroup({navigation}) {
                   borderRadius={0.12 * screenWidth}
                   placeholderTextColor={theme.colors.greyText}
                   placeholder="England Tennis Group"
+                  onChangeText={e => {
+                    handleChange('Name', e);
+                  }}
+                  onEndEditing={() => setNameFocus(false)}
+                  onFocus={() => setNameFocus(true)}
+                  value={name}
                   style={{
                     paddingHorizontal: 15,
                     fontFamily: fontFamily.argentum_sans,
@@ -221,6 +384,12 @@ function CreateNewGroup({navigation}) {
                   borderRadius={0.12 * screenWidth}
                   placeholderTextColor={theme.colors.greyText}
                   placeholder="Description Of The Group"
+                  onChangeText={e => {
+                    handleChange('Description', e);
+                  }}
+                  onEndEditing={() => setDescFocus(false)}
+                  onFocus={() => setDescFocus(true)}
+                  value={desc}
                   style={{
                     paddingHorizontal: 15,
                     fontFamily: fontFamily.argentum_sans,
@@ -289,7 +458,8 @@ function CreateNewGroup({navigation}) {
             <Button
               title={'CREATE GROUP'}
               onPress={() => {
-                setModalVisible(!modalVisible);
+                validateData();
+                // setModalVisible(!modalVisible);
               }}
               btnWidth={screenWidth * 0.92}
               btnHeight={0.14 * screenWidth}

@@ -13,6 +13,7 @@ export {default as CreateNewPost} from './community/createNewPost';
 export {default as CreateNewGroup} from './community/createNewGroup';
 export {default as EditGroup} from './community/editGroup';
 export {default as ManageCommunity} from './community/manageCommunity';
+export {default as MyFriends} from './community/myFriends';
 export {default as ManageGroups} from './community/manageGroups';
 export {default as FriendRequests} from './community/friendRequests';
 export {default as GroupRequests} from './community/groupRequests';

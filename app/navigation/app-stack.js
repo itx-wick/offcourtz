@@ -19,6 +19,7 @@ import {
   FriendRequests,
   GroupRequests,
   ManageCommunity,
+  MyFriends,
   ManageGroups,
   Notifications,
   Workouts,
@@ -109,6 +110,11 @@ const MainNavigator = ({props}) => {
       <MainStack.Screen
         name={screens.manageCommunity}
         component={ManageCommunity}
+        options={{gestureEnabled: false}}
+      />
+      <MainStack.Screen
+        name={screens.myFriends}
+        component={MyFriends}
         options={{gestureEnabled: false}}
       />
       <MainStack.Screen
