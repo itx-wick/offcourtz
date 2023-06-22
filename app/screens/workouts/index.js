@@ -14,6 +14,7 @@ import {Commons} from '../../utils';
 import {screens} from '../../config';
 import FiltersBottomSheet from '../../components/filtersBottomSheet';
 import {Image} from 'react-native';
+import FastImage from 'react-native-fast-image';
 
 function Workouts({navigation}) {
   const filtersRef = React.useRef(null);
@@ -164,7 +165,7 @@ function Workouts({navigation}) {
                   </View>
                 )}
               </View>
-              <Image
+              <FastImage
                 source={item.image}
                 style={{
                   width: '30%',

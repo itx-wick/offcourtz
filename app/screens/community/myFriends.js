@@ -22,6 +22,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {setLoader} from '../../redux/reducers/commonSlice';
 import ApiService from '../../services/ApiService';
 import ListEmptyComponent from '../../components/listEmptyComponent';
+import FastImage from 'react-native-fast-image';
 
 function MyFriends({navigation}) {
   const searchRef = useRef();
@@ -81,7 +82,7 @@ function MyFriends({navigation}) {
     return (
       <TouchableOpacity onPress={() => {}} style={styles.listItem}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Image
+          <FastImage
             source={item?.image ? {uri: item.image} : userPlaceholder}
             style={styles.userImage}
           />

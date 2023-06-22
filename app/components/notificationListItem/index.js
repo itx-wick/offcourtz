@@ -7,11 +7,12 @@ import {theme} from '../../theme';
 import {fontFamily, fontSize} from '../../constants/fontDecorations';
 import userPlaceholder from '../../assets/images/userImg1.png';
 import {screenWidth} from '../../constants';
+import FastImage from 'react-native-fast-image';
 
 function NotificationListItem({item, index, status}) {
   return (
     <View key={index} style={styles.itemContainer}>
-      <Image source={userPlaceholder} style={styles.userImage} />
+      <FastImage source={userPlaceholder} style={styles.userImage} />
       <View style={styles.itemSecCont}>
         <View>
           <Text style={styles.listItemTitle} numberOfLines={2}>

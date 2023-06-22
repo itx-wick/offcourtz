@@ -27,6 +27,7 @@ import {useDispatch, useSelector} from 'react-redux';
 function Community({navigation}) {
   const dispatch = useDispatch();
   const authToken = useSelector(state => state.Auth.token);
+  const user = useSelector(state => state.Auth.user);
   const allPosts = useSelector(state => state.Community.posts);
   const bottomSheetModalRef = React.useRef(null);
   const snapPoints = useMemo(() => ['23%', '23%'], []);
@@ -39,7 +40,11 @@ function Community({navigation}) {
     let params = `?isGlobal=${filter.title === 'Global' ? true : false}`;
     await ApiService.getByParams(END_POINTS.fetchAllPosts, authToken, params)
       .then(res => {
-        setPostsList(res.data);
+        let newArray = res.data.map(obj => {
+          const exist = obj?.likes.some(ob => ob?._id === user._id);
+          return {...obj, isLiked: exist ? true : false};
+        });
+        setPostsList(newArray);
         dispatch(setCommunityPosts(res));
       })
       .catch(err => {

@@ -34,12 +34,14 @@ import {setLoader} from '../../redux/reducers/commonSlice';
 import {launchImageLibrary} from 'react-native-image-picker';
 import {useToast} from 'react-native-toast-notifications';
 import ApiService from '../../services/ApiService';
+import FastImage from 'react-native-fast-image';
 function CreateNewGroup({navigation}) {
   const toast = useToast();
   const searchRef = useRef();
   const dispatch = useDispatch();
   const authToken = useSelector(state => state.Auth.token);
   const myFriends = useSelector(state => state.Auth.friends);
+  const isLoader = useSelector(state => state.Common.loader);
   const [search, setSearch] = useState('');
   const [name, setName] = useState('');
   const [desc, setDesc] = useState('');
@@ -79,10 +81,6 @@ function CreateNewGroup({navigation}) {
     setData(myFriends);
   }, [myFriends]);
 
-  function handleSelection(e) {
-    setSelectedItem(e);
-  }
-
   const setStatusFilter = status => {
     setStatus(status);
   };
@@ -102,16 +100,17 @@ function CreateNewGroup({navigation}) {
     return (
       <TouchableOpacity
         onPress={() => {
-          data[index] = {
-            ...data[index],
+          console.log(data[index]);
+          const modifiedArray = [...data];
+          modifiedArray[index] = {
+            ...modifiedArray[index],
             selected: !item.selected,
           };
-          setData([...data]);
-          console.log(JSON.stringify(item, null, 2));
+          setData([...modifiedArray]);
         }}
         style={styles.listItem}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Image
+          <FastImage
             source={item?.image ? {uri: item.image} : userPlaceholder}
             style={styles.userImage}
           />
@@ -189,15 +188,20 @@ function CreateNewGroup({navigation}) {
       if (desc === '') {
         return 'Group Description Required';
       }
+    } else if (inputType == 'participants') {
+      return 'Select at least 1 participant';
     }
   };
 
   const validateData = () => {
     Keyboard.dismiss();
+    const count = data.reduce((acc, obj) => (obj.selected ? acc + 1 : acc), 0);
     if (name == '' || name.length < 4) {
       showToast('normal', fieldError('name'), 3000);
     } else if (desc == '') {
       showToast('normal', fieldError('description'), 3000);
+    } else if (count === 0) {
+      showToast('normal', fieldError('participants'), 3000);
     } else {
       process();
     }
@@ -208,8 +212,10 @@ function CreateNewGroup({navigation}) {
       dispatch(setLoader(true));
       if (Object.keys(selectedImage).length !== 0) {
         uploadFileToS3(selectedImage);
+      } else {
+        createGroup();
       }
-      dispatch(setLoader(false));
+      // dispatch(setLoader(false));
     } catch (error) {
       showToast('normal', error, 3000);
       console.log('try/catch', error);
@@ -242,31 +248,33 @@ function CreateNewGroup({navigation}) {
           console.log('Uploading Error', error);
         } else {
           console.log('Data', data.Location);
-          let body = {
-            caption: name,
-            isGlobal: desc,
-            image: data.Location,
-          };
-          // console.log('Auth Token', authToken);
-          // await ApiService.post(END_POINTS.createPost, body, authToken)
-          //   .then(res => {
-          //     console.log(
-          //       'Post Created Response',
-          //       JSON.stringify(res, null, 2),
-          //     );
-          //     setTimeout(() => {
-          //       setModalVisible(true);
-          //     }, 0);
-          //     dispatch(setLoader(false));
-          //   })
-          //   .catch(err => {
-          //     dispatch(setLoader(false));
-          //     showToast('normal', err, 3000);
-          //     console.log('promise error', err);
-          //   });
+          createGroup(data.Location);
         }
       });
     });
+  };
+
+  const createGroup = async (img = null) => {
+    let body = {
+      title: name,
+      type: status,
+      description: desc,
+      image: img,
+      participants: data.filter(obj => obj.selected === true),
+    };
+    await ApiService.post(END_POINTS.createGroup, body, authToken)
+      .then(res => {
+        console.log('Group Created Response', JSON.stringify(res, null, 2));
+        setTimeout(() => {
+          setModalVisible(true);
+        }, 0);
+        dispatch(setLoader(false));
+      })
+      .catch(err => {
+        dispatch(setLoader(false));
+        showToast('normal', err, 3000);
+        console.log('promise error', err);
+      });
   };
 
   return (
@@ -298,7 +306,11 @@ function CreateNewGroup({navigation}) {
                     alignItems: 'center',
                     justifyContent: 'space-evenly',
                     backgroundColor: theme.colors.white,
-                  }}>
+                  }}
+                  imageStyle={{
+                    borderRadius: 15,
+                  }}
+                  source={{uri: selectedImage.uri}}>
                   <View style={{height: 50}}>
                     <SvgXml
                       width="60"

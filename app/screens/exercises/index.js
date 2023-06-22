@@ -25,6 +25,7 @@ import AppFlatlist from '../../components/appFlatlist';
 import {Platform} from 'react-native';
 import FiltersBottomSheet from '../../components/filtersBottomSheet';
 import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
+import FastImage from 'react-native-fast-image';
 function Exercises({navigation}) {
   const filtersRef = React.useRef(null);
   const snapPoints = React.useMemo(() => ['100%', '100%'], []);
@@ -142,7 +143,7 @@ function Exercises({navigation}) {
                 </View>
               )}
             </View>
-            <Image
+            <FastImage
               source={item.image}
               style={{
                 width: '30%',

@@ -1,22 +1,23 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, Platform } from 'react-native';
-import { useToast } from 'react-native-toast-notifications';
+import {View, Text, Image, StyleSheet, Platform} from 'react-native';
+import {useToast} from 'react-native-toast-notifications';
 import {
   fontFamily,
   fontSize,
   fontWeight,
 } from '../../constants/fontDecorations';
-import { theme } from '../../theme';
-import { screenWidth } from '../../constants';
-import { svgImages } from '../../helpers';
+import {theme} from '../../theme';
+import {screenWidth} from '../../constants';
+import {svgImages} from '../../helpers';
 import userPlaceholder from '../../assets/images/user.jpeg';
-import { setLoader } from '../../redux/reducers/commonSlice';
+import {setLoader} from '../../redux/reducers/commonSlice';
 import ApiService from '../../services/ApiService';
-import { END_POINTS, screens } from '../../config';
-import { SvgXml } from 'react-native-svg';
-import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+import {END_POINTS, screens} from '../../config';
+import {SvgXml} from 'react-native-svg';
+import {TextInput, TouchableOpacity} from 'react-native-gesture-handler';
 import moment from 'moment/moment';
-import { useDispatch, useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import FastImage from 'react-native-fast-image';
 function Post(props) {
   const toast = useToast();
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ function Post(props) {
   const [isExist, setIsExist] = React.useState(false);
 
   React.useEffect(() => {
-    console.log("Post", props.item);
+    console.log('Post', props.item);
     const exist = myFriends.some(obj => obj?._id === props.item.user._id);
     setIsExist(exist);
   }, [myFriends]);
@@ -69,10 +70,17 @@ function Post(props) {
         backgroundColor: theme.colors.white,
         marginTop: 5,
       }}>
-      <View style={{ padding: 15 }}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Image source={props.item.user.image ? { uri: props.item.user.image } : userPlaceholder} style={styles.userImage} />
+      <View style={{padding: 15}}>
+        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <FastImage
+              source={
+                props.item.user.image
+                  ? {uri: props.item.user.image}
+                  : userPlaceholder
+              }
+              style={styles.userImage}
+            />
             <View>
               <Text
                 style={{
@@ -93,13 +101,13 @@ function Post(props) {
               </Text>
             </View>
           </View>
-          <View style={{ flexDirection: 'row', marginVertical: 5 }}>
-            {!isExist && auth?._id !== props.item.user._id &&
+          <View style={{flexDirection: 'row', marginVertical: 5}}>
+            {!isExist && auth?._id !== props.item.user._id && (
               <TouchableOpacity onPress={() => reqSent(props.item.user._id)}>
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginHorizontal: 5
+                    marginHorizontal: 5,
                   }}>
                   <View
                     style={{
@@ -120,7 +128,7 @@ function Post(props) {
                   </View>
                 </View>
               </TouchableOpacity>
-            }
+            )}
             <TouchableOpacity>
               <SvgXml xml={svgImages.threeDots} />
             </TouchableOpacity>
@@ -198,8 +206,8 @@ function Post(props) {
         </View> */}
       </View>
       <Image
-        source={{ uri: props.item.image }}
-        style={{ width: screenWidth, height: 0.7 * screenWidth }}
+        source={{uri: props.item.image}}
+        style={{width: screenWidth, height: 0.7 * screenWidth}}
       />
       <View
         style={{
@@ -213,17 +221,23 @@ function Post(props) {
             fontFamily: fontFamily.argentum_sans,
             color: theme.colors.greyText,
           }}>
-          {`${props.item.likes.length} Likes`}
+          {`${props.item.likes.length} ${
+            props.item.likes.length < 2 ? 'Like' : 'Likes'
+          }`}
         </Text>
         <SvgXml
           xml={svgImages.smallDot}
-          style={{ height: 10, width: 10, marginHorizontal: 10 }}
+          style={{height: 10, width: 10, marginHorizontal: 10}}
         />
         <Text
           style={{
             fontFamily: fontFamily.argentum_sans,
             color: theme.colors.greyText,
-          }}>{`${props.item.comments.length} Comments`}</Text>
+          }}>
+          {`${props.item.comments.length} ${
+            props.item.comments.length < 2 ? 'Comment' : 'Comments'
+          }`}
+        </Text>
       </View>
       <View
         style={{
@@ -236,24 +250,32 @@ function Post(props) {
             flexDirection: 'row',
             paddingHorizontal: 15,
           }}>
-          <View style={{ alignItems: 'center', marginRight: 30 }}>
+          <TouchableOpacity style={{alignItems: 'center', marginRight: 30}}>
             <Image
               source={require('../../assets/images/thumbsUp.png')}
-              style={{ height: 24, width: 24 }}
+              style={{
+                height: 24,
+                width: 24,
+                tintColor: props.item.isLiked
+                  ? theme.colors.primary
+                  : theme.colors.greyText,
+              }}
             />
             <Text
               style={{
                 fontFamily: fontFamily.argentum_sans,
-                color: theme.colors.greyText,
+                color: props.item.isLiked
+                  ? theme.colors.primary
+                  : theme.colors.greyText,
                 marginVertical: 5,
               }}>
               Like
             </Text>
-          </View>
-          <View style={{ alignItems: 'center', marginRight: 30 }}>
+          </TouchableOpacity>
+          <TouchableOpacity style={{alignItems: 'center', marginRight: 30}}>
             <Image
-              source={require('../../assets/images/chatIcon.png')}
-              style={{ height: 24, width: 24 }}
+              source={require('../../assets/images/comment.png')}
+              style={{height: 24, width: 24}}
             />
             <Text
               style={{
@@ -263,11 +285,11 @@ function Post(props) {
               }}>
               Comment
             </Text>
-          </View>
-          <View style={{ alignItems: 'center' }}>
+          </TouchableOpacity>
+          <TouchableOpacity style={{alignItems: 'center'}}>
             <Image
-              source={require('../../assets/images/shareIcon.png')}
-              style={{ height: 24, width: 24 }}
+              source={require('../../assets/images/share.png')}
+              style={{height: 24, width: 24}}
             />
             <Text
               style={{
@@ -277,7 +299,7 @@ function Post(props) {
               }}>
               Share
             </Text>
-          </View>
+          </TouchableOpacity>
         </View>
         <View
           style={{
@@ -287,7 +309,11 @@ function Post(props) {
             justifyContent: 'space-between',
           }}>
           <Image
-            source={props.item.user.image ? { uri: props.item.user.image } : userPlaceholder}
+            source={
+              props.item.user.image
+                ? {uri: props.item.user.image}
+                : userPlaceholder
+            }
             style={{
               width: 0.09 * screenWidth,
               height: 0.09 * screenWidth,

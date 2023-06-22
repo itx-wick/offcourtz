@@ -14,6 +14,7 @@ import Images from '../constants/images';
 import {Platform} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {unlikeItem, updateFavourite} from '../redux/reducers/favouriteSlice';
+import FastImage from 'react-native-fast-image';
 function Favorites({navigation}) {
   const dispatch = useDispatch();
   const favourites = useSelector(state => state.Favourites.data);
@@ -138,7 +139,7 @@ function Favorites({navigation}) {
                 flexDirection: 'row',
                 alignItems: 'center',
               }}>
-              <Image
+              <FastImage
                 source={require('../assets/images/post1.png')}
                 style={{
                   width: 95,

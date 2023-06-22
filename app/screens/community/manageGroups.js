@@ -14,14 +14,29 @@ import {screenHeight, screenWidth} from '../../constants';
 import userPlaceholder from '../../assets/images/user.jpeg';
 import {Commons} from '../../utils';
 import {svgImages} from '../../helpers';
-import {screens} from '../../config';
+import {END_POINTS, screens} from '../../config';
 import {SvgXml} from 'react-native-svg';
 import {FlatList} from 'react-native';
+import FastImage from 'react-native-fast-image';
+import {useDispatch, useSelector} from 'react-redux';
+import {setLoader} from '../../redux/reducers/commonSlice';
+import {myGroups} from '../../redux/reducers/authSlice';
+import ApiService from '../../services/ApiService';
+import ListEmptyComponent from '../../components/listEmptyComponent';
 function ManageGroups({navigation}) {
   const searchRef = useRef();
+  const dispatch = useDispatch();
+  const groups = useSelector(state => state.Auth.groups);
+  const authToken = useSelector(state => state.Auth.token);
   const [search, setSearch] = useState('');
   const [isEnable, setIsEnable] = useState(false);
-  const [data, setData] = useState(Commons.groupsData);
+  const [data, setData] = useState(groups);
+
+  React.useEffect(() => {
+    dispatch(setLoader(false));
+    getMyGroups();
+    setData(groups);
+  }, [groups]);
 
   const onSearch = search => {
     if (search !== '') {
@@ -30,25 +45,51 @@ function ManageGroups({navigation}) {
       });
       setData(tempData);
     } else {
-      setData(Commons.groupsData);
+      setData(groups);
     }
+  };
+
+  const getMyGroups = async () => {
+    dispatch(setLoader(true));
+    await ApiService.get(END_POINTS.myGroups, authToken)
+      .then(res => {
+        const modifiedArray = res.data;
+        // Iterate over each object in the array
+        modifiedArray.forEach(obj => {
+          // Access the inner array
+          const innerArray = obj.participants;
+          // Check if the inner array exists
+          if (innerArray) {
+            // Update the inner array using map()
+            obj.participants = innerArray.map(innerItem => ({
+              ...innerItem,
+              selected: true,
+            }));
+          }
+        });
+        setData(modifiedArray);
+        dispatch(myGroups(modifiedArray));
+        dispatch(setLoader(false));
+      })
+      .catch(err => {
+        dispatch(setLoader(false));
+        console.log('promise error', err);
+      });
   };
 
   const renderListItem = ({item, index}) => {
     return (
-      <TouchableOpacity
-        onPress={() => {
-          data[index].selected = !item.selected;
-          setData([...data]);
-        }}
-        style={styles.listItem}>
+      <TouchableOpacity style={styles.listItem}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Image source={userPlaceholder} style={styles.userImage} />
+          <FastImage
+            source={item?.image ? {uri: item.image} : userPlaceholder}
+            style={styles.userImage}
+          />
           <Text style={styles.listItemTitle}>{item.title}</Text>
         </View>
         <View style={{flexDirection: 'row'}}>
           <TouchableOpacity
-            onPress={() => navigation.navigate(screens.editGroup)}>
+            onPress={() => navigation.navigate(screens.editGroup, item)}>
             <Image
               source={require('../../assets/images/edit.png')}
               style={{width: 50, height: 50, marginHorizontal: 3}}
@@ -77,6 +118,10 @@ function ManageGroups({navigation}) {
         }}
       />
     );
+  };
+
+  const listEmptyComponent = () => {
+    return <ListEmptyComponent message={'You have no groups'} />;
   };
 
   const navigateBack = () => {
@@ -122,6 +167,7 @@ function ManageGroups({navigation}) {
           keyExtractor={item => item.id}
           contentContainerStyle={styles.listContentContainer}
           ItemSeparatorComponent={flatListItemSeparator}
+          ListEmptyComponent={listEmptyComponent}
           renderItem={renderListItem}
           style={{height: screenHeight}}
         />

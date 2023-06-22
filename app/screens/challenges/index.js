@@ -22,6 +22,7 @@ import FiltersBottomSheet from '../../components/filtersBottomSheet';
 import ApiService from '../../services/ApiService';
 import {useDispatch, useSelector} from 'react-redux';
 import {myFriends} from '../../redux/reducers/authSlice';
+import FastImage from 'react-native-fast-image';
 function Challenges({navigation}) {
   const dispatch = useDispatch();
   const authToken = useSelector(state => state.Auth.token);
@@ -106,7 +107,7 @@ function Challenges({navigation}) {
             </View>
           )}
         </View>
-        <Image
+        <FastImage
           source={require('../../assets/images/image1.png')}
           style={{
             width: '30%',

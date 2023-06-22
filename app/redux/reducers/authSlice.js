@@ -4,6 +4,7 @@ let initialState = {
   isLoggedIn: false,
   user: null,
   friends: null,
+  groups: null,
   token: null,
 };
 
@@ -28,6 +29,9 @@ export const authSlice = createSlice({
     },
     myFriends: (state, payload) => {
       state.friends = payload.payload;
+    },
+    myGroups: (state, payload) => {
+      state.groups = payload.payload;
     },
   },
 });

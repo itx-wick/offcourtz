@@ -30,6 +30,7 @@ import {Platform} from 'react-native';
 import {TextInput} from 'react-native';
 import TextField from '../../components/textField';
 import DropDown from '../../components/dropDownView';
+import FastImage from 'react-native-fast-image';
 const {colors} = theme;
 
 const CreateChallenge = ({route, navigation}) => {
@@ -260,7 +261,7 @@ const CreateChallenge = ({route, navigation}) => {
         }}
         style={styles.listItem}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Image source={userPlaceholder} style={styles.userImage} />
+          <FastImage source={userPlaceholder} style={styles.userImage} />
           <Text style={styles.listItemTitle}>{item.title}</Text>
         </View>
         <SvgXml

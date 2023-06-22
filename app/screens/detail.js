@@ -13,6 +13,7 @@ import {Commons} from '../utils';
 import AppFlatlist from '../components/appFlatlist';
 import {useDispatch, useSelector} from 'react-redux';
 import {likeItem, updateFavourite} from '../redux/reducers/favouriteSlice';
+import FastImage from 'react-native-fast-image';
 function Detail({route, navigation}) {
   const dispatch = useDispatch();
   const from = route.params?.from;
@@ -248,7 +249,7 @@ function Detail({route, navigation}) {
                   flexDirection: 'row',
                   alignItems: 'center',
                 }}>
-                <Image
+                <FastImage
                   source={require('../assets/images/post1.png')}
                   style={{
                     width: 95,
