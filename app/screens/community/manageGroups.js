@@ -28,6 +28,7 @@ function ManageGroups({navigation}) {
   const dispatch = useDispatch();
   const groups = useSelector(state => state.Auth.groups);
   const authToken = useSelector(state => state.Auth.token);
+  const isLoader = useSelector(state => state.Common.loader);
   const [search, setSearch] = useState('');
   const [isEnable, setIsEnable] = useState(false);
   const [data, setData] = useState(groups);
@@ -50,8 +51,10 @@ function ManageGroups({navigation}) {
   };
 
   const getMyGroups = async () => {
-    dispatch(setLoader(true));
-    await ApiService.get(END_POINTS.myGroups, authToken)
+    if (isLoader) {
+      dispatch(setLoader(true));
+    }
+    await ApiService.get(END_POINTS.mineGroups, authToken)
       .then(res => {
         const modifiedArray = res.data;
         // Iterate over each object in the array
@@ -70,6 +73,19 @@ function ManageGroups({navigation}) {
         setData(modifiedArray);
         dispatch(myGroups(modifiedArray));
         dispatch(setLoader(false));
+      })
+      .catch(err => {
+        dispatch(setLoader(false));
+        console.log('promise error', err);
+      });
+  };
+
+  const deleteGroup = async id => {
+    dispatch(setLoader(true));
+    await ApiService.delete(END_POINTS.deleteGroup, id, authToken)
+      .then(res => {
+        console.log('Group Deleted Response', JSON.stringify(res, null, 2));
+        getMyGroups();
       })
       .catch(err => {
         dispatch(setLoader(false));
@@ -96,7 +112,10 @@ function ManageGroups({navigation}) {
               resizeMode="contain"
             />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              deleteGroup(item?._id);
+            }}>
             <Image
               source={require('../../assets/images/delete.png')}
               style={{width: 50, height: 50, marginHorizontal: 3}}

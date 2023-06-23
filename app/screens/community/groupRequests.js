@@ -9,26 +9,79 @@ import {
 } from '../../constants/fontDecorations';
 import {screenHeight, screenWidth} from '../../constants';
 import {svgImages} from '../../helpers';
-import {screens} from '../../config';
+import {END_POINTS, screens} from '../../config';
 import {SvgXml} from 'react-native-svg';
 import {Commons} from '../../utils';
 import RequestListItem from '../../components/requestListItem';
 import ListEmptyComponent from '../../components/listEmptyComponent';
+import ApiService from '../../services/ApiService';
+import {useDispatch, useSelector} from 'react-redux';
+import {setLoader} from '../../redux/reducers/commonSlice';
 function GroupRequests({navigation}) {
+  const dispatch = useDispatch();
+  const isLoader = useSelector(state => state.Common.loader);
+  const authToken = useSelector(state => state.Auth.token);
   const [listTab, setListTab] = useState(Commons.listTab);
-  const [status, setStatus] = useState('Recieved');
-  const [dataList, setDataList] = useState(Commons.recievedListData);
+  const [status, setStatus] = useState('Received');
+  const [sentList, setSentList] = useState([]);
+  const [receivedList, setReceivedList] = useState([]);
+
   const setStatusFilter = status => {
     setStatus(status);
   };
 
-  useEffect(() => {
-    if (status === 'Recieved') {
-      setDataList(Commons.recievedListData);
-    } else {
-      setDataList(Commons.sentListData);
+  const getMyReceivedList = async () => {
+    if (!isLoader) {
+      dispatch(setLoader(true));
     }
-  }, [status]);
+    await ApiService.get(END_POINTS.receivedGroupReq, authToken)
+      .then(res => {
+        setReceivedList(res.data.filter(obj => obj.sender !== null));
+        dispatch(setLoader(false));
+      })
+      .catch(err => {
+        dispatch(setLoader(false));
+        console.log('promise error', err);
+      });
+  };
+
+  const acceptReq = async item => {
+    let body = {
+      groupRequestId: item._id,
+    };
+    dispatch(setLoader(true));
+    await ApiService.post(END_POINTS.acceptGroupReq, body, authToken)
+      .then(res => {
+        console.log('Successfull', res);
+        getMyReceivedList();
+      })
+      .catch(err => {
+        dispatch(setLoader(false));
+        console.log('promise error', err);
+      });
+  };
+
+  const cancelReq = async item => {
+    // console.log(item);
+    let body = {
+      groupRequestId: item._id,
+    };
+    dispatch(setLoader(true));
+    await ApiService.post(END_POINTS.cancelGroupReq, body, authToken)
+      .then(res => {
+        console.log('Successfull', res);
+        getMyReceivedList();
+      })
+      .catch(err => {
+        console.log('promise error', err);
+        dispatch(setLoader(false));
+      });
+  };
+
+  useEffect(() => {
+    console.log('Auth Token', authToken);
+    getMyReceivedList();
+  }, []);
 
   const navigateBack = () => {
     navigation.goBack();
@@ -39,7 +92,15 @@ function GroupRequests({navigation}) {
   };
 
   const renderItem = ({item, index}) => {
-    return <RequestListItem item={item} index={index} status={status} />;
+    return (
+      <RequestListItem
+        item={item}
+        index={index}
+        status={status}
+        reqAcceptCallback={() => acceptReq(item)}
+        reqCancelCallback={() => cancelReq(item)}
+      />
+    );
   };
 
   const listEmptyComponent = () => {
@@ -85,7 +146,7 @@ function GroupRequests({navigation}) {
           ))}
         </View>
         <FlatList
-          data={dataList}
+          data={status === 'Sent' ? sentList : receivedList}
           keyExtractor={(e, i) => i.toString()}
           renderItem={renderItem}
           ItemSeparatorComponent={flatListItemSeparator}

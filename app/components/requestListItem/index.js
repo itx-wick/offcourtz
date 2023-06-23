@@ -16,8 +16,8 @@ function RequestListItem(props) {
     <View key={props.index} style={styles.itemContainer}>
       <FastImage
         source={
-          props.item.receiver.image
-            ? {uri: props.item.receiver.image}
+          props.item?.receiver?.image
+            ? {uri: props.item?.receiver?.image}
             : userPlaceholder
         }
         style={styles.userImage}
@@ -26,8 +26,8 @@ function RequestListItem(props) {
         <View>
           <Text style={styles.listItemTitle}>
             {props.status === 'Received'
-              ? props.item.sender.firstName
-              : props.item.receiver.firstName}
+              ? props.item?.sender?.title
+              : props.item?.receiver?.firstName}
           </Text>
           <Text style={styles.listItemTime}>{time}</Text>
         </View>

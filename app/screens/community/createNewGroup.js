@@ -215,7 +215,6 @@ function CreateNewGroup({navigation}) {
       } else {
         createGroup();
       }
-      // dispatch(setLoader(false));
     } catch (error) {
       showToast('normal', error, 3000);
       console.log('try/catch', error);

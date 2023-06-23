@@ -4,7 +4,7 @@ let initialState = {
   isLoggedIn: false,
   user: null,
   friends: null,
-  groups: null,
+  groups: [],
   token: null,
 };
 
@@ -35,5 +35,5 @@ export const authSlice = createSlice({
     },
   },
 });
-export const {register, login, logout, myFriends} = authSlice.actions;
+export const {register, login, logout, myFriends, myGroups} = authSlice.actions;
 export default authSlice.reducer;

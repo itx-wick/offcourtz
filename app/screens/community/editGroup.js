@@ -57,7 +57,6 @@ function EditGroup({navigation, route}) {
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
 
   React.useEffect(() => {
-    console.log(JSON.stringify(grp, null, 2));
     dispatch(setLoader(false));
     const keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
@@ -79,19 +78,8 @@ function EditGroup({navigation, route}) {
   }, []);
 
   React.useEffect(() => {
-    const updatedArray = myFriends.map(obj => {
-      // Check if the object's ID matches the desired ID
-      const matchingObj = grp.participants.find(obj2 => obj2._id === obj._id);
-      if (matchingObj) {
-        // Create a new object with the updated key value(s)
-        return {...obj, selected: matchingObj.selected};
-      } else {
-        // If the ID doesn't match, return the original object
-        return obj;
-      }
-    });
-    setData(updatedArray);
-  }, [myFriends]);
+    setData(grp.participants);
+  }, []);
 
   const setStatusFilter = status => {
     setStatus(status);
@@ -110,17 +98,7 @@ function EditGroup({navigation, route}) {
 
   const renderListItem = ({item, index}) => {
     return (
-      <TouchableOpacity
-        onPress={() => {
-          console.log(data[index]);
-          const modifiedArray = [...data];
-          modifiedArray[index] = {
-            ...modifiedArray[index],
-            selected: !item.selected,
-          };
-          setData([...modifiedArray]);
-        }}
-        style={styles.listItem}>
+      <TouchableOpacity style={styles.listItem}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <FastImage
             source={item?.image ? {uri: item.image} : userPlaceholder}
@@ -207,13 +185,11 @@ function EditGroup({navigation, route}) {
 
   const validateData = () => {
     Keyboard.dismiss();
-    const count = data.reduce((acc, obj) => (obj.selected ? acc + 1 : acc), 0);
+
     if (name == '' || name.length < 4) {
       showToast('normal', fieldError('name'), 3000);
     } else if (desc == '') {
       showToast('normal', fieldError('description'), 3000);
-    } else if (count === 0) {
-      showToast('normal', fieldError('participants'), 3000);
     } else {
       process();
     }
@@ -221,13 +197,12 @@ function EditGroup({navigation, route}) {
 
   const process = async () => {
     try {
-      // dispatch(setLoader(true));
-      // if (Object.keys(selectedImage).length !== 0) {
-      //   uploadFileToS3(selectedImage);
-      // } else {
-      //   createGroup();
-      // }
-      // dispatch(setLoader(false));
+      dispatch(setLoader(true));
+      if (Object.keys(selectedImage).length !== 0) {
+        uploadFileToS3(selectedImage);
+      } else {
+        updateGroup();
+      }
     } catch (error) {
       showToast('normal', error, 3000);
       console.log('try/catch', error);
@@ -260,13 +235,13 @@ function EditGroup({navigation, route}) {
           console.log('Uploading Error', error);
         } else {
           console.log('Data', data.Location);
-          createGroup(data.Location);
+          updateGroup(data.Location);
         }
       });
     });
   };
 
-  const createGroup = async (img = null) => {
+  const updateGroup = async (img = null) => {
     let body = {
       title: name,
       type: status,
@@ -274,9 +249,9 @@ function EditGroup({navigation, route}) {
       image: img,
       participants: data.filter(obj => obj.selected === true),
     };
-    await ApiService.post(END_POINTS.createGroup, body, authToken)
+    await ApiService.patch(END_POINTS.updateGroup, body, authToken, grp?._id)
       .then(res => {
-        console.log('Group Created Response', JSON.stringify(res, null, 2));
+        console.log('Group Updated Response', JSON.stringify(res, null, 2));
         setTimeout(() => {
           setModalVisible(true);
         }, 0);
@@ -485,7 +460,7 @@ function EditGroup({navigation, route}) {
               alignItems: 'center',
             }}>
             <Button
-              title={'CREATE GROUP'}
+              title={'UPDATE GROUP'}
               onPress={() => {
                 validateData();
                 // setModalVisible(!modalVisible);

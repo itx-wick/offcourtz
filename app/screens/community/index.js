@@ -24,6 +24,7 @@ import BottomSheetModalView from '../../components/bottomSheetModalView';
 import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
 import ApiService from '../../services/ApiService';
 import {useDispatch, useSelector} from 'react-redux';
+import ListEmptyComponent from '../../components/listEmptyComponent';
 function Community({navigation}) {
   const dispatch = useDispatch();
   const authToken = useSelector(state => state.Auth.token);
@@ -34,7 +35,7 @@ function Community({navigation}) {
   const [postsList, setPostsList] = useState(allPosts);
   const [data, setData] = useState(Commons.communityModalData);
   const [IsEnable, setIsEnable] = useState(false);
-  const [filter, setFilter] = React.useState({});
+  const [filter, setFilter] = React.useState(Commons.communityFilter[0]);
 
   const getAllPosts = async () => {
     let params = `?isGlobal=${filter.title === 'Global' ? true : false}`;
@@ -53,8 +54,8 @@ function Community({navigation}) {
   };
 
   React.useEffect(() => {
-    setFilter(Commons.communityFilter[0]);
-  }, []);
+    setPostsList(allPosts);
+  }, [allPosts]);
 
   React.useEffect(() => {
     getAllPosts();
@@ -116,6 +117,10 @@ function Community({navigation}) {
         }}
       />
     );
+  };
+
+  const listEmptyComponent = () => {
+    return <ListEmptyComponent message={'Not Found Anything'} />;
   };
 
   return (
@@ -202,6 +207,7 @@ function Community({navigation}) {
         <AppFlatlist
           data={postsList}
           ListFooterComponent={<View style={{height: 0.66 * screenWidth}} />}
+          ListEmptyComponent={listEmptyComponent}
           height={screenHeight}
           renderItem={({item, index}) => <Post item={item} index={index} />}
         />
