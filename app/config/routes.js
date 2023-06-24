@@ -25,4 +25,5 @@ export const END_POINTS = {
   cancelGroupReq: '/group-requests/cancel-request',
   fetchAllPosts: '/posts',
   unfriend: '/friends/unfriend/',
+  createWorkout: '/workouts',
 };

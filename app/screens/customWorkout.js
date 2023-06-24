@@ -1,52 +1,221 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
+  View,
+  Text,
   Image,
   ImageBackground,
   ScrollView,
   StyleSheet,
-  TextInput,
   TouchableOpacity,
+  Platform,
+  Keyboard,
 } from 'react-native';
-import {View, Text} from 'react-native';
-import {theme} from '../theme';
-import TextField from '../components/textField';
-import {fontFamily, fontSize, fontWeight} from '../constants/fontDecorations';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import {screenHeight, screenWidth} from '../constants';
-import userPlaceholder from '../assets/images/user.jpeg';
-import {Commons} from '../utils';
-import {svgImages} from '../helpers';
-import {screens} from '../config';
-import {SvgXml} from 'react-native-svg';
-import {FlatList} from 'react-native';
+import AWS from 'aws-sdk';
+import fs from 'react-native-fs';
+import {decode} from 'base64-arraybuffer';
 import Modal from 'react-native-modal';
-import DropDown from '../components/dropDownView';
+import {SvgXml} from 'react-native-svg';
+import {useDispatch, useSelector} from 'react-redux';
+import {useToast} from 'react-native-toast-notifications';
+import {theme} from '../theme';
+import {Commons} from '../utils';
+import {END_POINTS, screens} from '../config';
+import {svgImages} from '../helpers';
+import {screenWidth} from '../constants';
 import Button from '../components/button';
-import {Platform} from 'react-native';
+import TextField from '../components/textField';
+import ApiService from '../services/ApiService';
+import DropDown from '../components/dropDownView';
+import {setLoader} from '../redux/reducers/commonSlice';
+import {fontFamily, fontSize, fontWeight} from '../constants/fontDecorations';
+import {launchImageLibrary} from 'react-native-image-picker';
+
 function CustomWorkout({navigation}) {
+  const toast = useToast();
+  const dispatch = useDispatch();
+  const authToken = useSelector(state => state.Auth.token);
+  const [title, setTitle] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
+  const [titleFocus, setTitleFocus] = React.useState(false);
+  const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+  const [selectedImage, setSelectedImage] = useState({});
+
+  useEffect(() => {
+    dispatch(setLoader(false));
+    const keyboardDidShowListener = Keyboard.addListener(
+      'keyboardDidShow',
+      () => {
+        setKeyboardVisible(true); // or some other action
+      },
+    );
+    const keyboardDidHideListener = Keyboard.addListener(
+      'keyboardDidHide',
+      () => {
+        setKeyboardVisible(false); // or some other action
+      },
+    );
+
+    return () => {
+      keyboardDidHideListener.remove();
+      keyboardDidShowListener.remove();
+    };
+  }, []);
+
+  const handleChange = (type, value) => {
+    if (type === 'Title') {
+      setTitle(value);
+    }
+  };
+
+  const pickImages = async () => {
+    await launchImageLibrary({
+      mediaType: 'photo',
+    })
+      .then(async res => {
+        setSelectedImage(res.assets[0]);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  const validateData = () => {
+    const data = [...formVal];
+    Keyboard.dismiss();
+    if (title == '' || title.length < 4) {
+      showToast('normal', fieldError('title'), 3000);
+      return;
+    }
+    for (let index = 0; index < data.length; index++) {
+      if (data[index].type == '') {
+        showToast('normal', `Please Choose Exercise-${index + 1} Type`, 3000);
+        return;
+      } else if (data[index].duration == '') {
+        showToast(
+          'normal',
+          `Please Choose Exercise-${index + 1} Duration`,
+          3000,
+        );
+        return;
+      } else if (data[index].name == '') {
+        showToast('normal', `Workout-${index + 1} Name Required`, 3000);
+        return;
+      } else if (data[index].name.length < 4) {
+        showToast('normal', `Workout-${index + 1} Name Too Short`, 3000);
+        return;
+      }
+    }
+    if (Object.keys(selectedImage).length === 0) {
+      showToast('normal', 'Image Required', 3000);
+      return;
+    } else {
+      process();
+    }
+  };
+
+  const fieldError = inputType => {
+    if (inputType == 'title') {
+      if (title === '') {
+        return 'Title Required';
+      } else if (title.length < 4) return 'Title Too Short';
+    }
+  };
+
+  const showToast = (type, msg, duration) => {
+    toast.show(msg, {
+      type: type,
+      placement: 'bottom',
+      duration: duration,
+      offset: 30,
+      animationType: 'zoom-in',
+    });
+  };
+
+  const process = async () => {
+    try {
+      dispatch(setLoader(true));
+      uploadFileToS3(selectedImage);
+    } catch (error) {
+      showToast('normal', error, 3000);
+      console.log('try/catch', error);
+    }
+  };
+
+  const uploadFileToS3 = async imgFile => {
+    const s3bucket = new AWS.S3({
+      accessKeyId: 'AKIAZGOWSY7KCYB2AESW',
+      secretAccessKey: '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',
+      Bucket: 'offcourtz-files',
+      signatureVersion: 'v4',
+    });
+    const contentType = imgFile.type;
+    const contentDeposition = `inline;filename="${imgFile.fileName}"`;
+    const fPath = imgFile.uri;
+    const base64 = await fs.readFile(fPath, 'base64');
+    const arrayBuffer = decode(base64);
+
+    s3bucket.createBucket(() => {
+      const params = {
+        Bucket: 'offcourtz-files',
+        Key: 'images/' + imgFile.fileName,
+        Body: arrayBuffer,
+        ContentDisposition: contentDeposition,
+        ContentType: contentType,
+      };
+      s3bucket.upload(params, async (error, data) => {
+        if (error) {
+          console.log('Uploading Error', error);
+        } else {
+          console.log('Data', data.Location);
+          let body = {
+            title: title,
+            exercises: formVal,
+            image: data.Location,
+          };
+          console.log('Workout Body', JSON.stringify(body, null, 2));
+          await ApiService.post(END_POINTS.createWorkout, body, authToken)
+            .then(res => {
+              console.log(
+                'Post Created Response',
+                JSON.stringify(res, null, 2),
+              );
+              setTimeout(() => {
+                setModalVisible(true);
+              }, 0);
+              dispatch(setLoader(false));
+            })
+            .catch(err => {
+              dispatch(setLoader(false));
+              showToast('normal', err, 3000);
+              console.log('promise error', err);
+            });
+        }
+      });
+    });
+  };
 
   function handleSelection(e, i, type) {
     let newForm = [...formVal];
-    if (type === 'duration') {
-      newForm[i]['duration'] = e.title;
+    console.log('New Form', newForm);
+    if (type === 'type') {
+      newForm[i]['type'] = e.title;
+      setFormVal(newForm);
+    } else if (type === 'duration') {
+      newForm[i]['duration'] = parseInt(e.title);
       setFormVal(newForm);
     } else if (type === 'name') {
-      newForm[i]['title'] = e.title;
-      setFormVal(newForm);
-    } else if (type === 'workoutName') {
-      newForm[i]['workoutName'] = e;
+      newForm[i]['name'] = e;
       setFormVal(newForm);
     }
     console.log('Form', formVal);
   }
 
   const [formVal, setFormVal] = useState([
-    {title: '', duration: '', workoutName: ''},
+    {type: '', duration: null, name: ''},
   ]);
 
   const addNew = () => {
-    setFormVal([...formVal, {exerciseName: '', duration: '', workoutName: ''}]);
+    setFormVal([...formVal, {type: '', duration: null, name: ''}]);
   };
 
   const onRemove = i => {
@@ -54,63 +223,6 @@ function CustomWorkout({navigation}) {
     newForm.splice(i, 1);
     setFormVal(newForm);
   };
-
-  const onHandle = (e, i) => {
-    let newForm = [...formVal];
-    newForm[i][e.target.name] = e.target.value;
-    setFormVal(newForm);
-  };
-
-  //   const formValidation = formVal => {
-  //     const data = [...formVal];
-  //     var re = /\S+@\S+\.\S+/;
-  //     let valid = true;
-  //     for (let index = 0; index < data.length; index++) {
-  //       // const element = data[index];
-  //       if (data[index].name == '') {
-  //         data[index].nameCheck = 'name required';
-  //         data[index].nameLengthCheck = '';
-  //         valid = false;
-  //       } else if (data[index].name.length < 10) {
-  //         data[index].nameLengthCheck = 'name should be greater than 10';
-  //         data[index].nameCheck = '';
-  //         valid = false;
-  //       } else {
-  //         data[index].nameCheck = '';
-  //         data[index].nameLengthCheck = '';
-  //         valid = true;
-  //       }
-
-  //       if (data[index].email == '') {
-  //         data[index].emailCheck = 'email required';
-  //         data[index].emailFormat = '';
-  //         valid = false;
-  //       } else if (!re.test(data[index].email)) {
-  //         data[index].emailFormat = 'Invalid Email';
-  //         data[index].emailCheck = '';
-  //         valid = false;
-  //       } else {
-  //         data[index].emailCheck = '';
-  //         data[index].emailFormat = '';
-  //         valid = true;
-  //       }
-  //     }
-  //     setFormVal(data);
-  //     return valid;
-  //   };
-
-  //   const onSubmit = (e) => {
-  //     e.preventDefault();
-  //     console.log("submitData", formVal)
-  //    const errorRes = formValidation(formVal)
-  //    console.log("errorRes", errorRes)
-  //    if(errorRes) {
-  //     // api call
-  //    }
-  //    else{
-  //     // error msg
-  //    }
-  //   }
 
   const navigateBack = () => {
     navigation.goBack();
@@ -133,6 +245,24 @@ function CustomWorkout({navigation}) {
         <>
           <ScrollView>
             <View style={styles.secondaryCont}>
+              <View style={{marginTop: 10}}>
+                <TextField
+                  inputWidth={0.92 * screenWidth}
+                  height={0.12 * screenWidth}
+                  borderColor={theme.colors.greyText}
+                  borderRadius={0.4 * screenWidth}
+                  title={'Title'}
+                  placeholder={'Title'}
+                  paddingHorizontal={10}
+                  type={'text'}
+                  onChangeText={e => {
+                    handleChange('Title', e);
+                  }}
+                  onEndEditing={() => setTitleFocus(false)}
+                  onFocus={() => setTitleFocus(true)}
+                  value={title}
+                />
+              </View>
               {formVal.map((item, i) => (
                 <View>
                   {formVal.length > 1 && (
@@ -171,27 +301,24 @@ function CustomWorkout({navigation}) {
                         marginVertical: 5,
                         color: theme.colors.greyText,
                       }}>
-                      Exercise Name
+                      Exercise Type
                     </Text>
                     <DropDown
                       width={0.92 * screenWidth}
                       height={0.12 * screenWidth}
-                      // borderWidth={1}
                       borderColor={theme.colors.greyText}
                       borderRadius={0.12 * screenWidth}
                       icon={svgImages.caretDown}
                       title={'Choose Exercise'}
                       type={'Exercise'}
                       data={Commons.exercises}
-                      selectedItem={item.title}
+                      selectedItem={item.type}
                       onPressItem={e => {
-                        handleSelection(e, i, 'name');
+                        handleSelection(e, i, 'type');
                       }}
                       dropDownListStyle={{
-                        maxHeight: 0.25 * screenWidth,
-                      }}
-                      flatListView={{
-                        maxHeight: 0.25 * screenWidth,
+                        maxHeight: 0.35 * screenWidth,
+                        flexGrow: 0,
                       }}
                     />
                   </View>
@@ -233,7 +360,7 @@ function CustomWorkout({navigation}) {
                       borderRadius={0.4 * screenWidth}
                       value={item.workoutName}
                       onChangeText={e => {
-                        // handleSelection(e, i, 'workoutName');
+                        handleSelection(e, i, 'name');
                       }}
                       title={'Workout Name'}
                       placeholder={'Workout Name'}
@@ -294,7 +421,11 @@ function CustomWorkout({navigation}) {
                     justifyContent: 'space-evenly',
                     alignItems: 'center',
                     backgroundColor: theme.colors.white,
-                  }}>
+                  }}
+                  imageStyle={{
+                    borderRadius: 15,
+                  }}
+                  source={{uri: selectedImage.uri}}>
                   <View style={{height: 50}}>
                     <SvgXml width="90" height="90" xml={svgImages.smiley} />
                   </View>
@@ -303,7 +434,9 @@ function CustomWorkout({navigation}) {
                     iconHeight={16}
                     iconWidth={16}
                     icon={svgImages.plus}
-                    onPress={() => {}}
+                    onPress={() => {
+                      pickImages();
+                    }}
                     btnWidth={screenWidth * 0.25}
                     btnHeight={40}
                     titleColor={theme.colors.white}
@@ -316,7 +449,9 @@ function CustomWorkout({navigation}) {
           <View style={{width: screenWidth, alignItems: 'center'}}>
             <Button
               title={'CREATE CUSTOM WORKOUT'}
-              onPress={() => setModalVisible(!modalVisible)}
+              onPress={() => {
+                validateData();
+              }}
               btnWidth={screenWidth * 0.92}
               btnHeight={0.14 * screenWidth}
               titleColor={theme.colors.white}
