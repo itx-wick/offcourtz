@@ -25,6 +25,7 @@ const screens = {
   friendRequests: 'FriendRequests',
   groupRequests: 'GroupRequests',
   challengeRequests: 'ChallengeRequests',
+  chatScreen: 'ChatScreen',
   favorites: 'Favorites',
   notifications: 'Notifications',
   customWorkout: 'CustomWorkout',

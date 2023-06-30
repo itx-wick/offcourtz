@@ -18,6 +18,7 @@ export {default as ManageGroups} from './community/manageGroups';
 export {default as FriendRequests} from './community/friendRequests';
 export {default as GroupRequests} from './community/groupRequests';
 export {default as challengeRequest} from './community/challengeRequest';
+export {default as ChatScreen} from './community/chatScreen';
 export {default as Favorites} from './favorites';
 export {default as Notifications} from './notifications';
 export {default as CustomWorkout} from './customWorkout';

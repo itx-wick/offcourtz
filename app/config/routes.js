@@ -26,4 +26,6 @@ export const END_POINTS = {
   fetchAllPosts: '/posts',
   unfriend: '/friends/unfriend/',
   createWorkout: '/workouts',
+  sendGroupMsg: '/groups/send-message',
+  fetchGroup: '/groups/',
 };

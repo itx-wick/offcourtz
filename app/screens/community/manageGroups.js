@@ -36,8 +36,7 @@ function ManageGroups({navigation}) {
   React.useEffect(() => {
     dispatch(setLoader(false));
     getMyGroups();
-    setData(groups);
-  }, [groups]);
+  }, []);
 
   const onSearch = search => {
     if (search !== '') {
@@ -54,6 +53,7 @@ function ManageGroups({navigation}) {
     if (isLoader) {
       dispatch(setLoader(true));
     }
+    console.log(authToken);
     await ApiService.get(END_POINTS.mineGroups, authToken)
       .then(res => {
         const modifiedArray = res.data;
@@ -95,7 +95,9 @@ function ManageGroups({navigation}) {
 
   const renderListItem = ({item, index}) => {
     return (
-      <TouchableOpacity style={styles.listItem}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate(screens.chatScreen, item)}
+        style={styles.listItem}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <FastImage
             source={item?.image ? {uri: item.image} : userPlaceholder}
@@ -183,7 +185,7 @@ function ManageGroups({navigation}) {
           data={data}
           showsVerticalScrollIndicator={false}
           ListFooterComponent={<View style={{height: 10}} />}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item._id}
           contentContainerStyle={styles.listContentContainer}
           ItemSeparatorComponent={flatListItemSeparator}
           ListEmptyComponent={listEmptyComponent}

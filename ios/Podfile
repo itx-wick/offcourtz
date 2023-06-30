@@ -3,6 +3,11 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '13.0'
 
+pod 'Firebase', :modular_headers => true
+pod 'FirebaseCore', :modular_headers => true
+pod 'GoogleUtilities', :modular_headers => true
+
+
 target 'offcourtz' do
   config = use_native_modules!
 
@@ -16,6 +21,10 @@ target 'offcourtz' do
     # to enable hermes on iOS, change `false` to `true` and then install pods
     :hermes_enabled => false
   )
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  pod 'RNFBApp', :path => '../node_modules/@react-native-firebase/app'
+  pod 'RNFBMessaging', :path => '../node_modules/@react-native-firebase/messaging'
+  pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications.podspec"
 
   pod 'RNFS', :path => '../node_modules/react-native-fs'
 

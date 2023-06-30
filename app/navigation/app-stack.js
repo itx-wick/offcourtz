@@ -24,6 +24,7 @@ import {
   Notifications,
   Workouts,
   challengeRequest,
+  ChatScreen,
 } from '../screens';
 import {updateActiveTabAction} from '../redux/reducers/activeTabSlice';
 
@@ -160,6 +161,11 @@ const MainNavigator = ({props}) => {
       <MainStack.Screen
         name={screens.detail}
         component={Detail}
+        options={{gestureEnabled: false}}
+      />
+      <MainStack.Screen
+        name={screens.chatScreen}
+        component={ChatScreen}
         options={{gestureEnabled: false}}
       />
       {/* // screens are able to swipe back */}
