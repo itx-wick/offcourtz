@@ -40,17 +40,17 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = offcourtz/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = offcourtz/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = offcourtz/main.m; sourceTree = "<group>"; };
-		257A0964D515416FAFF54D82 /* ArgentumSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ArgentumSans-Light.ttf"; path = "../app/assets/fonts/ArgentumSans-Light.ttf"; sourceTree = "<group>"; };
+		257A0964D515416FAFF54D82 /* ArgentumSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ArgentumSans-Light.ttf"; path = "../app/assets/fonts/ArgentumSans-Light.ttf"; sourceTree = "<group>"; };
 		4E32F8EE6C33DDEF0CE7D67A /* Pods-offcourtz-offcourtzTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-offcourtz-offcourtzTests.release.xcconfig"; path = "Target Support Files/Pods-offcourtz-offcourtzTests/Pods-offcourtz-offcourtzTests.release.xcconfig"; sourceTree = "<group>"; };
 		5120E187EBCBF7A1C23B8F75 /* Pods-offcourtz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-offcourtz.debug.xcconfig"; path = "Target Support Files/Pods-offcourtz/Pods-offcourtz.debug.xcconfig"; sourceTree = "<group>"; };
-		6C6A2C7099EC4B0EAE2C4587 /* ArgentumSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ArgentumSans-Regular.ttf"; path = "../app/assets/fonts/ArgentumSans-Regular.ttf"; sourceTree = "<group>"; };
+		6C6A2C7099EC4B0EAE2C4587 /* ArgentumSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ArgentumSans-Regular.ttf"; path = "../app/assets/fonts/ArgentumSans-Regular.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = offcourtz/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		989F8521EA6533A4A8FC217A /* Pods-offcourtz-offcourtzTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-offcourtz-offcourtzTests.debug.xcconfig"; path = "Target Support Files/Pods-offcourtz-offcourtzTests/Pods-offcourtz-offcourtzTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A96399FEF1982489BB770D7E /* libPods-offcourtz.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-offcourtz.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67204E9E0B6735623750A5A /* libPods-offcourtz-offcourtzTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-offcourtz-offcourtzTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D831BFA383A24F2BB2B275A3 /* ArgentumSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ArgentumSans-Bold.ttf"; path = "../app/assets/fonts/ArgentumSans-Bold.ttf"; sourceTree = "<group>"; };
+		D831BFA383A24F2BB2B275A3 /* ArgentumSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ArgentumSans-Bold.ttf"; path = "../app/assets/fonts/ArgentumSans-Bold.ttf"; sourceTree = "<group>"; };
 		E5DDADC82A6E3C89E2B55EED /* Pods-offcourtz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-offcourtz.release.xcconfig"; path = "Target Support Files/Pods-offcourtz/Pods-offcourtz.release.xcconfig"; sourceTree = "<group>"; };
-		EB986A7646024A518273B61F /* ArgentumSans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ArgentumSans-Medium.ttf"; path = "../app/assets/fonts/ArgentumSans-Medium.ttf"; sourceTree = "<group>"; };
+		EB986A7646024A518273B61F /* ArgentumSans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ArgentumSans-Medium.ttf"; path = "../app/assets/fonts/ArgentumSans-Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -155,7 +155,6 @@
 				6C6A2C7099EC4B0EAE2C4587 /* ArgentumSans-Regular.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		D4C826188F6238A188C554D0 /* Pods */ = {

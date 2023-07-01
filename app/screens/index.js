@@ -10,6 +10,7 @@ export {default as Workouts} from './workouts';
 export {default as Exercises} from './exercises';
 export {default as Community} from './community';
 export {default as CreateNewPost} from './community/createNewPost';
+export {default as EditPost} from './community/editPost';
 export {default as CreateNewGroup} from './community/createNewGroup';
 export {default as EditGroup} from './community/editGroup';
 export {default as ManageCommunity} from './community/manageCommunity';

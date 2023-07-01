@@ -25,6 +25,7 @@ import {
   Workouts,
   challengeRequest,
   ChatScreen,
+  EditPost,
 } from '../screens';
 import {updateActiveTabAction} from '../redux/reducers/activeTabSlice';
 
@@ -49,7 +50,6 @@ const MainNavigator = ({props}) => {
         dispatch(updateActiveTabAction(`${currentRouteName}`));
       }
       if (currentRouteName === 'Challenges') {
-        console.log('Hot');
         dispatch(updateActiveTabAction(`Challenges`));
       }
 
@@ -101,6 +101,11 @@ const MainNavigator = ({props}) => {
       <MainStack.Screen
         name={screens.createNewPost}
         component={CreateNewPost}
+        options={{gestureEnabled: false}}
+      />
+      <MainStack.Screen
+        name={screens.editPost}
+        component={EditPost}
         options={{gestureEnabled: false}}
       />
       <MainStack.Screen

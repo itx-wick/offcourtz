@@ -97,7 +97,6 @@ const ForgotPassword = ({navigation}) => {
         email: email,
         password: password,
       };
-      console.log('Body', body);
       dispatch(setLoader(true));
       await ApiService.post(END_POINTS.forgotPassword, body)
         .then(res => {

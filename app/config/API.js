@@ -3,7 +3,6 @@ import {SERVER_URL} from './routes';
 import {API} from '../helpers/api';
 
 export const api = (method, endpoint, body, headers) => {
-  console.log(SERVER_URL + endpoint);
   return new Promise((resolve, reject) => {
     API.fetch({
       method: method,

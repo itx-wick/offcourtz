@@ -32,7 +32,6 @@ function ManageCommunity({navigation}) {
           <Text style={styles.headerTitle}>Manage Community</Text>
           <TouchableOpacity
             onPress={() => {
-              console.log('Logout');
               dispatch(logout());
               Commons.reset(navigation, screens.authStack);
             }}

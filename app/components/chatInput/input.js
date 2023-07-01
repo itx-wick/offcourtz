@@ -2,6 +2,11 @@ import React from 'react';
 import {TextInput, View, StyleSheet} from 'react-native';
 
 import {theme} from '../../theme';
+import {
+  fontFamily,
+  fontSize,
+  fontWeight,
+} from '../../constants/fontDecorations';
 
 const Input = props => {
   return (
@@ -25,7 +30,9 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     paddingHorizontal: 16,
     color: theme.colors.black,
-    fontWeight: '600',
+    fontFamily: fontFamily.argentum_sans,
+    fontSize: fontSize.verbiage_medium,
+    fontWeight: fontWeight[400],
   },
 });
 

@@ -166,19 +166,13 @@ function CustomWorkout({navigation}) {
         if (error) {
           console.log('Uploading Error', error);
         } else {
-          console.log('Data', data.Location);
           let body = {
             title: title,
             exercises: formVal,
             image: data.Location,
           };
-          console.log('Workout Body', JSON.stringify(body, null, 2));
           await ApiService.post(END_POINTS.createWorkout, body, authToken)
             .then(res => {
-              console.log(
-                'Post Created Response',
-                JSON.stringify(res, null, 2),
-              );
               setTimeout(() => {
                 setModalVisible(true);
               }, 0);
@@ -196,7 +190,6 @@ function CustomWorkout({navigation}) {
 
   function handleSelection(e, i, type) {
     let newForm = [...formVal];
-    console.log('New Form', newForm);
     if (type === 'type') {
       newForm[i]['type'] = e.title;
       setFormVal(newForm);
@@ -207,7 +200,6 @@ function CustomWorkout({navigation}) {
       newForm[i]['name'] = e;
       setFormVal(newForm);
     }
-    console.log('Form', formVal);
   }
 
   const [formVal, setFormVal] = useState([

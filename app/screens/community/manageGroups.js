@@ -84,7 +84,6 @@ function ManageGroups({navigation}) {
     dispatch(setLoader(true));
     await ApiService.delete(END_POINTS.deleteGroup, id, authToken)
       .then(res => {
-        console.log('Group Deleted Response', JSON.stringify(res, null, 2));
         getMyGroups();
       })
       .catch(err => {

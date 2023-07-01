@@ -17,6 +17,7 @@ const screens = {
   exercises: 'Exercises',
   community: 'Community',
   createNewPost: 'CreateNewPost',
+  editPost: 'EditPost',
   createNewGroup: 'CreateNewGroup',
   editGroup: 'EditGroup',
   manageCommunity: 'ManageCommunity',

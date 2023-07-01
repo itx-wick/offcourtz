@@ -234,7 +234,6 @@ function EditGroup({navigation, route}) {
         if (error) {
           console.log('Uploading Error', error);
         } else {
-          console.log('Data', data.Location);
           updateGroup(data.Location);
         }
       });
@@ -246,12 +245,11 @@ function EditGroup({navigation, route}) {
       title: name,
       type: status,
       description: desc,
-      image: img,
+      image: img ? img : grp.image,
       participants: data.filter(obj => obj.selected === true),
     };
     await ApiService.patch(END_POINTS.updateGroup, body, authToken, grp?._id)
       .then(res => {
-        console.log('Group Updated Response', JSON.stringify(res, null, 2));
         setTimeout(() => {
           setModalVisible(true);
         }, 0);

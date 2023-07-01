@@ -58,7 +58,6 @@ const Trial = ({navigation}) => {
     dispatch(setLoader(true));
     await ApiService.post(END_POINTS.subscription, body, authToken)
       .then(async response => {
-        console.log(response);
         dispatch(setLoader(false));
         const {error} = await initPaymentSheet({
           paymentIntentClientSecret: response.data.clientSecret,

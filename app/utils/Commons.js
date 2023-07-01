@@ -1,8 +1,8 @@
 import React from 'react';
-import { BackHandler } from 'react-native';
-import { CommonActions } from '@react-navigation/native';
-import { SvgXml } from 'react-native-svg';
-import { svgImages } from '../helpers';
+import {BackHandler} from 'react-native';
+import {CommonActions} from '@react-navigation/native';
+import {SvgXml} from 'react-native-svg';
+import {svgImages} from '../helpers';
 
 export default {
   calculateDateFromObj: date => {
@@ -62,7 +62,7 @@ export default {
   reset: (navigation, screen) => {
     const resetAction = CommonActions.reset({
       index: 0,
-      routes: [{ name: screen }],
+      routes: [{name: screen}],
     });
     navigation.dispatch(resetAction);
   },
@@ -2284,9 +2284,9 @@ export default {
   ],
 
   step1Data: [
-    { key: '1', title: 'Challenge Yourself', selected: false },
-    { key: '2', title: 'Challenge Groups', selected: false },
-    { key: '3', title: 'Challenge Friends', selected: false },
+    {key: '1', title: 'Challenge Yourself', selected: false},
+    {key: '2', title: 'Challenge Groups', selected: false},
+    {key: '3', title: 'Challenge Friends', selected: false},
   ],
 
   step2Data: [
@@ -2325,42 +2325,42 @@ export default {
   ],
 
   step3Data: [
-    { key: '1', title: 'In a row', selected: false },
-    { key: '2', title: 'Minutes', selected: false },
-    { key: '3', title: 'Km/h', selected: false },
-    { key: '4', title: 'In total', selected: false },
-    { key: '5', title: 'KG', selected: false },
-    { key: '6', title: 'Reps', selected: false },
-    { key: '7', title: 'Targets', selected: false },
+    {key: '1', title: 'In a row', selected: false},
+    {key: '2', title: 'Minutes', selected: false},
+    {key: '3', title: 'Km/h', selected: false},
+    {key: '4', title: 'In total', selected: false},
+    {key: '5', title: 'KG', selected: false},
+    {key: '6', title: 'Reps', selected: false},
+    {key: '7', title: 'Targets', selected: false},
   ],
 
   step4Data: [
-    { key: '1', title: '10 in a Row', selected: false },
-    { key: '2', title: '100 Kg with Weight', selected: false },
-    { key: '3', title: '5 in a Row', selected: false },
-    { key: '4', title: '5 mins long with time', selected: false },
+    {key: '1', title: '10 in a Row', selected: false},
+    {key: '2', title: '100 Kg with Weight', selected: false},
+    {key: '3', title: '5 in a Row', selected: false},
+    {key: '4', title: '5 mins long with time', selected: false},
   ],
 
   step5Data: [
-    { key: '1', title: 'Challenge Yourself', selected: false },
-    { key: '2', title: 'Challenge Groups', selected: false },
-    { key: '3', title: 'Challenge Friends', selected: false },
+    {key: '1', title: 'Challenge Yourself', selected: false},
+    {key: '2', title: 'Challenge Groups', selected: false},
+    {key: '3', title: 'Challenge Friends', selected: false},
   ],
 
   groupsData: [
-    { id: '1', title: 'Tennis Group', selected: false },
-    { id: '2', title: 'All England Club', selected: false },
-    { id: '3', title: 'Ronald Garr Group', selected: false },
-    { id: '4', title: 'Cross League Club', selected: false },
+    {id: '1', title: 'Tennis Group', selected: false},
+    {id: '2', title: 'All England Club', selected: false},
+    {id: '3', title: 'Ronald Garr Group', selected: false},
+    {id: '4', title: 'Cross League Club', selected: false},
   ],
 
   friendsData: [
-    { id: '1', title: 'Jane Cooper', selected: false },
-    { id: '2', title: 'Robert Smith', selected: false },
-    { id: '3', title: 'James Smith', selected: false },
-    { id: '4', title: 'David Hernz', selected: false },
-    { id: '5', title: 'Maria Rodriguez', selected: false },
-    { id: '6', title: 'Mary Hernandez', selected: false },
+    {id: '1', title: 'Jane Cooper', selected: false},
+    {id: '2', title: 'Robert Smith', selected: false},
+    {id: '3', title: 'James Smith', selected: false},
+    {id: '4', title: 'David Hernz', selected: false},
+    {id: '5', title: 'Maria Rodriguez', selected: false},
+    {id: '6', title: 'Mary Hernandez', selected: false},
   ],
 
   communityData: [
@@ -2400,6 +2400,17 @@ export default {
     {
       id: '2',
       title: 'Create New Group',
+    },
+  ],
+
+  communityPostMoreOpts: [
+    {
+      id: '1',
+      title: 'Edit Post',
+    },
+    {
+      id: '2',
+      title: 'Delete Post',
     },
   ],
 

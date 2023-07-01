@@ -67,7 +67,6 @@ function FriendRequests({navigation}) {
     dispatch(setLoader(true));
     await ApiService.post(END_POINTS.acceptReq, body, authToken)
       .then(res => {
-        console.log('Successfull', res);
         getMySentList();
         getMyReceivedList();
       })
@@ -78,14 +77,12 @@ function FriendRequests({navigation}) {
   };
 
   const cancelReq = async item => {
-    // console.log(item);
     let body = {
       friendRequestId: item._id,
     };
     dispatch(setLoader(true));
     await ApiService.post(END_POINTS.cancelReq, body, authToken)
       .then(res => {
-        console.log('Successfull', res);
         getMySentList();
         getMyReceivedList();
       })

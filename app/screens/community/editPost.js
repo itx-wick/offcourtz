@@ -32,7 +32,8 @@ import {setLoader} from '../../redux/reducers/commonSlice';
 import {TextInput} from 'react-native-gesture-handler';
 import {useDispatch, useSelector} from 'react-redux';
 
-function CreateNewPost({navigation}) {
+function EditPost({navigation, route}) {
+  const post = route.params;
   const toast = useToast();
   const dispatch = useDispatch();
   const authToken = useSelector(state => state.Auth.token);
@@ -58,6 +59,12 @@ function CreateNewPost({navigation}) {
         setKeyboardVisible(false); // or some other action
       },
     );
+
+    setCaption(post.caption);
+    setSelectedItem(
+      post.isGlobal ? Commons.communityFilter[0] : Commons.communityFilter[1],
+    );
+    setPostTo(post.isGlobal ? true : false);
 
     return () => {
       keyboardDidHideListener.remove();
@@ -85,9 +92,7 @@ function CreateNewPost({navigation}) {
 
   const validateData = () => {
     Keyboard.dismiss();
-    if (Object.keys(selectedImage).length === 0) {
-      showToast('normal', 'Image Required', 3000);
-    } else if (Object.keys(selectedItem).length === 0) {
+    if (Object.keys(selectedItem).length === 0) {
       showToast('normal', 'Post To Required', 3000);
     } else if (caption == '' || caption.length < 6) {
       showToast('normal', fieldError('caption'), 3000);
@@ -122,7 +127,11 @@ function CreateNewPost({navigation}) {
   const process = async () => {
     try {
       dispatch(setLoader(true));
-      uploadFileToS3(selectedImage);
+      if (Object.keys(selectedImage).length !== 0) {
+        uploadFileToS3(selectedImage);
+      } else {
+        updatePost();
+      }
     } catch (error) {
       showToast('normal', error, 3000);
       console.log('try/catch', error);
@@ -154,26 +163,30 @@ function CreateNewPost({navigation}) {
         if (error) {
           console.log('Uploading Error', error);
         } else {
-          let body = {
-            caption: caption,
-            isGlobal: postTo,
-            image: data.Location,
-          };
-          await ApiService.post(END_POINTS.createPost, body, authToken)
-            .then(res => {
-              setTimeout(() => {
-                setModalVisible(true);
-              }, 0);
-              dispatch(setLoader(false));
-            })
-            .catch(err => {
-              dispatch(setLoader(false));
-              showToast('normal', err, 3000);
-              console.log('promise error', err);
-            });
+          updatePost(data.Location);
         }
       });
     });
+  };
+
+  const updatePost = async (img = null) => {
+    let body = {
+      caption: caption,
+      isGlobal: postTo,
+      image: img ? img : post.image,
+    };
+    await ApiService.patch(END_POINTS.updatePost, body, authToken, post?._id)
+      .then(res => {
+        setTimeout(() => {
+          setModalVisible(true);
+        }, 0);
+        dispatch(setLoader(false));
+      })
+      .catch(err => {
+        dispatch(setLoader(false));
+        showToast('normal', err, 3000);
+        console.log('promise error', err);
+      });
   };
 
   const navigateBack = () => {
@@ -189,7 +202,7 @@ function CreateNewPost({navigation}) {
             style={{position: 'absolute', left: 15}}>
             <SvgXml width="36" height="36 " xml={svgImages.back} />
           </TouchableOpacity>
-          <Text style={styles.headerTitle}>Create New Post</Text>
+          <Text style={styles.headerTitle}>Edit Post</Text>
         </View>
         <View style={styles.underlineView} />
       </View>
@@ -211,7 +224,12 @@ function CreateNewPost({navigation}) {
                 imageStyle={{
                   borderRadius: 15,
                 }}
-                source={{uri: selectedImage.uri}}>
+                source={{
+                  uri:
+                    Object.keys(selectedImage).length !== 0
+                      ? selectedImage.uri
+                      : post.image,
+                }}>
                 <View style={{height: 50}}>
                   <SvgXml
                     width="60"
@@ -306,7 +324,7 @@ function CreateNewPost({navigation}) {
                 marginTop: 15,
               }}>
               <Button
-                title={'CREATE POST'}
+                title={'UPDATE POST'}
                 onPress={() => {
                   validateData();
                 }}
@@ -353,7 +371,7 @@ function CreateNewPost({navigation}) {
                 color: theme.colors.secondaryBlack,
                 marginTop: 10,
               }}>
-              Post Created
+              Post Updated
             </Text>
             <Text
               style={{
@@ -364,7 +382,7 @@ function CreateNewPost({navigation}) {
                 color: theme.colors.greyText,
                 marginVertical: 10,
               }}>
-              Your have successfully created the post!
+              Your have successfully updated the post!
             </Text>
             <View style={{marginVertical: 5}}>
               <Button
@@ -392,7 +410,7 @@ function CreateNewPost({navigation}) {
   );
 }
 
-export default CreateNewPost;
+export default EditPost;
 
 const styles = StyleSheet.create({
   mainContainer: {

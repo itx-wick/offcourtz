@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
   title: {
     marginLeft: 5,
     color: '#fff',
-    fontWeight: 'bold',
+    fontFamily: fontFamily.argentum_sans,
+    fontSize: fontSize.verbiage_medium,
   },
   button: {
     backgroundColor: theme.colors.primary,

@@ -1,6 +1,11 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {theme} from '../../theme';
+import {
+  fontFamily,
+  fontSize,
+  fontWeight,
+} from '../../constants/fontDecorations';
 
 const ChatCard = props => {
   return (
@@ -16,13 +21,15 @@ const ChatCard = props => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: theme.colors.greyText,
+    backgroundColor: theme.colors.black,
     marginHorizontal: 15,
     marginVertical: 5,
-    borderRadius: 5,
+    borderRadius: 50,
   },
   title: {
-    fontSize: 15,
+    fontFamily: fontFamily.argentum_sans,
+    fontSize: fontSize.verbiage_medium,
+    fontWeight: fontWeight[400],
     color: '#fff',
     padding: 15,
   },

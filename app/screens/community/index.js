@@ -8,8 +8,9 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {useFocusEffect} from '@react-navigation/native';
 import {SvgXml} from 'react-native-svg';
-
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {svgImages} from '../../helpers';
 import {theme} from '../../theme';
 import {END_POINTS, screens} from '../../config';
@@ -25,15 +26,20 @@ import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
 import ApiService from '../../services/ApiService';
 import {useDispatch, useSelector} from 'react-redux';
 import ListEmptyComponent from '../../components/listEmptyComponent';
+import {setLoader} from '../../redux/reducers/commonSlice';
 function Community({navigation}) {
   const dispatch = useDispatch();
   const authToken = useSelector(state => state.Auth.token);
   const user = useSelector(state => state.Auth.user);
   const allPosts = useSelector(state => state.Community.posts);
   const bottomSheetModalRef = React.useRef(null);
+  const bottomSheetModalRef2 = React.useRef(null);
   const snapPoints = useMemo(() => ['23%', '23%'], []);
   const [postsList, setPostsList] = useState(allPosts);
   const [data, setData] = useState(Commons.communityModalData);
+  const [data2, setData2] = useState(Commons.communityPostMoreOpts);
+  const [post, setPost] = useState();
+  const [IsPost, setIsPost] = useState(false);
   const [IsEnable, setIsEnable] = useState(false);
   const [filter, setFilter] = React.useState(Commons.communityFilter[0]);
 
@@ -47,29 +53,54 @@ function Community({navigation}) {
         });
         setPostsList(newArray);
         dispatch(setCommunityPosts(res));
+        dispatch(setLoader(false));
       })
       .catch(err => {
+        dispatch(setLoader(false));
         console.log('promise error', err);
       });
   };
+
+  useFocusEffect(
+    React.useCallback(() => {
+      getAllPosts();
+
+      return () => {
+        // Unfocused
+        // Useful for cleanup functions
+      };
+    }, [filter]),
+  );
 
   React.useEffect(() => {
     setPostsList(allPosts);
   }, [allPosts]);
 
-  React.useEffect(() => {
-    getAllPosts();
-  }, [filter]);
+  const deletePost = async id => {
+    dispatch(setLoader(true));
+    await ApiService.delete(END_POINTS.deletePost, id, authToken)
+      .then(res => {
+        console.log('Group Deleted Response', JSON.stringify(res, null, 2));
+        getAllPosts();
+      })
+      .catch(err => {
+        dispatch(setLoader(false));
+        console.log('promise error', err);
+      });
+  };
 
   const backdropComponent = backdropProps => (
     <BottomSheetBackdrop {...backdropProps} enableTouchThrough={true} />
   );
 
   function dismissBottomSheetModal() {
+    setPost(null);
     bottomSheetModalRef.current?.dismiss();
+    bottomSheetModalRef2.current?.dismiss();
   }
 
   const onDismissHandler = () => {
+    setPost(null);
     !IsEnable && setIsEnable(true);
   };
 
@@ -107,6 +138,42 @@ function Community({navigation}) {
     );
   };
 
+  const renderMoreOptsItem = ({item, index}) => {
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          dismissBottomSheetModal();
+          if (index === 0) {
+            navigation.navigate(screens.editPost, post);
+          } else {
+            deletePost(post?._id);
+          }
+        }}
+        style={{
+          width: 0.9 * screenWidth,
+          paddingVertical: 15,
+          marginBottom: Platform.OS === 'ios' ? 10 : 0,
+        }}>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <Icon
+            name={index === 0 ? 'tooltip-edit-outline' : 'delete'}
+            size={20}
+            color={theme.colors.primary}
+          />
+          <Text
+            style={{
+              fontFamily: fontFamily.argentum_sans,
+              fontSize: fontSize.verbiage_20,
+              paddingHorizontal: 10,
+              color: theme.colors.black,
+            }}>
+            {item.title}
+          </Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
   const flatListItemSeparator = () => {
     return (
       <View
@@ -121,6 +188,12 @@ function Community({navigation}) {
 
   const listEmptyComponent = () => {
     return <ListEmptyComponent message={'Not Found Anything'} />;
+  };
+
+  const showMoreOptions = itm => {
+    setPost(itm);
+    setIsEnable(false);
+    bottomSheetModalRef2.current?.present();
   };
 
   return (
@@ -209,7 +282,13 @@ function Community({navigation}) {
           ListFooterComponent={<View style={{height: 0.66 * screenWidth}} />}
           ListEmptyComponent={listEmptyComponent}
           height={screenHeight}
-          renderItem={({item, index}) => <Post item={item} index={index} />}
+          renderItem={({item, index}) => (
+            <Post
+              item={item}
+              index={index}
+              showMoreOptions={itm => showMoreOptions(itm)}
+            />
+          )}
         />
         <FAB
           onPress={() => {
@@ -226,6 +305,17 @@ function Community({navigation}) {
         snapPoints={snapPoints}
         data={data}
         renderListItem={renderListItem}
+        flatListItemSeparator={flatListItemSeparator}
+        onDismissHandler={onDismissHandler}
+        community={true}
+      />
+      <BottomSheetModalView
+        backdropComponent={backdropComponent}
+        dismissSheetModal={dismissBottomSheetModal}
+        bottomSheetModalRef={bottomSheetModalRef2}
+        snapPoints={snapPoints}
+        data={data2}
+        renderListItem={renderMoreOptsItem}
         flatListItemSeparator={flatListItemSeparator}
         onDismissHandler={onDismissHandler}
         community={true}

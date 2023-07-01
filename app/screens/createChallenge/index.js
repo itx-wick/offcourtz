@@ -292,7 +292,6 @@ const CreateChallenge = ({route, navigation}) => {
       newForm[i]['count'] = e;
       setFormVal(newForm);
     }
-    console.log('Form', formVal);
   }
 
   const [formVal, setFormVal] = useState([{title: '', count: ''}]);
@@ -543,7 +542,6 @@ const CreateChallenge = ({route, navigation}) => {
 
           {currentStep === 2 && (
             <View style={styles.secContainer1}>
-              {console.log('Hell', step2 !== 'Custom\nChallenge')}
               {step2 !== 'Custom\nChallenge' ? (
                 <>
                   <Text style={styles.sectionTitle}>
@@ -778,9 +776,7 @@ const CreateChallenge = ({route, navigation}) => {
                 {'Your challenge deadline?'}
               </Text>
               <Calendar
-                // markedDates={markedDate}
                 onDayPress={day => {
-                  console.log(day.dateString);
                   setSelected(day.dateString);
                 }}
                 markedDates={{

@@ -27,7 +27,6 @@ function Post(props) {
   const [isExist, setIsExist] = React.useState(false);
 
   React.useEffect(() => {
-    console.log('Post', props.item);
     const exist = myFriends.some(obj => obj?._id === props.item.user._id);
     setIsExist(exist);
   }, [myFriends]);
@@ -50,7 +49,6 @@ function Post(props) {
       dispatch(setLoader(true));
       await ApiService.post(END_POINTS.sentReq, body, authToken)
         .then(res => {
-          console.log('Response', JSON.stringify(res, null, 2));
           dispatch(setLoader(false));
         })
         .catch(err => {
@@ -129,7 +127,7 @@ function Post(props) {
                 </View>
               </TouchableOpacity>
             )}
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => props.showMoreOptions(props.item)}>
               <SvgXml xml={svgImages.threeDots} />
             </TouchableOpacity>
           </View>

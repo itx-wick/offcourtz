@@ -58,7 +58,6 @@ function MyFriends({navigation}) {
         });
         dispatch(myFriends(newArray));
         dispatch(setLoader(false));
-        console.log('My Friends', res.data[0].friends);
       })
       .catch(err => {
         console.log('promise error', err);
@@ -69,7 +68,6 @@ function MyFriends({navigation}) {
     dispatch(setLoader(true));
     await ApiService.get(END_POINTS.unfriend, authToken, id)
       .then(res => {
-        console.log('Successfully Unfriend', res);
         getMyFriends();
       })
       .catch(err => {

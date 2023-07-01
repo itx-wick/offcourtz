@@ -9,6 +9,8 @@ export const END_POINTS = {
   login: '/users/login',
   forgotPassword: '/users/forgot-password',
   createPost: '/posts',
+  updatePost: '/posts/',
+  deletePost: '/posts/',
   createGroup: '/groups',
   updateGroup: '/groups/',
   deleteGroup: '/groups/',

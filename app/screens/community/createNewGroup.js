@@ -77,7 +77,6 @@ function CreateNewGroup({navigation}) {
   }, []);
 
   React.useEffect(() => {
-    console.log('My Friends', JSON.stringify(myFriends, null, 2));
     setData(myFriends);
   }, [myFriends]);
 
@@ -246,7 +245,6 @@ function CreateNewGroup({navigation}) {
         if (error) {
           console.log('Uploading Error', error);
         } else {
-          console.log('Data', data.Location);
           createGroup(data.Location);
         }
       });
@@ -263,7 +261,6 @@ function CreateNewGroup({navigation}) {
     };
     await ApiService.post(END_POINTS.createGroup, body, authToken)
       .then(res => {
-        console.log('Group Created Response', JSON.stringify(res, null, 2));
         setTimeout(() => {
           setModalVisible(true);
         }, 0);

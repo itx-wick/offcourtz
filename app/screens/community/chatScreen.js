@@ -1,5 +1,11 @@
 import React, {useState, useCallback, useEffect} from 'react';
-import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  KeyboardAvoidingView,
+} from 'react-native';
 import ChatCard from '../../components/chatCard';
 import {FlatList} from 'react-native-gesture-handler';
 import ChatInput from '../../components/chatInput';
@@ -26,10 +32,6 @@ const ChatScreen = props => {
   const [messages, setMessages] = useState(group.messages);
   const [message, setMessage] = useState();
 
-  useEffect(() => {
-    console.log(JSON.stringify(group, null, 2));
-  }, []);
-
   const triggerSendMessage = () => {
     if (message) {
       process();
@@ -48,7 +50,6 @@ const ChatScreen = props => {
       }
       await ApiService.post(END_POINTS.sendGroupMsg, body, authToken)
         .then(res => {
-          console.log('Send Message Response', res);
           fetchGroupData();
         })
         .catch(err => {
@@ -68,7 +69,6 @@ const ChatScreen = props => {
     }
     await ApiService.get(END_POINTS.fetchGroup, authToken, group._id)
       .then(res => {
-        console.log('Fetch Group Data', res.data);
         setMessages(res.data.messages);
         dispatch(setLoader(false));
       })
@@ -93,7 +93,9 @@ const ChatScreen = props => {
   };
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === 'ios' ? 'padding' : ''}>
       <View style={styles.headerMainContainer}>
         <View style={styles.headContainer}>
           <TouchableOpacity
@@ -120,7 +122,7 @@ const ChatScreen = props => {
         onChangeText={message => setMessage(message)}
         onClick={() => triggerSendMessage()}
       />
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 

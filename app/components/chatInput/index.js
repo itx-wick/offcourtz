@@ -3,6 +3,11 @@ import {Text, View, StyleSheet, SafeAreaView} from 'react-native';
 
 import Input from './input';
 import Button from '../chatButton';
+import {
+  fontFamily,
+  fontSize,
+  fontWeight,
+} from '../../constants/fontDecorations';
 
 const ChatInput = props => {
   return (
@@ -27,6 +32,9 @@ const styles = StyleSheet.create({
   },
   input: {
     width: '80%',
+    fontFamily: fontFamily.argentum_sans,
+    fontSize: fontSize.verbiage_medium,
+    fontWeight: fontWeight[400],
   },
   button: {
     width: 50,

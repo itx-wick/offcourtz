@@ -235,7 +235,6 @@ const Signup = ({navigation}) => {
         if (error) {
           console.log('Uploading Error', error);
         } else {
-          console.log('Data', data.Location);
           let body = {
             firstName: firstName,
             lastName: lastName,
@@ -248,10 +247,6 @@ const Signup = ({navigation}) => {
 
           await ApiService.post(END_POINTS.register, body)
             .then(res => {
-              console.log(
-                'Register Response',
-                JSON.stringify(res.data, null, 2),
-              );
               dispatch(register(res));
               dispatch(setLoader(false));
               setModalVisible(!modalVisible);

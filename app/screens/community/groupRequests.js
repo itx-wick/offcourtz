@@ -52,7 +52,6 @@ function GroupRequests({navigation}) {
     dispatch(setLoader(true));
     await ApiService.post(END_POINTS.acceptGroupReq, body, authToken)
       .then(res => {
-        console.log('Successfull', res);
         getMyReceivedList();
       })
       .catch(err => {
@@ -62,14 +61,12 @@ function GroupRequests({navigation}) {
   };
 
   const cancelReq = async item => {
-    // console.log(item);
     let body = {
       groupRequestId: item._id,
     };
     dispatch(setLoader(true));
     await ApiService.post(END_POINTS.cancelGroupReq, body, authToken)
       .then(res => {
-        console.log('Successfull', res);
         getMyReceivedList();
       })
       .catch(err => {
@@ -79,7 +76,6 @@ function GroupRequests({navigation}) {
   };
 
   useEffect(() => {
-    console.log('Auth Token', authToken);
     getMyReceivedList();
   }, []);
 
